@@ -1,0 +1,6 @@
+services:
+  - type: web
+    runtime: static
+    name: kaga-final-experience
+    buildCommand: echo "Using prebuilt KAGA FINAL EXPERIENCE"
+    staticPublishPath: ./site
