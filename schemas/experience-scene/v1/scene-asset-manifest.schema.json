@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/experience-scene/v1/scene-asset-manifest.schema.json",
+  "title": "Experience Scene Asset Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "assetId", "projectId", "eventId", "venueId", "scenarioIds", "eventDayIds",
+    "personaIds", "journeyIds", "journeyStepIds", "touchpointIds", "zoneIds", "entityIds",
+    "spatialAnchorIds", "sourceId", "sourceFingerprint", "contentHash", "revision", "revisionId",
+    "parentRevisionId", "createdAt", "createdBy", "mediaKind", "mimeType", "width", "height",
+    "aspectRatio", "byteSize", "durationSeconds", "truthClass", "approvalStatus", "availabilityStatus",
+    "rightsStatus", "rightsOwner", "rightsExpiry", "coordinateStatus", "units", "orientation", "cameraPose",
+    "northOffset", "source", "rights", "spatialBindings", "variants", "hotspots", "transitions",
+    "fallbackAssetId", "supersededBy", "lastVerifiedAt", "warnings"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "assetId": { "$ref": "#/$defs/id" },
+    "projectId": { "$ref": "#/$defs/id" },
+    "eventId": { "$ref": "#/$defs/id" },
+    "venueId": { "$ref": "#/$defs/id" },
+    "scenarioIds": { "$ref": "#/$defs/idArray" },
+    "eventDayIds": { "$ref": "#/$defs/idArray" },
+    "personaIds": { "$ref": "#/$defs/idArray" },
+    "journeyIds": { "$ref": "#/$defs/idArray" },
+    "journeyStepIds": { "$ref": "#/$defs/idArray" },
+    "touchpointIds": { "$ref": "#/$defs/idArray" },
+    "zoneIds": { "$ref": "#/$defs/idArray" },
+    "entityIds": { "$ref": "#/$defs/idArray" },
+    "spatialAnchorIds": { "$ref": "#/$defs/idArray" },
+    "sourceId": { "type": ["string", "null"] },
+    "sourceFingerprint": { "$ref": "#/$defs/hashOrNull" },
+    "contentHash": { "$ref": "#/$defs/hashOrNull" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "revisionId": { "$ref": "#/$defs/id" },
+    "parentRevisionId": { "type": ["string", "null"] },
+    "createdAt": { "type": ["string", "null"] },
+    "createdBy": { "type": "string", "minLength": 1 },
+    "mediaKind": { "enum": ["flat-render", "equirectangular-panorama", "cubemap-panorama", "gltf-scene", "reference-video", "actual-360-capture"] },
+    "mimeType": { "type": ["string", "null"] },
+    "width": { "type": ["integer", "null"], "minimum": 1 },
+    "height": { "type": ["integer", "null"], "minimum": 1 },
+    "aspectRatio": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+    "byteSize": { "type": ["integer", "null"], "minimum": 0 },
+    "durationSeconds": { "type": ["number", "null"], "minimum": 0 },
+    "truthClass": { "enum": ["illustrative-only", "design-candidate", "design-approved", "actual-reported", "actual-verified"] },
+    "approvalStatus": { "enum": ["candidate", "approved", "missing", "unknown"] },
+    "availabilityStatus": { "enum": ["missing", "manifest-only", "locally-available", "invalid", "quarantined", "loadable", "superseded"] },
+    "rightsStatus": { "$ref": "#/$defs/rightsStatus" },
+    "rightsOwner": { "type": ["string", "null"] },
+    "rightsExpiry": { "type": ["string", "null"] },
+    "coordinateStatus": { "enum": ["unknown", "unregistered", "candidate-normalized", "registered", "engineering-approved"] },
+    "units": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "status"],
+          "properties": {
+            "value": { "enum": ["meter", "millimeter", "centimeter", "unknown"] },
+            "status": { "enum": ["declared", "verified", "unknown"] }
+          }
+        }
+      ]
+    },
+    "orientation": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/orientation" }] },
+    "cameraPose": { "type": ["object", "null"] },
+    "northOffset": { "type": ["number", "null"], "minimum": -360, "maximum": 360 },
+    "source": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/source" }] },
+    "rights": { "$ref": "#/$defs/rights" },
+    "spatialBindings": { "type": "array", "items": { "$ref": "#/$defs/spatialBinding" } },
+    "variants": { "type": "array", "items": { "$ref": "#/$defs/variant" } },
+    "hotspots": { "type": "array", "items": { "$ref": "#/$defs/hotspot" } },
+    "transitions": { "type": "array", "items": { "$ref": "#/$defs/transition" } },
+    "fallbackAssetId": { "type": ["string", "null"] },
+    "supersededBy": { "type": ["string", "null"] },
+    "lastVerifiedAt": { "type": ["string", "null"] },
+    "warnings": { "$ref": "#/$defs/textArray" }
+  },
+  "$defs": {
+    "id": { "type": "string", "minLength": 3, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+    "idArray": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "textArray": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "hashOrNull": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+    "rightsStatus": { "enum": ["unknown", "review-required", "internal-preview-only", "approved-internal-use", "approved-client-presentation", "approved-distribution", "expired", "blocked"] },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "sourceFingerprint", "sourceRevision", "sourcePage", "sourceTraceIds", "provenanceKind", "captureClassification", "filenameSafe", "observedByteSize", "observedSha256"],
+      "properties": {
+        "sourceId": { "$ref": "#/$defs/id" },
+        "sourceFingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "sourceRevision": { "type": "string", "minLength": 1 },
+        "sourcePage": { "type": ["integer", "null"], "minimum": 1 },
+        "sourceTraceIds": { "$ref": "#/$defs/idArray" },
+        "provenanceKind": { "enum": ["design-source", "field-capture", "technical-fixture"] },
+        "captureClassification": { "enum": ["design-render", "native-design-model", "actual-capture-reported", "actual-capture-verified", "technical-synthetic", "unknown"] },
+        "filenameSafe": { "type": ["string", "null"] },
+        "observedByteSize": { "type": ["integer", "null"], "minimum": 0 },
+        "observedSha256": { "$ref": "#/$defs/hashOrNull" }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "owner", "expiresAt", "allowedUses", "sourceTraceIds", "notesAr"],
+      "properties": {
+        "status": { "$ref": "#/$defs/rightsStatus" },
+        "owner": { "type": ["string", "null"] },
+        "expiresAt": { "type": ["string", "null"] },
+        "allowedUses": { "type": "array", "uniqueItems": true, "items": { "enum": ["internal-review", "client-presentation", "distribution"] } },
+        "sourceTraceIds": { "$ref": "#/$defs/idArray" },
+        "notesAr": { "$ref": "#/$defs/textArray" }
+      }
+    },
+    "orientation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["projection", "headingDegrees", "northOffsetDegrees", "pitchDegrees", "rollDegrees", "status"],
+      "properties": {
+        "projection": { "enum": ["perspective", "equirectangular", "cubemap", "orthographic", "unknown"] },
+        "headingDegrees": { "type": ["number", "null"] },
+        "northOffsetDegrees": { "type": ["number", "null"] },
+        "pitchDegrees": { "type": ["number", "null"] },
+        "rollDegrees": { "type": ["number", "null"] },
+        "status": { "enum": ["unknown", "source-declared", "verified"] }
+      }
+    },
+    "spatialBinding": {
+      "type": "object",
+      "required": ["bindingId", "projectId", "eventId", "venueId", "zoneIds", "entityIds", "spatialAnchorIds", "coordinateStatus", "authority", "sourceTraceIds"],
+      "properties": {
+        "bindingId": { "$ref": "#/$defs/id" }, "projectId": { "$ref": "#/$defs/id" }, "eventId": { "$ref": "#/$defs/id" }, "venueId": { "$ref": "#/$defs/id" },
+        "zoneIds": { "$ref": "#/$defs/idArray" }, "entityIds": { "$ref": "#/$defs/idArray" }, "spatialAnchorIds": { "$ref": "#/$defs/idArray" },
+        "coordinateStatus": { "enum": ["unknown", "unregistered", "candidate-normalized", "registered", "engineering-approved"] },
+        "authority": { "enum": ["none", "candidate", "engineering-approved"] }, "sourceTraceIds": { "$ref": "#/$defs/idArray" }
+      }
+    },
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["variantId", "quality", "uri", "mimeType", "contentHash", "width", "height", "byteSize", "availabilityStatus", "cubemapFace", "externalDependencies"],
+      "properties": {
+        "variantId": { "$ref": "#/$defs/id" }, "quality": { "enum": ["thumbnail", "preview", "standard", "high", "master"] },
+        "uri": { "type": ["string", "null"] }, "mimeType": { "type": ["string", "null"] }, "contentHash": { "$ref": "#/$defs/hashOrNull" },
+        "width": { "type": ["integer", "null"], "minimum": 1 }, "height": { "type": ["integer", "null"], "minimum": 1 }, "byteSize": { "type": ["integer", "null"], "minimum": 0 },
+        "availabilityStatus": { "enum": ["missing", "manifest-only", "locally-available", "invalid", "quarantined", "loadable", "superseded"] },
+        "cubemapFace": { "enum": ["px", "nx", "py", "ny", "pz", "nz", null] },
+        "externalDependencies": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "hotspot": {
+      "type": "object",
+      "required": ["hotspotId", "assetId", "labelAr", "labelEn", "targetType", "targetAssetId", "targetJourneyStepId", "targetTouchpointId", "targetZoneId", "targetEntityId", "yawDegrees", "pitchDegrees", "normalizedPosition", "targetTruthClass", "status"],
+      "properties": {
+        "hotspotId": { "$ref": "#/$defs/id" }, "assetId": { "$ref": "#/$defs/id" }, "labelAr": { "type": "string", "minLength": 1 }, "labelEn": { "type": "string", "minLength": 1 },
+        "targetType": { "enum": ["scene", "journey-step", "touchpoint", "operational-object", "alternative-branch", "exit-to-map"] },
+        "targetAssetId": { "type": ["string", "null"] }, "targetJourneyStepId": { "type": ["string", "null"] }, "targetTouchpointId": { "type": ["string", "null"] },
+        "targetZoneId": { "type": ["string", "null"] }, "targetEntityId": { "type": ["string", "null"] }, "yawDegrees": { "type": ["number", "null"] }, "pitchDegrees": { "type": ["number", "null"] },
+        "normalizedPosition": { "type": ["object", "null"] }, "targetTruthClass": { "type": ["string", "null"] }, "status": { "enum": ["candidate", "verified", "missing-target", "blocked"] }
+      }
+    },
+    "transition": {
+      "type": "object",
+      "required": ["transitionId", "sourceAssetId", "hotspotId", "targetAssetId", "targetJourneyStepId", "transitionKind", "status", "routeAuthority"],
+      "properties": {
+        "transitionId": { "$ref": "#/$defs/id" }, "sourceAssetId": { "$ref": "#/$defs/id" }, "hotspotId": { "$ref": "#/$defs/id" }, "targetAssetId": { "type": ["string", "null"] },
+        "targetJourneyStepId": { "type": ["string", "null"] }, "transitionKind": { "enum": ["next", "previous", "point-of-interest", "alternative", "exit-to-map"] },
+        "status": { "enum": ["candidate", "available", "blocked", "unresolved"] }, "routeAuthority": { "const": "none" }
+      }
+    }
+  }
+}

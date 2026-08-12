@@ -1,0 +1,18 @@
+{
+  "eventId": "EVENT-INVALID",
+  "eventType": "vendor.custom-event",
+  "schemaVersion": "9.0.0",
+  "revision": 0,
+  "stateContext": "baseline-live",
+  "subjects": { "venueId": "VENUE-001", "entityId": "ZONE-UNKNOWN" },
+  "time": {},
+  "location": null,
+  "operationalContext": {},
+  "source": {},
+  "evidenceRefs": "none",
+  "observationRefs": [],
+  "provenanceRefs": [],
+  "trust": {},
+  "relationships": null,
+  "delivery": {}
+}

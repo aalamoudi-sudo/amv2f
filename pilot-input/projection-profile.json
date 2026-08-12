@@ -1,0 +1,15 @@
+{
+  "exampleOnly": true,
+  "noticeAr": "معاينة بصرية فقط؛ ليست معايرة فيزيائية",
+  "projectionProfileId": "projection-profile-example-only",
+  "projectionConfigurationVersion": "projection-example-1.0.0",
+  "spatialMappingVersion": "spatial-example-1.0.0",
+  "outputProfileId": "output-spatial-preview",
+  "labelsVisible": true,
+  "routesVisible": true,
+  "statusColorsVisible": true,
+  "coreStandardId": "MEIOS-PDT-STD-001",
+  "coreStandardVersion": "1.0.0",
+  "deploymentProfileId": "PDT-PROFILE-NOT-CREATED",
+  "calibrationStatus": "not-configured"
+}

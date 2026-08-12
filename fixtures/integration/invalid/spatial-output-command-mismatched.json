@@ -1,0 +1,17 @@
+{
+  "commandId": "",
+  "commandContentHash": "invalid",
+  "deliveryAttemptId": "",
+  "schemaVersion": "9.0.0",
+  "outputType": "unknown",
+  "projectionVersion": "",
+  "projectionContentHash": "invalid",
+  "outputProfileVersion": "",
+  "mappingVersion": "",
+  "stateContext": "mixed",
+  "visualStates": [{ "entityId": "ZONE-UNKNOWN" }],
+  "issuedAt": "invalid",
+  "expiresAt": "invalid",
+  "sequence": 0,
+  "sourceEventIds": null
+}

@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/experience-delivery/v1/operational-delivery-manifest.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "manifestId", "sourceId", "filename", "hash", "size", "revision",
+    "authority", "approvalStatus", "projectId", "eventId", "venueId", "day", "persona",
+    "schedule", "routeCandidate", "destinationIds", "owner", "responsibleParty",
+    "verificationAuthority", "approvalAuthority", "evidenceRule", "dependency", "restriction",
+    "conflict", "notes", "sourceInventory"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "manifestId": { "type": "string", "minLength": 1 },
+    "sourceId": { "type": ["string", "null"] },
+    "filename": { "type": ["string", "null"] },
+    "hash": { "anyOf": [{ "type": "string", "pattern": "^[a-f0-9]{64}$" }, { "type": "null" }] },
+    "size": { "type": ["integer", "null"], "minimum": 1 },
+    "revision": { "type": ["integer", "null"], "minimum": 1 },
+    "authority": { "$ref": "#/$defs/authority" },
+    "approvalStatus": { "$ref": "#/$defs/approval" },
+    "projectId": { "type": "string", "minLength": 1 },
+    "eventId": { "type": "string", "minLength": 1 },
+    "venueId": { "type": "string", "minLength": 1 },
+    "day": { "type": ["string", "null"] },
+    "persona": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "schedule": { "type": "array", "items": { "$ref": "#/$defs/schedule" } },
+    "routeCandidate": { "type": "array", "items": { "$ref": "#/$defs/route" } },
+    "destinationIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "owner": { "anyOf": [{ "$ref": "#/$defs/role" }, { "type": "null" }] },
+    "responsibleParty": { "anyOf": [{ "$ref": "#/$defs/role" }, { "type": "null" }] },
+    "verificationAuthority": { "anyOf": [{ "$ref": "#/$defs/role" }, { "type": "null" }] },
+    "approvalAuthority": { "anyOf": [{ "$ref": "#/$defs/role" }, { "type": "null" }] },
+    "evidenceRule": { "type": "array", "items": { "$ref": "#/$defs/evidenceRule" } },
+    "dependency": { "$ref": "#/$defs/stringArray" },
+    "restriction": { "$ref": "#/$defs/stringArray" },
+    "conflict": { "type": "array", "items": { "$ref": "#/$defs/conflict" } },
+    "notes": { "$ref": "#/$defs/stringArray" },
+    "sourceInventory": { "anyOf": [{ "$ref": "#/$defs/sourceInventory" }, { "type": "null" }] }
+  },
+  "$defs": {
+    "authority": {
+      "enum": ["unknown", "founder-supplied-working-candidate", "operational-team-supplied-working-candidate", "source-backed-working-candidate", "authority-confirmed"]
+    },
+    "approval": {
+      "enum": ["unknown", "candidate", "reviewed", "approved-for-candidate-binding", "rejected"]
+    },
+    "stringArray": { "type": "array", "items": { "type": "string" } },
+    "role": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actorRef", "roleRef", "classification", "sourceTraceIds"],
+      "properties": {
+        "actorRef": { "type": "string", "minLength": 1 },
+        "roleRef": { "type": "string", "minLength": 1 },
+        "classification": { "enum": ["source-backed-candidate", "founder-directed", "conflicting", "unknown"] },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "schedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scheduleEntryId", "dayId", "personaIds", "momentId", "startsAtReported", "endsAtReported", "timeZone", "status", "sourceTraceIds"],
+      "properties": {
+        "scheduleEntryId": { "type": "string", "minLength": 1 },
+        "dayId": { "type": "string", "minLength": 1 },
+        "personaIds": { "$ref": "#/$defs/stringArray" },
+        "momentId": { "type": ["string", "null"] },
+        "startsAtReported": { "type": ["string", "null"] },
+        "endsAtReported": { "type": ["string", "null"] },
+        "timeZone": { "type": ["string", "null"] },
+        "status": { "enum": ["candidate", "conflicting", "unknown"] },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["routeCandidateId", "dayId", "personaIds", "destinationIds", "status", "geometryStatus", "sourceTraceIds"],
+      "properties": {
+        "routeCandidateId": { "type": "string", "minLength": 1 },
+        "dayId": { "type": "string", "minLength": 1 },
+        "personaIds": { "$ref": "#/$defs/stringArray" },
+        "destinationIds": { "$ref": "#/$defs/stringArray" },
+        "status": { "enum": ["candidate", "conflicting", "unresolved"] },
+        "geometryStatus": { "enum": ["none", "source-reference-only", "candidate-visual-anchor"] },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "evidenceRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidenceRuleId", "evidenceType", "verificationRequired", "approvalRequired", "sourceTraceIds"],
+      "properties": {
+        "evidenceRuleId": { "type": "string", "minLength": 1 },
+        "evidenceType": { "type": "string", "minLength": 1 },
+        "verificationRequired": { "type": "boolean" },
+        "approvalRequired": { "type": "boolean" },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["conflictId", "summaryAr", "status", "sourceTraceIds"],
+      "properties": {
+        "conflictId": { "type": "string", "minLength": 1 },
+        "summaryAr": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["open", "restricted", "resolved-by-authority"] },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "sourceInventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceRecordId", "localOpaqueSourceId", "originalFilename", "safeDisplayFilename", "sourceType", "mimeType",
+        "byteSize", "sha256", "fingerprintState", "sourceOwner", "suppliedBy", "suppliedAt", "revision",
+        "claimedApprovalStatus", "verifiedAuthorityStatus", "confidentialityClassification", "retentionClassification",
+        "relevantDayIds", "relevantPersonaIds", "relevantDestinationIds", "relevantWorkstreamIds", "extractionStatus",
+        "conflictStatus", "acceptanceStatus", "modifiedAtReported", "pathDisclosure"
+      ],
+      "properties": {
+        "sourceRecordId": { "type": "string", "minLength": 1 },
+        "localOpaqueSourceId": { "type": "string", "minLength": 1 },
+        "originalFilename": { "type": "string", "minLength": 1 },
+        "safeDisplayFilename": { "type": "string", "minLength": 1 },
+        "sourceType": { "enum": ["pdf", "xlsx", "csv", "docx", "pptx", "json", "zip", "studio-asset", "unknown"] },
+        "mimeType": { "type": ["string", "null"] },
+        "byteSize": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "fingerprintState": { "enum": ["verified", "changed-after-fingerprint", "not-verified"] },
+        "sourceOwner": { "type": ["string", "null"] },
+        "suppliedBy": { "type": ["string", "null"] },
+        "suppliedAt": { "type": ["string", "null"] },
+        "revision": { "type": ["string", "null"] },
+        "claimedApprovalStatus": { "type": ["string", "null"] },
+        "verifiedAuthorityStatus": { "$ref": "#/$defs/authority" },
+        "confidentialityClassification": { "enum": ["public", "internal", "confidential", "restricted", "unknown"] },
+        "retentionClassification": { "enum": ["review-session", "project-record-candidate", "quarantine", "unknown"] },
+        "relevantDayIds": { "$ref": "#/$defs/stringArray" },
+        "relevantPersonaIds": { "$ref": "#/$defs/stringArray" },
+        "relevantDestinationIds": { "$ref": "#/$defs/stringArray" },
+        "relevantWorkstreamIds": { "$ref": "#/$defs/stringArray" },
+        "extractionStatus": { "enum": ["not-started", "inventory-only", "metadata-extracted", "structured-preview-ready", "blocked"] },
+        "conflictStatus": { "enum": ["none", "duplicate", "conflicting-content", "unresolved"] },
+        "acceptanceStatus": { "enum": ["missing", "discovered", "inventory-created", "invalid", "incomplete", "quarantined", "duplicate", "conflict", "structurally-valid", "awaiting-authority", "awaiting-founder-review", "accepted-as-candidate", "optimization-required", "ready-for-binding", "bound", "rejected", "rolled-back"] },
+        "modifiedAtReported": { "type": ["string", "null"] },
+        "pathDisclosure": { "const": "redacted" }
+      }
+    }
+  }
+}

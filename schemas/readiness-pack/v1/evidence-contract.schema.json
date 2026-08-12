@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/readiness-pack/v1/evidence-contract.schema.json",
+  "title": "Readiness Evidence Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "packId",
+    "projectId",
+    "evidencePolicies",
+    "verificationPolicies",
+    "approvalPolicies",
+    "acceptancePolicies",
+    "custodyRules"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.1.0" },
+    "packId": { "type": "string", "minLength": 1 },
+    "projectId": { "type": "string", "minLength": 1 },
+    "evidencePolicies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "evidencePolicyId",
+          "acceptedEvidenceTypes",
+          "custodianRole",
+          "verificationMethod",
+          "validityPeriod",
+          "requiredApproverAuthorityId",
+          "classification",
+          "missingFields"
+        ],
+        "properties": {
+          "evidencePolicyId": { "type": "string", "minLength": 1 },
+          "acceptedEvidenceTypes": { "type": "array", "items": { "type": "string" } },
+          "custodianRole": { "type": ["string", "null"] },
+          "verificationMethod": { "type": ["string", "null"] },
+          "validityPeriod": { "type": ["string", "null"] },
+          "requiredApproverAuthorityId": { "type": ["string", "null"] },
+          "classification": {
+            "enum": ["source-backed", "founder-directed", "template-proposed", "missing", "conflicting", "superseded"]
+          },
+          "missingFields": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "verificationPolicies": { "type": "array", "items": { "type": "object" } },
+    "approvalPolicies": { "type": "array", "items": { "type": "object" } },
+    "acceptancePolicies": { "type": "array", "items": { "type": "object" } },
+    "custodyRules": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  }
+}

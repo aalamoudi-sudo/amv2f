@@ -1,0 +1,44 @@
+{
+  "registerVersion": "1.0.0",
+  "derivedAssets": [
+    {
+      "derivedAssetId": "DERIVED-KAP-CAD-PREVIEW-001",
+      "targetFormat": "png-preview",
+      "parentSourceIds": ["SOURCE-KAP-DWG-PROVISIONAL-001"],
+      "contentHash": "a136353ad5a88f50a1e8d05d4bd3b6ac009a6bac20744dd248d07deceebd2cec",
+      "status": "available-preview",
+      "authority": "authoring-preview-only"
+    }
+  ],
+  "modelCandidates": [
+    {
+      "sourceId": "SOURCE-KAP-3D-AGES-001",
+      "fileName": "AGES AND CENTURIES.skp",
+      "targetOutputs": ["glb", "fbx", "web-optimized-glb"],
+      "conversionStatus": "pending"
+    },
+    {
+      "sourceId": "SOURCE-KAP-3D-PHOTOBOOTH-001",
+      "fileName": "PHOTOBOOTH 3.skp2.skp",
+      "targetOutputs": ["glb", "fbx", "web-optimized-glb"],
+      "conversionStatus": "pending"
+    },
+    {
+      "sourceId": "SOURCE-KAP-3D-GIFT-001",
+      "fileName": "Gift_Box.max",
+      "conditionalScope": true,
+      "targetOutputs": ["glb", "fbx", "web-optimized-glb"],
+      "conversionStatus": "pending"
+    }
+  ],
+  "stage3e4SpatialDerivation": {
+    "sourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+    "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+    "status": "conversion-required",
+    "adapterId": "ADAPTER-LOCAL-CAD-CONVERSION-BOUNDARY",
+    "adapterVersion": "1.0.0",
+    "derivedArtifactIds": [],
+    "spatialProjectionVersion": null,
+    "reasonAr": "لا توجد أداة DWG محلية مثبتة وموثقة؛ لم تُنتج هندسة أو طبقات مشتقة."
+  }
+}

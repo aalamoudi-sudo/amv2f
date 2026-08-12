@@ -1,0 +1,14 @@
+{
+  "type": "FeatureCollection",
+  "features": [],
+  "metadata": {
+    "coordinateSpace": "KAGA-SOURCE-2D-V1",
+    "axisDirection": {
+      "x": "right",
+      "y": "down"
+    },
+    "units": "model-meters-transformed-to-svg",
+    "status": "unresolved-at-gate-1",
+    "notes": "Parking-labelled Rhino geometry is present in a separate sheet/local frame; it is not silently affine-fitted into KAGA-SOURCE-2D-V1."
+  }
+}

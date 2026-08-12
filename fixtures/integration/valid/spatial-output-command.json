@@ -1,0 +1,33 @@
+{
+  "commandId": "COMMAND-SPATIAL-2D-v1-eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "commandContentHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "deliveryAttemptId": "DELIVERY-SPATIAL-2D-v1-eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-1",
+  "schemaVersion": "1.0.0",
+  "outputType": "spatial-2d",
+  "projectionVersion": "PROJECTION-v1-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "projectionContentHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "outputProfileVersion": "spatial-2d-profile-1.0.0",
+  "mappingVersion": "spatial-mapping-1.0.0",
+  "stateContext": "temporary-demo",
+  "visualStates": [{
+    "entityId": "ZONE-005",
+    "zoneId": "ZONE-005",
+    "projectionVersion": "PROJECTION-v1-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "projectionContentHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "stateContext": "temporary-demo",
+    "mappingVersion": "spatial-mapping-1.0.0",
+    "visualState": "verified",
+    "colorToken": "verified",
+    "label": "ممر الخدمات",
+    "routeIds": ["ROUTE-003"],
+    "highlight": true,
+    "spatialReference": "venue-local:ZONE-005",
+    "issuedAt": "2026-07-11T12:12:00.000Z",
+    "expiresAt": "2026-07-11T13:00:00.000Z",
+    "sourceEventIds": ["EVENT-SCHEMA-001"]
+  }],
+  "issuedAt": "2026-07-11T12:12:00.000Z",
+  "expiresAt": "2026-07-11T13:00:00.000Z",
+  "sequence": 1,
+  "sourceEventIds": ["EVENT-SCHEMA-001"]
+}

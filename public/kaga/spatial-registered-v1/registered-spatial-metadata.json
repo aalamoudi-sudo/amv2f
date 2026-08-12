@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "designation": "KAGA-SPATIAL-REGISTERED-V1",
+  "sourceBaseline": "KAGA-SOURCE-2D-V1",
+  "sourceRhinoSha256": "e754894193c1da6660218757a19adc2f5dfacde7b2f27aefd35597d860007a9e",
+  "coordinateSpace": "KAGA-SOURCE-2D-V1",
+  "viewBox": [
+    0.0,
+    0.0,
+    1703.16,
+    1371.235
+  ],
+  "registeredNamedGardenCount": 6,
+  "registeredGardenIds": [
+    "devonianGarden",
+    "plioceneGarden",
+    "optionsGarden",
+    "butterflyGarden",
+    "mazeGarden",
+    "soundLightGarden"
+  ],
+  "crescentConfidence": "unresolved",
+  "rawGate1PackageMutated": false
+}

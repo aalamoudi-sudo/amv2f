@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapterId": "adapter-schema-reference",
+  "adapterType": "system",
+  "version": "1.0.0-local",
+  "supportedSchemaVersions": ["1.0.0"],
+  "capabilities": { "normalize": true, "ingest": true, "acknowledge": true, "retry": true, "outputDelivery": false, "conformanceTesting": true },
+  "inputOrOutput": "input",
+  "onlineSupport": true,
+  "offlineSupport": true,
+  "batchSupport": true,
+  "streamingSupport": false,
+  "evidenceSupport": true,
+  "spatialSupport": true,
+  "taskingSupport": true,
+  "healthStatus": "healthy",
+  "configurationSchema": { "type": "object", "required": ["sourceSystemId"] },
+  "vendorMetadata": { "vendorNeutral": true, "implementation": "local-reference", "productName": null }
+}

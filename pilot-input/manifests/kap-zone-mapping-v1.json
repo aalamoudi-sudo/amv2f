@@ -1,0 +1,18 @@
+{
+  "mappingManifestId": "SPATIAL-MAPPING-KAP-DWG-001",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "sourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+  "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+  "mappingRevision": 1,
+  "conversionStatus": "conversion-required",
+  "spatialProjectionVersion": null,
+  "mappings": [
+    { "mappingId": "MAPPING-KAP-CAD-001", "entityId": "ZONE-ARRIVAL-001", "geometryReference": null, "layerReferences": [], "mappingMethod": "manual-selection", "mappingStatus": "unmapped", "mappedBy": null, "reviewedBy": null, "approvedBy": null, "confidence": "unknown" },
+    { "mappingId": "MAPPING-KAP-CAD-002", "entityId": "ZONE-AGES-TUNNEL-001", "geometryReference": null, "layerReferences": [], "mappingMethod": "manual-selection", "mappingStatus": "unmapped", "mappedBy": null, "reviewedBy": null, "approvedBy": null, "confidence": "unknown" },
+    { "mappingId": "MAPPING-KAP-CAD-003", "entityId": "ZONE-SHOW-001", "geometryReference": null, "layerReferences": [], "mappingMethod": "manual-selection", "mappingStatus": "unmapped", "mappedBy": null, "reviewedBy": null, "approvedBy": null, "confidence": "unknown" },
+    { "mappingId": "MAPPING-KAP-CAD-004", "entityId": "ZONE-PHOTO-MEDIA-001", "geometryReference": null, "layerReferences": [], "mappingMethod": "manual-selection", "mappingStatus": "unmapped", "mappedBy": null, "reviewedBy": null, "approvedBy": null, "confidence": "unknown" },
+    { "mappingId": "MAPPING-KAP-CAD-005", "entityId": "ZONE-DINNER-VIP-001", "geometryReference": null, "layerReferences": [], "mappingMethod": "manual-selection", "mappingStatus": "unmapped", "mappedBy": null, "reviewedBy": null, "approvedBy": null, "confidence": "unknown" }
+  ]
+}

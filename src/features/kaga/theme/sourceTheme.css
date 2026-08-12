@@ -1,0 +1,16 @@
+.kaga-v2-app [data-presentation-archetype='route-map']{--kaga-surface-page:var(--kaga-source-route-page);--kaga-surface-title:var(--kaga-source-route-teal);--kaga-surface-accent:var(--kaga-source-route-orange);background-color:var(--kaga-source-route-page)}
+.kaga-v2-app [data-presentation-archetype='event-day'],
+.kaga-v2-app [data-presentation-archetype='editorial-render']{--kaga-surface-page:var(--kaga-source-editorial-page);--kaga-surface-title:var(--kaga-source-editorial-teal);--kaga-surface-accent:var(--kaga-source-editorial-green)}
+.kaga-v2-app [data-presentation-archetype='quiet-identity']{--kaga-surface-page:var(--kaga-source-identity-page);background-color:var(--kaga-source-identity-page)}
+.kaga-v2-app .kaga-pf-masterplan{background:var(--kaga-source-route-page)}
+.kaga-v2-app .kaga-pf-masterplan .kaga-pf-frame__content{background:var(--kaga-source-route-surface)}
+.kaga-v2-app .kaga-pf-masterplan .kaga-v2-registered-map{background:var(--kaga-source-route-page)}
+.kaga-v2-app .kaga-royal[data-presentation-archetype='editorial-render'] .kaga-organic-frame__content{background:var(--kaga-source-editorial-green)}
+.kaga-v2-app .kaga-launch[data-presentation-archetype='editorial-render'],
+.kaga-v2-app .kaga-museum[data-presentation-archetype='editorial-render']{background-color:var(--kaga-source-editorial-page)}
+.kaga-v2-app .kaga-identity[data-presentation-archetype='quiet-identity'],
+.kaga-v2-app .kaga-invitations[data-presentation-archetype='quiet-identity'],
+.kaga-v2-app .kaga-mobile[data-presentation-archetype='quiet-identity']{background-color:var(--kaga-source-identity-page)}
+.kaga-v2-executive-header .kaga-v2-brand{opacity:.72}
+.kaga-v2-executive-header>nav :is(button,a){opacity:.62;transition:opacity .3s ease}
+.kaga-v2-executive-header>nav :is(button[aria-current=page],a:hover,a:focus-visible){opacity:1}

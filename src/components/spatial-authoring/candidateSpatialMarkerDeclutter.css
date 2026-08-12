@@ -1,0 +1,15 @@
+.candidate-map-marker {
+  transform: translate(calc(-50% + var(--candidate-marker-declutter-x, 0px)), -50%);
+}
+
+.candidate-map-marker:hover,
+.candidate-map-marker.is-selected {
+  transform: translate(calc(-50% + var(--candidate-marker-declutter-x, 0px)), -50%) scale(1.22);
+}
+
+.candidate-mapping-cards > article:focus,
+.candidate-mapping-cards > article:focus-visible,
+.candidate-privacy-callout:focus-visible {
+  outline: 3px solid #503399;
+  outline-offset: 3px;
+}

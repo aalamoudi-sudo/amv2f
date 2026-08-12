@@ -1,0 +1,2 @@
+exampleOnly,sourceId,sourceNameAr,sourceOwner,sourceType,authorityStatus,updatedAt,retentionPolicy,classification
+true,SOURCE-EXAMPLE-ONLY-001,مصدر مثال خيالي,EXAMPLE-ONLY,manual-register,unknown,2026-07-13T08:00:00.000Z,EXAMPLE-ONLY,internal

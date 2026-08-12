@@ -1,0 +1,2 @@
+exampleOnly,id,nameAr,nameEn,type,parentId,positionX,positionY,positionZ,rotationX,rotationY,rotationZ,scaleX,scaleY,scaleZ,status,readiness,riskLevel,capacity,responsibleParty,geometrySource,modelNodeId,readinessCoverage,decisionCoverage,coverageReasonAr
+true,SITE-EXAMPLE-ONLY-001,موقع مثال خيالي,Fictional Example Site,site,,0,0,0,0,0,0,40,0.2,30,preparing,0,medium,0,EXAMPLE-ONLY,EXAMPLE-ONLY,EXAMPLE-ONLY,unknown,unknown,يجب تصنيف التغطية قبل التجميد

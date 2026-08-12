@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R4",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "revision": 4,
+  "contentHash": "334aca7d9edefa02db442de6f250e7b8653670afa8942c990f3e196ebe690d00",
+  "state": "candidate-review",
+  "operationalReadiness": "cannot-determine",
+  "supersedesProjectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R3",
+  "previousContentHash": "bf72dbd16aee51e827633ba631db81f4c796b833022ff1d8f8dbe2b8e0577c08",
+  "revisionLineage": [
+    {
+      "projectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R2",
+      "revision": 2,
+      "contentHash": "1cc36cab8a641cdad213178a3f7352df2112e54e415ab38ef625f93ea715febf"
+    },
+    {
+      "projectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R3",
+      "revision": 3,
+      "contentHash": "bf72dbd16aee51e827633ba631db81f4c796b833022ff1d8f8dbe2b8e0577c08"
+    }
+  ],
+  "changeReasonAr": "توضيح المؤسس: مدد الحركة داخلة في الإجمالي المرشح، ورحلة الإعلام 275 دقيقة مطابقة لنافذة 17:00–21:35.",
+  "durationClarification": {
+    "clarificationId": "FOUNDER-CLARIFICATION-KAP-V11-DURATION-INCLUSIVE-R1",
+    "authorityReferenceId": "FOUNDER-DIRECTIVE-KAP-V11-INCLUSIVE-DURATION",
+    "approvedBy": "Ahmed",
+    "authorityType": "founder-product-authority",
+    "effectiveDate": "2026-08-02",
+    "durationAccountingMode": "inclusive",
+    "previousMediaTotalMinutes": 255,
+    "currentMediaTotalMinutes": 275,
+    "windowDurationMinutes": 275,
+    "historicalSequentialTotalMinutes": 283.5,
+    "historicalWindowDifferenceMinutes": 8.5,
+    "historicalDiagnosticStatus": "resolved-by-inclusive-duration-accounting"
+  },
+  "v11Source": {
+    "safeFilename": "اقتراحات الدخول V.11.pdf",
+    "byteSize": 3201469,
+    "sha256": "a5befcff7e2bb8b44c09123fe7fb730eec79bd57bd37398fa9a09753e55b5377",
+    "pageCount": 7,
+    "authority": "operational-team-supplied-working-candidate",
+    "packageStatus": "received-validated-working-candidate",
+    "founderReview": "pending",
+    "operationalApproval": "not-established",
+    "routeApproval": "not-established",
+    "packageContentHash": "379b3261fad05efb42af1dbf6e9c6b0d47cc5c3017d8fca09e7fb216b772ed0e"
+  },
+  "applicableRouteDayIds": [
+    "DAY-KAP-2026-10-31",
+    "DAY-KAP-2026-11-02",
+    "DAY-KAP-2026-11-03"
+  ],
+  "routeScopeCoverage": "complete-for-current-applicable-days",
+  "sourceFactCount": 35,
+  "openOrRestrictedConflictCount": 13,
+  "v11ActiveConflictCount": 2,
+  "v11ResolvedDurationConflictCount": 6,
+  "v11OperationalGapCount": 24,
+  "v11ResolvedDurationGapCount": 2,
+  "operationalJourneyCandidateCount": 6,
+  "candidateTouchpointCount": 6,
+  "canonicalSpatialRouteCount": 0,
+  "rawSourcesIncluded": false,
+  "restrictedRouteDetailsInClientPresentation": false,
+  "limitationsAr": [
+    "توضيح المدة يحسم معنى الحساب فقط ولا يعتمد هندسة أو سرعة أو سلامة أو سعة.",
+    "V.11 لا يستبدل V.02 تلقائيًا؛ علاقة الاستبدال المقترحة تنتظر قرار أحمد.",
+    "1 نوفمبر خارج نطاق الرحلات التشغيلية ورحلات الزوار.",
+    "ملفات PDF الخام خارج Git والمتصفح وحزمة المراجعة.",
+    "لا توجد مسارات أو جاهزية أو قرارات افتتاح معتمدة."
+  ]
+}

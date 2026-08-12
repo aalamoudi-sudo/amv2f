@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "maximumRelationshipState": "founder-confirmed",
+  "relationships": [
+    {
+      "relationshipId": "REL-KAP-ARRIVAL-CANDIDATE-001",
+      "projectId": "PROJECT-KAP-OPENING-2026",
+      "eventId": "EVENT-KAP-OPENING-2026",
+      "venueId": "VENUE-KAP-001",
+      "experienceObjectId": "ZONE-ARRIVAL-001",
+      "candidateEntityIds": ["ENTITY-KAP-OP-001", "ENTITY-KAP-OP-002"],
+      "state": "probable",
+      "confidence": "medium",
+      "conflictCodes": [],
+      "requiredApproval": "Founder confirmation and independent spatial-mapping authority",
+      "notes": ["One experience object currently relates to two candidate source destinations."]
+    },
+    {
+      "relationshipId": "REL-KAP-AGES-CANDIDATE-001",
+      "projectId": "PROJECT-KAP-OPENING-2026",
+      "eventId": "EVENT-KAP-OPENING-2026",
+      "venueId": "VENUE-KAP-001",
+      "experienceObjectId": "ZONE-AGES-TUNNEL-001",
+      "candidateEntityIds": ["ENTITY-KAP-OP-006"],
+      "state": "conflicted",
+      "confidence": "low",
+      "conflictCodes": ["TERMINOLOGY-TUNNEL-VS-WALKWAY"],
+      "requiredApproval": "Ahmed must resolve Tunnel versus Walkway terminology before confirmation",
+      "notes": ["Existing object: Tunnel. Candidate source: Walkway / ممر العصور."]
+    },
+    {
+      "relationshipId": "REL-KAP-PHOTO-MEDIA-CANDIDATE-001",
+      "projectId": "PROJECT-KAP-OPENING-2026",
+      "eventId": "EVENT-KAP-OPENING-2026",
+      "venueId": "VENUE-KAP-001",
+      "experienceObjectId": "ZONE-PHOTO-MEDIA-001",
+      "candidateEntityIds": ["ENTITY-KAP-OP-003", "ENTITY-KAP-OP-009"],
+      "state": "proposed",
+      "confidence": "medium",
+      "conflictCodes": [],
+      "requiredApproval": "Founder confirmation and source-authority review",
+      "notes": ["Media center and press-photo destination remain separate candidate entities."]
+    },
+    {
+      "relationshipId": "REL-KAP-DINNER-VIP-CANDIDATE-001",
+      "projectId": "PROJECT-KAP-OPENING-2026",
+      "eventId": "EVENT-KAP-OPENING-2026",
+      "venueId": "VENUE-KAP-001",
+      "experienceObjectId": "ZONE-DINNER-VIP-001",
+      "candidateEntityIds": ["ENTITY-KAP-OP-007", "ENTITY-KAP-OP-008", "ENTITY-KAP-OP-010"],
+      "state": "probable",
+      "confidence": "medium",
+      "conflictCodes": [],
+      "requiredApproval": "Founder confirmation and independent operational authority",
+      "notes": ["One existing experience object currently groups three candidate destinations."]
+    },
+    {
+      "relationshipId": "REL-KAP-SHOW-UNRESOLVED-001",
+      "projectId": "PROJECT-KAP-OPENING-2026",
+      "eventId": "EVENT-KAP-OPENING-2026",
+      "venueId": "VENUE-KAP-001",
+      "experienceObjectId": "ZONE-SHOW-001",
+      "candidateEntityIds": [],
+      "state": "unresolved",
+      "confidence": "unknown",
+      "conflictCodes": ["NO-SOURCE-MATCH"],
+      "requiredApproval": "Founder must identify a candidate destination or keep the object logically separate",
+      "notes": ["No numbered zoning destination is guessed for the existing show experience object."]
+    },
+    {
+      "relationshipId": "REL-KAP-UNASSIGNED-CANDIDATES-001",
+      "projectId": "PROJECT-KAP-OPENING-2026",
+      "eventId": "EVENT-KAP-OPENING-2026",
+      "venueId": "VENUE-KAP-001",
+      "experienceObjectId": null,
+      "candidateEntityIds": ["ENTITY-KAP-OP-004", "ENTITY-KAP-OP-005", "ENTITY-KAP-OP-011"],
+      "state": "unresolved",
+      "confidence": "unknown",
+      "conflictCodes": ["UNASSIGNED-CANDIDATE-ENTITIES"],
+      "requiredApproval": "Founder must decide whether to create, merge or keep separate experience objects",
+      "notes": ["Model installation, memorial and memories corner remain separately reviewed."]
+    }
+  ]
+}

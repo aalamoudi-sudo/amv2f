@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/readiness-pack/v1/gap-register.schema.json",
+  "title": "Readiness Gap Register v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "packId",
+    "projectId",
+    "eventId",
+    "venueId",
+    "generatedAt",
+    "missingAuthorities",
+    "missingOwners",
+    "missingEvidenceRules",
+    "missingVerificationRules",
+    "missingApprovalRules",
+    "missingSpatialMappings",
+    "governanceGaps",
+    "unresolvedConflicts",
+    "eligibilityGates",
+    "preparation"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.1.0" },
+    "packId": { "type": "string", "minLength": 1 },
+    "projectId": { "type": "string", "minLength": 1 },
+    "eventId": { "type": "string", "minLength": 1 },
+    "venueId": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "missingAuthorities": { "$ref": "#/$defs/stringArray" },
+    "missingOwners": { "$ref": "#/$defs/stringArray" },
+    "missingEvidenceRules": { "$ref": "#/$defs/stringArray" },
+    "missingVerificationRules": { "$ref": "#/$defs/stringArray" },
+    "missingApprovalRules": { "$ref": "#/$defs/stringArray" },
+    "missingSpatialMappings": { "$ref": "#/$defs/stringArray" },
+    "governanceGaps": { "type": "array", "items": { "type": "object" } },
+    "unresolvedConflicts": { "type": "array", "items": { "type": "object" } },
+    "eligibilityGates": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+    "preparation": {
+      "type": "object",
+      "required": ["packId", "packRevision", "metrics", "operationalReadiness"],
+      "properties": {
+        "packId": { "type": "string", "minLength": 1 },
+        "packRevision": { "type": "integer", "minimum": 1 },
+        "metrics": { "type": "array", "minItems": 1 },
+        "operationalReadiness": { "const": "cannot-determine" }
+      }
+    }
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  }
+}

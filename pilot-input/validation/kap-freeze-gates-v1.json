@@ -1,0 +1,19 @@
+{
+  "evaluationVersion": "1.0.0",
+  "authoringLifecycle": "candidate",
+  "readyToFreeze": false,
+  "gates": [
+    { "gateId": "FREEZE-GATE-DWG", "status": "blocked", "reasonAr": "الملف الحالي مبدئي وغير معتمد." },
+    { "gateId": "FREEZE-GATE-CRS", "status": "blocked", "reasonAr": "EPSG ونقاط الضبط غير متاحة." },
+    { "gateId": "FREEZE-GATE-NORTH-ORIGIN", "status": "blocked", "reasonAr": "الشمال ونقطة الأصل غير معروفين." },
+    { "gateId": "FREEZE-GATE-ENTITY-MAPPING", "status": "blocked", "reasonAr": "كل المناطق الخمس ما زالت بلا ربط هندسي." },
+    { "gateId": "FREEZE-GATE-FLOOR-PLANS", "status": "blocked", "reasonAr": "مجلد Floor Plans مفقود المحتوى." },
+    { "gateId": "FREEZE-GATE-2D-IDENTITY", "status": "blocked", "reasonAr": "مجلد 2D Identity مفقود المحتوى." },
+    { "gateId": "FREEZE-GATE-ACTOR-IDENTITY", "status": "blocked", "reasonAr": "الأسماء لا تملك معرفات HR أو Actor سلطوية." },
+    { "gateId": "FREEZE-GATE-EVIDENCE-POLICY", "status": "blocked", "reasonAr": "سياسة الأدلة غير معتمدة." },
+    { "gateId": "FREEZE-GATE-PRIVACY-RETENTION", "status": "blocked", "reasonAr": "سياسة الخصوصية والاحتفاظ غير معتمدة." },
+    { "gateId": "FREEZE-GATE-AUTHORITY-SEPARATION", "status": "blocked", "reasonAr": "السلطات الخارجية وتفويضاتها لم تثبت." },
+    { "gateId": "FREEZE-GATE-EVENT-YEAR", "status": "blocked", "reasonAr": "سنة 2026 مستنتجة ولم يؤكدها أحمد صراحة." },
+    { "gateId": "FREEZE-GATE-3D-CONVERSION", "status": "blocked", "reasonAr": "لا توجد صادرات GLB أو FBX متحققة." }
+  ]
+}

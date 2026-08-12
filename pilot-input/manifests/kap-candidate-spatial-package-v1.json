@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.0.0",
+  "packageId": "SOURCE-INTAKE-PACK-KAP-3E4A-001",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "canonicalSourceAssetIds": [
+    "SOURCE-KAP-DWG-PROVISIONAL-001"
+  ],
+  "sourceIntegrityRiskIds": [
+    "DRIVE-PERMISSION-ANONYMOUS-WRITER"
+  ],
+  "sourceLayers": [
+    {
+      "sourceLayerId": "SOURCE-LAYER-KAP-WORKING-CAD",
+      "sourceAssetId": "SOURCE-ASSET-KAP-DWG-DRIVE-001",
+      "labelAr": "مصدر CAD المعتمد",
+      "labelEn": "Founder-approved CAD source",
+      "truthStatus": "working",
+      "previewUrl": null,
+      "previewSha256": null,
+      "previewCommitted": false,
+      "defaultVisible": false
+    },
+    {
+      "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+      "sourceAssetId": "SOURCE-ASSET-KAP-ZONING-CANDIDATE-001",
+      "labelAr": "التقسيم التشغيلي المرشح",
+      "labelEn": "Candidate operational zoning",
+      "truthStatus": "candidate",
+      "previewUrl": "/local-assets/kap/kaga-zoning-candidate.jpg",
+      "previewSha256": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+      "previewCommitted": false,
+      "defaultVisible": true
+    },
+    {
+      "sourceLayerId": "SOURCE-LAYER-KAP-CONCEPT-MASTERPLAN",
+      "sourceAssetId": "SOURCE-ASSET-KAP-CONCEPT-PRESENTATION-001",
+      "labelAr": "مرجع المخطط المفاهيمي A–T",
+      "labelEn": "Concept A-T masterplan reference",
+      "truthStatus": "conceptual",
+      "previewUrl": "/local-assets/kap/kap-concept-masterplan-reference.jpg",
+      "previewSha256": "a81ceb0fde9ec2a591d644e0e7591275b709dc9f8b048873a5c3b9467bfc8d2f",
+      "previewCommitted": false,
+      "defaultVisible": false
+    },
+    {
+      "sourceLayerId": "SOURCE-LAYER-KAP-FIELD-EVIDENCE",
+      "sourceAssetId": "SOURCE-ASSET-KAP-FIELD-MEDIA-INVENTORY-001",
+      "labelAr": "فهرس الأدلة الميدانية",
+      "labelEn": "Field-evidence catalog",
+      "truthStatus": "evidence",
+      "previewUrl": null,
+      "previewSha256": null,
+      "previewCommitted": false,
+      "defaultVisible": false
+    },
+    {
+      "sourceLayerId": "SOURCE-LAYER-KAP-GOVERNANCE",
+      "sourceAssetId": "SOURCE-ASSET-KAP-GOVERNANCE-PPTX-001",
+      "labelAr": "حوكمة المشروع المعتمدة",
+      "labelEn": "Founder-approved project governance",
+      "truthStatus": "evidence",
+      "previewUrl": null,
+      "previewSha256": null,
+      "previewCommitted": false,
+      "defaultVisible": false
+    },
+    {
+      "sourceLayerId": "SOURCE-LAYER-KAP-VISITOR-MAP",
+      "sourceAssetId": "SOURCE-ASSET-KAP-VISITOR-MAP-001",
+      "labelAr": "خريطة الزائر التوضيحية",
+      "labelEn": "Illustrated visitor map",
+      "truthStatus": "missing",
+      "previewUrl": null,
+      "previewSha256": null,
+      "previewCommitted": false,
+      "defaultVisible": false
+    }
+  ],
+  "overlay": {
+    "sourceAssetId": "SOURCE-ASSET-KAP-ZONING-CANDIDATE-001",
+    "truthBannerAr": "مخطط تشغيلي مرشح وغير معاير — لا يمثل هندسة أو مسارات معتمدة",
+    "northSymbolStatus": "present",
+    "scaleStatus": "unknown",
+    "crsStatus": "unknown",
+    "approvalStatus": "missing",
+    "geometryCalibrationStatus": "incomplete"
+  },
+  "sourceReadiness": {
+    "sourceAssetCount": 6,
+    "workingCadStatus": "duplicate-confirmed",
+    "candidateZoningStatus": "preview-ready",
+    "candidateOperationalEntityCount": 11,
+    "mappingConflictCount": 1,
+    "unresolvedMappingCount": 4,
+    "missingGeometryControls": ["scale", "crs", "approval", "geometry-calibration", "survey-control"],
+    "visitorMapStatus": "missing",
+    "fieldMediaStatusAr": "لقطة جرد metadata-only: 195 صورة و6 فيديوهات",
+    "spatialWorkspace": "spatial-authoring",
+    "authoritySourceLayerId": "SOURCE-LAYER-KAP-WORKING-CAD"
+  },
+  "blockedGateIds": [
+    "DRIVE-PERMISSION-ANONYMOUS-WRITER",
+    "VISITOR-MAP-EDITABLE-SOURCE-MISSING",
+    "CANDIDATE-ZONING-SCALE-UNKNOWN",
+    "CANDIDATE-ZONING-CRS-UNKNOWN",
+    "CANDIDATE-ZONING-APPROVAL-MISSING",
+    "CANDIDATE-ZONING-GEOMETRY-CALIBRATION-INCOMPLETE"
+  ]
+}

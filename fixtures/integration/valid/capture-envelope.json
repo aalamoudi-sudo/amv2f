@@ -1,0 +1,32 @@
+{
+  "envelopeId": "ENVELOPE-SCHEMA-001",
+  "adapterId": "adapter-system-work-order",
+  "adapterType": "system",
+  "adapterVersion": "1.0.0-local",
+  "sourceRecordId": "WORK-ORDER-SCHEMA-001",
+  "sourceSystemId": "SOURCE-SCHEMA-001",
+  "receivedAt": "2026-07-11T12:00:05.000Z",
+  "schemaVersion": "1.0.0",
+  "payload": {
+    "sourceRecordId": "WORK-ORDER-SCHEMA-001",
+    "sourceSystemId": "SOURCE-SCHEMA-001",
+    "recordType": "work.completed",
+    "occurredAt": "2026-07-11T12:00:00.000Z",
+    "data": { "entityId": "ZONE-005", "proposedDisposition": "completed-unverified" }
+  },
+  "payloadHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "stateContext": "temporary-demo",
+  "deviceId": null,
+  "offlineSequence": null,
+  "correlationId": "CORRELATION-SCHEMA-001",
+  "causationId": null,
+  "idempotencyKey": "IDEMPOTENCY-SCHEMA-001",
+  "transportMetadata": {
+    "transport": "local-simulator",
+    "batchId": null,
+    "retryCount": 0,
+    "sourceClock": "2026-07-11T12:00:00.000Z",
+    "platformClock": "2026-07-11T12:00:05.000Z",
+    "contentType": "application/json"
+  }
+}

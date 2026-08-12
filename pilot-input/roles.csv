@@ -1,0 +1,2 @@
+exampleOnly,roleId,titleAr,titleEn,responsibility,allowedActionTypes,allowedEntityTypes,operationalPackIds,escalationTargets,separationOfDutyTags
+true,role-example-only,دور مثال خيالي,Fictional Example Role,EXAMPLE-ONLY,view,zone,spatial-foundation,,cannot-approve-own-action

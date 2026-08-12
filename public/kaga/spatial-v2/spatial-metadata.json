@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.0.0",
+  "coordinateSpace": "KAGA-SOURCE-2D-V1",
+  "status": "gate-1-provisional",
+  "source": {
+    "filename": "Kaig-mastersite  (2).3dm",
+    "bytes": 328192677,
+    "sha256": "e754894193c1da6660218757a19adc2f5dfacde7b2f27aefd35597d860007a9e",
+    "archiveVersion": 80,
+    "unitSystem": "UnitSystem.Meters",
+    "absoluteTolerance": 0.001
+  },
+  "units": "Rhino model metres",
+  "crs": null,
+  "crsStatus": "unknown-do-not-treat-as-survey-control",
+  "sourceBounds": [
+    -881.581,
+    -1711.989,
+    765.579,
+    -396.754
+  ],
+  "contractBoundsWithPadding": [
+    -909.581,
+    -1739.989,
+    793.579,
+    -368.754
+  ],
+  "viewBox": [
+    0,
+    0,
+    1703.16,
+    1371.235
+  ],
+  "transform": {
+    "description": "Local Rhino XY to browser SVG coordinates; X translated, Y inverted and translated.",
+    "sourceToCanonical": {
+      "x": "sourceX - (-909.581188)",
+      "y": "(-368.753837) - sourceY"
+    },
+    "matrix3x3": [
+      [
+        1,
+        0,
+        909.581188
+      ],
+      [
+        0,
+        -1,
+        -368.753837
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "rotation": "none",
+    "scale": 1
+  },
+  "selectedLayerIds": [
+    2162,
+    194
+  ],
+  "selectedLayerNames": [
+    "curves",
+    "S19093-0200S-Pathways and Service Access Roads$0$L-SECONDARY ROAD HATCH"
+  ],
+  "featureCounts": {
+    "sourceLinework": 4995,
+    "pathways": 238,
+    "gardenFootprintCandidates": 28,
+    "siteBoundaryCandidates": 0,
+    "crescentFootprintCandidates": 1,
+    "parkingFootprints": 0
+  },
+  "outputPaths": {
+    "masterplanSvg": "/kaga/spatial-v2/masterplan.svg",
+    "gardenFootprintsSvg": "/kaga/spatial-v2/garden-footprints.svg",
+    "siteBoundaries": "/kaga/spatial-v2/site-boundaries.geojson",
+    "pathways": "/kaga/spatial-v2/pathways.geojson",
+    "parking": "/kaga/spatial-v2/parking.geojson",
+    "gardenFootprints": "/kaga/spatial-v2/garden-footprints.geojson",
+    "crescentFootprint": "/kaga/spatial-v2/crescent-footprint.geojson",
+    "mapLandmarks": "/kaga/spatial-v2/map-landmarks.json",
+    "selectedLayers": "/kaga/spatial-v2/selected-layers.json"
+  },
+  "generator": {
+    "script": "scripts/kaga-v2/extract_spatial.py",
+    "rhino3dm": "8.32.0",
+    "shapely": "2.0.7"
+  },
+  "uncertainty": [
+    "The 3DM contains multiple plan revisions and mixed local/georeferenced frames.",
+    "Layer names alone do not prove design authority.",
+    "Garden candidates are geometric candidates only; names await Site Map Directory registration.",
+    "The Crescent candidate is a visual registration hypothesis, not an asserted architectural footprint.",
+    "Parking geometry remains unresolved because its labelled objects use a separate drawing frame."
+  ]
+}

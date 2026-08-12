@@ -1,0 +1,2 @@
+exampleOnly,authorityId,titleAr,titleEn,decisionCategories,approvalLevels,allowedStateContexts,requiredEvidenceTypes,requiredRoleIds,ruleId,actorRoleId,prohibitedCounterpartyRoleId,ruleDescriptionAr
+true,authority-example-only,جهة مثال خيالية,Fictional Example Authority,readiness,local-example-review,temporary-demo,checklist,role-example-only,SOD-EXAMPLE-ONLY,role-example-only,role-independent-example-only,مثال خيالي لفصل الواجبات

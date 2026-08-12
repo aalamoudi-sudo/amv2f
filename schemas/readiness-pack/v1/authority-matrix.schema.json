@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/readiness-pack/v1/authority-matrix.schema.json",
+  "title": "Readiness Authority Matrix v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "packId",
+    "projectId",
+    "eventId",
+    "venueId",
+    "generatedAt",
+    "actors",
+    "workstreams",
+    "authorities",
+    "authorityRequirementPolicyId",
+    "authorityTriggerPolicyId",
+    "authorityTriggerFacts",
+    "authorityTriggerFingerprint",
+    "requiredAuthorities"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.1.0" },
+    "packId": { "type": "string", "minLength": 1 },
+    "projectId": { "type": "string", "minLength": 1 },
+    "eventId": { "type": "string", "minLength": 1 },
+    "venueId": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "actors": { "type": "array", "items": { "type": "object" } },
+    "workstreams": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+    "authorities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["authorityId", "authorityKind", "status", "actor", "classification", "limitations"],
+        "properties": {
+          "authorityId": { "type": "string", "minLength": 1 },
+          "authorityKind": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["assigned", "unknown", "conflicting", "not-applicable"] },
+          "actor": { "type": ["object", "null"] },
+          "classification": {
+            "enum": ["source-backed", "founder-directed", "template-proposed", "missing", "conflicting", "superseded"]
+          },
+          "limitations": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "authorityRequirementPolicyId": {
+      "const": "AUTHORITY-REQUIREMENT-POLICY-v1"
+    },
+    "authorityTriggerPolicyId": {
+      "const": "AUTHORITY-TRIGGER-POLICY-v1"
+    },
+    "authorityTriggerFacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "triggerFactId",
+          "requirementId",
+          "policyId",
+          "authorityKind",
+          "triggerType",
+          "triggerState",
+          "sourceTraceIds",
+          "classification",
+          "revision",
+          "derivationPolicyVersion",
+          "sourceInputFingerprint",
+          "fingerprint"
+        ],
+        "properties": {
+          "triggerFactId": { "type": "string", "minLength": 1 },
+          "requirementId": { "type": "string", "minLength": 1 },
+          "policyId": { "type": ["string", "null"] },
+          "authorityKind": {
+            "enum": [
+              "client-acceptance",
+              "engineering-authority",
+              "hse-authority",
+              "route-authority"
+            ]
+          },
+          "triggerType": {
+            "enum": [
+              "external-operational-acceptance",
+              "engineering-or-spatial-impact",
+              "hse-or-safety-impact",
+              "route-or-movement-impact"
+            ]
+          },
+          "triggerState": {
+            "enum": ["active", "inactive-explicit", "unknown"]
+          },
+          "sourceTraceIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "classification": {
+            "enum": ["source-backed", "founder-directed", "conflicting"]
+          },
+          "revision": { "type": "integer", "minimum": 1 },
+          "derivationPolicyVersion": {
+            "const": "AUTHORITY-TRIGGER-POLICY-v1"
+          },
+          "sourceInputFingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "authorityTriggerFingerprint": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "requiredAuthorities": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "allOf": [
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "requirement-owner" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "evidence-verification" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "internal-approval" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "client-acceptance" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "engineering-authority" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "hse-authority" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "route-authority" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "opening-authority" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "readiness-pack-activation" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 }
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "declarationId",
+          "policyRuleId",
+          "authorityId",
+          "authorityKind",
+          "phase",
+          "applicable",
+          "requiredScopeType",
+          "requiredScopeId"
+        ],
+        "properties": {
+          "declarationId": { "type": "string", "minLength": 1 },
+          "policyRuleId": { "type": "string", "minLength": 1 },
+          "authorityId": { "type": "string", "minLength": 1 },
+          "authorityKind": { "type": "string", "minLength": 1 },
+          "phase": { "enum": ["pre-freeze", "pre-activation"] },
+          "applicable": { "type": "boolean" },
+          "requiredScopeType": { "enum": ["pack", "workstream", "requirement", "project", "event", "venue"] },
+          "requiredScopeId": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

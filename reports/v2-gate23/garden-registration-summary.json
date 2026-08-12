@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "designation": "KAGA-SPATIAL-REGISTERED-V1",
+  "sourceBaseline": "KAGA-SOURCE-2D-V1",
+  "coordinateSpace": "KAGA-SOURCE-2D-V1",
+  "sourceRhinoSha256": "e754894193c1da6660218757a19adc2f5dfacde7b2f27aefd35597d860007a9e",
+  "executiveRegisteredCount": 6,
+  "executivePolicy": "exact-or-high-only",
+  "registrations": [
+    { "canonicalGardenId": "devonianGarden", "titleAr": "الحديقة الديفونية", "footprintId": "garden-footprint-candidate-20", "directoryNumber": 1, "confidence": "high" },
+    { "canonicalGardenId": "plioceneGarden", "titleAr": "الحديقة البليوسينية", "footprintId": "garden-footprint-candidate-24", "directoryNumber": 6, "confidence": "high" },
+    { "canonicalGardenId": "optionsGarden", "titleAr": "حديقة الخيارات", "footprintId": "garden-footprint-candidate-23", "directoryNumber": 7, "confidence": "high" },
+    { "canonicalGardenId": "butterflyGarden", "titleAr": "حديقة الفراشات", "footprintId": "garden-footprint-candidate-03", "directoryNumber": 15, "confidence": "high" },
+    { "canonicalGardenId": "mazeGarden", "titleAr": "حديقة المتاهة", "footprintId": "garden-footprint-candidate-01", "directoryNumber": 17, "confidence": "high" },
+    { "canonicalGardenId": "soundLightGarden", "titleAr": "حديقة الصوت والضوء", "footprintId": "garden-footprint-candidate-02", "directoryNumber": 18, "confidence": "high" }
+  ],
+  "crescentRegistration": {
+    "canonicalEntityId": "crescentBuilding",
+    "confidence": "unresolved",
+    "executiveFootprintEnabled": false
+  },
+  "anonymousCandidatePolygonsVisibleInExecutiveMode": false
+}

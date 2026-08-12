@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mayadeen.local/integration/v1/adapter-manifest.schema.json",
+  "title": "Mayadeen Adapter Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "adapterId", "adapterType", "version", "supportedSchemaVersions", "capabilities", "inputOrOutput", "onlineSupport", "offlineSupport", "batchSupport", "streamingSupport", "evidenceSupport", "spatialSupport", "taskingSupport", "healthStatus", "configurationSchema", "vendorMetadata"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "adapterId": { "type": "string", "minLength": 1 },
+    "adapterType": { "enum": ["system", "sensor", "reality-capture", "human-action", "workflow", "asset-management", "spatial-2d", "spatial-3d", "geospatial", "reporting", "physical-output"] },
+    "version": { "type": "string", "minLength": 1 },
+    "supportedSchemaVersions": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "capabilities": { "type": "object", "additionalProperties": false, "required": ["normalize", "ingest", "acknowledge", "retry", "outputDelivery", "conformanceTesting"], "properties": { "normalize": { "type": "boolean" }, "ingest": { "type": "boolean" }, "acknowledge": { "type": "boolean" }, "retry": { "type": "boolean" }, "outputDelivery": { "type": "boolean" }, "conformanceTesting": { "type": "boolean" } } },
+    "inputOrOutput": { "enum": ["input", "output"] },
+    "onlineSupport": { "type": "boolean" }, "offlineSupport": { "type": "boolean" }, "batchSupport": { "type": "boolean" }, "streamingSupport": { "type": "boolean" }, "evidenceSupport": { "type": "boolean" }, "spatialSupport": { "type": "boolean" }, "taskingSupport": { "type": "boolean" },
+    "healthStatus": { "enum": ["healthy", "degraded", "offline"] },
+    "configurationSchema": { "type": "object" },
+    "vendorMetadata": { "type": "object", "additionalProperties": false, "required": ["vendorNeutral", "implementation", "productName"], "properties": { "vendorNeutral": { "const": true }, "implementation": { "const": "local-reference" }, "productName": { "type": "null" } } }
+  }
+}

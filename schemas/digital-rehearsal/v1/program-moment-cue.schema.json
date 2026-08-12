@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/digital-rehearsal/v1/program-moment-cue.schema.json",
+  "title": "Program Moment And Cue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["moment", "cues"],
+  "properties": {
+    "moment": {
+      "type": "object",
+      "required": ["momentId", "eventDayId", "labelAr", "labelEn", "order", "siteCandidateId", "journeyStepId", "touchpointId", "sceneAssetIds", "relatedZoneIds", "relatedEntityIds", "relatedRequirementIds", "relatedDecisionIds", "relatedEvidenceIds", "cueIds", "plannedTime", "plannedTimeClassification", "sourceTraceIds", "truthClass", "spatialStatus", "operationalOwnerRoleId", "missingInformationAr"],
+      "properties": {
+        "momentId": { "type": "string", "minLength": 1 },
+        "eventDayId": { "type": "string", "minLength": 1 },
+        "labelAr": { "type": "string", "minLength": 1 },
+        "labelEn": { "type": "string", "minLength": 1 },
+        "order": { "type": "integer", "minimum": 1 },
+        "siteCandidateId": { "type": ["string", "null"] },
+        "journeyStepId": { "type": ["string", "null"] },
+        "touchpointId": { "type": ["string", "null"] },
+        "sceneAssetIds": { "type": "array", "items": { "type": "string" } },
+        "relatedZoneIds": { "type": "array", "items": { "type": "string" } },
+        "relatedEntityIds": { "type": "array", "items": { "type": "string" } },
+        "relatedRequirementIds": { "type": "array", "items": { "type": "string" } },
+        "relatedDecisionIds": { "type": "array", "items": { "type": "string" } },
+        "relatedEvidenceIds": { "type": "array", "items": { "type": "string" } },
+        "cueIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "plannedTime": { "type": ["string", "null"] },
+        "plannedTimeClassification": { "enum": ["source-reported-window", "ordered-without-time", "unknown"] },
+        "sourceTraceIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "truthClass": { "type": "string", "minLength": 1 },
+        "spatialStatus": { "enum": ["candidate-anchor", "semantic-only", "unresolved-no-anchor", "multi-site-transition"] },
+        "operationalOwnerRoleId": { "type": ["string", "null"] },
+        "missingInformationAr": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "cues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cueId", "momentId", "labelAr", "labelEn", "cueType", "ownerRoleId", "responsibleRoleId", "sourceTraceIds", "truthStatus", "dependencies", "evidenceRequirementIds", "readinessRequirementIds", "decisionIds", "notesAr"],
+        "properties": {
+          "cueId": { "type": "string", "minLength": 1 },
+          "momentId": { "type": "string", "minLength": 1 },
+          "labelAr": { "type": "string", "minLength": 1 },
+          "labelEn": { "type": "string", "minLength": 1 },
+          "cueType": { "type": "string", "minLength": 1 },
+          "ownerRoleId": { "type": ["string", "null"] },
+          "responsibleRoleId": { "type": ["string", "null"] },
+          "sourceTraceIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "truthStatus": { "type": "string", "minLength": 1 },
+          "dependencies": { "type": "array", "items": { "type": "object" } },
+          "evidenceRequirementIds": { "type": "array", "items": { "type": "string" } },
+          "readinessRequirementIds": { "type": "array", "items": { "type": "string" } },
+          "decisionIds": { "type": "array", "items": { "type": "string" } },
+          "notesAr": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

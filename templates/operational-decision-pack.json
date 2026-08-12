@@ -1,0 +1,708 @@
+{
+  "classification": "fictional-temporary-demo",
+  "noteAr": "أمثلة خيالية للحزمة المحلية فقط",
+  "decisions": [
+    {
+      "decisionId": "DECISION-001",
+      "title": "تثبيت جاهزية المنطقة ذات الأثر الأعلى",
+      "description": "قرار تشغيلي تجريبي لتحديد الإجراء الذي يحمي الافتتاح ومسار الزوار.",
+      "eventId": "EVENT-DEMO-001",
+      "venueId": "VENUE-DEMO-001",
+      "stateContext": "temporary-demo",
+      "source": "ملخص الجاهزية التجريبي",
+      "sourceType": "temporary-demo",
+      "createdAt": "2026-07-10T09:00:00Z",
+      "createdBy": "منسق القرارات التجريبي",
+      "decisionOwner": "قائد التشغيل التجريبي",
+      "responsibleParty": "مشرف ممر الخدمات",
+      "approvingAuthority": "جهة اعتماد التشغيل",
+      "problemStatement": "تأخر منطقة ذات أثر مباشر على افتتاح التشغيل ومسار الزوار.",
+      "decisionType": "readiness",
+      "urgency": "high",
+      "priority": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "id": "DECISION-EVIDENCE-001",
+          "type": "exercise",
+          "titleAr": "ملخص حالة ممر الخدمات",
+          "source": "حزمة قرارات تجريبية مؤقتة",
+          "capturedAt": "2026-07-10T10:00:00Z",
+          "status": "pending"
+        }
+      ],
+      "assumptions": [
+        "تظل هندسة المسار التجريبي كما هي حتى تصل مراجعة معتمدة."
+      ],
+      "constraints": [
+        "لا يوجد اعتماد رسمي للمسار في هذه المرحلة."
+      ],
+      "availableOptions": [
+        {
+          "optionId": "OPTION-001-A",
+          "titleAr": "إزالة العائق أولاً",
+          "descriptionAr": "توجيه الفريق إلى إغلاق العائق قبل تثبيت القرار.",
+          "expectedImpact": "خفض أثر التأخير على الافتتاح.",
+          "risks": [
+            "يتطلب توفر الفريق في الموعد."
+          ]
+        },
+        {
+          "optionId": "OPTION-001-B",
+          "titleAr": "فتح مشروط",
+          "descriptionAr": "فتح محدود مع إبقاء مسار الزوار تحت المراجعة.",
+          "expectedImpact": "استمرار جزئي للخدمة.",
+          "risks": [
+            "قد يزيد ضغط المتابعة."
+          ]
+        },
+        {
+          "optionId": "OPTION-001-C",
+          "titleAr": "تأجيل الفتح",
+          "descriptionAr": "تأجيل القرار حتى اكتمال الدليل والاعتماد.",
+          "expectedImpact": "تقليل مخاطرة القرار غير المكتمل.",
+          "risks": [
+            "أثر مباشر على الجدول."
+          ]
+        }
+      ],
+      "selectedOption": null,
+      "rejectedOptions": [],
+      "approvalStatus": "under-review",
+      "approvedBy": null,
+      "approvedAt": null,
+      "approvalComments": "",
+      "actionRequired": "مراجعة الخيارات وتعيين الإجراء قبل موعد التشغيل.",
+      "assignedTo": null,
+      "dueAt": "2026-07-12T12:00:00Z",
+      "escalationLevel": "elevated",
+      "status": "review",
+      "expectedImpact": {
+        "level": "high",
+        "summaryAr": "قد يؤثر عدم القرار على الافتتاح ومسار الزوار.",
+        "dimensions": {
+          "operational": "high",
+          "visitor": "high",
+          "schedule": "high",
+          "dependency": "high"
+        }
+      },
+      "actualImpact": null,
+      "outcomeStatus": "not-started",
+      "lessonsLearned": "",
+      "revision": 2,
+      "changeReason": "رفع القرار التجريبي للمراجعة.",
+      "changeHistory": [
+        {
+          "revision": 1,
+          "status": "draft",
+          "changedAt": "2026-07-10T09:00:00Z",
+          "changedBy": "منسق القرارات التجريبي",
+          "changeReason": "إنشاء مسودة القرار التجريبية."
+        },
+        {
+          "revision": 2,
+          "status": "review",
+          "changedAt": "2026-07-10T10:00:00Z",
+          "changedBy": "منسق القرارات التجريبي",
+          "changeReason": "رفع القرار التجريبي للمراجعة."
+        }
+      ],
+      "relationships": [
+        {
+          "relationId": "RELATION-001-01",
+          "decisionId": "DECISION-001",
+          "entityId": "ZONE-005",
+          "relationType": "execution-target",
+          "impactLevel": "high",
+          "descriptionAr": "العنصر الذي يستهدفه تنفيذ القرار مباشرة.",
+          "source": "ملخص الجاهزية التجريبي",
+          "confidence": "medium",
+          "stateContext": "temporary-demo"
+        },
+        {
+          "relationId": "RELATION-001-02",
+          "decisionId": "DECISION-001",
+          "entityId": "ROUTE-001",
+          "relationType": "affected",
+          "impactLevel": "high",
+          "descriptionAr": "عنصر يتأثر بنتيجة القرار أو تأخره.",
+          "source": "ملخص الجاهزية التجريبي",
+          "confidence": "medium",
+          "stateContext": "temporary-demo"
+        },
+        {
+          "relationId": "RELATION-001-03",
+          "decisionId": "DECISION-001",
+          "entityId": "ROUTE-003",
+          "relationType": "affected",
+          "impactLevel": "high",
+          "descriptionAr": "عنصر يتأثر بنتيجة القرار أو تأخره.",
+          "source": "ملخص الجاهزية التجريبي",
+          "confidence": "medium",
+          "stateContext": "temporary-demo"
+        }
+      ],
+      "completionEvidenceIds": [],
+      "completionNote": "",
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "verificationEvidenceIds": [],
+      "closedBy": null,
+      "closedAt": null,
+      "closureReason": ""
+    },
+    {
+      "decisionId": "DECISION-002",
+      "title": "تأكيد مسار الاستجابة قبل الفتح",
+      "description": "قرار تمرين محلي لمراجعة أثر السلامة قبل تشغيل المسار المرتبط.",
+      "eventId": "EVENT-DEMO-001",
+      "venueId": "VENUE-DEMO-001",
+      "stateContext": "temporary-demo",
+      "source": "مراجعة السلامة التجريبية",
+      "sourceType": "exercise",
+      "createdAt": "2026-07-10T11:00:00Z",
+      "createdBy": "مسؤول السلامة التجريبي",
+      "decisionOwner": "قائد السلامة التجريبي",
+      "responsibleParty": "مسؤول HSE التجريبي",
+      "approvingAuthority": "جهة اعتماد السلامة",
+      "problemStatement": "يوجد عائق سلامة يحتاج قرار سلطة مختصة قبل فتح المنطقة أو المسار.",
+      "decisionType": "safety",
+      "urgency": "critical",
+      "priority": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "id": "DECISION-EVIDENCE-002",
+          "type": "exercise",
+          "titleAr": "مخطط مراجعة السلامة",
+          "source": "حزمة قرارات تجريبية مؤقتة",
+          "capturedAt": "2026-07-10T10:00:00Z",
+          "status": "pending"
+        }
+      ],
+      "assumptions": [
+        "المخطط المستخدم للتمرين ليس اعتماداً رسمياً."
+      ],
+      "constraints": [
+        "لا يمكن اعتبار المسار آمناً أو معتمداً من هذه الشاشة."
+      ],
+      "availableOptions": [
+        {
+          "optionId": "OPTION-002-A",
+          "titleAr": "إيقاف الفتح",
+          "descriptionAr": "إبقاء المنطقة مغلقة حتى اعتماد HSE.",
+          "expectedImpact": "خفض أثر خطر السلامة.",
+          "risks": [
+            "قد يؤثر على الجدول."
+          ]
+        },
+        {
+          "optionId": "OPTION-002-B",
+          "titleAr": "تغيير التوجيه",
+          "descriptionAr": "استخدام مسار بديل بعد اعتماده.",
+          "expectedImpact": "تقليل الاعتماد على المسار الحالي.",
+          "risks": [
+            "يتطلب هندسة وموافقة بديلة."
+          ]
+        }
+      ],
+      "selectedOption": null,
+      "rejectedOptions": [],
+      "approvalStatus": "under-review",
+      "approvedBy": null,
+      "approvedAt": null,
+      "approvalComments": "",
+      "actionRequired": "إحالة القرار إلى جهة اعتماد السلامة وتوثيق النتيجة.",
+      "assignedTo": "مسؤول HSE التجريبي",
+      "dueAt": "2026-07-11T13:00:00Z",
+      "escalationLevel": "urgent",
+      "status": "review",
+      "expectedImpact": {
+        "level": "high",
+        "summaryAr": "قرار السلامة يؤثر على فتح المنطقة ومسار الاستجابة.",
+        "dimensions": {
+          "safety": "high",
+          "operational": "high",
+          "schedule": "medium"
+        }
+      },
+      "actualImpact": null,
+      "outcomeStatus": "not-started",
+      "lessonsLearned": "",
+      "revision": 2,
+      "changeReason": "رفع قرار تمرين السلامة للمراجعة.",
+      "changeHistory": [
+        {
+          "revision": 1,
+          "status": "draft",
+          "changedAt": "2026-07-10T11:00:00Z",
+          "changedBy": "مسؤول السلامة التجريبي",
+          "changeReason": "إنشاء مسودة قرار تمرين السلامة."
+        },
+        {
+          "revision": 2,
+          "status": "review",
+          "changedAt": "2026-07-10T11:30:00Z",
+          "changedBy": "مسؤول السلامة التجريبي",
+          "changeReason": "رفع قرار تمرين السلامة للمراجعة."
+        }
+      ],
+      "relationships": [
+        {
+          "relationId": "RELATION-002-01",
+          "decisionId": "DECISION-002",
+          "entityId": "ZONE-006",
+          "relationType": "execution-target",
+          "impactLevel": "high",
+          "descriptionAr": "العنصر الذي يستهدفه تنفيذ القرار مباشرة.",
+          "source": "مراجعة السلامة التجريبية",
+          "confidence": "medium",
+          "stateContext": "temporary-demo"
+        },
+        {
+          "relationId": "RELATION-002-02",
+          "decisionId": "DECISION-002",
+          "entityId": "ROUTE-002",
+          "relationType": "affected",
+          "impactLevel": "high",
+          "descriptionAr": "عنصر يتأثر بنتيجة القرار أو تأخره.",
+          "source": "مراجعة السلامة التجريبية",
+          "confidence": "medium",
+          "stateContext": "temporary-demo"
+        },
+        {
+          "relationId": "RELATION-002-03",
+          "decisionId": "DECISION-002",
+          "entityId": "GATE-003",
+          "relationType": "affected",
+          "impactLevel": "high",
+          "descriptionAr": "عنصر يتأثر بنتيجة القرار أو تأخره.",
+          "source": "مراجعة السلامة التجريبية",
+          "confidence": "medium",
+          "stateContext": "temporary-demo"
+        }
+      ],
+      "completionEvidenceIds": [],
+      "completionNote": "",
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "verificationEvidenceIds": [],
+      "closedBy": null,
+      "closedAt": null,
+      "closureReason": ""
+    },
+    {
+      "decisionId": "DECISION-003",
+      "title": "إعادة توزيع نقطة التوجيه",
+      "description": "قرار تجريبي لمقارنة خيارات تحسين تجربة الزائر عند نقطة التوجيه.",
+      "eventId": "EVENT-DEMO-001",
+      "venueId": "VENUE-DEMO-001",
+      "stateContext": "temporary-demo",
+      "source": "مصدر غير مكتمل في بيانات العرض",
+      "sourceType": "manual-update",
+      "createdAt": "2026-07-10T12:00:00Z",
+      "createdBy": "مستخدم العرض المحلي",
+      "decisionOwner": "مالك تجربة الزائر التجريبي",
+      "responsibleParty": "مشرف التوجيه التجريبي",
+      "approvingAuthority": "قائد تجربة الزائر",
+      "problemStatement": "تحتاج نقطة التوجيه إلى خيار واضح قبل زيادة الحركة.",
+      "decisionType": "visitor-experience",
+      "urgency": "medium",
+      "priority": 0,
+      "confidence": "low",
+      "evidence": [],
+      "assumptions": [
+        "لا توجد قراءة ميدانية مرفقة بهذا القرار."
+      ],
+      "constraints": [
+        "الخيارات وصفية ولا تمثل تجربة تشغيلية."
+      ],
+      "availableOptions": [
+        {
+          "optionId": "OPTION-003-A",
+          "titleAr": "توسيع نقطة التوجيه",
+          "descriptionAr": "تخصيص مساحة أكبر للتوجيه.",
+          "expectedImpact": "تحسين وضوح المسار.",
+          "risks": [
+            "قد يحتاج موارد إضافية."
+          ]
+        },
+        {
+          "optionId": "OPTION-003-B",
+          "titleAr": "إضافة فريق توجيه",
+          "descriptionAr": "تعيين مسؤول إضافي في الموقع.",
+          "expectedImpact": "استجابة أسرع للاستفسارات.",
+          "risks": [
+            "لا يوجد تعيين فعلي حالياً."
+          ]
+        }
+      ],
+      "selectedOption": null,
+      "rejectedOptions": [],
+      "approvalStatus": "draft",
+      "approvedBy": null,
+      "approvedAt": null,
+      "approvalComments": "",
+      "actionRequired": "استكمال المصدر والدليل قبل رفع القرار للمراجعة.",
+      "assignedTo": null,
+      "dueAt": "2026-07-14T10:00:00Z",
+      "escalationLevel": "watch",
+      "status": "draft",
+      "expectedImpact": {
+        "level": "medium",
+        "summaryAr": "قد يتحسن وضوح مسار الزائر إذا اكتمل الدليل.",
+        "dimensions": {
+          "visitor": "medium",
+          "operational": "low"
+        }
+      },
+      "actualImpact": null,
+      "outcomeStatus": "not-measured",
+      "lessonsLearned": "",
+      "revision": 1,
+      "changeReason": "إنشاء مسودة قرار تجربة الزائر.",
+      "changeHistory": [
+        {
+          "revision": 1,
+          "status": "draft",
+          "changedAt": "2026-07-10T12:00:00Z",
+          "changedBy": "مستخدم العرض المحلي",
+          "changeReason": "إنشاء مسودة قرار تجربة الزائر."
+        }
+      ],
+      "relationships": [
+        {
+          "relationId": "RELATION-003-01",
+          "decisionId": "DECISION-003",
+          "entityId": "ZONE-002",
+          "relationType": "execution-target",
+          "impactLevel": "medium",
+          "descriptionAr": "العنصر الذي يستهدفه تنفيذ القرار مباشرة.",
+          "source": "مصدر غير مكتمل في بيانات العرض",
+          "confidence": "low",
+          "stateContext": "temporary-demo"
+        },
+        {
+          "relationId": "RELATION-003-02",
+          "decisionId": "DECISION-003",
+          "entityId": "ROUTE-001",
+          "relationType": "affected",
+          "impactLevel": "medium",
+          "descriptionAr": "عنصر يتأثر بنتيجة القرار أو تأخره.",
+          "source": "مصدر غير مكتمل في بيانات العرض",
+          "confidence": "low",
+          "stateContext": "temporary-demo"
+        }
+      ],
+      "completionEvidenceIds": [],
+      "completionNote": "",
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "verificationEvidenceIds": [],
+      "closedBy": null,
+      "closedAt": null,
+      "closureReason": ""
+    },
+    {
+      "decisionId": "DECISION-004",
+      "title": "تثبيت نقطة الدعم التابعة",
+      "description": "قرار تشغيلي تجريبي يتابع اعتماد نقطة الدعم على إغلاق ممر الخدمات.",
+      "eventId": "EVENT-DEMO-001",
+      "venueId": "VENUE-DEMO-001",
+      "stateContext": "temporary-demo",
+      "source": "سجل الخدمات الطبية التجريبي",
+      "sourceType": "temporary-demo",
+      "createdAt": "2026-07-10T15:30:00Z",
+      "createdBy": "منسق القرارات التجريبي",
+      "decisionOwner": "قائد الخدمات التجريبي",
+      "responsibleParty": "مشرف نقطة الدعم الطبي",
+      "approvingAuthority": "قائد التشغيل التجريبي",
+      "problemStatement": "تتأثر نقطة الدعم بإغلاق عائق منطقة أخرى.",
+      "decisionType": "logistics",
+      "urgency": "medium",
+      "priority": 0,
+      "confidence": "high",
+      "evidence": [
+        {
+          "id": "DECISION-EVIDENCE-004",
+          "type": "exercise",
+          "titleAr": "قائمة تجهيز نقطة الدعم",
+          "source": "حزمة قرارات تجريبية مؤقتة",
+          "capturedAt": "2026-07-10T10:00:00Z",
+          "status": "verified"
+        }
+      ],
+      "assumptions": [
+        "اعتماد المنطقة التابعة على المنطقة upstream كما هو موصوف في بيانات العرض."
+      ],
+      "constraints": [
+        "المسار التجريبي غير معتمد."
+      ],
+      "availableOptions": [
+        {
+          "optionId": "OPTION-004-A",
+          "titleAr": "الانتظار المنسق",
+          "descriptionAr": "إبقاء الإجراء معلقاً حتى إغلاق العائق upstream.",
+          "expectedImpact": "منع تنفيذ منفصل غير متسق.",
+          "risks": [
+            "قد يؤخر نقطة الدعم."
+          ]
+        }
+      ],
+      "selectedOption": "OPTION-004-A",
+      "rejectedOptions": [],
+      "approvalStatus": "approved",
+      "approvedBy": "مراجع التشغيل التجريبي",
+      "approvedAt": "2026-07-10T17:00:00Z",
+      "approvalComments": "اعتماد محلي لبيانات العرض فقط.",
+      "actionRequired": "متابعة إغلاق المنطقة upstream ثم إعادة التحقق.",
+      "assignedTo": "مشرف نقطة الدعم الطبي",
+      "dueAt": "2026-07-12T18:00:00Z",
+      "escalationLevel": "elevated",
+      "status": "assigned",
+      "expectedImpact": {
+        "level": "medium",
+        "summaryAr": "يحمي الاعتماد بين المنطقة التابعة وممر الخدمات.",
+        "dimensions": {
+          "dependency": "high",
+          "operational": "medium",
+          "safety": "medium"
+        }
+      },
+      "actualImpact": null,
+      "outcomeStatus": "pending",
+      "lessonsLearned": "",
+      "revision": 4,
+      "changeReason": "إسناد تنفيذ خيار الانتظار المنسق.",
+      "changeHistory": [
+        {
+          "revision": 1,
+          "status": "draft",
+          "changedAt": "2026-07-10T15:30:00Z",
+          "changedBy": "منسق القرارات التجريبي",
+          "changeReason": "إنشاء مسودة القرار."
+        },
+        {
+          "revision": 2,
+          "status": "review",
+          "changedAt": "2026-07-10T16:00:00Z",
+          "changedBy": "منسق القرارات التجريبي",
+          "changeReason": "رفع القرار للمراجعة."
+        },
+        {
+          "revision": 3,
+          "status": "approved",
+          "changedAt": "2026-07-10T17:00:00Z",
+          "changedBy": "مراجع التشغيل التجريبي",
+          "changeReason": "اعتماد خيار الانتظار المنسق."
+        },
+        {
+          "revision": 4,
+          "status": "assigned",
+          "changedAt": "2026-07-10T17:15:00Z",
+          "changedBy": "مراجع التشغيل التجريبي",
+          "changeReason": "إسناد تنفيذ خيار الانتظار المنسق."
+        }
+      ],
+      "relationships": [
+        {
+          "relationId": "RELATION-004-01",
+          "decisionId": "DECISION-004",
+          "entityId": "ZONE-007",
+          "relationType": "execution-target",
+          "impactLevel": "medium",
+          "descriptionAr": "العنصر الذي يستهدفه تنفيذ القرار مباشرة.",
+          "source": "سجل الخدمات الطبية التجريبي",
+          "confidence": "high",
+          "stateContext": "temporary-demo"
+        },
+        {
+          "relationId": "RELATION-004-02",
+          "decisionId": "DECISION-004",
+          "entityId": "ZONE-005",
+          "relationType": "affected",
+          "impactLevel": "medium",
+          "descriptionAr": "عنصر يتأثر بنتيجة القرار أو تأخره.",
+          "source": "سجل الخدمات الطبية التجريبي",
+          "confidence": "high",
+          "stateContext": "temporary-demo"
+        },
+        {
+          "relationId": "RELATION-004-03",
+          "decisionId": "DECISION-004",
+          "entityId": "ROUTE-003",
+          "relationType": "affected",
+          "impactLevel": "medium",
+          "descriptionAr": "عنصر يتأثر بنتيجة القرار أو تأخره.",
+          "source": "سجل الخدمات الطبية التجريبي",
+          "confidence": "high",
+          "stateContext": "temporary-demo"
+        }
+      ],
+      "completionEvidenceIds": [],
+      "completionNote": "",
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "verificationEvidenceIds": [],
+      "closedBy": null,
+      "closedAt": null,
+      "closureReason": ""
+    },
+    {
+      "decisionId": "DECISION-005",
+      "title": "إغلاق ملاحظة جودة التوجيه",
+      "description": "قرار تجريبي مغلق يوضح دورة التحقق وقياس الأثر بعد التنفيذ.",
+      "eventId": "EVENT-DEMO-001",
+      "venueId": "VENUE-DEMO-001",
+      "stateContext": "temporary-demo",
+      "source": "قائمة جودة تجريبية",
+      "sourceType": "approved-plan",
+      "createdAt": "2026-07-08T09:00:00Z",
+      "createdBy": "قائد الجودة التجريبي",
+      "decisionOwner": "قائد الجودة التجريبي",
+      "responsibleParty": "مشرف الساحة",
+      "approvingAuthority": "قائد التشغيل التجريبي",
+      "problemStatement": "احتاجت ملاحظة جودة التوجيه إلى إجراء موثق ثم تحقق من الإغلاق.",
+      "decisionType": "quality",
+      "urgency": "low",
+      "priority": 0,
+      "confidence": "high",
+      "evidence": [
+        {
+          "id": "DECISION-EVIDENCE-005",
+          "type": "exercise",
+          "titleAr": "قائمة تحقق جودة التوجيه",
+          "source": "حزمة قرارات تجريبية مؤقتة",
+          "capturedAt": "2026-07-10T10:00:00Z",
+          "status": "verified"
+        }
+      ],
+      "assumptions": [],
+      "constraints": [],
+      "availableOptions": [
+        {
+          "optionId": "OPTION-005-A",
+          "titleAr": "تحديث التوجيه",
+          "descriptionAr": "تحديث نقطة التوجيه وفق القائمة.",
+          "expectedImpact": "تحسين وضوح التعليمات.",
+          "risks": []
+        }
+      ],
+      "selectedOption": "OPTION-005-A",
+      "rejectedOptions": [],
+      "approvalStatus": "approved",
+      "approvedBy": "قائد التشغيل التجريبي",
+      "approvedAt": "2026-07-08T12:00:00Z",
+      "approvalComments": "اعتماد محلي لتمرين دورة القرار.",
+      "actionRequired": "حفظ درس مستفاد بعد التحقق.",
+      "assignedTo": "مشرف الساحة",
+      "dueAt": "2026-07-09T12:00:00Z",
+      "escalationLevel": "none",
+      "status": "closed",
+      "expectedImpact": {
+        "level": "low",
+        "summaryAr": "تحسين وضوح التوجيه في الحالة التجريبية.",
+        "dimensions": {
+          "visitor": "low",
+          "operational": "low"
+        }
+      },
+      "actualImpact": {
+        "level": "low",
+        "summaryAr": "تم التحقق من إغلاق الملاحظة في بيانات العرض.",
+        "dimensions": {
+          "visitor": "low",
+          "operational": "low"
+        }
+      },
+      "outcomeStatus": "positive",
+      "lessonsLearned": "تظهر قيمة القرار عندما يرتبط الإجراء بدليل تحقق واضح.",
+      "revision": 8,
+      "changeReason": "إغلاق القرار بعد تحقق تجريبي.",
+      "changeHistory": [
+        {
+          "revision": 1,
+          "status": "draft",
+          "changedAt": "2026-07-08T09:00:00Z",
+          "changedBy": "قائد الجودة التجريبي",
+          "changeReason": "إنشاء القرار."
+        },
+        {
+          "revision": 2,
+          "status": "review",
+          "changedAt": "2026-07-08T10:00:00Z",
+          "changedBy": "قائد الجودة التجريبي",
+          "changeReason": "رفع القرار للمراجعة."
+        },
+        {
+          "revision": 3,
+          "status": "approved",
+          "changedAt": "2026-07-08T12:00:00Z",
+          "changedBy": "قائد التشغيل التجريبي",
+          "changeReason": "اعتماد خيار تحديث التوجيه."
+        },
+        {
+          "revision": 4,
+          "status": "assigned",
+          "changedAt": "2026-07-08T12:15:00Z",
+          "changedBy": "قائد التشغيل التجريبي",
+          "changeReason": "إسناد تحديث التوجيه إلى مشرف الساحة."
+        },
+        {
+          "revision": 5,
+          "status": "in-progress",
+          "changedAt": "2026-07-09T09:00:00Z",
+          "changedBy": "مشرف الساحة",
+          "changeReason": "بدء تنفيذ تحديث التوجيه."
+        },
+        {
+          "revision": 6,
+          "status": "completed",
+          "changedAt": "2026-07-09T12:00:00Z",
+          "changedBy": "مشرف الساحة",
+          "changeReason": "اكتمال تحديث التوجيه وحفظ دليل الإكمال."
+        },
+        {
+          "revision": 7,
+          "status": "verified",
+          "changedAt": "2026-07-09T13:00:00Z",
+          "changedBy": "مراجع الجودة التجريبي",
+          "changeReason": "توثيق التحقق من النتيجة."
+        },
+        {
+          "revision": 8,
+          "status": "closed",
+          "changedAt": "2026-07-09T14:00:00Z",
+          "changedBy": "قائد الجودة التجريبي",
+          "changeReason": "إغلاق القرار بعد تحقق تجريبي."
+        }
+      ],
+      "relationships": [
+        {
+          "relationId": "RELATION-005-01",
+          "decisionId": "DECISION-005",
+          "entityId": "ZONE-004",
+          "relationType": "execution-target",
+          "impactLevel": "low",
+          "descriptionAr": "العنصر الذي يستهدفه تنفيذ القرار مباشرة.",
+          "source": "قائمة جودة تجريبية",
+          "confidence": "high",
+          "stateContext": "temporary-demo"
+        }
+      ],
+      "completionEvidenceIds": [
+        "DECISION-EVIDENCE-005"
+      ],
+      "completionNote": "اكتمل تحديث التوجيه وفق قائمة التحقق التجريبية.",
+      "verifiedBy": "مراجع الجودة التجريبي",
+      "verifiedAt": "2026-07-09T13:00:00Z",
+      "verificationEvidenceIds": [
+        "DECISION-EVIDENCE-005"
+      ],
+      "closedBy": "قائد الجودة التجريبي",
+      "closedAt": "2026-07-09T14:00:00Z",
+      "closureReason": "اكتمل الإجراء وقياس أثره وتوثيق دليل التحقق المحلي."
+    }
+  ]
+}

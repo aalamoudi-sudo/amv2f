@@ -1,0 +1,118 @@
+/* Kinetic Dramaturgy: temporal evolution only. Spatial data and visual art direction remain frozen. */
+.kaga-delight {
+  --kaga-motion-cinematic-descent: 3.8s cubic-bezier(.16, 1, .3, 1);
+  --kaga-motion-spatial-approach: 3.2s cubic-bezier(.2, .78, .2, 1);
+  --kaga-motion-arrival-settle: 2.6s cubic-bezier(.22, 1, .36, 1);
+  --kaga-motion-aperture-expand: 5.2s cubic-bezier(.76, 0, .24, 1);
+  --kaga-motion-xray-focus: 2.2s cubic-bezier(.16, 1, .3, 1);
+  --kaga-motion-spatial-collapse: 3.8s cubic-bezier(.76, 0, .24, 1);
+}
+
+.kaga-delight-map-world__map {
+  transform-origin: var(--delight-focus-x) var(--delight-focus-y);
+  transition:
+    transform var(--kaga-motion-spatial-approach),
+    transform-origin var(--kaga-motion-spatial-approach),
+    filter 1.15s cubic-bezier(.22, 1, .36, 1),
+    opacity .8s cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+
+.kaga-delight-map-world[data-camera='site-reveal'] .kaga-delight-map-world__map { transform: scale(1.03); }
+.kaga-delight-map-world[data-camera='route-origin'] .kaga-delight-map-world__map { transform: scale(1.13); }
+.kaga-delight-map-world[data-camera='route-awakening'] .kaga-delight-map-world__map { transform: scale(1.21); }
+.kaga-delight-map-world[data-camera='approach-b'] .kaga-delight-map-world__map { transform: scale(1.31); }
+.kaga-delight-map-world[data-camera='travel-ab'] .kaga-delight-map-world__map { transform: scale(1.38); }
+.kaga-delight-map-world[data-camera='travel-bc'] .kaga-delight-map-world__map { transform: scale(1.47); }
+.kaga-delight-map-world[data-camera='arrival-approach'] .kaga-delight-map-world__map { transform: scale(1.56); filter: saturate(.97) contrast(1.012); }
+.kaga-delight-map-world[data-camera='arrival-settle'] .kaga-delight-map-world__map { transform: scale(1.63); filter: saturate(.92) contrast(1.02); transition-duration: 2.6s,2.6s,1.2s,.8s; }
+.kaga-delight-map-world[data-camera='aperture-origin'] .kaga-delight-map-world__map,
+.kaga-delight-map-world[data-camera='aperture-expand'] .kaga-delight-map-world__map { transform: scale(1.68); filter: saturate(.86) contrast(1.025); }
+.kaga-delight-map-world[data-camera='return-c'] .kaga-delight-map-world__map { transform: scale(1.55); }
+.kaga-delight-map-world[data-camera='garden-approach'] .kaga-delight-map-world__map { transform: scale(1.44); }
+.kaga-delight-map-world[data-camera='garden-glimpse'] .kaga-delight-map-world__map { transform: scale(1.59); filter: saturate(1.03) contrast(1.01); }
+.kaga-delight-map-world[data-camera='royal-trace'] .kaga-delight-map-world__map,
+.kaga-delight-map-world[data-camera='royal-hold'] .kaga-delight-map-world__map { transform: scale(1.38); filter: saturate(.72) brightness(.86); }
+
+.kaga-delight-map-world[data-camera='route-awakening'] .kaga-v2-registered-map__source-segments polyline[data-state='current'],
+.kaga-delight-map-world[data-camera='approach-b'] .kaga-v2-registered-map__source-segments polyline[data-state='current'],
+.kaga-delight-map-world[data-camera='travel-ab'] .kaga-v2-registered-map__source-segments polyline[data-state='current'],
+.kaga-delight-map-world[data-camera='travel-bc'] .kaga-v2-registered-map__source-segments polyline[data-state='current'] {
+  animation: kaga-kinetic-route-awaken 1.8s cubic-bezier(.16, 1, .3, 1) both;
+}
+@keyframes kaga-kinetic-route-awaken { from { stroke-dashoffset: 48; opacity: .18; } to { stroke-dashoffset: 0; opacity: 1; } }
+
+.kaga-delight-itinerary,
+.kaga-delight-now {
+  transition: opacity .9s cubic-bezier(.22, 1, .36, 1), transform 1.2s cubic-bezier(.22, 1, .36, 1);
+}
+.kaga-delight-map-world:is([data-camera='travel-ab'],[data-camera='travel-bc'],[data-camera='arrival-approach']) .kaga-delight-itinerary { opacity: .42; transform: translateY(.6rem); }
+.kaga-delight-map-world:is([data-camera='travel-ab'],[data-camera='travel-bc']) .kaga-delight-now { opacity: .58; transform: translateY(.45rem); }
+.kaga-delight-map-world[data-camera='arrival-settle'] .kaga-delight-itinerary { opacity: .56; }
+.kaga-delight-map-world[data-camera='arrival-settle'] .kaga-delight-now { opacity: 1; transform: translateY(-.4rem); }
+.kaga-delight-map-world:is([data-camera='garden-approach'],[data-camera='garden-glimpse']) .kaga-delight-now { opacity: .78; }
+.kaga-delight-map-world:is([data-camera='royal-trace'],[data-camera='royal-hold']) :is(.kaga-delight-itinerary,.kaga-delight-now) { opacity: .12; }
+
+.kaga-delight-spatial-aperture {
+  animation: kaga-kinetic-aperture 4.8s cubic-bezier(.76, 0, .24, 1) both;
+}
+@keyframes kaga-kinetic-aperture {
+  0% { opacity: 0; transform: translate(-50%,-50%) scale(.2); }
+  32% { opacity: 1; transform: translate(-50%,-50%) scale(.82); }
+  100% { opacity: .18; transform: translate(-50%,-50%) scale(5.2); }
+}
+
+.kaga-delight-experience__visual img {
+  animation: none;
+  transform-origin: center;
+  will-change: transform;
+}
+.kaga-delight-experience[data-xray='true'] > article {
+  top: 6vh;
+  right: 5vw;
+  bottom: auto;
+  width: min(32rem, 33vw);
+  opacity: .32;
+  transform: translateY(0);
+}
+.kaga-delight-experience[data-xray='true'] > article h2 {
+  max-width: 18ch;
+  font-size: clamp(1.7rem, 2.35vw, 3.3rem);
+  line-height: 1.1;
+}
+.kaga-delight-experience[data-xray='true'] > article :is(span,button) { opacity: .55; }
+.kaga-delight-experience[data-returning='true'] > article { opacity: 0; transform: translateY(1rem); transition: opacity .6s ease,transform .8s ease; }
+
+.kaga-delight-xray > div { opacity: .06 !important; transition: opacity var(--kaga-motion-xray-focus),transform var(--kaga-motion-xray-focus),filter var(--kaga-motion-xray-focus); }
+.kaga-delight-xray > div[data-past='true'] { opacity: .24 !important; }
+.kaga-delight-xray > div[data-active='true'] { opacity: 1 !important; transform: translateX(-.75rem) !important; }
+.kaga-delight-xray > div[data-active='true'] > i { animation-duration: 1.05s; }
+
+.kaga-delight-director { transition: opacity .45s cubic-bezier(.22,1,.36,1); }
+.kaga-delight[data-running='true'][data-act='journey'] .kaga-delight-director,
+.kaga-delight[data-act='experience'] .kaga-delight-director,
+.kaga-delight[data-act='depth'] .kaga-delight-director { opacity: .08; }
+.kaga-delight[data-running='true'][data-act='journey'] .kaga-delight-director:hover,
+.kaga-delight[data-act='experience'] .kaga-delight-director:hover,
+.kaga-delight[data-act='depth'] .kaga-delight-director:hover,
+.kaga-delight[data-exploring='true'] .kaga-delight-director { opacity: 1; }
+
+.kaga-delight-tease {
+  position: absolute;
+  z-index: 28;
+  inset: 0;
+  overflow: hidden;
+  background: #0d201a;
+}
+.kaga-delight-tease::after { position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,20,15,.7),transparent 58%),linear-gradient(180deg,transparent 52%,rgba(5,18,14,.5));content:""; }
+.kaga-delight-tease > img { width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.93) contrast(1.03); }
+.kaga-delight-tease > div { position:absolute;z-index:2;right:6vw;bottom:9vh;color:#fff;text-shadow:0 .25rem 1.2rem rgba(4,18,13,.48); }
+.kaga-delight-tease small { color:#f1d796; }
+.kaga-delight-tease h2 { margin:.45rem 0;color:#fff;font-size:clamp(4rem,6vw,8rem); }
+.kaga-delight-tease button { color:#fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kaga-delight-map-world__map,
+  .kaga-delight-spatial-aperture,
+  .kaga-delight-experience__visual img { animation: none !important; transition-duration: .01ms !important; }
+}

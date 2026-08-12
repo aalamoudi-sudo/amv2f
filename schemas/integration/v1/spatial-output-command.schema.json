@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mayadeen.local/integration/v1/spatial-output-command.schema.json",
+  "title": "Mayadeen Spatial Output Command",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["commandId", "commandContentHash", "deliveryAttemptId", "schemaVersion", "outputType", "projectionVersion", "projectionContentHash", "outputProfileVersion", "mappingVersion", "stateContext", "visualStates", "issuedAt", "expiresAt", "sequence", "sourceEventIds"],
+  "properties": {
+    "commandId": { "type": "string", "minLength": 1 },
+    "commandContentHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "deliveryAttemptId": { "type": "string", "minLength": 1 },
+    "schemaVersion": { "const": "1.0.0" },
+    "outputType": { "enum": ["spatial-2d", "spatial-3d", "geospatial"] },
+    "projectionVersion": { "type": "string", "pattern": "^PROJECTION-v1-[a-fA-F0-9]{64}$" },
+    "projectionContentHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "outputProfileVersion": { "type": "string", "minLength": 1 },
+    "mappingVersion": { "type": "string", "minLength": 1 },
+    "stateContext": { "enum": ["temporary-demo", "baseline", "scenario"] },
+    "visualStates": { "type": "array", "items": { "$ref": "#/$defs/visualState" } },
+    "issuedAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "sourceEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+  },
+  "$defs": {
+    "visualState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entityId", "zoneId", "projectionVersion", "projectionContentHash", "stateContext", "mappingVersion", "visualState", "colorToken", "label", "routeIds", "highlight", "spatialReference", "issuedAt", "expiresAt", "sourceEventIds"],
+      "properties": {
+        "entityId": { "type": "string", "minLength": 1 },
+        "zoneId": { "type": ["string", "null"] },
+        "projectionVersion": { "type": "string", "minLength": 1 },
+        "projectionContentHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+        "stateContext": { "enum": ["temporary-demo", "baseline", "scenario"] },
+        "mappingVersion": { "type": "string", "minLength": 1 },
+        "visualState": { "type": "string", "minLength": 1 },
+        "colorToken": { "enum": ["neutral", "reported", "verified", "approved", "blocked"] },
+        "label": { "type": "string", "minLength": 1 },
+        "routeIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "highlight": { "type": "boolean" },
+        "spatialReference": { "type": "string", "minLength": 1 },
+        "issuedAt": { "type": "string", "format": "date-time" },
+        "expiresAt": { "type": "string", "format": "date-time" },
+        "sourceEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    }
+  }
+}

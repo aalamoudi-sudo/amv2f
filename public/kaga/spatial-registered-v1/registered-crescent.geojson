@@ -1,0 +1,11 @@
+{
+  "type": "FeatureCollection",
+  "features": [],
+  "metadata": {
+    "designation": "KAGA-SPATIAL-REGISTERED-V1",
+    "coordinateSpace": "KAGA-SOURCE-2D-V1",
+    "canonicalEntityId": "crescentBuilding",
+    "confidence": "unresolved",
+    "reason": "Explicit Crescent XREF geometry could not be defensibly reconciled to the frozen Gate 1 coordinate contract; the Gate 1 circular candidate is not a building footprint."
+  }
+}

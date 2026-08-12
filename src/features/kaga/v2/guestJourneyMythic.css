@@ -1,0 +1,96 @@
+.kaga-mythic-guest{display:flex;min-height:0;height:100%;flex-direction:column;color:var(--kaga-source-route-teal);font-family:var(--kaga-pf-font)}
+.kaga-mythic-map-stage{position:relative;width:100%;height:100%;overflow:hidden;background:var(--kaga-source-route-page)}
+.kaga-mythic-map-stage>.kaga-v2-registered-map{height:100%}
+.kaga-mythic-map-stage[data-journey=guests]>.kaga-v2-registered-map>svg{transform:scale(1.1);transform-origin:54% 48%;transition:transform .65s cubic-bezier(.22,.61,.36,1)}
+.kaga-mythic-map-stage .kaga-map-reading-switcher{position:absolute;z-index:8;top:1rem;right:1rem;display:flex;gap:.25rem;border-block:1px solid color-mix(in srgb,var(--kaga-source-route-gold) 45%,transparent);padding:.28rem .5rem;background:color-mix(in srgb,var(--kaga-source-route-surface) 92%,transparent);backdrop-filter:blur(8px)}
+.kaga-mythic-map-stage .kaga-map-reading-switcher button{border:0;border-block-end:1px solid transparent;padding:.32rem .58rem;color:#667773;background:transparent;font-size:.62rem;cursor:pointer}
+.kaga-mythic-map-stage .kaga-map-reading-switcher button[aria-pressed=true]{border-color:var(--kaga-source-route-orange);color:var(--kaga-source-route-teal)}
+.kaga-v2-registered-map__canonical{transition:opacity .55s ease,filter .55s ease}
+.kaga-v2-registered-map[data-reading=illustrated] .kaga-v2-registered-map__canonical{opacity:.13;filter:grayscale(.35)}
+.kaga-v2-registered-map[data-reading=story] .kaga-v2-registered-map__canonical{opacity:.26;filter:grayscale(.55)}
+.kaga-mythic-map-stage .kaga-illustrated-layer{opacity:1}
+.kaga-mythic-map-stage .kaga-illustrated-layers[data-reading=story] .kaga-illustrated-layer{opacity:.6}
+.kaga-mythic-map-stage .kaga-illustrated-hotspot{display:none}
+.kaga-v2-registered-map[data-source-fidelity=true] .kaga-v2-registered-map__route{opacity:.04}
+.kaga-v2-registered-map__source-segments polyline{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;transition:opacity .48s ease,stroke .48s ease,stroke-width .48s ease}
+.kaga-v2-registered-map__source-segments polyline[data-movement=car]{stroke:var(--kaga-source-route-green)}
+.kaga-v2-registered-map__source-segments polyline[data-movement=transfer]{stroke:#2f76a1;stroke-dasharray:12 7}
+.kaga-v2-registered-map__source-segments polyline[data-movement=tour]{stroke:#8b5a97}
+.kaga-v2-registered-map__source-segments polyline[data-movement=exit]{stroke:var(--kaga-source-route-orange);stroke-dasharray:14 8}
+.kaga-v2-registered-map__source-segments polyline[data-state=complete]{opacity:.22;stroke-width:3.8}
+.kaga-v2-registered-map__source-segments polyline[data-state=current]{opacity:1;stroke:var(--kaga-source-route-gold);stroke-width:7}
+.kaga-v2-registered-map__source-segments polyline[data-state=next]{opacity:.82;stroke-width:5.6}
+.kaga-v2-registered-map__source-segments polyline[data-state=future]{opacity:.4;stroke-width:4.2}
+.kaga-pf-masterplan .kaga-v2-registered-map__stop circle{fill:var(--kaga-source-route-navy);stroke:var(--kaga-source-route-surface)}
+.kaga-pf-masterplan .kaga-v2-registered-map__stop[data-active=true] circle{fill:var(--kaga-source-route-orange);stroke:var(--kaga-source-route-navy)}
+.kaga-pf-masterplan .kaga-v2-registered-map__route{stroke:var(--kaga-source-route-green)}
+.kaga-mythic-guest__header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;border-block-end:1px solid var(--kaga-source-route-gold);padding-block-end:.72rem}
+.kaga-mythic-guest__header p{margin:0 0 .18rem;color:var(--kaga-source-route-orange);font-size:.62rem;letter-spacing:.08em}
+.kaga-mythic-guest__header h1{margin:0;color:var(--kaga-source-route-teal);font:500 clamp(1.65rem,2vw,2.55rem)/1.27 var(--kaga-pf-font)}
+.kaga-mythic-guest__header span{display:block;margin-top:.28rem;color:var(--kaga-source-route-navy);font-size:.72rem}
+.kaga-mythic-guest__story{max-width:9rem;border:0;border-block-end:1px solid var(--kaga-source-route-orange);padding:.3rem 0;color:var(--kaga-source-route-teal);background:transparent;font-size:.68rem;line-height:1.6;cursor:pointer}
+.kaga-mythic-guest__transport{display:flex;justify-content:space-between;gap:.4rem;padding:.58rem 0;color:#858c89}
+.kaga-mythic-guest__transport span{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;white-space:nowrap}
+.kaga-mythic-guest__transport svg{width:.86rem;height:.86rem;stroke-width:1.5}
+.kaga-mythic-guest__transport span[data-active=true]{color:var(--kaga-source-route-navy);font-weight:700}
+.kaga-mythic-rail{position:relative;display:flex;flex-direction:column;border-block:1px solid var(--kaga-source-route-divider,#d7ccc5);padding:.28rem 0}
+.kaga-mythic-rail::before{position:absolute;z-index:0;inset-block:.98rem;inset-inline-start:.78rem;width:1px;background:var(--kaga-source-route-divider,#d7ccc5);content:""}
+.kaga-mythic-rail button{position:relative;z-index:1;display:grid;min-width:0;grid-template-columns:1.6rem 1fr;align-items:center;gap:.42rem;border:0;padding:.205rem .08rem;background:transparent;color:#858c89;text-align:right;cursor:pointer}
+.kaga-mythic-rail button>b{position:relative;display:grid;width:1.48rem;height:1.48rem;place-items:center;border:1px solid #b8b9b7;border-radius:50%;color:#747a79;background:var(--kaga-source-route-surface);font:700 .63rem/1 Tahoma,sans-serif}
+.kaga-mythic-rail button>b>i{position:absolute;inset:-.22rem auto auto -.2rem;display:grid;width:.72rem;height:.72rem;place-items:center;border-radius:50%;color:var(--kaga-source-route-surface);background:var(--kaga-source-route-green);font:700 .48rem/1 Tahoma,sans-serif}
+.kaga-mythic-rail button>span{min-width:0;overflow:hidden;color:inherit;font-size:.6rem;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+.kaga-mythic-rail button small{display:inline;margin-inline-start:.35rem;color:#999f9d;font-size:.5rem}
+.kaga-mythic-rail button[data-state=complete]{color:#5d706a}
+.kaga-mythic-rail button[data-state=complete]>b{border-color:var(--kaga-source-route-green);color:var(--kaga-source-route-green)}
+.kaga-mythic-rail button[data-state=current]{color:var(--kaga-source-route-navy);font-weight:700}
+.kaga-mythic-rail button[data-state=current]::after{position:absolute;inset-inline-start:-.48rem;width:2px;height:62%;background:var(--kaga-source-route-orange);content:""}
+.kaga-mythic-rail button[data-state=current]>b{border:3px solid var(--kaga-source-route-navy);color:var(--kaga-source-route-navy);background:var(--kaga-source-route-surface)}
+.kaga-mythic-rail button[data-state=next]{color:var(--kaga-source-route-teal)}
+.kaga-mythic-rail button[data-state=next]>b{border-style:dashed;border-color:var(--kaga-source-route-orange)}
+.kaga-mythic-rail button[data-state=future]{color:#737d79}
+.kaga-mythic-rail button[data-state=future]>b{border-color:#a7aaa7;color:#737b79}
+.kaga-mythic-rail button[data-state=future]>span{font-size:.62rem}
+.kaga-mythic-stop{padding:.72rem 0 .55rem}
+.kaga-mythic-stop__identity{display:grid;grid-template-columns:2.8rem 1fr auto;align-items:center;gap:.65rem}
+.kaga-mythic-stop__identity>strong{display:grid;width:2.65rem;height:2.65rem;place-items:center;border-radius:50%;color:white;background:var(--kaga-source-route-navy);font:700 1rem/1 Tahoma,sans-serif;box-shadow:inset 0 0 0 3px var(--kaga-source-route-surface),0 0 0 1px var(--kaga-source-route-navy)}
+.kaga-mythic-stop__identity p{margin:0;color:var(--kaga-source-route-orange);font-size:.55rem}
+.kaga-mythic-stop__identity h2{margin:.1rem 0 0;color:var(--kaga-source-route-teal);font:600 clamp(.82rem,1vw,1.05rem)/1.5 var(--kaga-pf-font)}
+.kaga-mythic-stop__identity time{color:var(--kaga-source-route-green);font-size:.64rem;white-space:nowrap}
+.kaga-mythic-stop__description{margin:.5rem 0 .25rem;color:#4d5a57;font-size:.64rem;line-height:1.65}
+.kaga-mythic-stop__more{margin:.25rem 0;color:#6b716f;font-size:.55rem}
+.kaga-mythic-stop__more summary{width:max-content;border-block-end:1px solid var(--kaga-source-route-gold);color:var(--kaga-source-route-teal);cursor:pointer}
+.kaga-mythic-stop__source-detail{max-height:3.2rem;margin:.35rem 0;overflow:auto;border-inline-start:1px solid var(--kaga-source-route-gold);padding-inline-start:.55rem;color:#6b716f;font-size:.56rem;line-height:1.55;white-space:pre-line}
+.kaga-mythic-stop__next{display:grid;margin:.42rem 0 0;grid-template-columns:auto 1fr auto;align-items:center;gap:.45rem;border-block-start:1px solid rgba(188,184,180,.48);padding-top:.4rem}
+.kaga-mythic-stop__next span{color:var(--kaga-source-route-orange);font-size:.52rem}
+.kaga-mythic-stop__next b{color:var(--kaga-source-route-teal);font-size:.62rem}
+.kaga-mythic-stop__next small{color:#777f7c;font-size:.52rem}
+.kaga-mythic-stop__actions{display:flex;gap:.8rem;margin-top:.4rem}
+.kaga-mythic-stop__actions button{display:inline-flex;align-items:center;gap:.3rem;border:0;border-block-end:1px solid var(--kaga-source-route-gold);padding:.22rem 0;color:var(--kaga-source-route-teal);background:transparent;font-size:.57rem;cursor:pointer}
+.kaga-mythic-stop__actions svg{width:.75rem;height:.75rem}
+.kaga-mythic-playback{margin-top:auto;border-block-start:1px solid var(--kaga-source-route-divider,#d7ccc5);padding-top:.52rem}
+.kaga-mythic-playback>div{display:grid;grid-template-columns:2rem 1fr 2rem;gap:.35rem}
+.kaga-mythic-playback button{display:grid;min-height:2rem;place-items:center;border:1px solid rgba(8,60,88,.2);border-radius:50%;color:var(--kaga-source-route-navy);background:transparent;cursor:pointer}
+.kaga-mythic-playback button svg{width:1rem;height:1rem}
+.kaga-mythic-playback button.is-primary{border:0;border-radius:0;color:white;background:var(--kaga-source-route-green);font-size:.66rem}
+.kaga-mythic-playback label{display:grid;margin-top:.36rem;grid-template-columns:1fr auto;align-items:center;color:#747b78;font-size:.53rem}
+.kaga-mythic-playback label bdi{color:var(--kaga-source-route-navy);font-size:.6rem}
+.kaga-mythic-playback input{grid-column:1/-1;width:100%;height:2px;margin-top:.25rem;accent-color:var(--kaga-source-route-orange)}
+.kaga-mythic-guest__source-mode{display:flex;align-items:flex-start;justify-content:space-between;gap:.7rem;padding-top:.4rem}
+.kaga-mythic-guest__source-mode>button,.kaga-mythic-guest__source-mode summary{border:0;border-block-end:1px solid var(--kaga-source-route-gold);padding:.15rem 0;color:#65716e;background:transparent;font-size:.52rem;cursor:pointer}
+.kaga-mythic-guest__source-mode>button[aria-pressed=true]{color:var(--kaga-source-route-orange);border-color:var(--kaga-source-route-orange)}
+.kaga-mythic-guest__source-mode details{position:relative}
+.kaga-mythic-guest__source-mode details>p{display:flex;min-width:13rem;margin:.2rem 0;justify-content:space-between;gap:.5rem;font-size:.5rem}
+.kaga-mythic-guest__source-mode details small{color:#777f7c}
+.kaga-mythic-guest__journey-index{margin-top:.2rem;color:#6d7471;font-size:.52rem}
+.kaga-mythic-guest__journey-index summary{width:max-content;border-block-end:1px solid var(--kaga-source-route-divider,#d7ccc5);cursor:pointer}
+.kaga-mythic-guest__journey-index nav{display:grid;grid-template-columns:1fr 1fr;gap:.18rem .6rem;margin-top:.35rem}
+.kaga-mythic-guest__journey-index button{overflow:hidden;border:0;padding:.15rem 0;color:var(--kaga-source-route-teal);background:transparent;text-align:right;text-overflow:ellipsis;white-space:nowrap;font-size:.5rem;cursor:pointer}
+.kaga-mythic-ending{position:relative;margin-top:1rem;border-block:1px solid var(--kaga-source-route-gold);padding:1rem 0;overflow:hidden}
+.kaga-mythic-ending p{margin:0;color:var(--kaga-source-route-orange);font-size:.58rem}
+.kaga-mythic-ending h2{max-width:18rem;margin:.3rem 0 .7rem;color:var(--kaga-source-route-teal);font:500 1.2rem/1.5 var(--kaga-pf-font)}
+.kaga-mythic-ending div{display:flex;gap:.8rem}
+.kaga-mythic-ending button{border:0;border-block-end:1px solid var(--kaga-source-route-gold);padding:.22rem 0;color:var(--kaga-source-route-teal);background:transparent;font-size:.6rem;cursor:pointer}
+.kaga-mythic-ending svg{position:absolute;inset-inline-end:-2rem;bottom:-.5rem;width:12rem;fill:none;stroke:var(--kaga-source-route-green);stroke-width:1.2;opacity:.18}
+@media (min-width:2300px){.kaga-mythic-rail button{padding:.25rem .1rem}.kaga-mythic-stop__description{font-size:.69rem}.kaga-mythic-guest__header h1{font-size:2.45rem}}
+@media (max-width:1180px){.kaga-mythic-guest{min-height:43rem}}
+@media (prefers-reduced-motion:reduce){.kaga-mythic-guest *{scroll-behavior:auto;transition:none!important}}

@@ -1,0 +1,19 @@
+{
+  "envelopeId": "ENVELOPE-INVALID",
+  "adapterId": "adapter-system-work-order",
+  "adapterType": "system",
+  "adapterVersion": "1.0.0-local",
+  "sourceRecordId": "",
+  "sourceSystemId": "",
+  "receivedAt": "not-a-date",
+  "schemaVersion": "9.0.0",
+  "payload": {},
+  "payloadHash": "bad-hash",
+  "stateContext": "baseline-live",
+  "deviceId": null,
+  "offlineSequence": 0,
+  "correlationId": "",
+  "causationId": null,
+  "idempotencyKey": "",
+  "transportMetadata": {}
+}

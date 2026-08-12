@@ -1,0 +1,2291 @@
+{
+  "schemaVersion": "1.1.0",
+  "packId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "generatedAt": "2026-07-29T16:06:13+03:00",
+  "actors": [
+    {
+      "actorRef": "ACTOR-AHMED-FOUNDER-PLATFORM",
+      "displayNameAr": "أحمد",
+      "actorType": "person",
+      "classification": "founder-directed",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-AHMED-LIMITS"
+      ],
+      "founderDirectionReference": "TRACE-KAP-FOUNDER-AHMED-LIMITS",
+      "assignmentScope": "رؤية المنصة واتجاه المنتج وقبول قدرة المنصة",
+      "authorityLimitations": [
+        "ليس سلطة عميل.",
+        "ليس سلطة هندسية.",
+        "ليس سلطة HSE أو مسارات.",
+        "ليس سلطة افتتاح أو قبول تشغيلي نهائي."
+      ]
+    },
+    {
+      "actorRef": "ACTOR-KAP-IBRAHIM-AL-GHAMRI",
+      "displayNameAr": "إبراهيم الغمري",
+      "actorType": "person",
+      "classification": "founder-directed",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-IBRAHIM",
+        "TRACE-KAP-GOV-CONTENT-S3-S17"
+      ],
+      "founderDirectionReference": "TRACE-KAP-FOUNDER-IBRAHIM",
+      "assignmentScope": "المحتوى الإبداعي",
+      "authorityLimitations": [
+        "تعيين مسار لا يمنح قبول عميل أو اعتماد تشغيل."
+      ]
+    },
+    {
+      "actorRef": "ACTOR-KAP-JOSEPH-HADDAD",
+      "displayNameAr": "جوزيف حداد",
+      "actorType": "person",
+      "classification": "conflicting",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "مرشح مسؤول مسار التنفيذ في جدول مسؤوليات المسارات",
+      "authorityLimitations": [
+        "يتعارض مع مرشح المخطط التنظيمي.",
+        "لا يحتسب ضمن تغطية مسؤول التنفيذ حتى حسم التعارض."
+      ]
+    },
+    {
+      "actorRef": "ACTOR-KAP-MAJED-QASIM",
+      "displayNameAr": "ماجد قاسم",
+      "actorType": "person",
+      "classification": "founder-directed",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-MAJED",
+        "TRACE-KAP-GOV-OPERATIONS-S3-S15"
+      ],
+      "founderDirectionReference": "TRACE-KAP-FOUNDER-MAJED",
+      "assignmentScope": "مسار التشغيل",
+      "authorityLimitations": [
+        "تعيين مسار لا يمنح سلطة تحقق أو اعتماد أو افتتاح."
+      ]
+    },
+    {
+      "actorRef": "ACTOR-KAP-MUHAMMAD-IBRAHIM",
+      "displayNameAr": "محمد إبراهيم",
+      "actorType": "person",
+      "classification": "conflicting",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-MUHAMMAD",
+        "TRACE-KAP-GOV-EXECUTION-S3-S19",
+        "TRACE-KAP-EMPLOYEE-MUHAMMAD-R28"
+      ],
+      "founderDirectionReference": "TRACE-KAP-FOUNDER-MUHAMMAD",
+      "assignmentScope": "مرشح ممثل مشروع في المخطط التنظيمي، غير محسوم لمسار التنفيذ",
+      "authorityLimitations": [
+        "مرجع الموظف لا يثبت تعيينًا في المشروع.",
+        "لا يحتسب ضمن تغطية مسؤول التنفيذ حتى حسم التعارض."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-CLIENT-DELIVERABLE-APPROVER",
+      "displayNameAr": "مدير مشروع العميل مع المشرف العام للعميل",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "اعتماد تسليمات العميل",
+      "authorityLimitations": [
+        "لا يثبت قبولًا تشغيليًا أو قرار افتتاح."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-DESIGN",
+      "displayNameAr": "مسؤول التصميم",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "التصميم",
+      "authorityLimitations": [
+        "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-EVENT-MANAGER",
+      "displayNameAr": "مدير الفعالية",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-RACI-OPERATIONS-S6-T1-R3"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "التسليمات التقنية والتشغيلية",
+      "authorityLimitations": [
+        "مسؤولية RACI لا تمنح اعتماد افتتاح."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-GUEST-EXPERIENCE",
+      "displayNameAr": "مسؤول تجربة الضيف",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "تجربة الضيف",
+      "authorityLimitations": [
+        "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-HOSPITALITY",
+      "displayNameAr": "مسؤول الضيافة",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "الضيافة",
+      "authorityLimitations": [
+        "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-INTERNAL-DELIVERABLE-APPROVER",
+      "displayNameAr": "PMO والمشرف العام من ميادين",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "اعتماد تسليمات داخلي",
+      "authorityLimitations": [
+        "اعتماد تسليمات فقط، وليس اعتماد جاهزية تشغيلية أو HSE."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-LOGISTICS-TRANSPORT",
+      "displayNameAr": "مسؤول اللوجستيات والنقل",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "اللوجستيات والنقل",
+      "authorityLimitations": [
+        "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-PMO",
+      "displayNameAr": "مكتب إدارة المشروع",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-PMO-S3-S7"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "تنسيق الحزمة والتوثيق",
+      "authorityLimitations": [
+        "ليس سلطة HSE أو فتح تشغيلية تلقائيًا."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-PROTOCOL-CROWD",
+      "displayNameAr": "مسؤول البروتوكول والحشود",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "البروتوكول والحشود",
+      "authorityLimitations": [
+        "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+      ]
+    },
+    {
+      "actorRef": "ROLE-KAP-QUALITY-RISK",
+      "displayNameAr": "مسؤول الجودة والمخاطر",
+      "actorType": "role",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "founderDirectionReference": null,
+      "assignmentScope": "الجودة والمخاطر",
+      "authorityLimitations": [
+        "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+      ]
+    }
+  ],
+  "workstreams": [
+    {
+      "workstreamId": "WORKSTREAM-KAP-GOVERNANCE",
+      "labelAr": "الحوكمة وPMO",
+      "labelEn": "Governance and PMO",
+      "descriptionAr": "مسار الحوكمة وPMO المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 1,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ROLE-KAP-PMO",
+        "displayNameAr": "مكتب إدارة المشروع",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-PMO-S3-S7"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "تنسيق الحزمة والتوثيق",
+        "authorityLimitations": [
+          "ليس سلطة HSE أو فتح تشغيلية تلقائيًا."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ROLE-KAP-PMO",
+        "displayNameAr": "مكتب إدارة المشروع",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-PMO-S3-S7"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "تنسيق الحزمة والتوثيق",
+        "authorityLimitations": [
+          "ليس سلطة HSE أو فتح تشغيلية تلقائيًا."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-QUALITY-RISK",
+      "labelAr": "الجودة والمخاطر",
+      "labelEn": "Quality and risk",
+      "descriptionAr": "مسار الجودة والمخاطر المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 2,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ROLE-KAP-QUALITY-RISK",
+        "displayNameAr": "مسؤول الجودة والمخاطر",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "الجودة والمخاطر",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ROLE-KAP-QUALITY-RISK",
+        "displayNameAr": "مسؤول الجودة والمخاطر",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "الجودة والمخاطر",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-HOSPITALITY",
+      "labelAr": "الضيافة",
+      "labelEn": "Hospitality",
+      "descriptionAr": "مسار الضيافة المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 3,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ROLE-KAP-HOSPITALITY",
+        "displayNameAr": "مسؤول الضيافة",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "الضيافة",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ROLE-KAP-HOSPITALITY",
+        "displayNameAr": "مسؤول الضيافة",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "الضيافة",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-OPERATIONS",
+      "labelAr": "التشغيل",
+      "labelEn": "Operations",
+      "descriptionAr": "مسار التشغيل المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 4,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ACTOR-KAP-MAJED-QASIM",
+        "displayNameAr": "ماجد قاسم",
+        "actorType": "person",
+        "classification": "founder-directed",
+        "sourceTraceIds": [
+          "TRACE-KAP-FOUNDER-MAJED",
+          "TRACE-KAP-GOV-OPERATIONS-S3-S15"
+        ],
+        "founderDirectionReference": "TRACE-KAP-FOUNDER-MAJED",
+        "assignmentScope": "مسار التشغيل",
+        "authorityLimitations": [
+          "تعيين مسار لا يمنح سلطة تحقق أو اعتماد أو افتتاح."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ACTOR-KAP-MAJED-QASIM",
+        "displayNameAr": "ماجد قاسم",
+        "actorType": "person",
+        "classification": "founder-directed",
+        "sourceTraceIds": [
+          "TRACE-KAP-FOUNDER-MAJED",
+          "TRACE-KAP-GOV-OPERATIONS-S3-S15"
+        ],
+        "founderDirectionReference": "TRACE-KAP-FOUNDER-MAJED",
+        "assignmentScope": "مسار التشغيل",
+        "authorityLimitations": [
+          "تعيين مسار لا يمنح سلطة تحقق أو اعتماد أو افتتاح."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-GUEST-EXPERIENCE",
+      "labelAr": "تجربة الضيف",
+      "labelEn": "Guest experience",
+      "descriptionAr": "مسار تجربة الضيف المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 5,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ROLE-KAP-GUEST-EXPERIENCE",
+        "displayNameAr": "مسؤول تجربة الضيف",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "تجربة الضيف",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ROLE-KAP-GUEST-EXPERIENCE",
+        "displayNameAr": "مسؤول تجربة الضيف",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "تجربة الضيف",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-CREATIVE-CONTENT",
+      "labelAr": "المحتوى الإبداعي",
+      "labelEn": "Creative content",
+      "descriptionAr": "مسار المحتوى الإبداعي المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 6,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ACTOR-KAP-IBRAHIM-AL-GHAMRI",
+        "displayNameAr": "إبراهيم الغمري",
+        "actorType": "person",
+        "classification": "founder-directed",
+        "sourceTraceIds": [
+          "TRACE-KAP-FOUNDER-IBRAHIM",
+          "TRACE-KAP-GOV-CONTENT-S3-S17"
+        ],
+        "founderDirectionReference": "TRACE-KAP-FOUNDER-IBRAHIM",
+        "assignmentScope": "المحتوى الإبداعي",
+        "authorityLimitations": [
+          "تعيين مسار لا يمنح قبول عميل أو اعتماد تشغيل."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ACTOR-KAP-IBRAHIM-AL-GHAMRI",
+        "displayNameAr": "إبراهيم الغمري",
+        "actorType": "person",
+        "classification": "founder-directed",
+        "sourceTraceIds": [
+          "TRACE-KAP-FOUNDER-IBRAHIM",
+          "TRACE-KAP-GOV-CONTENT-S3-S17"
+        ],
+        "founderDirectionReference": "TRACE-KAP-FOUNDER-IBRAHIM",
+        "assignmentScope": "المحتوى الإبداعي",
+        "authorityLimitations": [
+          "تعيين مسار لا يمنح قبول عميل أو اعتماد تشغيل."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-LOGISTICS-TRANSPORT",
+      "labelAr": "اللوجستيات والنقل",
+      "labelEn": "Logistics and transport",
+      "descriptionAr": "مسار اللوجستيات والنقل المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 7,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ROLE-KAP-LOGISTICS-TRANSPORT",
+        "displayNameAr": "مسؤول اللوجستيات والنقل",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "اللوجستيات والنقل",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ROLE-KAP-LOGISTICS-TRANSPORT",
+        "displayNameAr": "مسؤول اللوجستيات والنقل",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "اللوجستيات والنقل",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-EXECUTION",
+      "labelAr": "التنفيذ",
+      "labelEn": "Execution",
+      "descriptionAr": "مسار التنفيذ المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 8,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": null,
+      "responsibleParty": null,
+      "unresolvedAssignmentIds": [
+        "CONFLICT-KAP-EXECUTION-ASSIGNMENT"
+      ]
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-DESIGN",
+      "labelAr": "التصميم",
+      "labelEn": "Design",
+      "descriptionAr": "مسار التصميم المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 9,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ROLE-KAP-DESIGN",
+        "displayNameAr": "مسؤول التصميم",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "التصميم",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ROLE-KAP-DESIGN",
+        "displayNameAr": "مسؤول التصميم",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "التصميم",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    },
+    {
+      "workstreamId": "WORKSTREAM-KAP-PROTOCOL-CROWD",
+      "labelAr": "البروتوكول والحشود",
+      "labelEn": "Protocol and crowd",
+      "descriptionAr": "مسار البروتوكول والحشود المستخرج من مرجع الحوكمة أو الموجّه من المؤسس.",
+      "order": 10,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "owner": {
+        "actorRef": "ROLE-KAP-PROTOCOL-CROWD",
+        "displayNameAr": "مسؤول البروتوكول والحشود",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "البروتوكول والحشود",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "responsibleParty": {
+        "actorRef": "ROLE-KAP-PROTOCOL-CROWD",
+        "displayNameAr": "مسؤول البروتوكول والحشود",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "البروتوكول والحشود",
+        "authorityLimitations": [
+          "تعيين المسار لا يثبت سلطة تحقق أو اعتماد."
+        ]
+      },
+      "unresolvedAssignmentIds": []
+    }
+  ],
+  "authorities": [
+    {
+      "authorityId": "AUTH-KAP-PROJECT-ASSIGNMENT",
+      "authorityKind": "project-assignment",
+      "labelAr": "تعيينات المشروع",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "assigned",
+      "actor": {
+        "actorRef": "ROLE-KAP-PMO",
+        "displayNameAr": "مكتب إدارة المشروع",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-PMO-S3-S7"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "تنسيق الحزمة والتوثيق",
+        "authorityLimitations": [
+          "ليس سلطة HSE أو فتح تشغيلية تلقائيًا."
+        ]
+      },
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-PMO-S3-S7"
+      ],
+      "separationOfDutiesGroup": "project-assignment",
+      "limitations": [
+        "تعيين المشروع لا يساوي سلطة إنتاج أو اعتماد."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-REQUIREMENT-DENOMINATOR",
+      "authorityKind": "requirement-owner",
+      "labelAr": "سلطة اعتماد مقام المتطلبات",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [],
+      "separationOfDutiesGroup": "requirement-owner",
+      "limitations": [
+        "لم يحدد المصدر من يعتمد المقام القانوني لمتطلبات الجاهزية."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-RESPONSIBLE-DELIVERY",
+      "authorityKind": "responsible-delivery",
+      "labelAr": "مسؤولو التسليم",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "conflicting",
+      "actor": null,
+      "classification": "conflicting",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-EXECUTION-S3-S19",
+        "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+      ],
+      "separationOfDutiesGroup": "responsible-delivery",
+      "limitations": [
+        "مسار التنفيذ متعارض، وبقية التعيينات لا تمنح اعتمادًا."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-EVIDENCE-SUBMISSION",
+      "authorityKind": "evidence-submission",
+      "labelAr": "تقديم أدلة التسليمات",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "assigned",
+      "actor": {
+        "actorRef": "ROLE-KAP-EVENT-MANAGER",
+        "displayNameAr": "مدير الفعالية",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-RACI-OPERATIONS-S6-T1-R3"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "التسليمات التقنية والتشغيلية",
+        "authorityLimitations": [
+          "مسؤولية RACI لا تمنح اعتماد افتتاح."
+        ]
+      },
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "separationOfDutiesGroup": "evidence-submission",
+      "limitations": [
+        "يخص تقديم التسليمات، ولا يثبت تحقق الأدلة التشغيلية."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-EVIDENCE-VERIFICATION",
+      "authorityKind": "evidence-verification",
+      "labelAr": "التحقق المستقل من الأدلة التشغيلية",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [],
+      "separationOfDutiesGroup": "evidence-verification",
+      "limitations": [
+        "لا توجد جهة تحقق تشغيلية مستقلة مسجلة."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-INTERNAL-DELIVERABLE-APPROVAL",
+      "authorityKind": "internal-approval",
+      "labelAr": "اعتماد التسليمات الداخلي",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "assigned",
+      "actor": {
+        "actorRef": "ROLE-KAP-INTERNAL-DELIVERABLE-APPROVER",
+        "displayNameAr": "PMO والمشرف العام من ميادين",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "اعتماد تسليمات داخلي",
+        "authorityLimitations": [
+          "اعتماد تسليمات فقط، وليس اعتماد جاهزية تشغيلية أو HSE."
+        ]
+      },
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "separationOfDutiesGroup": "internal-approval",
+      "limitations": [
+        "اعتماد تسليمات فقط."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-INTERNAL-OPERATIONAL-APPROVAL",
+      "authorityKind": "internal-approval",
+      "labelAr": "اعتماد الجاهزية التشغيلي الداخلي",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [],
+      "separationOfDutiesGroup": "internal-approval",
+      "limitations": [
+        "لا تُرقّى سلطة التسليمات إلى سلطة جاهزية."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-CLIENT-DELIVERABLE-ACCEPTANCE",
+      "authorityKind": "client-acceptance",
+      "labelAr": "اعتماد تسليمات العميل",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "assigned",
+      "actor": {
+        "actorRef": "ROLE-KAP-CLIENT-DELIVERABLE-APPROVER",
+        "displayNameAr": "مدير مشروع العميل مع المشرف العام للعميل",
+        "actorType": "role",
+        "classification": "source-backed",
+        "sourceTraceIds": [
+          "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+        ],
+        "founderDirectionReference": null,
+        "assignmentScope": "اعتماد تسليمات العميل",
+        "authorityLimitations": [
+          "لا يثبت قبولًا تشغيليًا أو قرار افتتاح."
+        ]
+      },
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "separationOfDutiesGroup": "client-acceptance",
+      "limitations": [
+        "اعتماد تسليمات لا يثبت قبول التشغيل أو الافتتاح."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-CLIENT-OPERATIONAL-ACCEPTANCE",
+      "authorityKind": "client-acceptance",
+      "labelAr": "القبول التشغيلي الخارجي",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [],
+      "separationOfDutiesGroup": "client-acceptance",
+      "limitations": [
+        "جهة القبول التشغيلي للعميل غير مسجلة."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-ENGINEERING",
+      "authorityKind": "engineering-authority",
+      "labelAr": "السلطة الهندسية",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-CAD-FINGERPRINT"
+      ],
+      "separationOfDutiesGroup": "engineering-authority",
+      "limitations": [
+        "اعتماد مصدر CAD لا يحدد سلطة هندسية."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-HSE",
+      "authorityKind": "hse-authority",
+      "labelAr": "سلطة الصحة والسلامة والبيئة",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SAFETY-S2-S8"
+      ],
+      "separationOfDutiesGroup": "hse-authority",
+      "limitations": [
+        "ذكر السلامة في النطاق لا يحدد جهة HSE."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-ROUTE",
+      "authorityKind": "route-authority",
+      "labelAr": "سلطة المسارات",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-PATH-S2-S8"
+      ],
+      "separationOfDutiesGroup": "route-authority",
+      "limitations": [
+        "لا يوجد اعتماد لمسار ميداني أو سلامة حركة."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-OPENING",
+      "authorityKind": "opening-authority",
+      "labelAr": "سلطة قرار الافتتاح",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [],
+      "separationOfDutiesGroup": "opening-authority",
+      "limitations": [
+        "لم يحدد المصدر جهة قرار الافتتاح الرسمي."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-FOUNDER-PLATFORM-ACCEPTANCE",
+      "authorityKind": "founder-platform-acceptance",
+      "labelAr": "قبول قدرة المنصة",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "assigned",
+      "actor": {
+        "actorRef": "ACTOR-AHMED-FOUNDER-PLATFORM",
+        "displayNameAr": "أحمد",
+        "actorType": "person",
+        "classification": "founder-directed",
+        "sourceTraceIds": [
+          "TRACE-KAP-FOUNDER-AHMED-LIMITS"
+        ],
+        "founderDirectionReference": "TRACE-KAP-FOUNDER-AHMED-LIMITS",
+        "assignmentScope": "رؤية المنصة واتجاه المنتج وقبول قدرة المنصة",
+        "authorityLimitations": [
+          "ليس سلطة عميل.",
+          "ليس سلطة هندسية.",
+          "ليس سلطة HSE أو مسارات.",
+          "ليس سلطة افتتاح أو قبول تشغيلي نهائي."
+        ]
+      },
+      "classification": "founder-directed",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-AHMED-LIMITS"
+      ],
+      "separationOfDutiesGroup": "founder-platform-acceptance",
+      "limitations": [
+        "ليس سلطة عميل.",
+        "ليس سلطة هندسية.",
+        "ليس سلطة HSE أو مسارات.",
+        "ليس سلطة افتتاح أو قبول تشغيلي نهائي."
+      ],
+      "notApplicableDeclaration": null
+    },
+    {
+      "authorityId": "AUTH-KAP-READINESS-PACK-ACTIVATION",
+      "authorityKind": "readiness-pack-activation",
+      "labelAr": "سلطة تفعيل أساس متطلبات الجاهزية",
+      "scopeType": "pack",
+      "scopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "status": "unknown",
+      "actor": null,
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-AHMED-LIMITS"
+      ],
+      "separationOfDutiesGroup": "readiness-pack-activation",
+      "notApplicableDeclaration": null,
+      "limitations": [
+        "قبول المؤسس لقدرة المنصة لا يساوي سلطة تفعيل أساس تشغيلي.",
+        "السلطة والدليل غير متوفرين."
+      ]
+    }
+  ],
+  "authorityRequirementPolicyId": "AUTHORITY-REQUIREMENT-POLICY-v1",
+  "authorityTriggerPolicyId": "AUTHORITY-TRIGGER-POLICY-v1",
+  "authorityTriggerFacts": [
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+      "requirementId": "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-IBRAHIM",
+        "TRACE-KAP-GOV-CONTENT-S3-S17"
+      ],
+      "classification": "founder-directed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "b10924e90d737f910b59c0c1f86504d42c6a65c45b372562c3c7a827ef6cdc61",
+      "fingerprint": "d67850005d53edfa9aed8606bf6927db2167652599cd8a70f9d50d0798bba25d"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+      "requirementId": "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-EMPLOYEE-MUHAMMAD-R28",
+        "TRACE-KAP-FOUNDER-MUHAMMAD",
+        "TRACE-KAP-GOV-EXECUTION-S3-S19",
+        "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+      ],
+      "classification": "conflicting",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "fda1b6ac9dc1c2fcd90ca2ce81118c616d9acd742ad0f1bc22e705d67d16f07b",
+      "fingerprint": "88e46db912d317e395098d66ec31798f72db3e88880cf4a64ec4f1b8ff9eba11"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+      "requirementId": "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-MAJED",
+        "TRACE-KAP-GOV-OPERATIONS-S3-S15"
+      ],
+      "classification": "founder-directed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a8dfcb78c45e8883e3cc7cc3a836b0acf22db93f46f398b1528c64258b7ca2de",
+      "fingerprint": "0da8f2deb19dfdf38340e97b8ac016fc6d1ba0bdb1bc53bef320b4f05345fbbd"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-CAD-WORKING-SOURCE",
+      "requirementId": "REQ-KAP-CAD-WORKING-SOURCE",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-CAD-FINGERPRINT"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "9e91b8c36f154bc902a8da7778cf2286c0d4ebd7323555e011a47a14a9527a4e",
+      "fingerprint": "6a609f98f918d5d5367901e5918edafe80549e08af5b2792ba78ac149f0cd89d"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-GOV-CHANGE-CONTROL",
+      "requirementId": "REQ-KAP-GOV-CHANGE-CONTROL",
+      "policyId": "ACCEPTANCE-POLICY-KAP-CLIENT-DELIVERABLE",
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-CHANGE-S4-S9"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "09c27f875b110edaddb3b30769ed2b6cc5a8b50c8af89c2a24dbac3b6b56a6c9",
+      "fingerprint": "767391b705d3823f22edcdfe04993e20f2b34e745bf83f258cec517238893e4f"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-GOV-COMMUNICATION-REPORTING",
+      "requirementId": "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-COMMS-S9"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "322255818ff0f914123329ff2840da909df2e8d85c2b6a3a1d07b55bb96054a4",
+      "fingerprint": "8e55738b55fb8dc0356f200b79cde6e9e1135e7775153c871f6910953f44cc38"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+      "requirementId": "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-DECISIONS-S4-S11"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a2a20344a450de976f72d2a47d37c78b24c211e598e9ff2d1751aeebb925fb6d",
+      "fingerprint": "9daa04ad3784ad0310102c199d782a09751d63ef9a59b0f696ac9606db68fd12"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-GOV-ESCALATION-LEVELS",
+      "requirementId": "REQ-KAP-GOV-ESCALATION-LEVELS",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-ESCALATION-S8-S3-19"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a70bb9783f16372747736a614e7be181f1339ea1dd6b31973bd6013180dd4ab8",
+      "fingerprint": "080e96fc0d9b94df484009efc793c5bad00634c3b59e563116f1c7cbca258c4a"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+      "requirementId": "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+      "policyId": "ACCEPTANCE-POLICY-KAP-CLIENT-DELIVERABLE",
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "822388b188c84d64b31f34b57883bb64f8bc816f645c950e70e852ca8970196f",
+      "fingerprint": "88e033039f242b251e4a281baac52fd666d548a342db8030e36fc04c68fd8413"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+      "requirementId": "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+      "policyId": "ACCEPTANCE-POLICY-KAP-CLIENT-DELIVERABLE",
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-OBJECTIVE-S2-S6"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "6641f8a8445883c6f16628a153a869f91c970366d7345adc6e31f3b4826332f7",
+      "fingerprint": "a5617ac728726fef5c81822fc9e60926150f9fa03137823adefc4eafc60fad74"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+      "requirementId": "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+      "policyId": "ACCEPTANCE-POLICY-KAP-CLIENT-DELIVERABLE",
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-RACI-CREATIVE-S6-T1-R2",
+        "TRACE-KAP-GOV-SCOPE-CREATIVE-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "e8dd5b8f8fb3b49f9c6a8f66916d71017b66a1e271fb4d3ee7e406b87d3fc5f2",
+      "fingerprint": "fede6b0c4040f5aa6cc2fcadcde42e98067313d3d63fa9f0bcf88888d163e222"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+      "requirementId": "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-PATH-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "182ea563de7cf87a87998663e623760050b46b2d9609b173f46b269101a66904",
+      "fingerprint": "00aad7cf92559fd91b87b5d89ce75aac49e49a068927846368690e420da050e8"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+      "requirementId": "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SAFETY-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "7883fb372f64ebd622aec854706e9cfc6ee16978eea639b1e9549818a70f2e38",
+      "fingerprint": "8ba41b804adaf204c064d961fcdb41ac891f1e72579af3df75a09b473663592f"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+      "requirementId": "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-CLOSURE-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "438652b9e605828130563f10fc5104ac3d7283fc6825faed84887afa3d062e6d",
+      "fingerprint": "b407b7031f2e0f6ff5b22602bb20b0f637d09c510557a13f73b9b1b8be69ce84"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+      "requirementId": "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SHOWS-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "ed8557afe3d27778865c72b9f06e573661237a0e967f6b277aa8bcfab1803ce4",
+      "fingerprint": "914b64553c81e3d201fcf05e032bd25ef10748908d9ee2fed00f7759058290ef"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+      "requirementId": "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-TRANSPORT-MEDIA-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "b323df80c6ad5166148b73fd91eb0a75971a4db360a930ccc0df1633772620dd",
+      "fingerprint": "ec42b4f54e2cfa3fe46271108b21914d1d1eee65735485c7314f57c7a55f8730"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+      "requirementId": "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "f8422baf11ff405fae663db2cd89ed4be46a6f63c9413e49b331935d3b899a44",
+      "fingerprint": "979c90a26d6eaaf88f84f451cbf303ee3e552a7d375c9f2b15f2ccd513067bf2"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:client-acceptance:REQ-KAP-WORKSTREAM-HOSPITALITY",
+      "requirementId": "REQ-KAP-WORKSTREAM-HOSPITALITY",
+      "policyId": null,
+      "authorityKind": "client-acceptance",
+      "triggerType": "external-operational-acceptance",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "f74ea1a9688d8e54a13a6a3bb5203541e91ecd09e04c65a9a8c815ad773aae3d",
+      "fingerprint": "490a69b9260ad06d85c49eec965d2efe7685843f25210a4f695d1de239d3e5b9"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+      "requirementId": "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-IBRAHIM",
+        "TRACE-KAP-GOV-CONTENT-S3-S17"
+      ],
+      "classification": "founder-directed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "b10924e90d737f910b59c0c1f86504d42c6a65c45b372562c3c7a827ef6cdc61",
+      "fingerprint": "3859cedd41f22c6b16ae925d52ca4e52d78e24c3c4b0bff3fca2a399fa640ae9"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+      "requirementId": "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-EMPLOYEE-MUHAMMAD-R28",
+        "TRACE-KAP-FOUNDER-MUHAMMAD",
+        "TRACE-KAP-GOV-EXECUTION-S3-S19",
+        "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+      ],
+      "classification": "conflicting",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "fda1b6ac9dc1c2fcd90ca2ce81118c616d9acd742ad0f1bc22e705d67d16f07b",
+      "fingerprint": "4f5ef551721f8ce67adbea0e35b3dcf43cb6095e6c36bb7a235d481adcb57f52"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+      "requirementId": "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-MAJED",
+        "TRACE-KAP-GOV-OPERATIONS-S3-S15"
+      ],
+      "classification": "founder-directed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a8dfcb78c45e8883e3cc7cc3a836b0acf22db93f46f398b1528c64258b7ca2de",
+      "fingerprint": "87e2596c2483a7a262865e91c6117d7064b160c741dcc94d5355aea11b4e11e8"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-CAD-WORKING-SOURCE",
+      "requirementId": "REQ-KAP-CAD-WORKING-SOURCE",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-CAD-FINGERPRINT"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "9e91b8c36f154bc902a8da7778cf2286c0d4ebd7323555e011a47a14a9527a4e",
+      "fingerprint": "1ae85346a3ff6d0b53be9397266f8f40542647fb484c59d40baa42e0ad43c8e3"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-GOV-CHANGE-CONTROL",
+      "requirementId": "REQ-KAP-GOV-CHANGE-CONTROL",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-CHANGE-S4-S9"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "09c27f875b110edaddb3b30769ed2b6cc5a8b50c8af89c2a24dbac3b6b56a6c9",
+      "fingerprint": "948978c99cfe756dba47c4857b20932abe0d70d18071b304cc8c101fe527838a"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-GOV-COMMUNICATION-REPORTING",
+      "requirementId": "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-COMMS-S9"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "322255818ff0f914123329ff2840da909df2e8d85c2b6a3a1d07b55bb96054a4",
+      "fingerprint": "d9ea18fc884ef2c32e9c9072c77297eb1e2b4f1ba852d5b15d94b718da35f452"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+      "requirementId": "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-DECISIONS-S4-S11"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a2a20344a450de976f72d2a47d37c78b24c211e598e9ff2d1751aeebb925fb6d",
+      "fingerprint": "e0e53a7f97321016aa147bd63527e20942a2c2ddbf82fdbbbb45b96dd32907f6"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-GOV-ESCALATION-LEVELS",
+      "requirementId": "REQ-KAP-GOV-ESCALATION-LEVELS",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-ESCALATION-S8-S3-19"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a70bb9783f16372747736a614e7be181f1339ea1dd6b31973bd6013180dd4ab8",
+      "fingerprint": "5128fd659d03dd418e89b074bc511ebcb501576f821af05c72e31e4b303a277b"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+      "requirementId": "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "822388b188c84d64b31f34b57883bb64f8bc816f645c950e70e852ca8970196f",
+      "fingerprint": "c8866829d41211c04279c057d25fa31e07b08437d2a6115229144b7f6bbf4110"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+      "requirementId": "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-OBJECTIVE-S2-S6"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "6641f8a8445883c6f16628a153a869f91c970366d7345adc6e31f3b4826332f7",
+      "fingerprint": "674864191363c6570ca5fb65668eff50efd9cd5da92a57d2b55c5afc6dcbb86e"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+      "requirementId": "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-RACI-CREATIVE-S6-T1-R2",
+        "TRACE-KAP-GOV-SCOPE-CREATIVE-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "e8dd5b8f8fb3b49f9c6a8f66916d71017b66a1e271fb4d3ee7e406b87d3fc5f2",
+      "fingerprint": "64961edae22e588456144cce0f0e3de891776e9f2d991463de17a173f6659439"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+      "requirementId": "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-PATH-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "182ea563de7cf87a87998663e623760050b46b2d9609b173f46b269101a66904",
+      "fingerprint": "8860d49852a58f8a6cc5a674acd12d997cae076d4eca691ea7572e74bdf8c7bc"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+      "requirementId": "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SAFETY-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "7883fb372f64ebd622aec854706e9cfc6ee16978eea639b1e9549818a70f2e38",
+      "fingerprint": "2413b392bf4558f21a0f3ab155b916ddfbd3a980d9ee9be1ea9386a2fe446cd3"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+      "requirementId": "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-CLOSURE-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "438652b9e605828130563f10fc5104ac3d7283fc6825faed84887afa3d062e6d",
+      "fingerprint": "21645bc78206df654f86de60080972a534f5c7c309a6b5e29c06946444f028c7"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+      "requirementId": "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SHOWS-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "ed8557afe3d27778865c72b9f06e573661237a0e967f6b277aa8bcfab1803ce4",
+      "fingerprint": "e2f113187680876217f7d5e2ae39b7f142b65fc093177d195f2f529863025e70"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+      "requirementId": "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-TRANSPORT-MEDIA-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "b323df80c6ad5166148b73fd91eb0a75971a4db360a930ccc0df1633772620dd",
+      "fingerprint": "c9d7e7dab59f5c65b3d0c939c58aa062a8851b5295727e39650c2075adfc3bb8"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+      "requirementId": "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "f8422baf11ff405fae663db2cd89ed4be46a6f63c9413e49b331935d3b899a44",
+      "fingerprint": "d67584f0afc9d7eaf82c51fecedfd82edf578b7e7ae0bc182c8b9b5285510032"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:engineering-authority:REQ-KAP-WORKSTREAM-HOSPITALITY",
+      "requirementId": "REQ-KAP-WORKSTREAM-HOSPITALITY",
+      "policyId": null,
+      "authorityKind": "engineering-authority",
+      "triggerType": "engineering-or-spatial-impact",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "f74ea1a9688d8e54a13a6a3bb5203541e91ecd09e04c65a9a8c815ad773aae3d",
+      "fingerprint": "cd6cbf5acc3818e8f7fc01d8f3e0c44dc35eb9769f2f5387ec4ad1b5a5fc7ae8"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+      "requirementId": "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-IBRAHIM",
+        "TRACE-KAP-GOV-CONTENT-S3-S17"
+      ],
+      "classification": "founder-directed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "b10924e90d737f910b59c0c1f86504d42c6a65c45b372562c3c7a827ef6cdc61",
+      "fingerprint": "b23ace36f0b770025baf337d4bccc08b8bb236191189aa541793c7b0554de50d"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+      "requirementId": "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-EMPLOYEE-MUHAMMAD-R28",
+        "TRACE-KAP-FOUNDER-MUHAMMAD",
+        "TRACE-KAP-GOV-EXECUTION-S3-S19",
+        "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+      ],
+      "classification": "conflicting",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "fda1b6ac9dc1c2fcd90ca2ce81118c616d9acd742ad0f1bc22e705d67d16f07b",
+      "fingerprint": "53c83a24b7256e503a624a6cab73856f40f44b0544383502e0db1e53ecd98e3e"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+      "requirementId": "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-MAJED",
+        "TRACE-KAP-GOV-OPERATIONS-S3-S15"
+      ],
+      "classification": "founder-directed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a8dfcb78c45e8883e3cc7cc3a836b0acf22db93f46f398b1528c64258b7ca2de",
+      "fingerprint": "80a46e18aa2589186021c2124d52738fab25b6126680adbe4e02676b27f01c68"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-CAD-WORKING-SOURCE",
+      "requirementId": "REQ-KAP-CAD-WORKING-SOURCE",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-CAD-FINGERPRINT"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "9e91b8c36f154bc902a8da7778cf2286c0d4ebd7323555e011a47a14a9527a4e",
+      "fingerprint": "67ef55b9bcdba063d6e7a1efd12fec1f4c2cc9ee87ae64637bc419ae3a021cfe"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-GOV-CHANGE-CONTROL",
+      "requirementId": "REQ-KAP-GOV-CHANGE-CONTROL",
+      "policyId": "EVIDENCE-POLICY-KAP-CHANGE-REQUEST",
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-CHANGE-S4-S9"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "09c27f875b110edaddb3b30769ed2b6cc5a8b50c8af89c2a24dbac3b6b56a6c9",
+      "fingerprint": "3339c694e436609a53e73332bd7ab5b50322b110967d5f6456faa7eced990c77"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-GOV-COMMUNICATION-REPORTING",
+      "requirementId": "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-COMMS-S9"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "322255818ff0f914123329ff2840da909df2e8d85c2b6a3a1d07b55bb96054a4",
+      "fingerprint": "73e466bf204c731589e8e3dfa3200bb7cdbc1fdef0600536cf1f972fa62c314f"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+      "requirementId": "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+      "policyId": "EVIDENCE-POLICY-KAP-DELIVERABLE-APPROVAL",
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-DECISIONS-S4-S11"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a2a20344a450de976f72d2a47d37c78b24c211e598e9ff2d1751aeebb925fb6d",
+      "fingerprint": "baaba689d6c3152d46b0b41daa09220456e7dc77e73be9f0589cc6ccf1403c13"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-GOV-ESCALATION-LEVELS",
+      "requirementId": "REQ-KAP-GOV-ESCALATION-LEVELS",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-ESCALATION-S8-S3-19"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a70bb9783f16372747736a614e7be181f1339ea1dd6b31973bd6013180dd4ab8",
+      "fingerprint": "beace0000040ee9d706259bb38cf2533d60f80cfe10aca94f9949219cd715530"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+      "requirementId": "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+      "policyId": "EVIDENCE-POLICY-KAP-DELIVERABLE-APPROVAL",
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "822388b188c84d64b31f34b57883bb64f8bc816f645c950e70e852ca8970196f",
+      "fingerprint": "506dad3b7afb806a82f32edf4f5d9e54b9550a768c40cb39b4d73630c3b917a5"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+      "requirementId": "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+      "policyId": "EVIDENCE-POLICY-KAP-DELIVERABLE-APPROVAL",
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-OBJECTIVE-S2-S6"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "6641f8a8445883c6f16628a153a869f91c970366d7345adc6e31f3b4826332f7",
+      "fingerprint": "9f90463f6dd16d49a2a18351580114f6a1ce5369354126a3937913ff488bc6c7"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+      "requirementId": "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+      "policyId": "EVIDENCE-POLICY-KAP-DELIVERABLE-APPROVAL",
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-RACI-CREATIVE-S6-T1-R2",
+        "TRACE-KAP-GOV-SCOPE-CREATIVE-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "e8dd5b8f8fb3b49f9c6a8f66916d71017b66a1e271fb4d3ee7e406b87d3fc5f2",
+      "fingerprint": "3824c7dbda2d5aa81f8e3fd35d5a4ef770d20f07d1f1df21b72cd02d0ab708ab"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+      "requirementId": "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-PATH-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "182ea563de7cf87a87998663e623760050b46b2d9609b173f46b269101a66904",
+      "fingerprint": "a2ff1d065309f1adf29692ca8bcc2aa4ca53ae404e37ca4df78a15c1e31e70b1"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+      "requirementId": "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+      "policyId": "EVIDENCE-POLICY-KAP-HSE",
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SAFETY-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "7883fb372f64ebd622aec854706e9cfc6ee16978eea639b1e9549818a70f2e38",
+      "fingerprint": "3fea5b467171b185c69911b34a0d81622ff1687c3e33412ffdd8ce229cf3488b"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+      "requirementId": "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-CLOSURE-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "438652b9e605828130563f10fc5104ac3d7283fc6825faed84887afa3d062e6d",
+      "fingerprint": "520e9384e3b6b9793e5cf97b1dc56523eb7a72ae8049f6dd404dec6ccab9204f"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+      "requirementId": "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SHOWS-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "ed8557afe3d27778865c72b9f06e573661237a0e967f6b277aa8bcfab1803ce4",
+      "fingerprint": "1822c6f35f56e3f43c87015e1b6286b5ab6c343f664f7d2fdd4652dc558ffc86"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+      "requirementId": "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-TRANSPORT-MEDIA-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "b323df80c6ad5166148b73fd91eb0a75971a4db360a930ccc0df1633772620dd",
+      "fingerprint": "9f32401a112074bf43fb952f6b95e2ab02507f12c089ecd412ac9f2113e036cd"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+      "requirementId": "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "f8422baf11ff405fae663db2cd89ed4be46a6f63c9413e49b331935d3b899a44",
+      "fingerprint": "9b5cbc92bc72c39e98f1bc748b53dd5d5fe11800e2b0bb2b9463191ce7ebef88"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:hse-authority:REQ-KAP-WORKSTREAM-HOSPITALITY",
+      "requirementId": "REQ-KAP-WORKSTREAM-HOSPITALITY",
+      "policyId": null,
+      "authorityKind": "hse-authority",
+      "triggerType": "hse-or-safety-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "f74ea1a9688d8e54a13a6a3bb5203541e91ecd09e04c65a9a8c815ad773aae3d",
+      "fingerprint": "b39dfae28884114107bc8d7fb9cf6d431d0cbad7d5de904852b77d2a67c938c6"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+      "requirementId": "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-IBRAHIM",
+        "TRACE-KAP-GOV-CONTENT-S3-S17"
+      ],
+      "classification": "founder-directed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "b10924e90d737f910b59c0c1f86504d42c6a65c45b372562c3c7a827ef6cdc61",
+      "fingerprint": "3461721429203aa407fcae7f10b11eac06369050ef119976a160ef2d4eef0f80"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+      "requirementId": "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-EMPLOYEE-MUHAMMAD-R28",
+        "TRACE-KAP-FOUNDER-MUHAMMAD",
+        "TRACE-KAP-GOV-EXECUTION-S3-S19",
+        "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+      ],
+      "classification": "conflicting",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "fda1b6ac9dc1c2fcd90ca2ce81118c616d9acd742ad0f1bc22e705d67d16f07b",
+      "fingerprint": "408697c23baa60ece06b082edf65b665df02c38928b46861a9ece0cd18fa9cc5"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+      "requirementId": "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-MAJED",
+        "TRACE-KAP-GOV-OPERATIONS-S3-S15"
+      ],
+      "classification": "founder-directed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a8dfcb78c45e8883e3cc7cc3a836b0acf22db93f46f398b1528c64258b7ca2de",
+      "fingerprint": "5d4de8dac9b2d8d9caf4e6e1ac06a2b60ae92ce0823148fbf7628807525a143c"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-CAD-WORKING-SOURCE",
+      "requirementId": "REQ-KAP-CAD-WORKING-SOURCE",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-CAD-FINGERPRINT"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "9e91b8c36f154bc902a8da7778cf2286c0d4ebd7323555e011a47a14a9527a4e",
+      "fingerprint": "7baa42c3d101cc9466afe3c1f31a0067b943fda41ef859fa7af8840750c663de"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-GOV-CHANGE-CONTROL",
+      "requirementId": "REQ-KAP-GOV-CHANGE-CONTROL",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-CHANGE-S4-S9"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "09c27f875b110edaddb3b30769ed2b6cc5a8b50c8af89c2a24dbac3b6b56a6c9",
+      "fingerprint": "8baf3b5c92355f7349714dc2320e917ab4cc090981d89cad68326189522142ed"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-GOV-COMMUNICATION-REPORTING",
+      "requirementId": "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-COMMS-S9"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "322255818ff0f914123329ff2840da909df2e8d85c2b6a3a1d07b55bb96054a4",
+      "fingerprint": "94efe2f0d45ae7530dd47028ebddb16f4f022418370d46a87030948ca26b4445"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+      "requirementId": "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-DECISIONS-S4-S11"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a2a20344a450de976f72d2a47d37c78b24c211e598e9ff2d1751aeebb925fb6d",
+      "fingerprint": "13eadb7df5a495fc3be39e3a91c36cd613d87720fd5a7b4c002677efc6cb5362"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-GOV-ESCALATION-LEVELS",
+      "requirementId": "REQ-KAP-GOV-ESCALATION-LEVELS",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-ESCALATION-S8-S3-19"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "a70bb9783f16372747736a614e7be181f1339ea1dd6b31973bd6013180dd4ab8",
+      "fingerprint": "9c6526f4d1f3ccef86145203a8eebb295bd93a1fb560f93f40994e36f7b2fcf8"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+      "requirementId": "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "822388b188c84d64b31f34b57883bb64f8bc816f645c950e70e852ca8970196f",
+      "fingerprint": "8e4cd0cabe433a9e9b48d8c50c8e47557964281dc55d1671fe8535d6b1736077"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+      "requirementId": "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-OBJECTIVE-S2-S6"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "6641f8a8445883c6f16628a153a869f91c970366d7345adc6e31f3b4826332f7",
+      "fingerprint": "e83dac49cba4b918a451f60399ed6145c1bfd62a20044cb73e90d8e637cba8c0"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+      "requirementId": "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-RACI-CREATIVE-S6-T1-R2",
+        "TRACE-KAP-GOV-SCOPE-CREATIVE-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "e8dd5b8f8fb3b49f9c6a8f66916d71017b66a1e271fb4d3ee7e406b87d3fc5f2",
+      "fingerprint": "025beb8da7d79437738c0f96e410d4c786e1cc23756e6c9e8787454594fb9bb9"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+      "requirementId": "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "active",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-PATH-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "182ea563de7cf87a87998663e623760050b46b2d9609b173f46b269101a66904",
+      "fingerprint": "7e8d64cda41267f4670eca8af80a2b34978ebe6bce085386ae8e130d4afafdfd"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+      "requirementId": "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SAFETY-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "7883fb372f64ebd622aec854706e9cfc6ee16978eea639b1e9549818a70f2e38",
+      "fingerprint": "82bdc8ee1c97606b6970891283c8296dee540800607fc0ddf2700386fc115fee"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+      "requirementId": "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-CLOSURE-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "438652b9e605828130563f10fc5104ac3d7283fc6825faed84887afa3d062e6d",
+      "fingerprint": "4326a55eccc15b788c78733babb588b2e51cd1145ac48a87d0b8be3b355a44c6"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+      "requirementId": "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SHOWS-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "ed8557afe3d27778865c72b9f06e573661237a0e967f6b277aa8bcfab1803ce4",
+      "fingerprint": "e0dedf993d08c4846844eda00af95b1871029096526f4db75af19fb9f15b32d2"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+      "requirementId": "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-TRANSPORT-MEDIA-S2-S8"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "b323df80c6ad5166148b73fd91eb0a75971a4db360a930ccc0df1633772620dd",
+      "fingerprint": "aed0e1233e19f2f88178241b13d49b6cbe42824155eb913d85ee439d93b49e0f"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+      "requirementId": "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "f8422baf11ff405fae663db2cd89ed4be46a6f63c9413e49b331935d3b899a44",
+      "fingerprint": "40fab970aa65332eddba29aa791784922db873dc2ab856babab976a09d2f4819"
+    },
+    {
+      "triggerFactId": "AUTHORITY-TRIGGER-FACT:route-authority:REQ-KAP-WORKSTREAM-HOSPITALITY",
+      "requirementId": "REQ-KAP-WORKSTREAM-HOSPITALITY",
+      "policyId": null,
+      "authorityKind": "route-authority",
+      "triggerType": "route-or-movement-impact",
+      "triggerState": "inactive-explicit",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "classification": "source-backed",
+      "revision": 1,
+      "derivationPolicyVersion": "AUTHORITY-TRIGGER-POLICY-v1",
+      "sourceInputFingerprint": "f74ea1a9688d8e54a13a6a3bb5203541e91ecd09e04c65a9a8c815ad773aae3d",
+      "fingerprint": "1cdd7c3f12254dda3bd6f6db5bffbd99c6bbd72116dd3fe6fb60c588c59045f8"
+    }
+  ],
+  "authorityTriggerFingerprint": "49c4ff2a7b75b236f549e68e5e5f73934589e03b917edb2404694d409562d937",
+  "requiredAuthorities": [
+    {
+      "declarationId": "REQUIREMENT-DENOMINATOR",
+      "authorityId": "AUTH-KAP-REQUIREMENT-DENOMINATOR",
+      "authorityKind": "requirement-owner",
+      "phase": "pre-freeze",
+      "labelAr": "سلطة اعتماد مقام المتطلبات",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-AHMED-LIMITS"
+      ],
+      "separationFromAuthorityKinds": [
+        "evidence-verification",
+        "internal-approval",
+        "opening-authority"
+      ],
+      "policyRuleId": "AUTHORITY-RULE-REQUIREMENT-OWNER",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    },
+    {
+      "declarationId": "EVIDENCE-VERIFICATION",
+      "authorityId": "AUTH-KAP-EVIDENCE-VERIFICATION",
+      "authorityKind": "evidence-verification",
+      "phase": "pre-freeze",
+      "labelAr": "سلطة التحقق من الأدلة",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-RACI-OPERATIONS-S6-T1-R3"
+      ],
+      "separationFromAuthorityKinds": [
+        "evidence-submission",
+        "internal-approval"
+      ],
+      "policyRuleId": "AUTHORITY-RULE-EVIDENCE-VERIFICATION",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    },
+    {
+      "declarationId": "INTERNAL-OPERATIONAL-APPROVAL",
+      "authorityId": "AUTH-KAP-INTERNAL-OPERATIONAL-APPROVAL",
+      "authorityKind": "internal-approval",
+      "phase": "pre-freeze",
+      "labelAr": "سلطة الاعتماد التشغيلي الداخلي",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ],
+      "separationFromAuthorityKinds": [
+        "evidence-verification",
+        "client-acceptance"
+      ],
+      "policyRuleId": "AUTHORITY-RULE-INTERNAL-APPROVAL",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    },
+    {
+      "declarationId": "EXTERNAL-OPERATIONAL-ACCEPTANCE",
+      "authorityId": "AUTH-KAP-CLIENT-OPERATIONAL-ACCEPTANCE",
+      "authorityKind": "client-acceptance",
+      "phase": "pre-freeze",
+      "labelAr": "سلطة القبول التشغيلي الخارجي",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S6-T1-R2-9"
+      ],
+      "separationFromAuthorityKinds": [
+        "internal-approval"
+      ],
+      "policyRuleId": "AUTHORITY-RULE-CLIENT-ACCEPTANCE",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    },
+    {
+      "declarationId": "ENGINEERING",
+      "authorityId": "AUTH-KAP-ENGINEERING",
+      "authorityKind": "engineering-authority",
+      "phase": "pre-freeze",
+      "labelAr": "السلطة الهندسية",
+      "sourceTraceIds": [
+        "TRACE-KAP-CAD-FINGERPRINT"
+      ],
+      "separationFromAuthorityKinds": [],
+      "policyRuleId": "AUTHORITY-RULE-ENGINEERING",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    },
+    {
+      "declarationId": "HSE",
+      "authorityId": "AUTH-KAP-HSE",
+      "authorityKind": "hse-authority",
+      "phase": "pre-freeze",
+      "labelAr": "سلطة السلامة وHSE",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SAFETY-S2-S8"
+      ],
+      "separationFromAuthorityKinds": [],
+      "policyRuleId": "AUTHORITY-RULE-HSE",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    },
+    {
+      "declarationId": "ROUTE",
+      "authorityId": "AUTH-KAP-ROUTE",
+      "authorityKind": "route-authority",
+      "phase": "pre-freeze",
+      "labelAr": "سلطة اعتماد المسارات",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-PATH-S2-S8"
+      ],
+      "separationFromAuthorityKinds": [],
+      "policyRuleId": "AUTHORITY-RULE-ROUTE",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    },
+    {
+      "declarationId": "FORMAL-OPENING",
+      "authorityId": "AUTH-KAP-OPENING",
+      "authorityKind": "opening-authority",
+      "phase": "pre-freeze",
+      "labelAr": "سلطة قرار الافتتاح الرسمي",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-AHMED-LIMITS"
+      ],
+      "separationFromAuthorityKinds": [
+        "founder-platform-acceptance",
+        "internal-approval"
+      ],
+      "policyRuleId": "AUTHORITY-RULE-OPENING",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    },
+    {
+      "declarationId": "PACK-ACTIVATION",
+      "authorityId": "AUTH-KAP-READINESS-PACK-ACTIVATION",
+      "authorityKind": "readiness-pack-activation",
+      "phase": "pre-activation",
+      "labelAr": "سلطة تفعيل أساس المتطلبات",
+      "sourceTraceIds": [
+        "TRACE-KAP-FOUNDER-AHMED-LIMITS"
+      ],
+      "separationFromAuthorityKinds": [
+        "founder-platform-acceptance",
+        "requirement-owner"
+      ],
+      "policyRuleId": "AUTHORITY-RULE-PACK-ACTIVATION",
+      "applicable": true,
+      "requiredScopeType": "pack",
+      "requiredScopeId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+      "notApplicableDeclaration": null
+    }
+  ]
+}

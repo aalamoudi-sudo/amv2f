@@ -1,0 +1,30 @@
+.kaga-metric-value {
+  display: inline-flex;
+  direction: ltr;
+  unicode-bidi: isolate;
+  flex-direction: row;
+  align-items: baseline;
+  gap: .16em;
+  white-space: nowrap;
+}
+
+.kaga-metric-value__number {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.kaga-metric-value__unit {
+  display: inline-flex;
+  direction: ltr;
+  unicode-bidi: isolate;
+  flex-direction: row;
+  align-items: baseline;
+  gap: .02em;
+}
+
+.kaga-metric-value__unit sup {
+  position: relative;
+  inset-block-start: -.18em;
+  font-size: .58em;
+  line-height: 1;
+}

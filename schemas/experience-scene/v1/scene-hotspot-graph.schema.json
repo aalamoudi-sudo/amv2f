@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/experience-scene/v1/scene-hotspot-graph.schema.json",
+  "title": "Experience Scene Hotspot Graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["graphId", "projectId", "eventId", "assetIds", "hotspots", "transitions"],
+  "properties": {
+    "graphId": { "$ref": "#/$defs/id" }, "projectId": { "$ref": "#/$defs/id" }, "eventId": { "$ref": "#/$defs/id" },
+    "assetIds": { "$ref": "#/$defs/idArray" },
+    "hotspots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hotspotId", "assetId", "targetType"],
+        "properties": {
+          "hotspotId": { "$ref": "#/$defs/id" },
+          "assetId": { "$ref": "#/$defs/id" },
+          "targetType": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["transitionId", "sourceAssetId", "hotspotId", "routeAuthority"],
+        "properties": {
+          "transitionId": { "$ref": "#/$defs/id" },
+          "sourceAssetId": { "$ref": "#/$defs/id" },
+          "hotspotId": { "$ref": "#/$defs/id" },
+          "routeAuthority": { "const": "none" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "minLength": 3, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+    "idArray": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+  }
+}

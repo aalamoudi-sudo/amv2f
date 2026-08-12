@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mayadeen.local/integration/v1/iot-observation.schema.json",
+  "title": "Mayadeen Vendor-Neutral IoT Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "observationId", "eventRef", "venueId", "deviceId", "streamId", "sourceSystemId", "sourceRecordId", "adapterId", "adapterVersion", "transport", "stateContext", "value", "valueType", "unit", "sourceTimestamp", "platformReceivedAt", "sourceTimeAuthority", "sequence", "offlineSequence", "freshnessThresholdSeconds", "qualityFlags", "mappingVersion", "spatialBinding", "idempotencyKey", "payloadHash"],
+  "allOf": [
+    { "if": { "properties": { "valueType": { "const": "number" } }, "required": ["valueType"] }, "then": { "properties": { "value": { "type": "number" } } } },
+    { "if": { "properties": { "valueType": { "const": "string" } }, "required": ["valueType"] }, "then": { "properties": { "value": { "type": "string" } } } },
+    { "if": { "properties": { "valueType": { "const": "boolean" } }, "required": ["valueType"] }, "then": { "properties": { "value": { "type": "boolean" } } } }
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "observationId": { "type": "string", "minLength": 1 },
+    "eventRef": { "type": ["string", "null"], "minLength": 1 },
+    "venueId": { "type": "string", "minLength": 1 },
+    "deviceId": { "type": "string", "minLength": 1 },
+    "streamId": { "type": "string", "minLength": 1 },
+    "sourceSystemId": { "type": "string", "minLength": 1 },
+    "sourceRecordId": { "type": "string", "minLength": 1 },
+    "adapterId": { "type": "string", "minLength": 1 },
+    "adapterVersion": { "type": "string", "minLength": 1 },
+    "transport": { "enum": ["local-simulator", "file-replay", "mqtt-adapter", "http-adapter"] },
+    "stateContext": { "const": "temporary-demo" },
+    "value": { "type": ["number", "string", "boolean"] },
+    "valueType": { "enum": ["number", "string", "boolean"] },
+    "unit": { "type": ["string", "null"], "minLength": 1 },
+    "sourceTimestamp": { "type": "string", "format": "date-time" },
+    "platformReceivedAt": { "type": "string", "format": "date-time" },
+    "sourceTimeAuthority": { "enum": ["device-untrusted", "gateway-local-untrusted", "gateway-derived", "platform-authoritative", "unknown"] },
+    "sequence": { "type": "integer", "minimum": 0 },
+    "offlineSequence": { "type": ["integer", "null"], "minimum": 1 },
+    "freshnessThresholdSeconds": { "type": "number", "exclusiveMinimum": 0 },
+    "qualityFlags": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["good", "estimated", "out-of-range", "stale", "clock-untrusted", "sequence-gap", "device-degraded", "manual-review"] }
+    },
+    "mappingVersion": { "type": "string", "minLength": 1 },
+    "spatialBinding": { "$ref": "#/$defs/spatialBinding" },
+    "idempotencyKey": { "type": "string", "minLength": 1 },
+    "payloadHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" }
+  },
+  "$defs": {
+    "spatialBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bindingId", "entityId", "zoneId", "coordinateReference", "spatialReference", "position", "bindingStatus"],
+      "properties": {
+        "bindingId": { "type": "string", "minLength": 1 },
+        "entityId": { "type": "string", "minLength": 1 },
+        "zoneId": { "type": ["string", "null"], "minLength": 1 },
+        "coordinateReference": { "enum": ["venue-local", "model-local", "geographic", "unknown"] },
+        "spatialReference": { "type": ["string", "null"], "minLength": 1 },
+        "position": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "array", "prefixItems": [{ "type": "number" }, { "type": "number" }, { "type": "number" }], "minItems": 3, "maxItems": 3 }
+          ]
+        },
+        "bindingStatus": { "enum": ["unverified", "verified"] }
+      }
+    }
+  }
+}

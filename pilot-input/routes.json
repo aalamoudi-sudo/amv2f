@@ -1,0 +1,21 @@
+{
+  "noticeAr": "كل مسار هنا مثال خيالي وغير معتمد",
+  "routes": [
+    {
+      "exampleOnly": true,
+      "id": "ROUTE-EXAMPLE-ONLY-001",
+      "entityId": "ROUTE-EXAMPLE-ONLY-001",
+      "nameAr": "مسار مثال خيالي",
+      "nameEn": "Fictional Example Route",
+      "type": "visitor",
+      "points": [[0, 0.35, 0], [10, 0.35, 5]],
+      "relatedEntityIds": ["SITE-EXAMPLE-ONLY-001"],
+      "geometrySource": "EXAMPLE-ONLY",
+      "authority": "unknown",
+      "approvalStatus": "draft",
+      "approvedBy": null,
+      "approvedAt": null,
+      "version": "example-route-1"
+    }
+  ]
+}

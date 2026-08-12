@@ -1,0 +1,1149 @@
+{
+  "schemaVersion": "1.1.0",
+  "packId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "generatedAt": "2026-07-29T16:06:13+03:00",
+  "missingAuthorities": [
+    "AUTH-KAP-CLIENT-OPERATIONAL-ACCEPTANCE",
+    "AUTH-KAP-ENGINEERING",
+    "AUTH-KAP-EVIDENCE-VERIFICATION",
+    "AUTH-KAP-HSE",
+    "AUTH-KAP-INTERNAL-OPERATIONAL-APPROVAL",
+    "AUTH-KAP-OPENING",
+    "AUTH-KAP-READINESS-PACK-ACTIVATION",
+    "AUTH-KAP-REQUIREMENT-DENOMINATOR",
+    "AUTH-KAP-ROUTE"
+  ],
+  "missingOwners": [
+    "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+    "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE"
+  ],
+  "missingEvidenceRules": [
+    "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+    "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+    "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+    "REQ-KAP-CAD-WORKING-SOURCE",
+    "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+    "REQ-KAP-GOV-ESCALATION-LEVELS",
+    "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+    "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+    "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+    "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+    "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+    "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+    "REQ-KAP-WORKSTREAM-HOSPITALITY"
+  ],
+  "missingVerificationRules": [
+    "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+    "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+    "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+    "REQ-KAP-CAD-WORKING-SOURCE",
+    "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+    "REQ-KAP-GOV-ESCALATION-LEVELS",
+    "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+    "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+    "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+    "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+    "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+    "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+    "REQ-KAP-WORKSTREAM-HOSPITALITY"
+  ],
+  "missingApprovalRules": [
+    "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+    "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+    "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+    "REQ-KAP-CAD-WORKING-SOURCE",
+    "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+    "REQ-KAP-GOV-ESCALATION-LEVELS",
+    "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+    "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+    "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+    "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+    "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+    "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+    "REQ-KAP-WORKSTREAM-HOSPITALITY"
+  ],
+  "missingSpatialMappings": [
+    "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+    "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+    "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+    "REQ-KAP-GOV-CHANGE-CONTROL",
+    "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+    "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+    "REQ-KAP-GOV-ESCALATION-LEVELS",
+    "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+    "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+    "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+    "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+    "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+    "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+    "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS"
+  ],
+  "governanceGaps": [
+    {
+      "gapId": "GAP-KAP-COMMUNICATION-RECORD-OWNER",
+      "labelAr": "مالك سجل الاتصال والمخاطبات غير معيّن",
+      "category": "communication",
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-COMMS-S9",
+        "TRACE-KAP-GOV-DECISIONS-S4-S11"
+      ],
+      "affectedIds": [
+        "POLICY-KAP-COMMUNICATION-RECORD"
+      ],
+      "impactAr": "توجد قنوات وتقارير دون مالك قانوني شامل لسجل الاتصال.",
+      "nextActionAr": "تعيين حافظ سجل الاتصال وسياسة الاحتفاظ."
+    },
+    {
+      "gapId": "GAP-KAP-DECISION-FORUM-DEFINITION",
+      "labelAr": "تعريف اللجان ومنتديات القرار مفقود",
+      "category": "governance",
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-DECISIONS-S4-S11",
+        "TRACE-KAP-GOV-COMMS-S9"
+      ],
+      "affectedIds": [
+        "POLICY-KAP-DECISION-FORUM"
+      ],
+      "impactAr": "توجد سجلات واجتماعات دون تعريف لجنة القرار ونصابها وصلاحياتها.",
+      "nextActionAr": "تعريف منتديات القرار والعضوية والنصاب."
+    },
+    {
+      "gapId": "GAP-KAP-DELEGATION-ABSENCE-RULES",
+      "labelAr": "قواعد التفويض والغياب مفقودة",
+      "category": "governance",
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-ORG-ROSTER-S3-S5-23",
+        "TRACE-KAP-GOV-APPROVAL-S5-T1-R4-6"
+      ],
+      "affectedIds": [
+        "POLICY-KAP-DELEGATION"
+      ],
+      "impactAr": "الأدوار مسماة دون بديل مخول عند الغياب أو انتهاء التفويض.",
+      "nextActionAr": "تعريف التفويض والبديل وفترة الصلاحية."
+    },
+    {
+      "gapId": "GAP-KAP-DOCUMENT-CONTROL-METADATA",
+      "labelAr": "بيانات ضبط الوثائق غير مكتملة",
+      "category": "document-control",
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-DECISIONS-S4-S11"
+      ],
+      "affectedIds": [
+        "POLICY-KAP-DOCUMENT-CONTROL"
+      ],
+      "impactAr": "المصدر يطلب رقمًا وسجلًا دون مخطط كامل للإصدار والحافظ والاحتفاظ.",
+      "nextActionAr": "اعتماد عقد ضبط الوثائق والإصدارات والاحتفاظ."
+    },
+    {
+      "gapId": "GAP-KAP-HSE-OPERATIONAL-OWNER",
+      "labelAr": "مالك السلامة وHSE التشغيلي غير معيّن",
+      "category": "ownership",
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SAFETY-S2-S8",
+        "TRACE-KAP-GOV-ORG-ROSTER-S3-S5-23"
+      ],
+      "affectedIds": [
+        "AUTH-KAP-HSE"
+      ],
+      "impactAr": "وجود السلامة في النطاق لا يحدد مالكًا تشغيليًا أو جهة اعتماد.",
+      "nextActionAr": "تعيين مالك وسلطة HSE بمرجع رسمي."
+    },
+    {
+      "gapId": "GAP-KAP-MEDIA-WORKSTREAM-OWNER",
+      "labelAr": "مالك مسار الإعلام غير معيّن",
+      "category": "ownership",
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-TRANSPORT-MEDIA-S2-S8",
+        "TRACE-KAP-GOV-WORKSTREAMS-S7-T1-R3-10"
+      ],
+      "affectedIds": [
+        "WORKSTREAM-KAP-MEDIA"
+      ],
+      "impactAr": "الإعلام مذكور في النطاق ولا يظهر له مسار ملكية مستقل في جدول المسارات.",
+      "nextActionAr": "تعريف مسار الإعلام ومالكه أو توثيق دمجه بسلطة مخولة."
+    },
+    {
+      "gapId": "GAP-KAP-OPERATIONAL-ACCEPTANCE-CRITERIA",
+      "labelAr": "معايير القبول التشغيلي مفقودة",
+      "category": "acceptance",
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7",
+        "TRACE-KAP-GOV-APPROVAL-S5-T1-R4-6",
+        "TRACE-KAP-GOV-APPROVAL-S6-T1-R2-9"
+      ],
+      "affectedIds": [
+        "AUTH-KAP-CLIENT-OPERATIONAL-ACCEPTANCE"
+      ],
+      "impactAr": "اعتماد التسليمات لا يحدد قبولًا تشغيليًا أو قرار افتتاح.",
+      "nextActionAr": "تعريف معايير القبول والجهة المخولة."
+    },
+    {
+      "gapId": "GAP-KAP-TECHNICAL-SITE-HANDOVER-OWNER",
+      "labelAr": "مالك التسليم التقني للموقع غير معيّن",
+      "category": "ownership",
+      "classification": "missing",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-CLOSURE-S2-S8",
+        "TRACE-KAP-GOV-ORG-ROSTER-S3-S5-23"
+      ],
+      "affectedIds": [
+        "WORKSTREAM-KAP-SITE-HANDOVER"
+      ],
+      "impactAr": "التسليم والإغلاق في النطاق دون مالك تقني محدد.",
+      "nextActionAr": "تعيين مالك التسليم الفني ومعايير الاستلام."
+    }
+  ],
+  "unresolvedConflicts": [
+    {
+      "conflictId": "CONFLICT-KAP-APPROVAL-AUTHORITY-SCOPE",
+      "labelAr": "غموض نطاق سلطة الاعتماد",
+      "classification": "conflicting",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7",
+        "TRACE-KAP-GOV-APPROVAL-S5-T1-R4-6",
+        "TRACE-KAP-GOV-APPROVAL-S6-T1-R2-9",
+        "TRACE-KAP-GOV-COMMS-S9"
+      ],
+      "affectedIds": [
+        "AUTH-KAP-CLIENT-OPERATIONAL-ACCEPTANCE",
+        "AUTH-KAP-INTERNAL-OPERATIONAL-APPROVAL"
+      ],
+      "resolutionStatus": "unresolved",
+      "requiredAuthorityKind": "internal-approval",
+      "candidateAssignments": [],
+      "authorizedResolverAuthorityId": null,
+      "derivedFromAssertionIds": [
+        "ASSERT-KAP-APPROVAL-S4",
+        "ASSERT-KAP-APPROVAL-S5",
+        "ASSERT-KAP-APPROVAL-S6",
+        "ASSERT-KAP-APPROVAL-S9"
+      ]
+    },
+    {
+      "conflictId": "CONFLICT-KAP-ESCALATION-TIMING",
+      "labelAr": "تعارض توقيت التصعيد والتغيير",
+      "classification": "conflicting",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-ESCALATION-S4-S9-12",
+        "TRACE-KAP-GOV-ESCALATION-S8-S3-19"
+      ],
+      "affectedIds": [
+        "POLICY-KAP-ESCALATION"
+      ],
+      "resolutionStatus": "unresolved",
+      "requiredAuthorityKind": "project-assignment",
+      "candidateAssignments": [],
+      "authorizedResolverAuthorityId": null,
+      "derivedFromAssertionIds": [
+        "ASSERT-KAP-ESCALATION-S4-IMMEDIATE-24",
+        "ASSERT-KAP-ESCALATION-S8-48-IMMEDIATE"
+      ]
+    },
+    {
+      "conflictId": "CONFLICT-KAP-EXECUTION-ASSIGNMENT",
+      "labelAr": "تعارض تعيين مسؤول التنفيذ",
+      "classification": "conflicting",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-EXECUTION-S3-S19",
+        "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+      ],
+      "affectedIds": [
+        "ACTOR-KAP-JOSEPH-HADDAD",
+        "ACTOR-KAP-MUHAMMAD-IBRAHIM",
+        "AUTH-KAP-RESPONSIBLE-DELIVERY",
+        "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+        "WORKSTREAM-KAP-EXECUTION"
+      ],
+      "resolutionStatus": "unresolved",
+      "requiredAuthorityKind": "project-assignment",
+      "candidateAssignments": [
+        {
+          "candidateId": "ASSERT-KAP-EXECUTION-MUHAMMAD-S3",
+          "actor": {
+            "actorRef": "ACTOR-KAP-MUHAMMAD-IBRAHIM",
+            "displayNameAr": "محمد إبراهيم",
+            "actorType": "person",
+            "classification": "conflicting",
+            "sourceTraceIds": [
+              "TRACE-KAP-FOUNDER-MUHAMMAD",
+              "TRACE-KAP-GOV-EXECUTION-S3-S19",
+              "TRACE-KAP-EMPLOYEE-MUHAMMAD-R28"
+            ],
+            "founderDirectionReference": "TRACE-KAP-FOUNDER-MUHAMMAD",
+            "assignmentScope": "مرشح ممثل مشروع في المخطط التنظيمي، غير محسوم لمسار التنفيذ",
+            "authorityLimitations": [
+              "مرجع الموظف لا يثبت تعيينًا في المشروع.",
+              "لا يحتسب ضمن تغطية مسؤول التنفيذ حتى حسم التعارض."
+            ]
+          },
+          "labelAr": "محمد إبراهيم",
+          "sourceTraceIds": [
+            "TRACE-KAP-GOV-EXECUTION-S3-S19"
+          ],
+          "candidateScope": "ACTOR-KAP-MUHAMMAD-IBRAHIM"
+        },
+        {
+          "candidateId": "ASSERT-KAP-EXECUTION-JOSEPH-S7",
+          "actor": {
+            "actorRef": "ACTOR-KAP-JOSEPH-HADDAD",
+            "displayNameAr": "جوزيف حداد",
+            "actorType": "person",
+            "classification": "conflicting",
+            "sourceTraceIds": [
+              "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+            ],
+            "founderDirectionReference": null,
+            "assignmentScope": "مرشح مسؤول مسار التنفيذ في جدول مسؤوليات المسارات",
+            "authorityLimitations": [
+              "يتعارض مع مرشح المخطط التنظيمي.",
+              "لا يحتسب ضمن تغطية مسؤول التنفيذ حتى حسم التعارض."
+            ]
+          },
+          "labelAr": "جوزيف حداد",
+          "sourceTraceIds": [
+            "TRACE-KAP-GOV-EXECUTION-S7-T1-R8"
+          ],
+          "candidateScope": "ACTOR-KAP-JOSEPH-HADDAD"
+        }
+      ],
+      "authorizedResolverAuthorityId": null,
+      "derivedFromAssertionIds": [
+        "ASSERT-KAP-EXECUTION-JOSEPH-S7",
+        "ASSERT-KAP-EXECUTION-MUHAMMAD-S3"
+      ]
+    },
+    {
+      "conflictId": "CONFLICT-KAP-PROJECT-MANAGER-ROLE",
+      "labelAr": "غموض هوية مدير المشروع",
+      "classification": "conflicting",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S6-T1-R2-9",
+        "TRACE-KAP-GOV-PROJECT-MANAGER-AMBIGUITY-S3-S6-12"
+      ],
+      "affectedIds": [
+        "ROLE-KAP-PROJECT-MANAGER"
+      ],
+      "resolutionStatus": "unresolved",
+      "requiredAuthorityKind": "project-assignment",
+      "candidateAssignments": [],
+      "authorizedResolverAuthorityId": null,
+      "derivedFromAssertionIds": [
+        "ASSERT-KAP-PM-CLIENT",
+        "ASSERT-KAP-PM-MAYADEEN"
+      ]
+    },
+    {
+      "conflictId": "CONFLICT-KAP-RACI-MULTIPLE-RESPONSIBLE",
+      "labelAr": "تعارض قاعدة مسؤول التنفيذ الواحد في RACI",
+      "classification": "conflicting",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-RACI-CHANGE-S6-T1-R4",
+        "TRACE-KAP-GOV-RACI-CREATIVE-S6-T1-R2",
+        "TRACE-KAP-GOV-RACI-RULE-S6-S3"
+      ],
+      "affectedIds": [
+        "POLICY-KAP-RACI-CARDINALITY",
+        "WORKSTREAM-KAP-CONTENT",
+        "WORKSTREAM-KAP-CREATIVE",
+        "WORKSTREAM-KAP-PMO"
+      ],
+      "resolutionStatus": "unresolved",
+      "requiredAuthorityKind": "project-assignment",
+      "candidateAssignments": [],
+      "authorizedResolverAuthorityId": null,
+      "derivedFromAssertionIds": [
+        "ASSERT-KAP-RACI-CHANGE-MULTIPLE-R",
+        "ASSERT-KAP-RACI-CREATIVE-MULTIPLE-R",
+        "ASSERT-KAP-RACI-SINGLE-R"
+      ]
+    }
+  ],
+  "eligibilityGates": [
+    {
+      "gateId": "ELIGIBILITY-SOURCE-LINEAGE",
+      "labelAr": "سلامة سلسلة المصادر",
+      "rule": "ELIGIBILITY-SOURCE-LINEAGE",
+      "status": "passed",
+      "blocking": true,
+      "affectedIds": [],
+      "explanationAr": "يجب أن تطابق كل بصمة ومراجعة ومحدد موضعي سجل المصدر المسجل.",
+      "nextActionAr": "إعادة الاستخراج من البايتات المسجلة أو إنشاء مراجعة مصدر جديدة.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-WORKSTREAMS-DEFINED",
+      "labelAr": "تعريف مسارات العمل",
+      "rule": "ELIGIBILITY-WORKSTREAMS-DEFINED",
+      "status": "passed",
+      "blocking": true,
+      "affectedIds": [],
+      "explanationAr": "يجب أن يرتبط كل متطلب قانوني بمسار عمل معرّف.",
+      "nextActionAr": "تعريف مسار العمل أو تصحيح الارتباط.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-CLASSIFIED",
+      "labelAr": "تصنيف كل متطلب قانوني",
+      "rule": "ELIGIBILITY-CLASSIFIED",
+      "status": "passed",
+      "blocking": true,
+      "affectedIds": [],
+      "explanationAr": "كل متطلب قانوني يحتاج تصنيف مصدر واحدًا.",
+      "nextActionAr": "مراجعة التصنيفات غير الصالحة.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-OWNERS",
+      "labelAr": "تعيين الملاك",
+      "rule": "ELIGIBILITY-OWNERS",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+        "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE"
+      ],
+      "explanationAr": "لا تزال بعض ملكيات المتطلبات غير معيّنة من ممثل موثق وغير متعارض.",
+      "nextActionAr": "تعيين مالك موثّق لكل متطلب قانوني.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-EVIDENCE-RULES",
+      "labelAr": "قواعد الأدلة",
+      "rule": "ELIGIBILITY-EVIDENCE-RULES",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+        "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+        "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+        "REQ-KAP-CAD-WORKING-SOURCE",
+        "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+        "REQ-KAP-GOV-ESCALATION-LEVELS",
+        "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+        "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+        "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+        "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+        "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+        "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+        "REQ-KAP-WORKSTREAM-HOSPITALITY"
+      ],
+      "explanationAr": "قواعد الدليل غير مكتملة أو غير موثقة لبعض المتطلبات.",
+      "nextActionAr": "تعريف نوع الدليل والحفظ والتحقق والصلاحية بمرجع مصدر.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-VERIFICATION-RULES",
+      "labelAr": "قواعد التحقق",
+      "rule": "ELIGIBILITY-VERIFICATION-RULES",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+        "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+        "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+        "REQ-KAP-CAD-WORKING-SOURCE",
+        "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+        "REQ-KAP-GOV-ESCALATION-LEVELS",
+        "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+        "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+        "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+        "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+        "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+        "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+        "REQ-KAP-WORKSTREAM-HOSPITALITY"
+      ],
+      "explanationAr": "قواعد التحقق غير مكتملة أو غير موثقة لبعض المتطلبات.",
+      "nextActionAr": "تعريف طريقة التحقق وسلطتها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-APPROVAL-RULES",
+      "labelAr": "قواعد الاعتماد",
+      "rule": "ELIGIBILITY-APPROVAL-RULES",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+        "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+        "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+        "REQ-KAP-CAD-WORKING-SOURCE",
+        "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+        "REQ-KAP-GOV-ESCALATION-LEVELS",
+        "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+        "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+        "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+        "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+        "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+        "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+        "REQ-KAP-WORKSTREAM-HOSPITALITY"
+      ],
+      "explanationAr": "قواعد الاعتماد غير مكتملة أو غير موثقة لبعض المتطلبات.",
+      "nextActionAr": "تعريف طريقة الاعتماد وسلطتها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-SPATIAL-SCOPE",
+      "labelAr": "النطاق المكاني",
+      "rule": "ELIGIBILITY-SPATIAL-SCOPE",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+        "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+        "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+        "REQ-KAP-GOV-CHANGE-CONTROL",
+        "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+        "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+        "REQ-KAP-GOV-ESCALATION-LEVELS",
+        "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+        "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+        "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+        "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+        "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+        "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+        "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS"
+      ],
+      "explanationAr": "بعض المتطلبات غير مربوطة مكانيًا ولم يوثق عدم انطباقها.",
+      "nextActionAr": "ربط النطاق المرشح أو تسجيل عدم الانطباق بمرجع مخول.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-CONFLICTS",
+      "labelAr": "حل تعارضات الحوكمة",
+      "rule": "ELIGIBILITY-CONFLICTS",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "CONFLICT-KAP-APPROVAL-AUTHORITY-SCOPE",
+        "CONFLICT-KAP-ESCALATION-TIMING",
+        "CONFLICT-KAP-EXECUTION-ASSIGNMENT",
+        "CONFLICT-KAP-PROJECT-MANAGER-ROLE",
+        "CONFLICT-KAP-RACI-MULTIPLE-RESPONSIBLE"
+      ],
+      "explanationAr": "تعارضات المصدر المفتوحة تمنع تجميد مقام قانوني موثوق.",
+      "nextActionAr": "حسم كل تعارض بمرجع مصدر أو إعفاء من سلطة مخولة.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-GOVERNANCE-GAPS",
+      "labelAr": "اكتمال الحوكمة التشغيلية",
+      "rule": "ELIGIBILITY-GOVERNANCE-GAPS",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "GAP-KAP-COMMUNICATION-RECORD-OWNER",
+        "GAP-KAP-DECISION-FORUM-DEFINITION",
+        "GAP-KAP-DELEGATION-ABSENCE-RULES",
+        "GAP-KAP-DOCUMENT-CONTROL-METADATA",
+        "GAP-KAP-HSE-OPERATIONAL-OWNER",
+        "GAP-KAP-MEDIA-WORKSTREAM-OWNER",
+        "GAP-KAP-OPERATIONAL-ACCEPTANCE-CRITERIA",
+        "GAP-KAP-TECHNICAL-SITE-HANDOVER-OWNER"
+      ],
+      "explanationAr": "توجد فجوات حوكمة وتشغيل موثقة لم تُستكمل.",
+      "nextActionAr": "استكمال الفجوات بمصدر أو قرار سلطة صالح.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-EXTERNAL-OPERATIONAL-ACCEPTANCE",
+      "labelAr": "سلطة القبول التشغيلي الخارجي",
+      "rule": "ELIGIBILITY-AUTHORITY-EXTERNAL-OPERATIONAL-ACCEPTANCE",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-CLIENT-OPERATIONAL-ACCEPTANCE"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-ENGINEERING",
+      "labelAr": "السلطة الهندسية",
+      "rule": "ELIGIBILITY-AUTHORITY-ENGINEERING",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-ENGINEERING"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-EVIDENCE-VERIFICATION",
+      "labelAr": "سلطة التحقق من الأدلة",
+      "rule": "ELIGIBILITY-AUTHORITY-EVIDENCE-VERIFICATION",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-EVIDENCE-VERIFICATION"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-HSE",
+      "labelAr": "سلطة السلامة وHSE",
+      "rule": "ELIGIBILITY-AUTHORITY-HSE",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-HSE"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-INTERNAL-OPERATIONAL-APPROVAL",
+      "labelAr": "سلطة الاعتماد التشغيلي الداخلي",
+      "rule": "ELIGIBILITY-AUTHORITY-INTERNAL-OPERATIONAL-APPROVAL",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-INTERNAL-OPERATIONAL-APPROVAL"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-FORMAL-OPENING",
+      "labelAr": "سلطة قرار الافتتاح الرسمي",
+      "rule": "ELIGIBILITY-AUTHORITY-FORMAL-OPENING",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-OPENING"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-REQUIREMENT-DENOMINATOR",
+      "labelAr": "سلطة اعتماد مقام المتطلبات",
+      "rule": "ELIGIBILITY-AUTHORITY-REQUIREMENT-DENOMINATOR",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-REQUIREMENT-DENOMINATOR"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-ROUTE",
+      "labelAr": "سلطة اعتماد المسارات",
+      "rule": "ELIGIBILITY-AUTHORITY-ROUTE",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-ROUTE"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-freeze"
+    },
+    {
+      "gateId": "ELIGIBILITY-PRE-FREEZE-COMPLETE",
+      "labelAr": "اكتمال بوابات ما قبل التجميد",
+      "rule": "ELIGIBILITY-PRE-FREEZE-COMPLETE",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "ELIGIBILITY-APPROVAL-RULES",
+        "ELIGIBILITY-AUTHORITY-ENGINEERING",
+        "ELIGIBILITY-AUTHORITY-EVIDENCE-VERIFICATION",
+        "ELIGIBILITY-AUTHORITY-EXTERNAL-OPERATIONAL-ACCEPTANCE",
+        "ELIGIBILITY-AUTHORITY-FORMAL-OPENING",
+        "ELIGIBILITY-AUTHORITY-HSE",
+        "ELIGIBILITY-AUTHORITY-INTERNAL-OPERATIONAL-APPROVAL",
+        "ELIGIBILITY-AUTHORITY-REQUIREMENT-DENOMINATOR",
+        "ELIGIBILITY-AUTHORITY-ROUTE",
+        "ELIGIBILITY-CONFLICTS",
+        "ELIGIBILITY-EVIDENCE-RULES",
+        "ELIGIBILITY-GOVERNANCE-GAPS",
+        "ELIGIBILITY-OWNERS",
+        "ELIGIBILITY-SPATIAL-SCOPE",
+        "ELIGIBILITY-VERIFICATION-RULES"
+      ],
+      "explanationAr": "لا يمكن التفعيل إذا فشلت بوابة من بوابات ما قبل التجميد.",
+      "nextActionAr": "استكمال بوابات ما قبل التجميد في مراجعة مرشحة جديدة.",
+      "phase": "pre-activation"
+    },
+    {
+      "gateId": "ELIGIBILITY-FROZEN-CANDIDATE",
+      "labelAr": "مراجعة مرشحة مجمدة",
+      "rule": "ELIGIBILITY-FROZEN-CANDIDATE",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1"
+      ],
+      "explanationAr": "التفعيل يقبل مراجعة مرشحة مجمدة فقط ولا يقبل مرشحًا قابلًا للتحرير.",
+      "nextActionAr": "تجميد مراجعة مؤهلة أولًا.",
+      "phase": "pre-activation"
+    },
+    {
+      "gateId": "ELIGIBILITY-FROZEN-SOURCE",
+      "labelAr": "ثبات مراجعة المصدر المجمدة",
+      "rule": "ELIGIBILITY-FROZEN-SOURCE",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1"
+      ],
+      "explanationAr": "يجب أن تبقى بصمتا سجل المصدر ومحدداته مساويتين للبصمتين اللتين جمدت معهما المراجعة.",
+      "nextActionAr": "إنشاء مراجعة مرشحة جديدة عند تغير المصدر.",
+      "phase": "pre-activation"
+    },
+    {
+      "gateId": "ELIGIBILITY-AUTHORITY-PACK-ACTIVATION",
+      "labelAr": "سلطة تفعيل أساس المتطلبات",
+      "rule": "ELIGIBILITY-AUTHORITY-PACK-ACTIVATION",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "AUTH-KAP-READINESS-PACK-ACTIVATION"
+      ],
+      "explanationAr": "يجب أن تطابق السلطة عقد المنصة وأن تكون معيّنة لممثل صالح وموثقة المصدر وخالية من تعارض الواجبات.",
+      "nextActionAr": "تعيين السلطة بمرجع مصدر صالح وحسم أي تعارض يؤثر فيها.",
+      "phase": "pre-activation"
+    },
+    {
+      "gateId": "ELIGIBILITY-ACTIVATION-EVIDENCE",
+      "labelAr": "دليل قرار التفعيل",
+      "rule": "ELIGIBILITY-ACTIVATION-EVIDENCE",
+      "status": "failed",
+      "blocking": true,
+      "affectedIds": [
+        "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1"
+      ],
+      "explanationAr": "التفعيل يحتاج سلطة مستقلة ودليلًا ومواضع مصدر مرتبطة بالمراجعة المجمدة.",
+      "nextActionAr": "تقديم قرار تفعيل موثق من السلطة المسجلة.",
+      "phase": "pre-activation"
+    }
+  ],
+  "preparation": {
+    "snapshotId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1:PREPARATION:1:78de9ad4e497",
+    "packId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+    "packRevision": 1,
+    "packFingerprint": "78de9ad4e49781cf24e0fac51e5834cb99dd47e9daf07fd13d8bea1856b35ccc",
+    "generatedAt": "2026-07-29T16:06:13+03:00",
+    "modelVersion": "READINESS-PACK-PREPARATION-v1",
+    "metrics": [
+      {
+        "metricId": "source-coverage",
+        "labelAr": "تغطية المصدر",
+        "numerator": 18,
+        "denominator": 18,
+        "value": 100,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "excludedItemIds": [],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس وجود تصنيف ومحدد مصدر صالح للمتطلبات القانونية.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "workstream-coverage",
+        "labelAr": "تغطية مسارات العمل",
+        "numerator": 18,
+        "denominator": 18,
+        "value": 100,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "excludedItemIds": [],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس ارتباط المتطلبات القانونية بمسارات عمل معرّفة.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "owner-coverage",
+        "labelAr": "تغطية المالك",
+        "numerator": 16,
+        "denominator": 18,
+        "value": 88.9,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM"
+        ],
+        "excludedItemIds": [
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس تعيين مالك لكل متطلب قانوني دون استنتاج سلطة.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "responsible-party-coverage",
+        "labelAr": "تغطية مسؤول التنفيذ",
+        "numerator": 16,
+        "denominator": 18,
+        "value": 88.9,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM"
+        ],
+        "excludedItemIds": [
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس تعيين الطرف المسؤول عن التسليم دون تعارض مفتوح.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "verification-authority-coverage",
+        "labelAr": "تغطية جهة التحقق",
+        "numerator": 7,
+        "denominator": 18,
+        "value": 38.9,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING"
+        ],
+        "excludedItemIds": [
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس وجود جهة تحقق منفصلة ومحددة.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "approval-authority-coverage",
+        "labelAr": "تغطية الاعتماد الداخلي",
+        "numerator": 5,
+        "denominator": 18,
+        "value": 27.8,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER"
+        ],
+        "excludedItemIds": [
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس وجود جهة اعتماد داخلية صريحة.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "external-acceptance-coverage",
+        "labelAr": "تغطية القبول الخارجي",
+        "numerator": 4,
+        "denominator": 18,
+        "value": 22.2,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL"
+        ],
+        "excludedItemIds": [
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس وجود جهة قبول خارجية صريحة.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "evidence-rule-coverage",
+        "labelAr": "تغطية قواعد الدليل",
+        "numerator": 5,
+        "denominator": 18,
+        "value": 27.8,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER"
+        ],
+        "excludedItemIds": [
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس اكتمال نوع الدليل وحفظه والتحقق منه.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "spatial-scope-coverage",
+        "labelAr": "تغطية النطاق المكاني",
+        "numerator": 4,
+        "denominator": 18,
+        "value": 22.2,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE"
+        ],
+        "excludedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس الربط المرشح أو التصريح الموثق بعدم انطباق النطاق.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "dependency-coverage",
+        "labelAr": "تغطية التبعيات",
+        "numerator": 18,
+        "denominator": 18,
+        "value": 100,
+        "unit": "percent",
+        "includedItemIds": [
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT"
+        ],
+        "excludedItemIds": [],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "تقيس تمثيل التبعيات بمعرّفات متطلبات صالحة.",
+        "notReadinessReasonAr": "هذا المؤشر يصف اكتمال تعريف الحزمة فقط، ولا يقيس الإنجاز أو الجاهزية التشغيلية."
+      },
+      {
+        "metricId": "conflict-count",
+        "labelAr": "التعارضات المفتوحة",
+        "numerator": 5,
+        "denominator": 5,
+        "value": 5,
+        "unit": "count",
+        "includedItemIds": [
+          "CONFLICT-KAP-APPROVAL-AUTHORITY-SCOPE",
+          "CONFLICT-KAP-ESCALATION-TIMING",
+          "CONFLICT-KAP-EXECUTION-ASSIGNMENT",
+          "CONFLICT-KAP-PROJECT-MANAGER-ROLE",
+          "CONFLICT-KAP-RACI-MULTIPLE-RESPONSIBLE"
+        ],
+        "excludedItemIds": [],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "عدد التعارضات المشتقة من ادعاءات المصدر المتعارضة التي لم تحسمها سلطة موثقة.",
+        "notReadinessReasonAr": "عدد التعارضات مؤشر أهلية للحزمة ولا يصف حالة التنفيذ الميداني."
+      },
+      {
+        "metricId": "missing-critical-field-count",
+        "labelAr": "الحقول الحرجة المفقودة",
+        "numerator": 35,
+        "denominator": 35,
+        "value": 35,
+        "unit": "count",
+        "includedItemIds": [
+          "AUTH-KAP-CLIENT-OPERATIONAL-ACCEPTANCE",
+          "AUTH-KAP-ENGINEERING",
+          "AUTH-KAP-EVIDENCE-VERIFICATION",
+          "AUTH-KAP-HSE",
+          "AUTH-KAP-INTERNAL-OPERATIONAL-APPROVAL",
+          "AUTH-KAP-OPENING",
+          "AUTH-KAP-READINESS-PACK-ACTIVATION",
+          "AUTH-KAP-REQUIREMENT-DENOMINATOR",
+          "AUTH-KAP-ROUTE",
+          "GAP-KAP-COMMUNICATION-RECORD-OWNER",
+          "GAP-KAP-DECISION-FORUM-DEFINITION",
+          "GAP-KAP-DELEGATION-ABSENCE-RULES",
+          "GAP-KAP-DOCUMENT-CONTROL-METADATA",
+          "GAP-KAP-HSE-OPERATIONAL-OWNER",
+          "GAP-KAP-MEDIA-WORKSTREAM-OWNER",
+          "GAP-KAP-OPERATIONAL-ACCEPTANCE-CRITERIA",
+          "GAP-KAP-TECHNICAL-SITE-HANDOVER-OWNER",
+          "REQ-KAP-ASSIGN-CONTENT-IBRAHIM",
+          "REQ-KAP-ASSIGN-EXECUTION-CONFLICT",
+          "REQ-KAP-ASSIGN-OPERATIONS-MAJED",
+          "REQ-KAP-CAD-WORKING-SOURCE",
+          "REQ-KAP-GOV-CHANGE-CONTROL",
+          "REQ-KAP-GOV-COMMUNICATION-REPORTING",
+          "REQ-KAP-GOV-DECISION-VERSION-REGISTER",
+          "REQ-KAP-GOV-ESCALATION-LEVELS",
+          "REQ-KAP-GOV-FIVE-STAGE-APPROVAL",
+          "REQ-KAP-GOV-STRATEGIC-OBJECTIVE",
+          "REQ-KAP-SCOPE-CREATIVE-CONCEPT",
+          "REQ-KAP-SCOPE-OFFICIAL-OPENING-PATH",
+          "REQ-KAP-SCOPE-PERMITS-RISK-SAFETY",
+          "REQ-KAP-SCOPE-SITE-DELIVERY-CLOSURE",
+          "REQ-KAP-SCOPE-TECHNICAL-ARTISTIC-SHOWS",
+          "REQ-KAP-SCOPE-TRANSPORT-TOURS-MEDIA",
+          "REQ-KAP-WORKSTREAM-GUEST-EXPERIENCE",
+          "REQ-KAP-WORKSTREAM-HOSPITALITY"
+        ],
+        "excludedItemIds": [],
+        "formulaVersion": "READINESS-PACK-PREPARATION-v1",
+        "explanationAr": "عدد الفجوات الحرجة المعاد اشتقاقها من المتطلبات والسلطات والسياسات والحوكمة.",
+        "notReadinessReasonAr": "الفجوات تمنع التقييم ولا تعني أن الجاهزية تساوي صفرًا."
+      }
+    ],
+    "overallPreparationCompleteness": 61.7,
+    "operationalReadiness": "cannot-determine",
+    "explanationAr": "تعرض النسبة اكتمال تعريف الحزمة فقط. لا توجد تقييمات تشغيلية مؤهلة، لذلك تظل الجاهزية غير قابلة للتحديد."
+  }
+}

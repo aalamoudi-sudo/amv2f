@@ -1,0 +1,18 @@
+{
+  "eventId": "EVENT-SCHEMA-001",
+  "eventType": "work.completed",
+  "schemaVersion": "1.0.0",
+  "revision": 1,
+  "stateContext": "temporary-demo",
+  "subjects": { "eventRef": "EVENT-001", "venueId": "VENUE-001", "zoneId": "ZONE-005", "entityId": "ZONE-005", "assetId": null, "routeId": null, "decisionId": "DECISION-001", "workOrderRef": "WORK-ORDER-SCHEMA-001", "requirementId": "REQUIREMENT-ZONE-005-001" },
+  "time": { "eventTime": "2026-07-11T12:00:00.000Z", "recordTime": "2026-07-11T12:00:05.000Z", "timeZoneOffset": "+03:00", "receivedAt": "2026-07-11T12:00:05.000Z" },
+  "location": { "observedAt": "venue-local:ZONE-005", "resultingLocation": "venue-local:ZONE-005", "coordinateReference": "venue-local", "spatialReference": "ZONE-005" },
+  "operationalContext": { "businessStep": "work.completed", "priorDisposition": "in-progress", "proposedDisposition": "completed-unverified", "actionType": "work.completed", "instructionId": "INSTRUCTION-001", "instructionVersion": "1.0.0" },
+  "source": { "sourceType": "system", "sourceSystemId": "SOURCE-SCHEMA-001", "sourceRecordId": "WORK-ORDER-SCHEMA-001", "actorId": "ACTOR-FIELD-001", "actorRole": "field-operator", "deviceId": null, "captureMethod": "deterministic-local-adapter", "adapterId": "adapter-system-work-order", "adapterVersion": "1.0.0-local" },
+  "evidenceRefs": ["EVIDENCE-SCHEMA-001"],
+  "observationRefs": ["OBSERVATION-SCHEMA-001"],
+  "provenanceRefs": ["PROVENANCE-SCHEMA-001"],
+  "trust": { "assertionState": "reported", "sourceConfidence": "high", "validationResult": "accepted", "validationRuleIds": ["CAPTURE-VALID"], "authorityRequirement": null },
+  "relationships": { "correlationId": "CORRELATION-SCHEMA-001", "causationId": null, "supersedesEventId": null, "errorDeclarationForEventId": null, "relationshipReason": null },
+  "delivery": { "idempotencyKey": "IDEMPOTENCY-SCHEMA-001", "offlineSequence": null, "payloadHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" }
+}

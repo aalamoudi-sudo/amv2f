@@ -1,0 +1,33 @@
+{
+  "manifestId": "CAD-MANIFEST-KAP-PROVISIONAL-001",
+  "sourceRef": "SOURCE-KAP-DWG-PROVISIONAL-001",
+  "sourceStatus": "provisional-until-approved-revision-arrives",
+  "contentHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+  "revision": null,
+  "formatVersion": "AC1032 — AutoCAD 2018/2019/2020",
+  "units": "metre",
+  "xyExtents": {
+    "minX": 646892.144767453,
+    "minY": 2711206.357942797,
+    "maxX": 649365.607154326,
+    "maxY": 2715321.653904935
+  },
+  "zExtents": {
+    "minZ": -1982.316189992,
+    "maxZ": 3496.676
+  },
+  "layerCount": 2315,
+  "xrefLayerCount": 1942,
+  "frozenLayerCount": 19,
+  "offLayerCount": 2,
+  "lockedLayerCount": 4,
+  "auditBadLayerCount": 2,
+  "hatchLayerCount": 143,
+  "epsg": null,
+  "northAuthority": null,
+  "originAuthority": null,
+  "embeddedGeolocationTrusted": false,
+  "mappingProfileId": null,
+  "mappedEntityIds": [],
+  "warningAr": "مخطط مبدئي — غير معتمد"
+}

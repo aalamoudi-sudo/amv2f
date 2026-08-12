@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1920" viewBox="0 0 1920 1920" direction="rtl">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#b49752"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-opacity=".12"/></filter>
+  </defs>
+  <rect width="1920" height="1920" fill="#f5f0e4"/>
+  <g transform="translate(0 420)">
+  <text x="1600" y="110" text-anchor="end" font-family="Tahoma" font-size="22" fill="#7a8d87">KAGA LEGENDARY · خريطة النظام</text>
+  <text x="1600" y="168" text-anchor="end" font-family="Tahoma" font-size="46" font-weight="700" fill="#173c34">حالة واحدة تربط الحدث كله</text>
+  <circle cx="960" cy="540" r="150" fill="#0d5148" filter="url(#shadow)"/>
+  <text x="960" y="515" text-anchor="middle" font-family="Tahoma" font-size="25" fill="#d8c383">حالة الجلسة الحية</text>
+  <text x="960" y="565" text-anchor="middle" font-family="Tahoma" font-size="28" font-weight="700" fill="#fff">LegendarySession</text>
+  <text x="960" y="607" text-anchor="middle" font-family="Tahoma" font-size="18" fill="#d9e3df">اليوم · الرحلة · المحطة · العدسة · السياق</text>
+  <g font-family="Tahoma" text-anchor="middle">
+    <g transform="translate(960 270)"><rect x="-115" y="-52" width="230" height="104" rx="52" fill="#e2d5b7"/><text y="10" font-size="32" fill="#173c34">الوقت</text></g>
+    <g transform="translate(1320 360)"><rect x="-115" y="-52" width="230" height="104" rx="52" fill="#e3eee9"/><text y="10" font-size="32" fill="#173c34">المكان</text></g>
+    <g transform="translate(1450 650)"><rect x="-115" y="-52" width="230" height="104" rx="52" fill="#e2d5b7"/><text y="10" font-size="32" fill="#173c34">الشخص</text></g>
+    <g transform="translate(1215 855)"><rect x="-115" y="-52" width="230" height="104" rx="52" fill="#e3eee9"/><text y="10" font-size="32" fill="#173c34">الرحلة</text></g>
+    <g transform="translate(705 855)"><rect x="-115" y="-52" width="230" height="104" rx="52" fill="#e2d5b7"/><text y="10" font-size="32" fill="#173c34">التجربة</text></g>
+    <g transform="translate(470 650)"><rect x="-115" y="-52" width="230" height="104" rx="52" fill="#e3eee9"/><text y="10" font-size="32" fill="#173c34">المعرفة</text></g>
+    <g transform="translate(600 360)"><rect x="-115" y="-52" width="230" height="104" rx="52" fill="#e2d5b7"/><text y="10" font-size="32" fill="#173c34">المرئيات</text></g>
+  </g>
+  <g stroke="#b49752" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity=".8">
+    <path d="M960 390 L960 325"/><path d="M1090 435 L1210 385"/><path d="M1095 610 L1335 642"/><path d="M1040 680 L1170 805"/>
+    <path d="M880 680 L750 805"/><path d="M825 610 L585 642"/><path d="M830 435 L710 385"/>
+  </g>
+  <g transform="translate(960 850)" font-family="Tahoma" text-anchor="middle"><rect x="-115" y="-52" width="230" height="104" rx="52" fill="#f0e5c8"/><text y="10" font-size="32" fill="#173c34">الدليل</text></g>
+  <path d="M960 690 L960 798" stroke="#b49752" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity=".8"/>
+  <path d="M230 930 H1690" stroke="#b49752" stroke-width="1"/>
+  <text x="960" y="995" text-anchor="middle" font-family="Tahoma" font-size="21" fill="#566f68">الدليل يثبت كل علاقة · العدسات تغيّر المنظور ولا تعيد ضبط السياق</text>
+  </g>
+</svg>

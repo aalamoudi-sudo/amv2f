@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "sourceId": "SOURCE-KAP-PRESENTATION-V16-20260712",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "sourceName": "V 16 عرض الأمين final 12 Jul.pdf",
+  "sourceType": "presentation-pdf",
+  "authorityStatus": "founder-provided-candidate-program-and-design-reference",
+  "contentStatus": "reviewed-local-snapshot",
+  "expectedByteSize": 35931866,
+  "expectedSha256": "9663f853eda07ac131a0390968b0ff5e3cf4e0d6e72137050b15a18daac8099d",
+  "observedByteSize": 35931866,
+  "observedSha256": "9663f853eda07ac131a0390968b0ff5e3cf4e0d6e72137050b15a18daac8099d",
+  "pageCount": 66,
+  "ingestionStatus": "validated",
+  "rightsStatus": "review-only",
+  "privacyStatus": "sanitized-metadata-only",
+  "retentionStatus": "raw-source-outside-git",
+  "extractionMethod": "human-reviewed-source-extraction",
+  "previewPages": [5, 8, 10, 12, 13, 33, 34, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 65],
+  "limitationsAr": [
+    "المصدر مرجع مرشح للبرنامج والتصميم، وليس خطة تشغيل أو هندسة معتمدة.",
+    "ملف PDF الخام خارج Git والمتصفح وحزمة المراجعة.",
+    "التوقيت المحلي لعملية الاستخراج ليس زمنًا موثوقًا أو اعتمادًا."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/experience-scene/v1/scene-registry-export.schema.json",
+  "title": "Experience Scene Registry Export",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "registryId", "registryRevision", "projectId", "eventId", "venueId", "experiencePackId", "assets", "revisions", "comparisonPairs", "sourceFingerprint", "contentHash"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" }, "registryId": { "$ref": "#/$defs/id" }, "registryRevision": { "type": "integer", "minimum": 1 },
+    "projectId": { "$ref": "#/$defs/id" }, "eventId": { "$ref": "#/$defs/id" }, "venueId": { "$ref": "#/$defs/id" }, "experiencePackId": { "$ref": "#/$defs/id" },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["schemaVersion", "assetId", "projectId", "eventId", "venueId", "revisionId", "mediaKind", "truthClass", "availabilityStatus", "rightsStatus"],
+        "properties": {
+          "schemaVersion": { "const": "1.0.0" }, "assetId": { "$ref": "#/$defs/id" }, "projectId": { "$ref": "#/$defs/id" }, "eventId": { "$ref": "#/$defs/id" }, "venueId": { "$ref": "#/$defs/id" },
+          "revisionId": { "$ref": "#/$defs/id" }, "mediaKind": { "type": "string" }, "truthClass": { "type": "string" }, "availabilityStatus": { "type": "string" }, "rightsStatus": { "type": "string" }
+        }
+      }
+    },
+    "revisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["revisionId", "assetId", "revision", "status"],
+        "properties": { "revisionId": { "$ref": "#/$defs/id" }, "assetId": { "$ref": "#/$defs/id" }, "revision": { "type": "integer", "minimum": 1 }, "status": { "type": "string" } }
+      }
+    },
+    "comparisonPairs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["comparisonPairId", "leftAssetId", "rightAssetId"],
+        "properties": { "comparisonPairId": { "$ref": "#/$defs/id" }, "leftAssetId": { "$ref": "#/$defs/id" }, "rightAssetId": { "$ref": "#/$defs/id" } }
+      }
+    },
+    "sourceFingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }, "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "$defs": { "id": { "type": "string", "minLength": 3, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" } }
+}

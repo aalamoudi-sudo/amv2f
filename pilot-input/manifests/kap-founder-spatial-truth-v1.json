@@ -1,0 +1,531 @@
+{
+  "schemaVersion": "1.0.0",
+  "packId": "SPATIAL-TRUTH-PACK-v1-b63207f0b3f0d61a228c15b937fb72911cc546312e2ff19f0929797484ce56bf",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "revision": 1,
+  "effectiveDate": "2026-07-28",
+  "authorityType": "founder-product-authority",
+  "approvedBy": "Ahmed",
+  "approvalScope": [
+    "Arabic operator display names and legacy aliases",
+    "Independent-landmark classification for entities 004, 005 and 011",
+    "ZONE-SHOW-001 remains spatially unresolved and unanchored",
+    "Existing candidate relationship states and uncertainty",
+    "Candidate visual anchors remain engineering-unverified"
+  ],
+  "sourceReferences": [
+    {
+      "sourceReferenceId": "TRUTH-SOURCE-KAP-DWG-001",
+      "sourceAssetId": "SOURCE-ASSET-KAP-DWG-DRIVE-001",
+      "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+      "authorityStatus": "founder-approved-working-source",
+      "role": "working-cad"
+    },
+    {
+      "sourceReferenceId": "TRUTH-SOURCE-KAP-ZONING-001",
+      "sourceAssetId": "SOURCE-ASSET-KAP-ZONING-CANDIDATE-001",
+      "sourceHash": "1f37e95a7d00c38df4700a8a1ba66aac606639e8b43b5b9ee2bd59c1d35ae6ad",
+      "authorityStatus": "founder-selected-working-candidate",
+      "role": "candidate-zoning"
+    },
+    {
+      "sourceReferenceId": "TRUTH-SOURCE-KAP-CONCEPT-001",
+      "sourceAssetId": "SOURCE-ASSET-KAP-CONCEPT-PRESENTATION-001",
+      "sourceHash": "1227420de01002fe2fa91001bd6373afd93c7c8f73778d0085e00d1f58560582",
+      "authorityStatus": "concept-reference-only",
+      "role": "concept-reference"
+    },
+    {
+      "sourceReferenceId": "TRUTH-SOURCE-KAP-FIELD-EVIDENCE-001",
+      "sourceAssetId": "SOURCE-ASSET-KAP-FIELD-MEDIA-INVENTORY-001",
+      "sourceHash": null,
+      "authorityStatus": "field-reference-and-evidence-candidate",
+      "role": "field-evidence"
+    },
+    {
+      "sourceReferenceId": "TRUTH-SOURCE-FOUNDER-AUTHORIZATION-2026-07-28",
+      "sourceAssetId": null,
+      "sourceHash": null,
+      "authorityStatus": "founder-product-authority",
+      "role": "founder-authorization"
+    }
+  ],
+  "semanticDecisions": [
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-001",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-001",
+      "primaryLabelAr": "البوابات",
+      "primaryLabelEn": "Gates",
+      "legacyAliases": [],
+      "semanticStatus": "source-derived",
+      "spatialStatus": "probable",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "current-five-step",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Probable candidate relationship to arrival and reception."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-002",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-002",
+      "primaryLabelAr": "الاستقبال",
+      "primaryLabelEn": "Reception",
+      "legacyAliases": [],
+      "semanticStatus": "source-derived",
+      "spatialStatus": "probable",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "current-five-step",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Probable candidate relationship to arrival and reception."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-003",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-003",
+      "primaryLabelAr": "المركز الإعلامي",
+      "primaryLabelEn": "Media Center",
+      "legacyAliases": [],
+      "semanticStatus": "source-derived",
+      "spatialStatus": "candidate-visual-anchor",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "current-five-step",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Proposed candidate relationship to photography and media."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-004",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-004",
+      "primaryLabelAr": "المجسم",
+      "primaryLabelEn": "Model Installation",
+      "legacyAliases": [],
+      "semanticStatus": "founder-approved",
+      "spatialStatus": "independent-landmark",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "outside-current-journey",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Founder classified the entity as an independent landmark outside the current journey."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-005",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-005",
+      "primaryLabelAr": "النصب التذكاري",
+      "primaryLabelEn": "Memorial",
+      "legacyAliases": [],
+      "semanticStatus": "founder-approved",
+      "spatialStatus": "independent-landmark",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "outside-current-journey",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Founder classified the entity as an independent landmark outside the current journey."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-006",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-006",
+      "primaryLabelAr": "ممر العصور",
+      "primaryLabelEn": "Ages Walkway",
+      "legacyAliases": [
+        "Tunnel",
+        "Ages Tunnel",
+        "نفق العصور"
+      ],
+      "semanticStatus": "founder-approved",
+      "spatialStatus": "conflicted",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "current-five-step",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Arabic operator label is founder-approved.",
+        "Legacy aliases remain searchable and traceable.",
+        "Spatial relationship and engineering position remain conflicted and unverified."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-007",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-007",
+      "primaryLabelAr": "العشاء",
+      "primaryLabelEn": "Dinner",
+      "legacyAliases": [],
+      "semanticStatus": "source-derived",
+      "spatialStatus": "probable",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "current-five-step",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Probable candidate relationship to dinner and VIP."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-008",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-008",
+      "primaryLabelAr": "الجلسات والضيافة",
+      "primaryLabelEn": "Seating and Hospitality",
+      "legacyAliases": [],
+      "semanticStatus": "source-derived",
+      "spatialStatus": "probable",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "current-five-step",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Probable candidate relationship to dinner and VIP."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-009",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-009",
+      "primaryLabelAr": "المؤتمر الصحفي والصورة التذكارية",
+      "primaryLabelEn": "Press Conference and Commemorative Photograph",
+      "legacyAliases": [],
+      "semanticStatus": "source-derived",
+      "spatialStatus": "candidate-visual-anchor",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "current-five-step",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Proposed candidate relationship to photography and media."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-010",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-010",
+      "primaryLabelAr": "منطقة كبار الشخصيات",
+      "primaryLabelEn": "VIP Area",
+      "legacyAliases": [],
+      "semanticStatus": "source-derived",
+      "spatialStatus": "probable",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "current-five-step",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Probable candidate relationship to dinner and VIP."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ENTITY-011",
+      "targetType": "candidate-entity",
+      "targetId": "ENTITY-KAP-OP-011",
+      "primaryLabelAr": "ركن الذكريات",
+      "primaryLabelEn": "Memories Corner",
+      "legacyAliases": [],
+      "semanticStatus": "founder-approved",
+      "spatialStatus": "independent-landmark",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "outside-current-journey",
+      "anchorReference": {
+        "sourceLayerId": "SOURCE-LAYER-KAP-CANDIDATE-ZONING",
+        "sourceHash": "2b34dfa56ae479817d536d56172cb250f0b19efcf324e43c5b9ac15bf5f21772",
+        "anchorStatus": "frozen-candidate-visual-anchor",
+        "revision": 1
+      },
+      "notes": [
+        "Founder classified the entity as an independent landmark outside the current journey."
+      ]
+    },
+    {
+      "decisionId": "SEMANTIC-KAP-ZONE-SHOW-001",
+      "targetType": "experience-object",
+      "targetId": "ZONE-SHOW-001",
+      "primaryLabelAr": "المسرح ومنطقة العرض",
+      "primaryLabelEn": "Show and Stage Area",
+      "legacyAliases": [],
+      "semanticStatus": "founder-approved",
+      "spatialStatus": "unresolved",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "journeyMembership": "unresolved-no-anchor",
+      "anchorReference": null,
+      "notes": [
+        "No marker, point, polygon, route or fallback position may be created.",
+        "The object must not be connected to the model, memorial, media area or a nearby entity."
+      ]
+    }
+  ],
+  "candidateRelationships": [
+    {
+      "relationshipId": "REL-KAP-ARRIVAL-CANDIDATE-001",
+      "experienceObjectId": "ZONE-ARRIVAL-001",
+      "candidateEntityIds": [
+        "ENTITY-KAP-OP-001",
+        "ENTITY-KAP-OP-002"
+      ],
+      "relationshipStatus": "probable",
+      "semanticAuthority": "source-derived",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "notes": [
+        "Probable candidate relationship retained with medium confidence."
+      ]
+    },
+    {
+      "relationshipId": "REL-KAP-AGES-CANDIDATE-001",
+      "experienceObjectId": "ZONE-AGES-TUNNEL-001",
+      "candidateEntityIds": [
+        "ENTITY-KAP-OP-006"
+      ],
+      "relationshipStatus": "conflicted",
+      "semanticAuthority": "founder-approved",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "notes": [
+        "Founder-approved Arabic display name does not approve the candidate position."
+      ]
+    },
+    {
+      "relationshipId": "REL-KAP-PHOTO-MEDIA-CANDIDATE-001",
+      "experienceObjectId": "ZONE-PHOTO-MEDIA-001",
+      "candidateEntityIds": [
+        "ENTITY-KAP-OP-003",
+        "ENTITY-KAP-OP-009"
+      ],
+      "relationshipStatus": "proposed",
+      "semanticAuthority": "source-derived",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "notes": [
+        "Proposed candidate relationship retained with medium confidence."
+      ]
+    },
+    {
+      "relationshipId": "REL-KAP-DINNER-VIP-CANDIDATE-001",
+      "experienceObjectId": "ZONE-DINNER-VIP-001",
+      "candidateEntityIds": [
+        "ENTITY-KAP-OP-007",
+        "ENTITY-KAP-OP-008",
+        "ENTITY-KAP-OP-010"
+      ],
+      "relationshipStatus": "probable",
+      "semanticAuthority": "source-derived",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "notes": [
+        "Probable candidate relationship retained with medium confidence."
+      ]
+    },
+    {
+      "relationshipId": "REL-KAP-SHOW-UNRESOLVED-001",
+      "experienceObjectId": "ZONE-SHOW-001",
+      "candidateEntityIds": [],
+      "relationshipStatus": "unresolved",
+      "semanticAuthority": "founder-approved",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "notes": [
+        "Founder approved keeping the show experience spatially unresolved."
+      ]
+    },
+    {
+      "relationshipId": "REL-KAP-INDEPENDENT-LANDMARKS-001",
+      "experienceObjectId": null,
+      "candidateEntityIds": [
+        "ENTITY-KAP-OP-004",
+        "ENTITY-KAP-OP-005",
+        "ENTITY-KAP-OP-011"
+      ],
+      "relationshipStatus": "unresolved",
+      "semanticAuthority": "founder-approved",
+      "engineeringStatus": "unverified",
+      "operationalStatus": "unavailable",
+      "notes": [
+        "Independent-landmark classification is frozen; no journey relationship exists."
+      ]
+    }
+  ],
+  "unresolvedItems": [
+    {
+      "unresolvedItemId": "NO-SOURCE-MATCH-ZONE-SHOW-001",
+      "targetIds": [
+        "ZONE-SHOW-001"
+      ],
+      "semanticStatus": "founder-approved",
+      "spatialStatus": "unresolved",
+      "requiredEvidence": "A valid new source assertion or independently authorized source that identifies the show location.",
+      "prohibitedFallbacks": [
+        "ENTITY-KAP-OP-004",
+        "ENTITY-KAP-OP-005",
+        "ENTITY-KAP-OP-003",
+        "Nearest candidate anchor",
+        "Manual drag without a new source assertion"
+      ]
+    },
+    {
+      "unresolvedItemId": "CANDIDATE-ANCHOR-ENGINEERING-CONTROLS",
+      "targetIds": [
+        "ENTITY-KAP-OP-001",
+        "ENTITY-KAP-OP-002",
+        "ENTITY-KAP-OP-003",
+        "ENTITY-KAP-OP-004",
+        "ENTITY-KAP-OP-005",
+        "ENTITY-KAP-OP-006",
+        "ENTITY-KAP-OP-007",
+        "ENTITY-KAP-OP-008",
+        "ENTITY-KAP-OP-009",
+        "ENTITY-KAP-OP-010",
+        "ENTITY-KAP-OP-011"
+      ],
+      "semanticStatus": "source-derived",
+      "spatialStatus": "conflicted",
+      "requiredEvidence": "Scale, CRS/control points, drawing approval and calibration from an independent engineering authority.",
+      "prohibitedFallbacks": [
+        "Raster pixel distance",
+        "Visual perspective",
+        "Provider filename or modification time"
+      ]
+    }
+  ],
+  "independentLandmarks": [
+    {
+      "candidateEntityId": "ENTITY-KAP-OP-004",
+      "displayNameAr": "المجسم",
+      "spatialStatus": "independent-landmark",
+      "journeyMembership": "outside-current-journey"
+    },
+    {
+      "candidateEntityId": "ENTITY-KAP-OP-005",
+      "displayNameAr": "النصب التذكاري",
+      "spatialStatus": "independent-landmark",
+      "journeyMembership": "outside-current-journey"
+    },
+    {
+      "candidateEntityId": "ENTITY-KAP-OP-011",
+      "displayNameAr": "ركن الذكريات",
+      "spatialStatus": "independent-landmark",
+      "journeyMembership": "outside-current-journey"
+    }
+  ],
+  "engineeringLimitations": [
+    {
+      "limitationId": "ENGINEERING-SCALE-UNKNOWN",
+      "labelAr": "مقياس الرسم غير مثبت",
+      "status": "unknown",
+      "scope": "All candidate visual anchors and relationships"
+    },
+    {
+      "limitationId": "ENGINEERING-CRS-UNKNOWN",
+      "labelAr": "المرجع المكاني ونقاط التحكم غير مثبتة",
+      "status": "unknown",
+      "scope": "Candidate raster and all anchors"
+    },
+    {
+      "limitationId": "ENGINEERING-DRAWING-APPROVAL-MISSING",
+      "labelAr": "اعتماد المخطط الهندسي مفقود",
+      "status": "missing",
+      "scope": "Candidate zoning source"
+    },
+    {
+      "limitationId": "ENGINEERING-CALIBRATION-INCOMPLETE",
+      "labelAr": "المعايرة الهندسية غير مكتملة",
+      "status": "unverified",
+      "scope": "Candidate raster projection"
+    }
+  ],
+  "operationalLimitations": [
+    {
+      "limitationId": "OPERATIONAL-BASELINE-ABSENT",
+      "labelAr": "لا يوجد خط أساس تشغيلي",
+      "status": "unavailable",
+      "scope": "All spatial records"
+    },
+    {
+      "limitationId": "OPERATIONAL-READINESS-PROHIBITED",
+      "labelAr": "لا تُستنتج الجاهزية من المراسي أو الأدلة",
+      "status": "prohibited",
+      "scope": "Candidate anchors and field evidence"
+    },
+    {
+      "limitationId": "OPERATIONAL-ROUTES-ABSENT",
+      "labelAr": "لا توجد مسارات ميدانية معتمدة",
+      "status": "unavailable",
+      "scope": "Narrative journey"
+    },
+    {
+      "limitationId": "OPERATIONAL-LIVE-DATA-ABSENT",
+      "labelAr": "لا توجد بيانات تشغيلية حية",
+      "status": "unavailable",
+      "scope": "Spatial command experience"
+    }
+  ],
+  "supersedes": null,
+  "revisionMetadata": null,
+  "frozen": true,
+  "contentHash": "b63207f0b3f0d61a228c15b937fb72911cc546312e2ff19f0929797484ce56bf"
+}

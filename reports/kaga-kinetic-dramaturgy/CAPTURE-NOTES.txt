@@ -1,0 +1,4 @@
+Raw live UI capture; no cuts and no editorial post-production.
+Delivery recording: KAGA-KINETIC-DRAMATURGY-90S.mp4 (container/codec conversion only).
+Frame cadence: one screenshot every three director seconds.
+Viewport: 1920x1080; reduced motion disabled.

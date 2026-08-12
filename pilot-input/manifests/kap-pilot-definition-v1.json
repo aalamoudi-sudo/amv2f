@@ -1,0 +1,46 @@
+{
+  "candidateSchemaVersion": "1.0.0",
+  "authoringLifecycle": "candidate",
+  "packageId": "EVENT-PACKAGE-KAP-OPENING-2026-CANDIDATE",
+  "packageVersion": "0.1.0-candidate",
+  "packageContentHash": null,
+  "stateContext": "temporary-demo",
+  "event": {
+    "eventId": "EVENT-KAP-OPENING-2026",
+    "venueId": "VENUE-KAP-001",
+    "eventNameAr": "حفل افتتاح وتدشين حدائق الملك عبدالله",
+    "eventNameEn": "King Abdullah Parks Opening and Inauguration Ceremony",
+    "eventType": "government-cultural-opening",
+    "eventDate": "2026-10-31",
+    "timeZone": "Asia/Riyadh",
+    "dateAssumption": true,
+    "assumptionReason": "year inferred from current 2026 project context"
+  },
+  "stableEntityIds": [
+    "ZONE-ARRIVAL-001",
+    "ZONE-AGES-TUNNEL-001",
+    "ZONE-SHOW-001",
+    "ZONE-PHOTO-MEDIA-001",
+    "ZONE-DINNER-VIP-001"
+  ],
+  "geometryMappingStatus": "pending",
+  "geometryCoordinates": null,
+  "evidenceRequirementIds": ["EVIDENCE-REQUIREMENT-KAP-MEDIA-001"],
+  "dependencyDeclarations": [],
+  "outputProfileIds": [
+    "OUTPUT-KAP-2D-AUTHORING-001",
+    "OUTPUT-KAP-3D-CANDIDATE-001",
+    "OUTPUT-KAP-PROJECTION-METADATA-001",
+    "OUTPUT-KAP-PHYSICAL-METADATA-001"
+  ],
+  "validationSnapshot": {
+    "status": "authoring-valid",
+    "freezeBlockerCount": 12,
+    "eventPackageContentHash": null
+  },
+  "notesAr": [
+    "لا توجد إحداثيات أو مضلعات مخمّنة.",
+    "الحزمة المرشحة لا تدخل baseline ولا تنشئ حالة تشغيلية.",
+    "التجميد محجوب حتى إغلاق جميع البوابات الموثقة."
+  ]
+}

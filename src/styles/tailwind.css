@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --md-canvas: 7 17 19;
+  --md-surface-1: 13 25 28;
+  --md-surface-2: 18 34 38;
+  --md-surface-3: 24 48 54;
+  --md-border-subtle: 34 55 60;
+  --md-border-strong: 49 81 90;
+  --md-text-primary: 243 247 246;
+  --md-text-secondary: 168 184 182;
+  --md-text-muted: 117 135 133;
+  --md-text-inverse: 4 17 14;
+  --md-brand-primary: 47 214 181;
+  --md-brand-hover: 37 195 165;
+  --md-brand-pressed: 30 170 144;
+  --md-focus-ring: 115 231 209;
+  --md-spatial-primary: 90 169 255;
+  --md-truth-verified: 66 201 138;
+  --md-truth-reported: 90 169 255;
+  --md-truth-candidate: 169 139 255;
+  --md-truth-scenario: 242 184 75;
+  --md-truth-unknown: 145 160 159;
+  --md-severity-normal: 66 201 138;
+  --md-severity-attention: 242 184 75;
+  --md-severity-critical: 255 107 107;
+  --md-severity-blocked: 217 120 120;
+  --md-severity-information: 90 169 255;
+  --command-radius: 0.625rem;
+  --command-control-radius: 0.375rem;
+  --command-space-1: 0.25rem;
+  --command-space-2: 0.5rem;
+  --command-space-3: 0.75rem;
+  --command-space-4: 1rem;
+  --command-space-6: 1.5rem;
+  --command-space-8: 2rem;
+  --command-space-12: 3rem;
+  font-family: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Geeza Pro', 'Tahoma', system-ui, sans-serif;
+  background: rgb(var(--md-canvas));
+  color: rgb(var(--md-text-primary));
+}
+
+html {
+  direction: rtl;
+  min-width: 320px;
+  background: rgb(var(--md-canvas));
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgb(var(--md-surface-1) / 0.18), transparent 22rem),
+    rgb(var(--md-canvas));
+}
+
+button,
+input,
+select,
+textarea { font: inherit; }
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgb(var(--md-focus-ring));
+  outline-offset: 3px;
+}
+
+::selection { background: rgb(var(--md-brand-primary) / 0.32); color: rgb(var(--md-text-primary)); }
+#root { min-height: 100vh; }
+.ltr { direction: ltr; font-variant-numeric: tabular-nums; }
+.command-technical { direction: ltr; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; }
+
+.command-skip-link {
+  position: fixed;
+  inset-inline-start: 1rem;
+  top: -4rem;
+  z-index: 100;
+  border: 1px solid rgb(var(--md-focus-ring));
+  border-radius: var(--command-control-radius);
+  background: rgb(var(--md-surface-2));
+  padding: 0.75rem 1rem;
+  color: rgb(var(--md-text-primary));
+}
+.command-skip-link:focus { top: 1rem; }
+.command-scrollbar { scrollbar-color: rgb(var(--md-border-strong)) rgb(var(--md-surface-1)); }
+.command-scrollbar::-webkit-scrollbar { width: 9px; }
+.command-scrollbar::-webkit-scrollbar-track { background: rgb(var(--md-surface-1)); }
+.command-scrollbar::-webkit-scrollbar-thumb { background: rgb(var(--md-border-strong)); border-radius: 999px; }
+
+@layer components {
+  .command-eyebrow { @apply text-[12px] font-semibold tracking-[0.06em] text-command-accent; }
+  .command-surface { @apply rounded-[14px] bg-command-panel shadow-command; }
+  .command-panel { @apply rounded-[10px] border border-command-line/70 bg-command-panelStrong shadow-elevated; }
+  .command-card { @apply rounded-[10px] border border-command-line/65 bg-command-panelStrong shadow-[0_8px_22px_rgba(0,0,0,0.10)]; }
+  .command-divider { @apply h-px bg-command-line/80; }
+  .command-action-center { @apply rounded-[14px] border border-command-borderStrong bg-command-panel px-5 py-5 shadow-command; }
+
+  .command-button {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-command-line bg-command-panelStrong px-3 py-2 text-sm text-command-text transition duration-150 ease-out;
+  }
+  .command-button:hover:not(:disabled) { @apply border-command-borderStrong bg-command-surface3; }
+  .command-button:active:not(:disabled) { @apply bg-command-panel; }
+  .command-button:disabled { @apply cursor-not-allowed opacity-45; }
+  .command-button-primary { @apply border-command-accent bg-command-accent font-semibold text-command-inverse; }
+  .command-button-primary:hover:not(:disabled) { @apply border-command-accentHover bg-command-accentHover; }
+  .command-button-primary:active:not(:disabled) { @apply border-command-accentPressed bg-command-accentPressed; }
+  .command-icon-button { @apply inline-flex min-h-10 min-w-10 items-center justify-center rounded-md border border-command-line bg-command-panelStrong p-2 text-command-text transition duration-150 ease-out; }
+  .command-icon-button:hover:not(:disabled) { @apply border-command-borderStrong bg-command-surface3; }
+  .command-select { @apply min-h-10 w-full rounded-md border border-command-line bg-command-panelStrong px-3 py-2 text-sm text-command-text transition duration-150 ease-out placeholder:text-command-quiet; }
+  .command-select:hover { @apply border-command-borderStrong; }
+  .command-search-trigger { @apply inline-flex min-h-10 items-center gap-2 rounded-md border border-command-line bg-command-panelStrong px-3 py-2 text-sm text-command-text transition duration-150 ease-out; }
+  .command-search-trigger:hover { @apply border-command-borderStrong bg-command-surface3; }
+  .command-key-hint { @apply rounded border border-command-line bg-command-bg px-1.5 py-0.5 text-[10px] text-command-muted; }
+
+  .truth-badge { @apply inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2 py-1 text-[12px] font-semibold leading-4; }
+  .truth-badge-dot { @apply h-1.5 w-1.5 rounded-sm bg-current; }
+  .truth-candidate { @apply border-command-truth-candidate/60 bg-command-truth-candidate/10 text-command-truth-candidate; }
+  .truth-demo, .truth-baseline { @apply border-command-truth-unknown/60 bg-command-truth-unknown/10 text-command-truth-unknown; }
+  .truth-scenario { @apply border-command-truth-scenario/60 bg-command-truth-scenario/10 text-command-truth-scenario; }
+  .truth-reported { @apply border-command-truth-reported/60 bg-command-truth-reported/10 text-command-truth-reported; }
+  .truth-verified { @apply border-command-truth-verified/60 bg-command-truth-verified/10 text-command-truth-verified; }
+  .truth-quarantined { @apply border-command-severity-blocked/60 bg-command-severity-blocked/10 text-command-severity-blocked; }
+  .truth-unknown { @apply border-command-truth-unknown/60 bg-command-truth-unknown/10 text-command-truth-unknown; }
+  .truth-disconnected { @apply border-command-severity-critical/60 bg-command-severity-critical/10 text-command-severity-critical; }
+  .truth-unapproved { @apply border-command-truth-candidate/60 bg-command-truth-candidate/10 text-command-truth-candidate; }
+
+  .status-normal { @apply border-command-severity-normal/60 bg-command-severity-normal/10 text-command-severity-normal; }
+  .status-information { @apply border-command-severity-information/60 bg-command-severity-information/10 text-command-severity-information; }
+  .status-success { @apply border-command-severity-normal/60 bg-command-severity-normal/10 text-command-severity-normal; }
+  .status-warning { @apply border-command-severity-attention/60 bg-command-severity-attention/10 text-command-severity-attention; }
+  .status-critical { @apply border-command-severity-critical/60 bg-command-severity-critical/10 text-command-severity-critical; }
+
+  .command-dialog-backdrop { @apply fixed inset-0 z-[90] flex items-start justify-center bg-black/70 p-4 pt-[max(1rem,10vh)]; }
+  .command-search-dialog { @apply w-full max-w-2xl overflow-hidden rounded-[14px] border border-command-borderStrong bg-command-panel shadow-command; }
+  .command-search-result { @apply flex w-full items-start gap-3 rounded-md px-3 py-3 text-right transition duration-150 ease-out; }
+  .command-search-result:hover, .command-search-result-active { @apply bg-command-surface3; }
+  .command-navigation-button { @apply inline-flex min-h-10 items-center gap-2 rounded-md border border-transparent px-3 py-2 text-sm text-command-muted transition duration-150 ease-out; }
+  .command-navigation-button:hover { @apply bg-command-panelStrong text-command-text; }
+  .command-navigation-button-active { @apply bg-command-surface3 text-command-text shadow-[inset_0_-2px_0_rgb(var(--md-brand-primary))]; }
+  .command-preset-button { @apply inline-flex min-h-9 items-center gap-1 rounded px-2.5 py-1.5 text-xs text-command-muted transition duration-150 ease-out; }
+  .command-preset-button:hover { @apply bg-command-surface3 text-command-text; }
+  .command-preset-button-active { @apply bg-command-accent text-command-inverse; }
+  .command-action-card { @apply rounded-[10px] border border-command-line/70 bg-command-panelStrong p-4 text-right transition duration-150 ease-out; }
+  .command-action-card:hover { @apply border-command-borderStrong bg-command-surface3; }
+  .command-flow-step { @apply relative border-s border-command-line ps-5 pb-4 text-sm; }
+  .command-flow-step::before { content: ''; position: absolute; inset-inline-start: -0.3125rem; top: 0.35rem; width: 0.5625rem; height: 0.5625rem; border-radius: 2px; background: rgb(var(--md-brand-primary)); }
+  .command-technical-drawer { @apply fixed inset-y-0 start-0 z-[70] flex w-full max-w-md flex-col border-e border-command-borderStrong bg-command-panel shadow-command; }
+  .command-technical-scrim { @apply fixed inset-0 z-[60] bg-black/60; }
+  .command-kpi { @apply rounded-[10px] border-s-2 border-command-blue bg-command-panelStrong px-4 py-3; }
+  .command-skeleton { @apply animate-pulse rounded-md bg-command-surface3/70; }
+  .command-spatial-2d-stage { background: rgb(var(--md-surface-1)); }
+  .command-spatial-2d-glow { background: radial-gradient(circle at center, rgb(var(--md-spatial-primary) / 0.16), transparent 58%); }
+  .command-spatial-plan { background: rgb(var(--md-surface-1)); }
+  .command-spatial-plan-field { background: rgb(var(--md-surface-3) / 0.85); }
+  .command-spatial-plan-grid { background-image: linear-gradient(rgb(var(--md-spatial-primary) / 0.15) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--md-spatial-primary) / 0.15) 1px, transparent 1px); background-size: 8% 14%; }
+  .command-spatial-3d-stage { background: linear-gradient(155deg, rgb(var(--md-canvas)), rgb(var(--md-surface-3))); }
+  .command-spatial-floor { box-shadow: 0 20px 50px rgb(0 0 0 / 0.32); }
+  .command-spatial-id { @apply bg-command-canvas/90; }
+}
+
+@media (max-width: 1366px) { .command-responsive-secondary { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}

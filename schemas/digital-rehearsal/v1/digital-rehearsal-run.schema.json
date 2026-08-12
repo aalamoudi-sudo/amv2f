@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/digital-rehearsal/v1/digital-rehearsal-run.schema.json",
+  "title": "Digital Rehearsal Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "runId", "planId", "planHash", "projectId", "eventId", "venueId",
+    "eventDayId", "personaVariantId", "rehearsalLens", "rehearsalScenarioId", "state",
+    "currentMomentId", "selectedSiteId", "activeBranchId", "momentStates", "clock", "transitions",
+    "revisions", "observations", "issues", "decisionDraftLinks", "branchHistory", "outcome",
+    "createdAt", "startedAt", "endedAt", "timeTrust", "contentHash", "classification",
+    "actualExecution", "baselineMutationAllowed", "readinessMutationAllowed",
+    "evidenceVerificationAllowed", "decisionApprovalAllowed"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "runId": { "type": "string", "minLength": 1 },
+    "planId": { "type": "string", "minLength": 1 },
+    "planHash": { "$ref": "#/$defs/hash" },
+    "projectId": { "type": "string", "minLength": 1 },
+    "eventId": { "type": "string", "minLength": 1 },
+    "venueId": { "type": "string", "minLength": 1 },
+    "eventDayId": { "type": "string", "minLength": 1 },
+    "personaVariantId": { "type": "string", "minLength": 1 },
+    "rehearsalLens": { "enum": ["visitor", "executive", "operations", "protocol", "security-safety", "content-production", "accessibility", "decision", "source-truth"] },
+    "rehearsalScenarioId": { "type": "string", "minLength": 1 },
+    "state": { "$ref": "#/$defs/runState" },
+    "currentMomentId": { "type": ["string", "null"] },
+    "selectedSiteId": { "type": ["string", "null"] },
+    "activeBranchId": { "type": ["string", "null"] },
+    "momentStates": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "#/$defs/momentState" } },
+    "clock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "plannedTime", "rehearsalElapsedSeconds", "actualTime", "actualTimeStatus", "deviceClockAuthority"],
+      "properties": {
+        "mode": { "enum": ["manual-step", "planned-clock", "accelerated-rehearsal"] },
+        "plannedTime": { "type": ["string", "null"] },
+        "rehearsalElapsedSeconds": { "type": "integer", "minimum": 0 },
+        "actualTime": { "type": "null" },
+        "actualTimeStatus": { "const": "unavailable" },
+        "deviceClockAuthority": { "const": "none" }
+      }
+    },
+    "transitions": { "type": "array", "items": { "type": "object" } },
+    "revisions": { "type": "array", "items": { "type": "object" } },
+    "observations": { "type": "array", "items": { "type": "object" } },
+    "issues": { "type": "array", "items": { "type": "object" } },
+    "decisionDraftLinks": { "type": "array", "items": { "type": "object" } },
+    "branchHistory": { "type": "array", "items": { "type": "object" } },
+    "outcome": { "oneOf": [{ "type": "object" }, { "type": "null" }] },
+    "createdAt": { "type": "string", "minLength": 1 },
+    "startedAt": { "type": ["string", "null"] },
+    "endedAt": { "type": ["string", "null"] },
+    "timeTrust": { "enum": ["source-reported", "rehearsal-elapsed", "local-device-time-untrusted", "not-recorded"] },
+    "contentHash": { "$ref": "#/$defs/hash" },
+    "classification": { "const": "candidate-digital-rehearsal" },
+    "actualExecution": { "const": false },
+    "baselineMutationAllowed": { "const": false },
+    "readinessMutationAllowed": { "const": false },
+    "evidenceVerificationAllowed": { "const": false },
+    "decisionApprovalAllowed": { "const": false }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "runState": { "enum": ["not-started", "ready", "running", "paused", "blocked", "skipped", "completed", "aborted"] },
+    "momentState": { "enum": ["pending", "current", "delayed", "paused", "completed", "skipped", "blocked", "unknown"] }
+  }
+}

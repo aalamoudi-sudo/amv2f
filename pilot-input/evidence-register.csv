@@ -1,0 +1,2 @@
+exampleOnly,evidenceId,titleAr,evidenceType,sourceId,owner,capturedAt,status,classification,uri
+true,EVIDENCE-EXAMPLE-ONLY-001,دليل مثال خيالي,checklist,SOURCE-EXAMPLE-ONLY-001,EXAMPLE-ONLY,2026-07-13T08:00:00.000Z,missing,internal,

@@ -1,0 +1,14 @@
+{
+  "type": "FeatureCollection",
+  "features": [],
+  "metadata": {
+    "coordinateSpace": "KAGA-SOURCE-2D-V1",
+    "axisDirection": {
+      "x": "right",
+      "y": "down"
+    },
+    "units": "model-meters-transformed-to-svg",
+    "status": "unresolved-at-gate-1",
+    "notes": "No Rhino curve was asserted as a physical or cadastral site boundary. The extraction envelope is not emitted as source geometry."
+  }
+}

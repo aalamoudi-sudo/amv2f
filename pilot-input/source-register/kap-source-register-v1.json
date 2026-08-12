@@ -1,0 +1,119 @@
+{
+  "registerVersion": "1.0.0",
+  "records": [
+    {
+      "sourceId": "SOURCE-KAP-GOVERNANCE-MAPPING-001",
+      "sourceStatus": "final-approved-source",
+      "contentHash": "bfb1443d0ce5142a03ba339fa32d8854fc8b8e0b0cec330879d3a64cac893f33",
+      "permittedUses": ["governance"],
+      "validationStatus": "accepted-for-authoring"
+    },
+    {
+      "sourceId": "SOURCE-KAP-EMPLOYEE-REGISTER-001",
+      "sourceStatus": "received-non-authoritative-identity-source",
+      "contentHash": "3f95c79dd8919e1a5bd894973ecb8dff33b26e0e8bd4dd10eb763ee64298cab3",
+      "permittedUses": ["identity-reference"],
+      "validationStatus": "accepted-for-authoring"
+    },
+    {
+      "sourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+      "sourceStatus": "provisional-until-approved-revision-arrives",
+      "contentHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+      "permittedUses": ["authoring-preview"],
+      "validationStatus": "accepted-for-authoring"
+    },
+    {
+      "sourceId": "SOURCE-KAP-DESIGN-ASSET-REVIEW-001",
+      "sourceStatus": "visual-reference-candidate",
+      "contentHash": "c3f45d9e21cfafb63e0335459c6cebb1fb393714d9793a46ea449e929f6af4b5",
+      "permittedUses": ["visual-reference"],
+      "validationStatus": "accepted-for-authoring"
+    },
+    {
+      "sourceId": "SOURCE-KAP-FLOOR-PLANS-001",
+      "sourceStatus": "missing",
+      "contentHash": null,
+      "permittedUses": [],
+      "validationStatus": "missing"
+    },
+    {
+      "sourceId": "SOURCE-KAP-2D-IDENTITY-001",
+      "sourceStatus": "missing",
+      "contentHash": null,
+      "permittedUses": [],
+      "validationStatus": "missing"
+    }
+  ],
+  "locationRecords": [
+    {
+      "locationId": "LOCATION-KAP-DWG-RECOVERED-001",
+      "sourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+      "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+      "storageScope": "operator-local",
+      "pathDisclosure": "restricted-local",
+      "availability": "unavailable",
+      "observedAt": "2026-07-13T00:00:00+03:00"
+    },
+    {
+      "locationId": "LOCATION-KAP-DWG-WORKING-20260721",
+      "sourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+      "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+      "storageScope": "operator-local",
+      "pathDisclosure": "restricted-local",
+      "availability": "available",
+      "observedAt": "2026-07-21T12:31:57Z"
+    }
+  ],
+  "authorityAssertions": [
+    {
+      "authorityAssertionId": "AUTH-KAP-DWG-WORKING-20260721",
+      "sourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+      "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+      "effectiveDate": "2026-07-21",
+      "authorityType": "platform-owner-working-approval",
+      "authorityName": "Ahmed",
+      "identityTrust": "local-declared",
+      "scope": "current platform spatial development",
+      "validUntil": "superseded-by-later-approved-revision",
+      "revokedAt": null
+    }
+  ],
+  "effectivePermittedUseRecords": [
+    {
+      "permittedUseRecordId": "PERMITTED-USE-KAP-DWG-WORKING-20260721",
+      "sourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+      "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+      "authorityAssertionIds": ["AUTH-KAP-DWG-WORKING-20260721"],
+      "effectiveClassification": "approved-working-baseline",
+      "engineeringAuthority": "none",
+      "mappingApproval": "none",
+      "supersessionState": "current",
+      "permittedUses": [
+        "platform-spatial-development",
+        "2d-visualization",
+        "candidate-zone-mapping",
+        "candidate-spatial-relationships",
+        "flat-spatial-preview",
+        "experience-map-development",
+        "executive-command-map-development",
+        "projection-mapping-preparation",
+        "technical-spatial-testing"
+      ],
+      "prohibitedUses": [
+        "survey-control",
+        "official-geospatial-location",
+        "construction",
+        "field-measurement",
+        "safety-certification",
+        "evacuation-authority",
+        "crowd-capacity",
+        "route-authority",
+        "hse-decisions",
+        "emergency-decisions",
+        "live-operational-baseline",
+        "verified-readiness",
+        "final-client-acceptance"
+      ]
+    }
+  ]
+}

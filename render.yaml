@@ -1,0 +1,7 @@
+services:
+  - type: web
+    runtime: static
+    name: kaga-final-experience
+    branch: kaga-absolute-final
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build:kaga:absolute-final
+    staticPublishPath: ./dist-kaga-absolute-final

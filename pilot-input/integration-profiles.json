@@ -1,0 +1,37 @@
+{
+  "noticeAr": "بيانات وصفية فقط — لا مفاتيح ولا اتصال خارجي",
+  "profiles": [
+    {
+      "exampleOnly": true,
+      "integrationProfileId": "integration-example-only",
+      "direction": "input",
+      "adapterType": "human-action",
+      "adapterId": "adapter-governed-human-action",
+      "adapterVersion": "1.0.0-local",
+      "sourceSystemIds": ["SOURCE-EXAMPLE-ONLY"],
+      "enabled": false,
+      "credentialAvailability": "unknown",
+      "securityClassification": "internal",
+      "limitations": ["EXAMPLE-ONLY", "لا اتصال حي"]
+    },
+    {
+      "exampleOnly": false,
+      "integrationProfileId": "SPATIAL-KAP-LOCAL-CAD-CONVERSION-BOUNDARY",
+      "direction": "input",
+      "adapterType": "local-file-conversion",
+      "adapterId": "ADAPTER-LOCAL-CAD-CONVERSION-BOUNDARY",
+      "adapterVersion": "1.0.0",
+      "sourceSystemIds": ["SOURCE-KAP-DWG-PROVISIONAL-001"],
+      "projectId": "PROJECT-KAP-OPENING-2026",
+      "eventId": "EVENT-KAP-OPENING-2026",
+      "venueId": "VENUE-KAP-001",
+      "enabled": false,
+      "adapterStatus": "conversion-required",
+      "executionBoundary": "local-offline",
+      "credentialAvailability": "not-required",
+      "securityClassification": "restricted",
+      "acceptableNextInputs": ["DXF export", "packaged DWG with XREFs", "approved PDF floor plan"],
+      "limitations": ["لا توجد أداة تحويل محلية مثبتة", "لا رفع سحابي", "لا طبقات أو هندسة مستخرجة"]
+    }
+  ]
+}

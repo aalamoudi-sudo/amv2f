@@ -1,0 +1,18 @@
+{
+  "manifestVersion": "1.0.0",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "localAssetKey": "kap/provisional-site-plan.png",
+  "sourceId": "SOURCE-KAP-CAD-PREVIEW-001",
+  "parentSourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+  "parentSourceSha256": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+  "previewSha256": "a136353ad5a88f50a1e8d05d4bd3b6ac009a6bac20744dd248d07deceebd2cec",
+  "status": "provisional",
+  "geometryAuthority": "none",
+  "permittedUse": "local-experience-preview-only",
+  "limitationsAr": [
+    "مخطط مبدئي غير معتمد.",
+    "لا يمثل هندسة تفاعلية أو مساراً أو إحداثيات.",
+    "الأصل المحلي المقيد مستبعد من Git وتبقى الحزمة صالحة عند غيابه."
+  ]
+}

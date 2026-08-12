@@ -1,0 +1,259 @@
+.kaga-organic-frame {
+  --frame-background: var(--kaga-v2-background, #f4f0e7);
+  --frame-surface: var(--kaga-v2-surface, #fbf8f1);
+  --frame-text: var(--kaga-v2-text, #18342e);
+  --frame-gold: var(--kaga-v2-border-gold, rgba(178, 138, 69, 0.52));
+  --frame-shadow: var(--kaga-v2-shadow, rgba(25, 49, 42, 0.14));
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+  align-items: stretch;
+  overflow: visible;
+  color: var(--frame-text);
+  background: var(--frame-background);
+  direction: rtl;
+  font-family: var(
+    --kaga-v2-font-body,
+    'Noto Sans Arabic',
+    'Geeza Pro',
+    Tahoma,
+    Arial,
+    sans-serif
+  );
+}
+
+.kaga-organic-frame *,
+.kaga-organic-frame *::before,
+.kaga-organic-frame *::after {
+  box-sizing: border-box;
+}
+
+.kaga-organic-frame--green {
+  --frame-background: var(--kaga-v2-green, #123d35);
+  --frame-surface: var(--kaga-v2-green-deep, #082b26);
+  --frame-text: var(--kaga-v2-text-on-dark, #f7f2e8);
+  --frame-shadow: rgba(3, 24, 20, 0.26);
+}
+
+.kaga-organic-frame--transparent {
+  --frame-background: transparent;
+  background: transparent;
+}
+
+.kaga-organic-frame--visual-end .kaga-organic-frame__visual-shell {
+  grid-column: 2;
+}
+
+.kaga-organic-frame--visual-end .kaga-organic-frame__content {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.kaga-organic-frame__visual-shell {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  min-height: clamp(25rem, 58vh, 52rem);
+  overflow: hidden;
+  background: var(--frame-surface);
+  box-shadow: 0 2rem 5.5rem var(--frame-shadow);
+}
+
+.kaga-organic-frame__visual,
+.kaga-organic-frame__visual > img,
+.kaga-organic-frame__visual > video,
+.kaga-organic-frame__visual > picture,
+.kaga-organic-frame__visual > picture > img,
+.kaga-organic-frame__visual > svg,
+.kaga-organic-frame__visual > canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.kaga-organic-frame__visual {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.kaga-organic-frame__visual > img,
+.kaga-organic-frame__visual > video,
+.kaga-organic-frame__visual > picture > img {
+  display: block;
+  object-fit: cover;
+}
+
+.kaga-organic-frame__gold-edge {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border: 1px solid var(--frame-gold);
+  pointer-events: none;
+}
+
+.kaga-organic-frame__caption {
+  position: absolute;
+  z-index: 4;
+  inset: auto auto clamp(1rem, 2.5vw, 2.25rem) clamp(1rem, 2.5vw, 2.25rem);
+  max-width: min(28rem, 72%);
+  border-inline-start: 1px solid var(--frame-gold);
+  padding: 0.25rem 0.8rem 0.25rem 0;
+  color: var(--kaga-v2-text-on-dark, #f7f2e8);
+  font-size: clamp(0.75rem, 0.8vw, 0.9rem);
+  line-height: 1.7;
+  text-shadow: 0 1px 1.5rem rgba(0, 0, 0, 0.44);
+}
+
+.kaga-organic-frame__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.25rem, 5vw, 6rem) clamp(1.5rem, 4vw, 4.5rem);
+}
+
+.kaga-organic-frame__content h1,
+.kaga-organic-frame__content h2,
+.kaga-organic-frame__content h3 {
+  margin-block: 0 0.55em;
+  color: inherit;
+  font-family: var(
+    --kaga-v2-font-display,
+    'Noto Kufi Arabic',
+    'Geeza Pro',
+    Tahoma,
+    Arial,
+    sans-serif
+  );
+  font-weight: 500;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.kaga-organic-frame__content p {
+  max-width: 40rem;
+  margin-block: 0 1em;
+  color: inherit;
+  line-height: 1.95;
+  text-wrap: pretty;
+}
+
+/* Broad crescent: a low, flowing cut that recalls the proposal's hero frames. */
+.kaga-organic-frame--crescent .kaga-organic-frame__visual-shell,
+.kaga-organic-frame--crescent .kaga-organic-frame__gold-edge {
+  border-radius: 7rem 1.5rem 7rem 42% / 38% 1.5rem 62% 9rem;
+}
+
+/* Editorial sweep: diagonal visual weight with a restrained curved corner. */
+.kaga-organic-frame--sweep {
+  grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+}
+
+.kaga-organic-frame--sweep .kaga-organic-frame__visual-shell,
+.kaga-organic-frame--sweep .kaga-organic-frame__gold-edge {
+  border-radius: 1.25rem 44% 7rem 1.25rem / 1.25rem 28% 8rem 1.25rem;
+}
+
+.kaga-organic-frame--sweep .kaga-organic-frame__content {
+  padding-inline-end: clamp(2rem, 6vw, 7rem);
+}
+
+/* Portal: taller focus surface for maps, videos, and interactive scenes. */
+.kaga-organic-frame--portal {
+  grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.45fr);
+}
+
+.kaga-organic-frame--portal .kaga-organic-frame__visual-shell,
+.kaga-organic-frame--portal .kaga-organic-frame__gold-edge {
+  border-radius: 48% 2rem 2rem 48% / 12% 2rem 2rem 88%;
+}
+
+.kaga-organic-frame--portal .kaga-organic-frame__visual-shell {
+  min-height: clamp(34rem, 72vh, 62rem);
+}
+
+/* Folio: quiet horizontal frame for render-and-copy chapter compositions. */
+.kaga-organic-frame--folio {
+  grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.72fr);
+  gap: clamp(1.25rem, 3vw, 3.75rem);
+  padding: clamp(1rem, 2.4vw, 2.5rem);
+}
+
+.kaga-organic-frame--folio .kaga-organic-frame__visual-shell,
+.kaga-organic-frame--folio .kaga-organic-frame__gold-edge {
+  border-radius: 2rem 7rem 2rem 7rem / 2rem 4.5rem 2rem 4.5rem;
+}
+
+.kaga-organic-frame--folio .kaga-organic-frame__content {
+  padding-inline: clamp(1rem, 3vw, 3rem);
+}
+
+.kaga-organic-frame--full-bleed {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+.kaga-organic-frame--full-bleed .kaga-organic-frame__visual-shell {
+  min-height: 100%;
+}
+
+.kaga-organic-frame--visual-only {
+  display: block;
+  background: transparent;
+}
+
+.kaga-organic-frame--visual-only .kaga-organic-frame__visual-shell {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .kaga-organic-frame,
+  .kaga-organic-frame--sweep,
+  .kaga-organic-frame--portal,
+  .kaga-organic-frame--folio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .kaga-organic-frame--visual-end .kaga-organic-frame__visual-shell,
+  .kaga-organic-frame--visual-end .kaga-organic-frame__content {
+    grid-column: 1;
+  }
+
+  .kaga-organic-frame--visual-end .kaga-organic-frame__visual-shell {
+    grid-row: 1;
+  }
+
+  .kaga-organic-frame--visual-end .kaga-organic-frame__content {
+    grid-row: 2;
+  }
+
+  .kaga-organic-frame__visual-shell,
+  .kaga-organic-frame--portal .kaga-organic-frame__visual-shell {
+    min-height: clamp(22rem, 55vh, 36rem);
+  }
+
+  .kaga-organic-frame--crescent .kaga-organic-frame__visual-shell,
+  .kaga-organic-frame--crescent .kaga-organic-frame__gold-edge,
+  .kaga-organic-frame--portal .kaga-organic-frame__visual-shell,
+  .kaga-organic-frame--portal .kaga-organic-frame__gold-edge {
+    border-radius: 4rem 1.25rem 4rem 22% / 22% 1.25rem 30% 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kaga-organic-frame,
+  .kaga-organic-frame *,
+  .kaga-organic-frame *::before,
+  .kaga-organic-frame *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R1",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "revision": 1,
+  "contentHash": "a33b67282ea79a03f203276a8d2ea0535a4af4c00bcae0894e2532abad244fc2",
+  "state": "candidate-review",
+  "operationalReadiness": "cannot-determine",
+  "sourceIds": [
+    "SOURCE-KAP-PRESENTATION-V16-20260712",
+    "SOURCE-KAP-ENTRY-PROPOSALS-V02",
+    "SOURCE-KAP-LAUNCH-GENERAL-BOOK"
+  ],
+  "preservedCounts": {
+    "programMoments": 45,
+    "personaVariants": 44,
+    "executionSteps": 495,
+    "candidateDestinations": 11
+  },
+  "sourceFactCount": 31,
+  "openOrRestrictedConflictCount": 14,
+  "routeProposalCount": 3,
+  "clientPresentationStepCount": 14,
+  "rawSourcesIncluded": false,
+  "restrictedHseDetailsIncluded": false,
+  "kapPanoramaAvailable": false,
+  "kapProductionGlbAvailable": false,
+  "limitationsAr": [
+    "هذه مصالحة مصدرية مرشحة وليست اعتمادًا تشغيليًا أو هندسيًا أو HSE.",
+    "ملفات PDF الخام خارج Git والمتصفح وحزمة المراجعة.",
+    "لا توجد مسارات أو جاهزية أو قرار افتتاح معتمد."
+  ]
+}

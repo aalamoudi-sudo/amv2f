@@ -1,0 +1,23 @@
+{
+  "classification": "fictional-temporary-demo",
+  "results": [
+    {
+      "resultId": "VALIDATION-DEMO-001",
+      "participantId": "ANON-01",
+      "decisionCaseId": "DECISION-001",
+      "interfaceMode": "list",
+      "startedAt": "2026-07-11T10:00:00Z",
+      "stoppedAt": "2026-07-11T10:02:00Z",
+      "durationSeconds": 120,
+      "selectedDecisionId": "DECISION-001",
+      "identifiedOwner": "مالك تجريبي",
+      "identifiedAction": "إجراء تجريبي",
+      "evidenceGapDetected": true,
+      "authorityGapDetected": true,
+      "confidence": 3,
+      "criticalErrors": 0,
+      "facilitatorScore": 4,
+      "notes": "مثال خيالي لا يمثل نتيجة تشغيلية"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/experience-scene/v1/scene-asset-revision.schema.json",
+  "title": "Experience Scene Asset Revision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["revisionId", "assetId", "revision", "parentRevisionId", "previousContentHash", "contentHash", "changeReason", "createdAt", "createdBy", "timeTrust", "status", "changedFields"],
+  "properties": {
+    "revisionId": { "$ref": "#/$defs/id" }, "assetId": { "$ref": "#/$defs/id" }, "revision": { "type": "integer", "minimum": 1 },
+    "parentRevisionId": { "type": ["string", "null"] }, "previousContentHash": { "$ref": "#/$defs/hashOrNull" }, "contentHash": { "$ref": "#/$defs/hashOrNull" },
+    "changeReason": { "type": ["string", "null"] }, "createdAt": { "type": ["string", "null"] }, "createdBy": { "type": "string", "minLength": 1 },
+    "timeTrust": { "enum": ["source-reported", "local-process-untrusted", "not-recorded"] }, "status": { "enum": ["candidate", "approved", "quarantined", "superseded"] },
+    "changedFields": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": {
+    "id": { "type": "string", "minLength": 3, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+    "hashOrNull": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" }
+  }
+}

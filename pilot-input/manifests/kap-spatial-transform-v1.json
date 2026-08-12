@@ -1,0 +1,20 @@
+{
+  "manifestId": "SPATIAL-TRANSFORM-KAP-DWG-001",
+  "sourceSpatialRef": null,
+  "targetSpatialRef": "MAYADEEN-EXCHANGE-RH-M-Z-UP",
+  "sourceUnits": "unknown",
+  "targetUnits": "meter",
+  "scale": null,
+  "rotation": null,
+  "translation": null,
+  "northStatus": "unknown",
+  "originStatus": "unknown",
+  "crsStatus": "unknown",
+  "controlPoints": [],
+  "authority": null,
+  "confidence": "unknown",
+  "revision": 1,
+  "contentHash": "97f4d5c5de450abc7624461054cf3e631b87711bc5f828041f42828e1000a238",
+  "displayTransformPolicy": "reversible-only",
+  "sourceCoordinatesPreserved": true
+}

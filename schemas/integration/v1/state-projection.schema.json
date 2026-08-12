@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mayadeen.local/integration/v1/state-projection.schema.json",
+  "title": "Mayadeen Canonical State Projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "projectionVersion", "projectionContentHash", "projectionConfigurationVersion", "spatialMappingVersion", "stateContext", "generatedAt", "lastEventRevision", "entityStates", "sourceEventIds", "sourceEventLineage", "rejectedEventIds", "supersededEventIds", "requirementStates", "explanationAr"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "projectionVersion": { "type": "string", "pattern": "^PROJECTION-v1-[a-fA-F0-9]{64}$" },
+    "projectionContentHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "projectionConfigurationVersion": { "type": "string", "minLength": 1 },
+    "spatialMappingVersion": { "type": "string", "minLength": 1 },
+    "stateContext": { "enum": ["temporary-demo", "baseline", "scenario"] },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "lastEventRevision": { "type": "integer", "minimum": 0 },
+    "entityStates": { "type": "array", "items": { "$ref": "#/$defs/entityState" } },
+    "sourceEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "sourceEventLineage": { "type": "array", "items": { "$ref": "#/$defs/sourceEvent" } },
+    "rejectedEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "supersededEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "requirementStates": { "type": "array", "items": { "$ref": "#/$defs/requirement" } },
+    "explanationAr": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 }
+  },
+  "$defs": {
+    "entityState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entityId", "disposition", "assertionState", "sourceEventIds", "lastEventTime", "labelAr", "colorToken", "readiness"],
+      "properties": {
+        "entityId": { "type": "string", "minLength": 1 },
+        "disposition": { "type": "string", "minLength": 1 },
+        "assertionState": { "enum": ["reported", "corroborated", "verified", "approved", "rejected", "superseded"] },
+        "sourceEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "lastEventTime": { "type": "string", "format": "date-time" },
+        "labelAr": { "type": "string", "minLength": 1 },
+        "colorToken": { "enum": ["neutral", "reported", "verified", "approved", "blocked"] },
+        "readiness": { "type": ["object", "null"] }
+      }
+    },
+    "sourceEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eventId", "revision", "payloadHash", "eventContentHash"],
+      "properties": {
+        "eventId": { "type": "string", "minLength": 1 },
+        "revision": { "type": "integer", "minimum": 1 },
+        "payloadHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+        "eventContentHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" }
+      }
+    },
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requirementId", "entityId", "titleAr", "weight", "outcome", "contributingEventIds", "eligibleTrustStates"],
+      "properties": {
+        "requirementId": { "type": "string", "minLength": 1 },
+        "entityId": { "type": "string", "minLength": 1 },
+        "titleAr": { "type": "string", "minLength": 1 },
+        "weight": { "type": "number", "minimum": 0 },
+        "outcome": { "enum": ["not-started", "in-progress", "completed-unverified", "verified", "blocked", "rejected", "not-applicable"] },
+        "contributingEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "eligibleTrustStates": { "type": "array", "items": { "enum": ["reported", "corroborated", "verified", "approved", "rejected", "superseded"] }, "uniqueItems": true }
+      }
+    }
+  }
+}

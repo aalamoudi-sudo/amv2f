@@ -1,0 +1,16 @@
+{
+  "coordinateSpace": "KAGA-SOURCE-2D-V1",
+  "landmarks": [
+    {
+      "id": "crescent-building-candidate",
+      "titleAr": "مرشح موقع مبنى الهلالين",
+      "point": [
+        1068.346,
+        630.645
+      ],
+      "sourceLayer": "curves",
+      "sourceObjectIndex": 269736,
+      "sourceConfidence": "approximate"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "manifestId": "OPERATIONAL-DELIVERY-KAP-PENDING-R1",
+  "sourceId": null,
+  "filename": null,
+  "hash": null,
+  "size": null,
+  "revision": null,
+  "authority": "unknown",
+  "approvalStatus": "unknown",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "day": null,
+  "persona": [],
+  "schedule": [],
+  "routeCandidate": [],
+  "destinationIds": [],
+  "owner": null,
+  "responsibleParty": null,
+  "verificationAuthority": null,
+  "approvalAuthority": null,
+  "evidenceRule": [],
+  "dependency": [],
+  "restriction": [],
+  "conflict": [],
+  "notes": [
+    "قالب استلام فقط؛ لا يحتوي بيانات تشغيلية ولا يغير توأم التجربة."
+  ],
+  "sourceInventory": null
+}

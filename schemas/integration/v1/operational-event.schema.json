@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mayadeen.local/integration/v1/operational-event.schema.json",
+  "title": "Mayadeen Canonical Operational Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["eventId", "eventType", "schemaVersion", "revision", "stateContext", "subjects", "time", "location", "operationalContext", "source", "evidenceRefs", "observationRefs", "provenanceRefs", "trust", "relationships", "delivery"],
+  "properties": {
+    "eventId": { "type": "string", "minLength": 1 },
+    "eventType": { "enum": ["observation.reported", "work.started", "work.completed", "inspection.performed", "measurement.recorded", "evidence.attached", "exception.raised", "approval.granted", "approval.rejected", "verification.completed", "verification.failed", "state.correction", "event.error-declared", "system.synchronized", "sensor.observed", "reality-capture.processed"] },
+    "schemaVersion": { "const": "1.0.0" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "stateContext": { "enum": ["temporary-demo", "baseline", "scenario"] },
+    "subjects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eventRef", "venueId", "zoneId", "entityId", "assetId", "routeId", "decisionId", "workOrderRef", "requirementId"],
+      "properties": {
+        "eventRef": { "type": ["string", "null"] }, "venueId": { "type": "string", "minLength": 1 }, "zoneId": { "type": ["string", "null"] }, "entityId": { "type": "string", "minLength": 1 }, "assetId": { "type": ["string", "null"] }, "routeId": { "type": ["string", "null"] }, "decisionId": { "type": ["string", "null"] }, "workOrderRef": { "type": ["string", "null"] }, "requirementId": { "type": ["string", "null"] }
+      }
+    },
+    "time": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eventTime", "recordTime", "timeZoneOffset", "receivedAt"],
+      "properties": { "eventTime": { "type": "string", "format": "date-time" }, "recordTime": { "type": "string", "format": "date-time" }, "timeZoneOffset": { "type": "string" }, "receivedAt": { "type": "string", "format": "date-time" } }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observedAt", "resultingLocation", "coordinateReference", "spatialReference"],
+      "properties": { "observedAt": { "type": "string" }, "resultingLocation": { "type": ["string", "null"] }, "coordinateReference": { "enum": ["venue-local", "model-local", "geographic", "unknown"] }, "spatialReference": { "type": ["string", "null"] } }
+    },
+    "operationalContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["businessStep", "priorDisposition", "proposedDisposition", "actionType", "instructionId", "instructionVersion"],
+      "properties": { "businessStep": { "type": "string", "minLength": 1 }, "priorDisposition": { "type": ["string", "null"] }, "proposedDisposition": { "type": "string", "minLength": 1 }, "actionType": { "type": "string", "minLength": 1 }, "instructionId": { "type": ["string", "null"] }, "instructionVersion": { "type": ["string", "null"] } }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceType", "sourceSystemId", "sourceRecordId", "actorId", "actorRole", "deviceId", "captureMethod", "adapterId", "adapterVersion"],
+      "properties": { "sourceType": { "enum": ["system", "sensor", "reality-capture", "human-action", "workflow", "asset-management"] }, "sourceSystemId": { "type": "string" }, "sourceRecordId": { "type": "string" }, "actorId": { "type": "string" }, "actorRole": { "type": "string" }, "deviceId": { "type": ["string", "null"] }, "captureMethod": { "type": "string" }, "adapterId": { "type": "string" }, "adapterVersion": { "type": "string" } }
+    },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "observationRefs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "provenanceRefs": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+    "trust": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assertionState", "sourceConfidence", "validationResult", "validationRuleIds", "authorityRequirement"],
+      "properties": { "assertionState": { "enum": ["reported", "corroborated", "verified", "approved", "rejected", "superseded"] }, "sourceConfidence": { "enum": ["low", "medium", "high"] }, "validationResult": { "enum": ["accepted", "rejected", "requires-review"] }, "validationRuleIds": { "type": "array", "items": { "type": "string" } }, "authorityRequirement": { "type": ["string", "null"] } }
+    },
+    "relationships": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["correlationId", "causationId", "supersedesEventId", "errorDeclarationForEventId", "relationshipReason"],
+      "properties": { "correlationId": { "type": "string" }, "causationId": { "type": ["string", "null"] }, "supersedesEventId": { "type": ["string", "null"] }, "errorDeclarationForEventId": { "type": ["string", "null"] }, "relationshipReason": { "type": ["string", "null"] } }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["idempotencyKey", "offlineSequence", "payloadHash"],
+      "properties": { "idempotencyKey": { "type": "string" }, "offlineSequence": { "type": ["integer", "null"], "minimum": 1 }, "payloadHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" } }
+    }
+  }
+}

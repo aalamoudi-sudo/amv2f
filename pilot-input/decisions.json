@@ -1,0 +1,23 @@
+{
+  "noticeAr": "قرار خيالي للتعبئة؛ لا يمثل قراراً تشغيلياً",
+  "decisions": [
+    {
+      "exampleOnly": true,
+      "decisionId": "DECISION-EXAMPLE-ONLY-001",
+      "eventId": "EVENT-EXAMPLE-ONLY-001",
+      "venueId": "VENUE-EXAMPLE-ONLY-001",
+      "problemStatement": "EXAMPLE-ONLY",
+      "decisionOwner": "EXAMPLE-ONLY",
+      "responsibleParty": "EXAMPLE-ONLY",
+      "approvingAuthority": "unknown",
+      "availableOptions": [],
+      "selectedOption": null,
+      "evidence": [],
+      "confidence": "low",
+      "expectedImpact": null,
+      "actualImpact": null,
+      "status": "draft",
+      "changeReason": "إنشاء صف مثال خيالي"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "zoneId": "ZONE-###",
+    "readiness": 0,
+    "status": "preparing",
+    "riskLevel": "medium",
+    "stateContext": "baseline",
+    "source": "",
+    "sourceType": "manual-update",
+    "updatedAt": "2026-01-01T08:00:00Z",
+    "updatedBy": "",
+    "owner": "",
+    "responsibleParty": "",
+    "evidence": [
+      {
+        "id": "EVIDENCE-###",
+        "type": "checklist",
+        "titleAr": "",
+        "source": "",
+        "capturedAt": "2026-01-01T08:00:00Z",
+        "status": "pending"
+      }
+    ],
+    "confidence": "medium",
+    "approvalStatus": "draft",
+    "approvedBy": null,
+    "approvedAt": null,
+    "revision": 1,
+    "changeReason": "",
+    "targetReadinessDate": "2026-01-02",
+    "blockers": [],
+    "dependencies": [],
+    "requiredAction": "",
+    "escalationLevel": "none",
+    "dueAt": "2026-01-02T12:00:00Z",
+    "operationalImpact": {
+      "opening": "none",
+      "visitorRoutes": "none",
+      "safety": "none",
+      "dependentAreas": "none",
+      "summaryAr": ""
+    },
+    "relatedRouteIds": [],
+    "openingImpact": "none",
+    "expiresAt": null
+  }
+]

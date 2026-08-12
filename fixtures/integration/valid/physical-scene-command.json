@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "commandId": "COMMAND-PHYSICAL-OUTPUT-v1-dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "commandContentHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "deliveryAttemptId": "DELIVERY-PHYSICAL-OUTPUT-v1-dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd-1",
+  "projectionVersion": "PROJECTION-v1-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "projectionContentHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "outputProfileVersion": "physical-preview-profile-1.0.0",
+  "mappingVersion": "spatial-mapping-1.0.0",
+  "stateContext": "temporary-demo",
+  "targetDeviceId": "PREVIEW-ONLY-NO-HARDWARE",
+  "sceneId": "SCENE-INTEGRATION-LAB",
+  "entityVisualStates": [{ "entityId": "ZONE-005", "colorToken": "verified", "intensity": 0.78, "label": "ممر الخدمات" }],
+  "routeVisualStates": [{ "routeId": "ROUTE-003", "active": true, "colorToken": "route-service", "direction": "forward" }],
+  "issuedAt": "2026-07-11T12:12:00.000Z",
+  "expiresAt": "2026-07-11T13:00:00.000Z",
+  "sequence": 1,
+  "acknowledgementRequired": true,
+  "sourceEventIds": ["EVENT-SCHEMA-001"]
+}

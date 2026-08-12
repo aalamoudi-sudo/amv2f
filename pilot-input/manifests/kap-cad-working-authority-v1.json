@@ -1,0 +1,22 @@
+{
+  "manifestVersion": "1.0.0",
+  "sourceId": "SOURCE-KAP-DWG-PROVISIONAL-001",
+  "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+  "contentRevisionChanged": false,
+  "originalCaptureStatus": "provisional-until-approved-revision-arrives",
+  "authorityAssertion": {
+    "authorityAssertionId": "AUTH-KAP-DWG-WORKING-20260721",
+    "effectiveDate": "2026-07-21",
+    "authorityType": "platform-owner-working-approval",
+    "authorityName": "Ahmed",
+    "identityTrust": "local-declared",
+    "scope": "current platform spatial development",
+    "validUntil": "superseded-by-later-approved-revision",
+    "sourceHash": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d"
+  },
+  "effectiveClassification": "approved-working-baseline",
+  "engineeringAuthority": "none",
+  "mappingApproval": "none",
+  "productionIdentityVerified": false,
+  "digitalSignaturePresent": false
+}

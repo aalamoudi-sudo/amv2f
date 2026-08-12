@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "reviewedAt": "2026-07-29",
+  "authorityPromotions": [
+    {
+      "authorityDecisionId": "AUTH-KAP-CAD-FOUNDER-APPROVED-20260729",
+      "sourceAssetId": "SOURCE-ASSET-KAP-DWG-DRIVE-001",
+      "approvedSourceName": "Kaig-master 2.dwg",
+      "expectedByteSize": 99452545,
+      "expectedSha256": "a96a455b83f3ee538af81bfed69d61300a0eca20fda699ae634f967467b33a2d",
+      "previousAuthorityStatus": "founder-approved-working-source",
+      "nextAuthorityStatus": "founder-approved-cad-source",
+      "approvedBy": "Ahmed",
+      "effectiveAt": "2026-07-29",
+      "authorityScope": [
+        "canonical-cad-source-identity",
+        "cad-intake-and-extraction-preparation"
+      ],
+      "contentRevisionCreated": false,
+      "operationalBaselineGranted": false,
+      "geometryApprovalGranted": false,
+      "notes": [
+        "The approved local file is byte-for-byte identical to the already registered Drive working source.",
+        "The existing sourceAssetId is retained and no false CAD revision is created.",
+        "Source approval does not approve geometry, scale, CRS, control points, routes, safety, or operational readiness."
+      ]
+    }
+  ],
+  "addedSourceAssets": [
+    {
+      "sourceAssetId": "SOURCE-ASSET-KAP-GOVERNANCE-PPTX-001",
+      "projectId": "PROJECT-KAP-OPENING-2026",
+      "eventId": "EVENT-KAP-OPENING-2026",
+      "venueId": "VENUE-KAP-001",
+      "externalFileId": null,
+      "sourceName": "حوكمة_مشروع_حدائق_الملك_عبدالله_  05-07-2026 (3).pptx",
+      "sourceType": "presentation",
+      "sourceRole": "project-governance",
+      "authorityStatus": "founder-approved-project-governance-source",
+      "contentStatus": "content-verified",
+      "expectedByteSize": 6403790,
+      "expectedSha256": "8b45cff4b505d5e1b08088c84426d46895d4cb127580e2c388a655cc44bf63fb",
+      "observedByteSize": 6403790,
+      "observedSha256": "8b45cff4b505d5e1b08088c84426d46895d4cb127580e2c388a655cc44bf63fb",
+      "duplicateOfSourceAssetId": null,
+      "createdAtReported": null,
+      "fetchedAt": null,
+      "provider": "operator-local",
+      "providerPermissionRisk": "none-recorded",
+      "rightsStatus": "internal-review-only",
+      "privacyStatus": "restricted",
+      "retentionStatus": "local-review-snapshot",
+      "operationalBaselineStatus": "not-baseline",
+      "geometryApprovalStatus": "not-approved",
+      "ingestionStatus": "validated",
+      "validationErrors": [],
+      "notes": [
+        "Fingerprint verified from the immutable local review snapshot.",
+        "The browser-safe derivative excludes personal phone numbers and email addresses.",
+        "Governance approval defines process and escalation authority only; it does not prove operational readiness."
+      ]
+    }
+  ]
+}

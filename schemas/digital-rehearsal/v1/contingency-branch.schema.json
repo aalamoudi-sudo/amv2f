@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/digital-rehearsal/v1/contingency-branch.schema.json",
+  "title": "Rehearsal Contingency Branch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contingency", "branch"],
+  "properties": {
+    "contingency": {
+      "type": "object",
+      "required": ["contingencyId", "labelAr", "labelEn", "category", "triggerAr", "truthStatus", "affectedMomentIds", "affectedPersonaIds", "affectedSiteIds", "candidateAlternativeAr", "requiredDecisionAuthorityAr", "requiredEvidenceAr", "expectedImpactAr", "returnToPrimaryConditionAr", "sourceTraceIds"],
+      "properties": {
+        "contingencyId": { "type": "string", "minLength": 1 },
+        "labelAr": { "type": "string", "minLength": 1 },
+        "labelEn": { "type": "string", "minLength": 1 },
+        "category": { "type": "string", "minLength": 1 },
+        "triggerAr": { "type": "string", "minLength": 1 },
+        "truthStatus": { "const": "hypothetical-rehearsal-only" },
+        "affectedMomentIds": { "type": "array", "items": { "type": "string" } },
+        "affectedPersonaIds": { "type": "array", "items": { "type": "string" } },
+        "affectedSiteIds": { "type": "array", "items": { "type": "string" } },
+        "candidateAlternativeAr": { "type": "string", "minLength": 1 },
+        "requiredDecisionAuthorityAr": { "type": "string", "minLength": 1 },
+        "requiredEvidenceAr": { "type": "array", "items": { "type": "string" } },
+        "expectedImpactAr": { "type": "string", "minLength": 1 },
+        "returnToPrimaryConditionAr": { "type": "string", "minLength": 1 },
+        "sourceTraceIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "branch": {
+      "type": "object",
+      "required": ["branchId", "contingencyId", "labelAr", "affectedMomentIds", "candidateAlternativeAr", "returnConditionAr", "activatedAtCommandId", "returnedAtCommandId"],
+      "properties": {
+        "branchId": { "type": "string", "minLength": 1 },
+        "contingencyId": { "type": "string", "minLength": 1 },
+        "labelAr": { "type": "string", "minLength": 1 },
+        "affectedMomentIds": { "type": "array", "items": { "type": "string" } },
+        "candidateAlternativeAr": { "type": "string", "minLength": 1 },
+        "returnConditionAr": { "type": "string", "minLength": 1 },
+        "activatedAtCommandId": { "type": ["string", "null"] },
+        "returnedAtCommandId": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

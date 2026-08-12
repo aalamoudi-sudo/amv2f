@@ -1,0 +1,553 @@
+.kaga-v2-app {
+  --kaga-motion-cinematic-slow: 2.8s cubic-bezier(.16, 1, .3, 1);
+  --kaga-motion-editorial-reveal: .82s cubic-bezier(.22, 1, .36, 1);
+  --kaga-motion-spatial-travel: 1.9s cubic-bezier(.16, 1, .3, 1);
+  --kaga-motion-precision-fast: .34s cubic-bezier(.22, 1, .36, 1);
+  --kaga-motion-return-collapse: 2.25s cubic-bezier(.76, 0, .24, 1);
+  --kaga-rebirth-shadow: 0 2rem 6rem rgba(16, 35, 30, .2);
+}
+
+/* A — Cinematic opening. The source image is the world, not a panel. */
+.kaga-rebirth-opening.kaga-v2-intro {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  padding: 0;
+  color: #fff;
+  background: var(--kaga-source-cinematic-page);
+  isolation: isolate;
+}
+
+.kaga-rebirth-opening__world,
+.kaga-rebirth-opening__world > img,
+.kaga-rebirth-opening__atmosphere,
+.kaga-rebirth-opening__light {
+  position: absolute;
+  inset: 0;
+}
+
+.kaga-rebirth-opening__world > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+}
+
+.kaga-rebirth-opening__image { filter: saturate(1.02) contrast(1.04); }
+.kaga-rebirth-opening__depth {
+  opacity: .34;
+  clip-path: ellipse(37% 47% at 43% 56%);
+  filter: saturate(1.13) contrast(1.08);
+  mix-blend-mode: soft-light;
+  will-change: transform;
+}
+
+.kaga-rebirth-opening__atmosphere {
+  background:
+    linear-gradient(180deg, rgba(9, 19, 17, .05) 0%, transparent 43%, rgba(10, 22, 18, .56) 100%),
+    linear-gradient(90deg, rgba(8, 24, 20, .08) 0%, transparent 46%, rgba(8, 20, 17, .38) 100%);
+}
+
+.kaga-rebirth-opening__light {
+  opacity: .34;
+  background: radial-gradient(circle at 11% 35%, rgba(236, 174, 84, .5), transparent 28%);
+  mix-blend-mode: screen;
+  animation: kaga-rebirth-light 6.8s ease-out both;
+}
+
+@keyframes kaga-rebirth-light {
+  from { opacity: .12; transform: translateX(-2%); }
+  to { opacity: .34; transform: translateX(0); }
+}
+
+.kaga-rebirth-opening__composition {
+  position: absolute;
+  z-index: 3;
+  right: clamp(3rem, 6vw, 8rem);
+  bottom: clamp(9rem, 15vh, 12rem);
+  width: min(44rem, 44vw);
+  text-shadow: 0 .4rem 2.4rem rgba(9, 18, 15, .32);
+}
+
+.kaga-rebirth-opening__kicker {
+  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, .82);
+  font: 400 clamp(.64rem, .7vw, .82rem)/1.7 var(--kaga-pf-font);
+  letter-spacing: .035em;
+}
+
+.kaga-rebirth-opening h1 {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  font-family: var(--kaga-pf-font);
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: .98;
+}
+
+.kaga-rebirth-opening h1 > span {
+  margin-block-end: .55rem;
+  color: rgba(255, 255, 255, .8);
+  font-size: clamp(1.1rem, 1.45vw, 1.75rem);
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+
+.kaga-rebirth-opening h1 > strong {
+  font-size: clamp(4.8rem, 6.7vw, 8.7rem);
+  font-weight: 500;
+  line-height: .98;
+}
+
+.kaga-rebirth-opening__gold {
+  display: block;
+  width: 6rem;
+  height: 1px;
+  margin-block: 1.5rem 1rem;
+  background: var(--kaga-source-route-gold);
+  transform-origin: right;
+}
+
+.kaga-rebirth-opening__lead {
+  max-width: 32rem;
+  margin: 0;
+  color: rgba(255, 255, 255, .76);
+  font: 400 clamp(.72rem, .82vw, .95rem)/1.9 var(--kaga-pf-font);
+}
+
+.kaga-rebirth-opening__facts {
+  position: absolute;
+  z-index: 4;
+  left: clamp(2.5rem, 4.2vw, 6rem);
+  bottom: clamp(2.3rem, 4.2vh, 4.5rem);
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(1.3rem, 2.4vw, 3.4rem);
+  color: #fff;
+}
+
+.kaga-rebirth-opening__facts > div { min-width: 5.5rem; }
+.kaga-rebirth-opening__facts strong {
+  display: block;
+  color: #fff;
+  font: 500 clamp(1.45rem, 2vw, 2.45rem)/1 var(--kaga-pf-font);
+}
+.kaga-rebirth-opening__facts span {
+  display: block;
+  margin-block-start: .45rem;
+  color: rgba(255, 255, 255, .66);
+  font-size: .58rem;
+}
+.kaga-rebirth-opening__facts p {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin: 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: .58rem;
+}
+.kaga-rebirth-opening__facts p i { width: 1px; height: 1rem; background: var(--kaga-source-route-gold); }
+
+.kaga-rebirth-opening__actions {
+  position: absolute;
+  z-index: 5;
+  right: clamp(3rem, 6vw, 8rem);
+  bottom: clamp(2.2rem, 4vh, 4rem);
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.kaga-rebirth-opening__actions button {
+  border: 0;
+  border-block-end: 1px solid rgba(255, 255, 255, .42);
+  padding: .45rem 0;
+  color: rgba(255, 255, 255, .82);
+  background: transparent;
+  font: 500 .68rem/1.5 var(--kaga-pf-font);
+  cursor: pointer;
+  transition: color var(--kaga-motion-precision-fast), border-color var(--kaga-motion-precision-fast), transform var(--kaga-motion-precision-fast);
+}
+.kaga-rebirth-opening__actions button:hover,
+.kaga-rebirth-opening__actions button:focus-visible { color: #fff; border-color: var(--kaga-source-route-gold); transform: translateY(-2px); }
+.kaga-rebirth-opening__actions button.is-primary { border-color: var(--kaga-source-route-gold); color: #fff; font-size: .78rem; }
+
+.kaga-rebirth-opening__site-focus {
+  position: absolute;
+  z-index: 2;
+  left: 43%;
+  top: 55%;
+  width: 6rem;
+  height: 6rem;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 50%;
+  opacity: .62;
+}
+.kaga-rebirth-opening__site-focus::before,
+.kaga-rebirth-opening__site-focus::after { position: absolute; background: rgba(255, 255, 255, .18); content: ''; }
+.kaga-rebirth-opening__site-focus::before { inset: 50% -1rem auto; height: 1px; }
+.kaga-rebirth-opening__site-focus::after { inset: -1rem 50% auto; width: 1px; height: 8rem; }
+.kaga-rebirth-opening__site-focus i { position: absolute; inset: 50%; width: .32rem; height: .32rem; transform: translate(-50%, -50%); border-radius: 50%; background: var(--kaga-source-route-gold); }
+
+/* B — Guest Journey. The illustrated place becomes the full interface. */
+.kaga-rebirth-guest-world.kaga-pf-masterplan {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  background: var(--kaga-source-route-page);
+  isolation: isolate;
+}
+
+.kaga-rebirth-guest-world__canvas,
+.kaga-rebirth-guest-world__map,
+.kaga-rebirth-guest-world__atmosphere { position: absolute; inset: 0; }
+.kaga-rebirth-guest-world__canvas { overflow: hidden; }
+.kaga-rebirth-guest-world__map {
+  inset: -7% -5% -12%;
+  transform-origin: var(--rebirth-focus-x) var(--rebirth-focus-y);
+  transition: transform var(--kaga-motion-spatial-travel), filter var(--kaga-motion-editorial-reveal);
+  will-change: transform;
+}
+.kaga-rebirth-guest-world[data-camera-state='overview'] .kaga-rebirth-guest-world__map { transform: scale(1.07); }
+.kaga-rebirth-guest-world[data-camera-state='approach'] .kaga-rebirth-guest-world__map { transform: scale(1.15); }
+.kaga-rebirth-guest-world[data-camera-state='arrival'] .kaga-rebirth-guest-world__map { transform: scale(1.22); filter: saturate(.94) contrast(1.015); }
+.kaga-rebirth-guest-world__map > .kaga-v2-registered-map { width: 100%; height: 100%; background: transparent; }
+.kaga-rebirth-guest-world__map .kaga-v2-registered-map > svg { overflow: visible; transform: none; }
+.kaga-rebirth-guest-world__map .kaga-v2-source-map__legend { display: none; }
+
+.kaga-rebirth-guest-world .kaga-illustrated-layer { opacity: 1; transform: translateZ(0); }
+.kaga-rebirth-guest-world .kaga-illustrated-layer[data-layer-index='0'] { filter: saturate(.9) contrast(.98); }
+.kaga-rebirth-guest-world .kaga-illustrated-layer[data-layer-index='1'] { filter: saturate(1.08) drop-shadow(0 .25rem .3rem rgba(8, 60, 88, .14)); }
+.kaga-rebirth-guest-world .kaga-illustrated-layer[data-layer-index='3'] { filter: saturate(1.04) drop-shadow(0 .55rem .45rem rgba(20, 59, 42, .18)); }
+.kaga-rebirth-guest-world .kaga-illustrated-layer[data-layer-index='4'] { filter: contrast(1.04) drop-shadow(0 .7rem .55rem rgba(28, 43, 39, .2)); }
+
+.kaga-rebirth-guest-world__atmosphere {
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(244, 236, 232, .74) 0%, transparent 18%, transparent 74%, rgba(244, 236, 232, .86) 100%),
+    linear-gradient(90deg, rgba(244, 236, 232, .8) 0%, transparent 22%, transparent 78%, rgba(244, 236, 232, .42) 100%),
+    radial-gradient(circle at var(--rebirth-focus-x) var(--rebirth-focus-y), transparent 0 9%, rgba(244, 236, 232, .08) 28%, rgba(244, 236, 232, .22) 72%);
+}
+
+.kaga-rebirth-guest-world__focus {
+  position: absolute;
+  z-index: 6;
+  left: var(--rebirth-focus-x);
+  top: var(--rebirth-focus-y);
+  width: 5.6rem;
+  height: 5.6rem;
+  transform: translate(-50%, -50%);
+  border: 1px solid color-mix(in srgb, var(--kaga-source-route-gold) 42%, transparent);
+  border-radius: 50%;
+  opacity: .48;
+  pointer-events: none;
+  transition: width var(--kaga-motion-spatial-travel), height var(--kaga-motion-spatial-travel), opacity var(--kaga-motion-editorial-reveal);
+}
+.kaga-rebirth-guest-world[data-camera-state='arrival'] .kaga-rebirth-guest-world__focus { width: 8rem; height: 8rem; opacity: .82; }
+.kaga-rebirth-guest-world__focus i { position: absolute; inset: 50%; width: .34rem; height: .34rem; transform: translate(-50%, -50%); border-radius: 50%; background: var(--kaga-source-route-orange); }
+.kaga-rebirth-guest-world__focus span { position: absolute; inset: 50% auto auto 100%; width: 4.8rem; height: 1px; background: linear-gradient(90deg, var(--kaga-source-route-gold), transparent); }
+
+.kaga-rebirth-guest-world > .kaga-mythic-guest {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  display: block;
+  height: auto;
+  min-height: 0;
+  pointer-events: none;
+}
+.kaga-rebirth-guest-world > .kaga-mythic-guest :is(button, summary, input, details) { pointer-events: auto; }
+
+.kaga-rebirth-guest-world .kaga-mythic-guest__header {
+  position: absolute;
+  z-index: 3;
+  top: clamp(1.5rem, 4vh, 3.2rem);
+  right: clamp(2rem, 4vw, 5rem);
+  display: block;
+  width: min(30rem, 30vw);
+  border: 0;
+  padding: 0;
+  filter: drop-shadow(0 .35rem 1rem rgba(248, 243, 239, .82));
+}
+.kaga-rebirth-guest-world .kaga-mythic-guest__header p { color: var(--kaga-source-route-orange); font-size: .6rem; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__header h1 { max-width: 13ch; margin-block: .35rem; font-size: clamp(2.5rem, 3.8vw, 5.2rem); line-height: 1.05; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__header span { color: var(--kaga-source-route-navy); font-size: .72rem; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__story { margin-block-start: .85rem; color: var(--kaga-source-route-teal); }
+
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport {
+  position: absolute;
+  z-index: 3;
+  top: clamp(1.7rem, 4vh, 3.2rem);
+  left: clamp(2rem, 3.4vw, 4rem);
+  display: flex;
+  gap: 1.2rem;
+  padding: 0;
+}
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport span { opacity: .5; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport span[data-active='true'] { opacity: 1; }
+
+.kaga-rebirth-guest-world .kaga-mythic-rail {
+  position: absolute;
+  z-index: 4;
+  right: clamp(2rem, 3.5vw, 4.5rem);
+  bottom: clamp(1.2rem, 2.2vh, 2rem);
+  left: clamp(2rem, 3.5vw, 4.5rem);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  border: 0;
+  border-block-start: 1px solid color-mix(in srgb, var(--kaga-source-route-gold) 55%, transparent);
+  padding: .8rem 0 0;
+  background: linear-gradient(180deg, rgba(244, 236, 232, 0), rgba(244, 236, 232, .7) 26%, rgba(244, 236, 232, .94));
+  pointer-events: auto;
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail::before { inset: .05rem 4.1% auto; width: auto; height: 1px; background: var(--kaga-source-route-divider); }
+.kaga-rebirth-guest-world .kaga-mythic-rail button {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: .35rem;
+  padding: 0 .25rem;
+  text-align: center;
+  transition: opacity var(--kaga-motion-precision-fast), transform var(--kaga-motion-precision-fast), color var(--kaga-motion-precision-fast);
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail button > b { width: 1.85rem; height: 1.85rem; background: rgba(248, 243, 239, .94); }
+.kaga-rebirth-guest-world .kaga-mythic-rail button > span { width: 100%; font-size: clamp(.46rem, .52vw, .63rem); text-align: center; white-space: normal; line-height: 1.32; }
+.kaga-rebirth-guest-world .kaga-mythic-rail button small { display: block; margin: .14rem 0 0; font-size: .43rem; }
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='current'] { transform: translateY(-.35rem); }
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='current']::after { inset: -.82rem 50% auto; width: 2px; height: .6rem; }
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='next'] { transform: translateY(-.12rem); }
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='future'] { opacity: .68; }
+
+.kaga-rebirth-guest-world .kaga-mythic-stop {
+  position: absolute;
+  z-index: 5;
+  top: 25%;
+  left: clamp(2.4rem, 4.5vw, 6rem);
+  width: min(30rem, 29vw);
+  padding: 0;
+  color: var(--kaga-source-route-teal);
+  filter: drop-shadow(0 .25rem 1.4rem rgba(248, 243, 239, .96));
+}
+.kaga-rebirth-guest-world .kaga-mythic-stop__identity { display: grid; grid-template-columns: 4.6rem 1fr; gap: 1rem; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__identity > strong { width: 4.4rem; height: 4.4rem; font-size: 1.55rem; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__identity h2 { max-width: 15ch; font-size: clamp(1.8rem, 2.65vw, 3.65rem); line-height: 1.12; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__identity time { grid-column: 2; margin-block-start: .35rem; font-size: .72rem; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__description { max-width: 28rem; margin-block: 1rem .5rem; color: #3f4f4b; font-size: .72rem; line-height: 1.8; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__next { max-width: 22rem; border-color: color-mix(in srgb, var(--kaga-source-route-gold) 44%, transparent); }
+.kaga-rebirth-guest-world .kaga-mythic-stop__more,
+.kaga-rebirth-guest-world .kaga-mythic-stop__actions { width: max-content; }
+
+.kaga-rebirth-guest-world .kaga-mythic-playback {
+  position: absolute;
+  z-index: 7;
+  right: clamp(2rem, 4vw, 5rem);
+  bottom: 8.8rem;
+  width: min(22rem, 24vw);
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+.kaga-rebirth-guest-world .kaga-mythic-playback > div { grid-template-columns: 2.3rem 1fr 2.3rem; }
+.kaga-rebirth-guest-world .kaga-mythic-playback button { background: rgba(248, 243, 239, .76); backdrop-filter: blur(8px); }
+.kaga-rebirth-guest-world .kaga-mythic-playback button.is-primary { background: var(--kaga-source-route-green); }
+.kaga-rebirth-guest-world .kaga-mythic-playback label { background: rgba(244, 236, 232, .68); }
+
+.kaga-rebirth-guest-world .kaga-mythic-guest__source-mode {
+  position: absolute;
+  z-index: 8;
+  left: clamp(2rem, 3.4vw, 4rem);
+  bottom: 8.8rem;
+  display: flex;
+  width: min(20rem, 22vw);
+  padding: 0;
+}
+.kaga-rebirth-guest-world .kaga-mythic-guest__source-mode details[open] { padding: .5rem; background: rgba(248, 243, 239, .92); box-shadow: var(--kaga-rebirth-shadow); }
+.kaga-rebirth-guest-world .kaga-mythic-guest__journey-index { position: absolute; left: 3.5vw; bottom: 6.7rem; }
+
+.kaga-rebirth-guest-world .kaga-map-reading-switcher {
+  top: 1.4rem;
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0;
+  border-block-end: 1px solid color-mix(in srgb, var(--kaga-source-route-gold) 48%, transparent);
+  background: rgba(248, 243, 239, .68);
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+}
+
+.kaga-rebirth-guest-world .kaga-v2-registered-map__source-segments polyline[data-state='current'] {
+  animation: kaga-rebirth-route-draw 1.5s cubic-bezier(.16, 1, .3, 1) both;
+}
+@keyframes kaga-rebirth-route-draw { from { stroke-dashoffset: 38; opacity: .2; } to { stroke-dashoffset: 0; opacity: 1; } }
+
+/* D — Visual Museum. The render is the environment; navigation retreats to its edges. */
+.kaga-v2-app[data-visual-rebirth-section='museum'] .kaga-v2-executive-header,
+.kaga-v2-app:has(.kaga-rebirth-guest-world) .kaga-v2-executive-header {
+  opacity: .22;
+  transition: opacity var(--kaga-motion-editorial-reveal);
+}
+.kaga-v2-app[data-visual-rebirth-section='museum'] .kaga-v2-executive-header {
+  position: absolute;
+  z-index: 30;
+  inset: 0 0 auto;
+  border: 0;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(5, 18, 14, .3), transparent);
+}
+.kaga-v2-app[data-visual-rebirth-section='museum'] .kaga-v2-executive-header { opacity: .06; }
+.kaga-v2-app[data-visual-rebirth-section='museum'] > .kaga-v2-world {
+  height: 100vh;
+  min-height: 100vh;
+}
+.kaga-v2-app[data-visual-rebirth-section='museum'] .kaga-v2-executive-header:hover,
+.kaga-v2-app[data-visual-rebirth-section='museum'] .kaga-v2-executive-header:focus-within,
+.kaga-v2-app:has(.kaga-rebirth-guest-world) .kaga-v2-executive-header:hover,
+.kaga-v2-app:has(.kaga-rebirth-guest-world) .kaga-v2-executive-header:focus-within { opacity: 1; }
+
+.kaga-rebirth-museum.kaga-museum {
+  position: relative;
+  display: block;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  background: #10221d;
+  isolation: isolate;
+}
+.kaga-rebirth-museum__header {
+  position: absolute;
+  z-index: 12;
+  top: 1.5rem;
+  right: 2rem;
+  left: 2rem;
+  display: flex;
+  margin: 0;
+  align-items: flex-start;
+  color: #fff;
+  pointer-events: none;
+}
+.kaga-rebirth-museum__header > * { pointer-events: auto; }
+.kaga-rebirth-museum__header h1 { margin: .25rem 0 0; color: rgba(255, 255, 255, .74); font: 500 .78rem/1.5 var(--kaga-pf-font); }
+.kaga-rebirth-museum__header .kaga-kicker { color: var(--kaga-source-route-gold); font-size: .55rem; }
+.kaga-rebirth-museum__header .kaga-icon-button { border-color: rgba(255, 255, 255, .28); color: #fff; background: rgba(12, 36, 29, .2); backdrop-filter: blur(9px); }
+
+.kaga-rebirth-museum .kaga-museum-tabs {
+  position: absolute;
+  z-index: 11;
+  top: 1.65rem;
+  left: 50%;
+  display: flex;
+  width: min(62vw, 72rem);
+  transform: translateX(-50%);
+  justify-content: center;
+  gap: 1rem;
+  overflow: visible;
+  padding: 0;
+}
+.kaga-rebirth-museum[data-chrome-visible='false'] .kaga-museum-tabs,
+.kaga-rebirth-museum[data-chrome-visible='false'] :is(.kaga-museum-next,.kaga-museum-prev) {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-.5rem);
+}
+.kaga-rebirth-museum[data-chrome-visible='true'] .kaga-museum-tabs,
+.kaga-rebirth-museum[data-chrome-visible='true'] :is(.kaga-museum-next,.kaga-museum-prev) {
+  transition: opacity var(--kaga-motion-editorial-reveal),transform var(--kaga-motion-editorial-reveal);
+}
+.kaga-rebirth-museum .kaga-museum-tabs button { border: 0; padding: .2rem 0 .45rem; color: rgba(255, 255, 255, .46); font-size: .55rem; text-shadow: 0 .15rem .7rem rgba(3, 18, 13, .7); }
+.kaga-rebirth-museum .kaga-museum-tabs button.is-active { border-block-end: 1px solid var(--kaga-source-route-orange); color: #fff; }
+
+.kaga-rebirth-museum .kaga-museum-stage {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: #0b1814;
+}
+.kaga-rebirth-museum .kaga-museum-stage::before { display: none; }
+.kaga-rebirth-museum .kaga-museum-stage::after { z-index: 1; background: linear-gradient(180deg, rgba(5, 18, 14, .42), transparent 23%, transparent 54%, rgba(5, 16, 13, .68)); }
+.kaga-rebirth-museum .kaga-museum-stage > img { transform: scale(1.015); transition: transform var(--kaga-motion-cinematic-slow); }
+.kaga-rebirth-museum .kaga-museum-caption { z-index: 5; right: clamp(2.5rem, 5vw, 7rem); bottom: clamp(2.5rem, 6vh, 5.5rem); left: clamp(2.5rem, 5vw, 7rem); align-items: flex-end; }
+.kaga-rebirth-museum .kaga-museum-caption > div:first-child { max-width: 44rem; }
+.kaga-rebirth-museum .kaga-museum-caption span { color: var(--kaga-source-route-gold); }
+.kaga-rebirth-museum .kaga-museum-caption h2 { margin: .7rem 0 .5rem; color: #fff; font: 500 clamp(3.8rem, 6vw, 8.4rem)/1.03 var(--kaga-pf-font); letter-spacing: -.035em; text-shadow: 0 .35rem 1.8rem rgba(6, 20, 16, .38); }
+.kaga-rebirth-museum .kaga-museum-caption p { max-width: 32rem; color: rgba(255, 255, 255, .72); font-size: .72rem; line-height: 1.85; }
+.kaga-rebirth-museum__utilities { display: flex; align-items: center; gap: 1rem; }
+.kaga-rebirth-museum__utilities > button { border: 0; border-block-end: 1px solid var(--kaga-source-route-gold); padding: .35rem 0; color: #fff; background: transparent; font-size: .6rem; cursor: pointer; }
+.kaga-rebirth-museum .kaga-source-chip { border: 0; color: rgba(255, 255, 255, .56); background: transparent; font-size: .52rem; }
+.kaga-rebirth-museum :is(.kaga-museum-next, .kaga-museum-prev) { width: 2.5rem; height: 2.5rem; border-color: rgba(255, 255, 255, .22); background: rgba(9, 29, 23, .24); backdrop-filter: blur(8px); opacity: .54; transition: opacity var(--kaga-motion-precision-fast), transform var(--kaga-motion-precision-fast); }
+.kaga-rebirth-museum :is(.kaga-museum-next, .kaga-museum-prev):hover { opacity: 1; }
+
+.kaga-rebirth-museum .kaga-museum-strip {
+  position: absolute;
+  z-index: 9;
+  right: 50%;
+  bottom: 1.1rem;
+  left: auto;
+  display: flex;
+  width: min(72vw, 76rem);
+  height: 4.5rem;
+  transform: translate(50%, 1rem);
+  justify-content: center;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--kaga-motion-editorial-reveal), transform var(--kaga-motion-editorial-reveal);
+}
+.kaga-rebirth-museum .kaga-museum-strip[data-visible='true'] { transform: translate(50%, 0); opacity: 1; pointer-events: auto; }
+.kaga-rebirth-museum.kaga-museum .kaga-museum-strip[data-visible='false'] {
+  visibility: hidden;
+  transform: translate(50%, 1rem);
+  opacity: 0;
+  pointer-events: none;
+}
+.kaga-rebirth-museum .kaga-museum-strip button { width: 6.5rem; border: 0; border-block-end: 1px solid transparent; border-radius: 0; opacity: .48; }
+.kaga-rebirth-museum .kaga-museum-strip button.is-active { border-color: var(--kaga-source-route-orange); opacity: 1; }
+
+@media (min-width: 2300px) {
+  .kaga-rebirth-opening__composition { right: 7vw; width: 49rem; }
+  .kaga-rebirth-opening h1 > strong { font-size: 8.4rem; }
+  .kaga-rebirth-guest-world .kaga-mythic-guest__header { width: 34rem; }
+  .kaga-rebirth-guest-world .kaga-mythic-stop { width: 34rem; }
+  .kaga-rebirth-museum .kaga-museum-caption h2 { font-size: 7.8rem; }
+}
+
+@media (max-width: 1500px) {
+  .kaga-rebirth-opening__composition { width: 48vw; }
+  .kaga-rebirth-opening h1 > strong { font-size: 4.9rem; }
+  .kaga-rebirth-opening__facts { gap: 1.1rem; }
+  .kaga-rebirth-guest-world .kaga-mythic-guest__header { width: 29vw; }
+  .kaga-rebirth-guest-world .kaga-mythic-stop { top: 22%; width: 31vw; }
+  .kaga-rebirth-guest-world .kaga-mythic-stop__identity h2 { font-size: 1.8rem; }
+  .kaga-rebirth-guest-world .kaga-mythic-playback { width: 25vw; }
+}
+
+@media (max-width: 1100px) {
+  .kaga-rebirth-opening__composition { right: 2rem; width: 62vw; }
+  .kaga-rebirth-opening__facts { display: none; }
+  .kaga-rebirth-guest-world { min-height: 760px; overflow: auto; }
+  .kaga-rebirth-guest-world .kaga-mythic-guest__header { width: 40vw; }
+  .kaga-rebirth-guest-world .kaga-mythic-stop { width: 42vw; }
+  .kaga-rebirth-guest-world .kaga-mythic-rail { grid-template-columns: repeat(12, minmax(5rem, 1fr)); overflow-x: auto; }
+  .kaga-rebirth-museum .kaga-museum-tabs { width: 68vw; justify-content: flex-start; overflow-x: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kaga-rebirth-opening *,
+  .kaga-rebirth-guest-world *,
+  .kaga-rebirth-museum * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

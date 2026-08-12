@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "designation": "KAGA-ILLUSTRATED-MAP-REGISTERED-V1",
+  "sourceRole": "visual-cartographic-source",
+  "sourceSha256": "be5ae3075ca9b7afa1fcfdb58b4178f67b1b6a87a7bd3d0733cdd7a3ebc46c00",
+  "canonicalCoordinateSpace": "KAGA-SOURCE-2D-V1",
+  "canonicalViewBox": [0, 0, 1703.16, 1371.235],
+  "sourceImageSize": [2800, 1998],
+  "sourcePixelToCanonicalMatrix": [0.3134, 0, 683, 0, 0.3134, 331.1],
+  "registrationMethod": "four-landmark-similarity-transform",
+  "controlPoints": [
+    { "id": "central-landscape", "illustrator": [1220, 960], "canonical": [1065.3, 631.9] },
+    { "id": "east-arrival-loop", "illustrator": [2192, 986], "canonical": [1370, 640.1] },
+    { "id": "south-east-service-loop", "illustrator": [2240, 1590], "canonical": [1384.6, 829.4] },
+    { "id": "west-approach", "illustrator": [680, 920], "canonical": [896.1, 619.4] }
+  ],
+  "visualEnvelopeToleranceCanonicalUnits": 12,
+  "geometryAuthority": "Rhino / KAGA-SOURCE-2D-V1",
+  "labelsAuthority": "approved KAGA data model",
+  "illustratorGeometryAuthority": false
+}

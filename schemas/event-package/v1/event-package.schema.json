@@ -1,0 +1,559 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/event-package/v1/event-package.schema.json",
+  "title": "Mayadeen Event Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "packageId", "packageVersion", "schemaVersion", "packageContentHash",
+    "titleAr", "titleEn", "descriptionAr", "descriptionEn", "eventType",
+    "stateContext", "packageStatus", "dataClassification",
+    "minimumPlatformVersion", "maximumPlatformVersion", "requiredCapabilityIds",
+    "incompatibleCapabilityIds", "eventTemplate", "eventInstance",
+    "spatialConfiguration", "routeConfiguration", "requirementConfiguration",
+    "operationalPackConfiguration", "roleConfiguration", "authorityConfiguration",
+    "integrationProfileConfiguration", "projectionProfileConfiguration",
+    "physicalOutputProfileConfiguration", "temporaryDemoSeedData", "createdAt",
+    "createdBy", "source", "approvalStatus", "approvedBy", "approvedAt",
+    "revision", "changeReason", "dependencies"
+  ],
+  "properties": {
+    "packageId": { "type": "string", "pattern": "^EVENT-PACKAGE-[A-Za-z0-9-]+$" },
+    "packageVersion": { "$ref": "#/$defs/semver" },
+    "schemaVersion": { "const": "1.0.0" },
+    "packageContentHash": { "type": "string", "pattern": "^EVENT-PACKAGE-v1-[a-f0-9]{64}$" },
+    "titleAr": { "$ref": "#/$defs/nonEmptyString" },
+    "titleEn": { "$ref": "#/$defs/nonEmptyString" },
+    "descriptionAr": { "$ref": "#/$defs/nonEmptyString" },
+    "descriptionEn": { "$ref": "#/$defs/nonEmptyString" },
+    "eventType": { "$ref": "#/$defs/nonEmptyString" },
+    "stateContext": { "const": "temporary-demo" },
+    "packageStatus": { "enum": ["draft", "validated", "approved", "deprecated"] },
+    "dataClassification": { "const": "temporary-demo" },
+    "minimumPlatformVersion": { "$ref": "#/$defs/semver" },
+    "maximumPlatformVersion": { "$ref": "#/$defs/semver" },
+    "requiredCapabilityIds": { "$ref": "#/$defs/stringArray" },
+    "incompatibleCapabilityIds": { "$ref": "#/$defs/stringArray" },
+    "eventTemplate": { "$ref": "#/$defs/eventTemplate" },
+    "eventInstance": { "$ref": "#/$defs/eventInstance" },
+    "spatialConfiguration": { "$ref": "#/$defs/spatialConfiguration" },
+    "routeConfiguration": { "$ref": "#/$defs/routeConfiguration" },
+    "requirementConfiguration": { "type": "array", "items": { "$ref": "#/$defs/operationalRequirement" } },
+    "operationalPackConfiguration": { "$ref": "#/$defs/operationalPackConfiguration" },
+    "roleConfiguration": { "type": "array", "items": { "$ref": "#/$defs/role" } },
+    "authorityConfiguration": { "type": "array", "items": { "$ref": "#/$defs/authority" } },
+    "integrationProfileConfiguration": { "type": "array", "items": { "$ref": "#/$defs/integrationProfile" } },
+    "projectionProfileConfiguration": { "type": "array", "items": { "$ref": "#/$defs/projectionProfile" } },
+    "physicalOutputProfileConfiguration": { "type": "array", "items": { "$ref": "#/$defs/physicalOutputProfile" } },
+    "temporaryDemoSeedData": { "$ref": "#/$defs/temporaryDemoSeedData" },
+    "createdAt": { "$ref": "#/$defs/dateTime" },
+    "createdBy": { "$ref": "#/$defs/nonEmptyString" },
+    "source": { "$ref": "#/$defs/nonEmptyString" },
+    "approvalStatus": { "enum": ["draft", "submitted", "under-review", "approved", "rejected", "expired"] },
+    "approvedBy": { "type": ["string", "null"] },
+    "approvedAt": { "type": ["string", "null"] },
+    "revision": { "type": "integer", "minimum": 1 },
+    "changeReason": { "$ref": "#/$defs/nonEmptyString" },
+    "dependencies": { "type": "array", "items": { "$ref": "#/$defs/packageDependency" } },
+    "previewGeneratedAt": { "type": "string" }
+  },
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "stringArray": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "semver": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[A-Za-z0-9.-]+)?$" },
+    "dateTime": { "type": "string", "minLength": 10 },
+    "stateContext": { "enum": ["temporary-demo", "baseline", "scenario"] },
+    "entityType": { "enum": ["site", "zone", "hall", "gate", "route", "stage", "parking", "service", "assembly", "asset"] },
+    "eventTemplate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eventTemplateId", "eventType", "lifecycleProfileId", "defaultOperationalPackIds", "supportedSpatialEntityTypes", "requiredRoleIds"],
+      "properties": {
+        "eventTemplateId": { "$ref": "#/$defs/nonEmptyString" },
+        "eventType": { "$ref": "#/$defs/nonEmptyString" },
+        "lifecycleProfileId": { "$ref": "#/$defs/nonEmptyString" },
+        "defaultOperationalPackIds": { "$ref": "#/$defs/stringArray" },
+        "supportedSpatialEntityTypes": { "type": "array", "items": { "$ref": "#/$defs/entityType" }, "uniqueItems": true },
+        "requiredRoleIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "eventInstance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eventInstanceId", "eventTemplateId", "eventNameAr", "eventNameEn", "venueId", "startAt", "endAt", "timeZone", "stateContext"],
+      "properties": {
+        "eventInstanceId": { "type": "string", "pattern": "^EVENT-[A-Za-z0-9-]+$" },
+        "eventTemplateId": { "$ref": "#/$defs/nonEmptyString" },
+        "eventNameAr": { "$ref": "#/$defs/nonEmptyString" },
+        "eventNameEn": { "$ref": "#/$defs/nonEmptyString" },
+        "venueId": { "type": "string", "pattern": "^VENUE-[A-Za-z0-9-]+$" },
+        "startAt": { "$ref": "#/$defs/dateTime" },
+        "endAt": { "$ref": "#/$defs/dateTime" },
+        "timeZone": { "$ref": "#/$defs/nonEmptyString" },
+        "stateContext": { "const": "temporary-demo" }
+      }
+    },
+    "spatialConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["siteBoundaryId", "venueIds", "entities", "localCoordinateSystem", "geographicReference", "modelReferences", "entityLabels", "spatialMappingVersion", "projectionProfileVersion", "physicalOutputMappingVersion"],
+      "properties": {
+        "siteBoundaryId": { "type": "string" },
+        "venueIds": { "$ref": "#/$defs/stringArray" },
+        "entities": { "type": "array", "minItems": 1, "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "nameAr", "nameEn", "type", "parentId", "position", "rotation", "scale", "status", "readiness", "riskLevel", "capacity", "responsibleParty", "description", "metadata"],
+          "properties": {
+            "id": { "type": "string" }, "nameAr": { "type": "string" }, "nameEn": { "type": "string" },
+            "type": { "$ref": "#/$defs/entityType" }, "parentId": { "type": ["string", "null"] },
+            "position": { "$ref": "#/$defs/vector3" }, "rotation": { "$ref": "#/$defs/vector3" }, "scale": { "$ref": "#/$defs/vector3" },
+            "status": { "type": "string" }, "readiness": { "type": "number" }, "riskLevel": { "type": "string" },
+            "capacity": { "type": "number" }, "responsibleParty": { "type": "string" }, "description": { "type": "string" },
+            "metadata": { "type": "object" }, "operationalReadiness": { "type": "object" }
+          }
+        } },
+        "localCoordinateSystem": {
+          "type": "object", "additionalProperties": false,
+          "required": ["coordinateSystemId", "unit", "handedness", "upAxis", "runtimeAdapter", "origin"],
+          "properties": {
+            "coordinateSystemId": { "type": "string" }, "unit": { "const": "meter" }, "handedness": { "const": "right-handed" },
+            "upAxis": { "const": "z-up" }, "runtimeAdapter": { "const": "threejs-y-up-v1" }, "origin": { "$ref": "#/$defs/vector3" }
+          }
+        },
+        "geographicReference": { "type": ["object", "null"] },
+        "modelReferences": { "type": "array", "items": { "$ref": "#/$defs/modelReference" } },
+        "entityLabels": { "type": "object", "additionalProperties": { "type": "string" } },
+        "spatialMappingVersion": { "$ref": "#/$defs/nonEmptyString" },
+        "projectionProfileVersion": { "$ref": "#/$defs/nonEmptyString" },
+        "physicalOutputMappingVersion": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "modelReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["modelReferenceId", "format", "uri", "mappingVersion", "entityNodeMap"],
+      "properties": {
+        "modelReferenceId": { "$ref": "#/$defs/nonEmptyString" },
+        "format": { "enum": ["procedural", "glb", "gltf", "openusd", "3d-tiles"] },
+        "uri": { "type": ["string", "null"] },
+        "mappingVersion": { "$ref": "#/$defs/nonEmptyString" },
+        "entityNodeMap": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "operationalRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requirementId", "entityId", "titleAr", "weight", "outcome", "contributingEventIds", "eligibleTrustStates"],
+      "properties": {
+        "requirementId": { "$ref": "#/$defs/nonEmptyString" },
+        "entityId": { "$ref": "#/$defs/nonEmptyString" },
+        "titleAr": { "$ref": "#/$defs/nonEmptyString" },
+        "weight": { "type": "number", "minimum": 0, "maximum": 100 },
+        "outcome": { "enum": ["not-started", "in-progress", "completed-unverified", "verified", "blocked", "rejected", "not-applicable"] },
+        "contributingEventIds": { "$ref": "#/$defs/stringArray" },
+        "eligibleTrustStates": {
+          "type": "array",
+          "items": { "enum": ["reported", "corroborated", "verified", "approved", "rejected", "superseded"] },
+          "uniqueItems": true
+        }
+      }
+    },
+    "routeConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["routes"],
+      "properties": { "routes": { "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "entityId", "nameAr", "nameEn", "type", "descriptionAr", "points", "color", "secondaryColor", "width", "defaultVisible", "relatedEntityIds", "geometrySource", "authority", "approvalStatus", "approvedBy", "approvedAt", "version"],
+        "properties": {
+          "id": { "type": "string" }, "entityId": { "type": "string" }, "nameAr": { "type": "string" }, "nameEn": { "type": "string" },
+          "type": { "enum": ["visitor", "evacuation", "service"] }, "descriptionAr": { "type": "string" },
+          "points": { "type": "array", "items": { "$ref": "#/$defs/vector3" } }, "color": { "type": "string" }, "secondaryColor": { "type": "string" },
+          "width": { "type": "number" }, "defaultVisible": { "type": "boolean" }, "relatedEntityIds": { "$ref": "#/$defs/stringArray" },
+          "geometrySource": { "type": "string" }, "authority": { "type": "string" }, "approvalStatus": { "type": "string" },
+          "approvedBy": { "type": ["string", "null"] }, "approvedAt": { "type": ["string", "null"] }, "version": { "type": "string" }
+        }
+      } } }
+    },
+    "operationalPackConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabledPackIds", "configurationByPackId"],
+      "properties": {
+        "enabledPackIds": { "$ref": "#/$defs/stringArray" },
+        "configurationByPackId": { "type": "object", "additionalProperties": { "$ref": "#/$defs/operationalPackRuntimeConfiguration" } }
+      }
+    },
+    "operationalPackRuntimeConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packVersion", "stateContext"],
+      "properties": {
+        "packVersion": { "$ref": "#/$defs/semver" },
+        "stateContext": { "const": "temporary-demo" },
+        "scenarioPlayer": { "$ref": "#/$defs/scenarioPlayerConfiguration" }
+      }
+    },
+    "scenarioPlayerConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "stateContext", "defaultScenarioId", "scenarios"],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "stateContext": { "const": "temporary-demo" },
+        "defaultScenarioId": { "$ref": "#/$defs/nonEmptyString" },
+        "scenarios": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/scenarioDefinition" } }
+      }
+    },
+    "scenarioDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "nameAr", "nameEn", "descriptionAr", "steps"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "nameAr": { "$ref": "#/$defs/nonEmptyString" },
+        "nameEn": { "$ref": "#/$defs/nonEmptyString" },
+        "descriptionAr": { "$ref": "#/$defs/nonEmptyString" },
+        "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/scenarioStep" } }
+      }
+    },
+    "scenarioStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "titleAr", "messageAr", "durationMs"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "titleAr": { "$ref": "#/$defs/nonEmptyString" },
+        "messageAr": { "$ref": "#/$defs/nonEmptyString" },
+        "durationMs": { "type": "integer", "minimum": 250, "maximum": 600000 },
+        "focusEntityId": { "$ref": "#/$defs/nonEmptyString" },
+        "highlightEntityIds": { "$ref": "#/$defs/stringArray" },
+        "showRoutes": { "$ref": "#/$defs/stringArray" },
+        "hideRoutes": { "$ref": "#/$defs/stringArray" },
+        "changes": { "type": "array", "items": { "$ref": "#/$defs/scenarioEntityChange" } }
+      }
+    },
+    "scenarioEntityChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entityId"],
+      "properties": {
+        "entityId": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "enum": ["ready", "preparing", "needsAttention", "delayed", "highRisk", "closed", "emergency"] },
+        "readiness": { "type": "number", "minimum": 0, "maximum": 100 },
+        "riskLevel": { "enum": ["low", "medium", "high", "critical"] }
+      },
+      "minProperties": 2
+    },
+    "role": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["roleId", "titleAr", "titleEn", "responsibility", "allowedActionTypes", "allowedEntityTypes", "operationalPackIds", "escalationTargets", "separationOfDutyTags"],
+      "properties": {
+        "roleId": { "type": "string" }, "titleAr": { "type": "string" }, "titleEn": { "type": "string" }, "responsibility": { "type": "string" },
+        "allowedActionTypes": { "$ref": "#/$defs/stringArray" }, "allowedEntityTypes": { "type": "array", "items": { "$ref": "#/$defs/entityType" }, "uniqueItems": true },
+        "operationalPackIds": { "$ref": "#/$defs/stringArray" }, "escalationTargets": { "$ref": "#/$defs/stringArray" }, "separationOfDutyTags": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorityId", "titleAr", "titleEn", "decisionCategories", "approvalLevels", "allowedStateContexts", "requiredEvidenceTypes", "requiredRoleIds", "separationOfDutyRules"],
+      "properties": {
+        "authorityId": { "type": "string" }, "titleAr": { "type": "string" }, "titleEn": { "type": "string" },
+        "decisionCategories": { "$ref": "#/$defs/stringArray" }, "approvalLevels": { "$ref": "#/$defs/stringArray" },
+        "allowedStateContexts": { "type": "array", "items": { "$ref": "#/$defs/stateContext" }, "uniqueItems": true },
+        "requiredEvidenceTypes": { "$ref": "#/$defs/stringArray" }, "requiredRoleIds": { "$ref": "#/$defs/stringArray" },
+        "separationOfDutyRules": { "type": "array", "items": {
+          "type": "object", "additionalProperties": false, "required": ["ruleId", "actorRoleId", "prohibitedCounterpartyRoleId", "descriptionAr"],
+          "properties": { "ruleId": { "type": "string" }, "actorRoleId": { "type": "string" }, "prohibitedCounterpartyRoleId": { "type": "string" }, "descriptionAr": { "type": "string" } }
+        } }
+      }
+    },
+    "integrationProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["integrationProfileId", "titleAr", "titleEn", "direction", "adapterType", "adapterId", "adapterVersion", "sourceSystemIds", "requiredSchemaVersions", "requiredEntityTypes", "requiredOperationalPackIds", "offlinePolicy", "conflictPolicy", "evidencePolicy", "provenancePolicy", "outputProfileId", "enabled", "limitations"],
+      "properties": {
+        "integrationProfileId": { "type": "string" }, "titleAr": { "type": "string" }, "titleEn": { "type": "string" },
+        "direction": { "enum": ["input", "output", "bidirectional"] }, "adapterType": { "type": "string" }, "adapterId": { "type": "string" }, "adapterVersion": { "type": "string" },
+        "sourceSystemIds": { "$ref": "#/$defs/stringArray" }, "requiredSchemaVersions": { "$ref": "#/$defs/stringArray" },
+        "requiredEntityTypes": { "type": "array", "items": { "$ref": "#/$defs/entityType" }, "uniqueItems": true }, "requiredOperationalPackIds": { "$ref": "#/$defs/stringArray" },
+        "offlinePolicy": { "enum": ["not-supported", "queue-local-preview", "manual-retry-preview"] }, "conflictPolicy": { "enum": ["reject", "manual-review"] },
+        "evidencePolicy": { "enum": ["optional", "required", "verified-required"] }, "provenancePolicy": { "enum": ["reference-only", "connected-graph-required"] },
+        "outputProfileId": { "type": ["string", "null"] }, "enabled": { "type": "boolean" }, "limitations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "projectionProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["projectionProfileId", "titleAr", "projectionConfigurationVersion", "spatialMappingVersion", "outputProfileId", "labelsVisible", "routesVisible", "statusColorsVisible", "limitations"],
+      "properties": {
+        "projectionProfileId": { "type": "string" }, "titleAr": { "type": "string" }, "projectionConfigurationVersion": { "type": "string" },
+        "spatialMappingVersion": { "type": "string" }, "outputProfileId": { "type": "string" }, "labelsVisible": { "type": "boolean" },
+        "routesVisible": { "type": "boolean" }, "statusColorsVisible": { "type": "boolean" }, "limitations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "physicalOutputProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["physicalOutputProfileId", "titleAr", "coreStandardId", "coreStandardVersion", "approvedEquipmentListVersion", "deploymentProfileId", "modelManifestId", "spatialMappingVersion", "projectionProfileVersion", "physicalOutputMappingVersion", "outputProfileId", "deviceId", "calibrationStatus", "waiverIds", "limitations"],
+      "properties": {
+        "physicalOutputProfileId": { "type": "string" }, "titleAr": { "type": "string" }, "coreStandardId": { "const": "MEIOS-PDT-STD-001" },
+        "coreStandardVersion": { "const": "1.0.0" }, "approvedEquipmentListVersion": { "type": "string" }, "deploymentProfileId": { "type": "string" },
+        "modelManifestId": { "type": ["string", "null"] }, "spatialMappingVersion": { "type": "string" }, "projectionProfileVersion": { "type": "string" },
+        "physicalOutputMappingVersion": { "type": "string" }, "outputProfileId": { "type": "string" }, "deviceId": { "type": "null" },
+        "calibrationStatus": { "const": "not-configured" }, "waiverIds": { "$ref": "#/$defs/stringArray" }, "limitations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "evidenceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "titleAr", "source", "capturedAt", "status"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "type": { "enum": ["checklist", "plan", "field-note", "photo-reference", "exercise"] },
+        "titleAr": { "$ref": "#/$defs/nonEmptyString" },
+        "source": { "$ref": "#/$defs/nonEmptyString" },
+        "capturedAt": { "$ref": "#/$defs/dateTime" },
+        "status": { "enum": ["verified", "pending", "missing"] }
+      }
+    },
+    "impactAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "summaryAr", "dimensions"],
+      "properties": {
+        "level": { "enum": ["none", "low", "medium", "high"] },
+        "summaryAr": { "$ref": "#/$defs/nonEmptyString" },
+        "dimensions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "operational": { "enum": ["none", "low", "medium", "high"] },
+            "safety": { "enum": ["none", "low", "medium", "high"] },
+            "visitor": { "enum": ["none", "low", "medium", "high"] },
+            "schedule": { "enum": ["none", "low", "medium", "high"] },
+            "dependency": { "enum": ["none", "low", "medium", "high"] },
+            "resource": { "enum": ["none", "low", "medium", "high"] }
+          }
+        }
+      }
+    },
+    "readinessRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zoneId", "readiness", "status", "riskLevel", "stateContext", "source", "sourceType", "updatedAt", "updatedBy", "owner", "responsibleParty", "evidence", "confidence", "approvalStatus", "approvedBy", "approvedAt", "revision", "changeReason", "targetReadinessDate", "blockers", "dependencies", "requiredAction", "escalationLevel", "dueAt", "operationalImpact", "relatedRouteIds", "openingImpact"],
+      "properties": {
+        "zoneId": { "type": "string", "pattern": "^ZONE-" },
+        "readiness": { "type": "number", "minimum": 0, "maximum": 100 },
+        "status": { "enum": ["ready", "preparing", "needsAttention", "delayed", "highRisk", "closed", "emergency"] },
+        "riskLevel": { "enum": ["low", "medium", "high", "critical"] },
+        "stateContext": { "const": "temporary-demo" },
+        "source": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceType": { "enum": ["temporary-demo", "manual-update", "approved-plan", "field-check", "exercise"] },
+        "updatedAt": { "$ref": "#/$defs/dateTime" },
+        "updatedBy": { "$ref": "#/$defs/nonEmptyString" },
+        "owner": { "$ref": "#/$defs/nonEmptyString" },
+        "responsibleParty": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidenceReference" } },
+        "confidence": { "enum": ["low", "medium", "high"] },
+        "approvalStatus": { "enum": ["draft", "submitted", "under-review", "approved", "rejected", "expired"] },
+        "approvedBy": { "type": ["string", "null"] },
+        "approvedAt": { "type": ["string", "null"] },
+        "revision": { "type": "integer", "minimum": 1 },
+        "changeReason": { "$ref": "#/$defs/nonEmptyString" },
+        "targetReadinessDate": { "$ref": "#/$defs/dateTime" },
+        "blockers": { "type": "array", "items": { "$ref": "#/$defs/readinessBlocker" } },
+        "dependencies": { "$ref": "#/$defs/stringArray" },
+        "requiredAction": { "$ref": "#/$defs/nonEmptyString" },
+        "escalationLevel": { "enum": ["none", "watch", "elevated", "urgent"] },
+        "dueAt": { "$ref": "#/$defs/dateTime" },
+        "operationalImpact": { "$ref": "#/$defs/operationalImpact" },
+        "relatedRouteIds": { "$ref": "#/$defs/stringArray" },
+        "openingImpact": { "enum": ["none", "low", "medium", "high"] },
+        "expiresAt": { "$ref": "#/$defs/dateTime" }
+      }
+    },
+    "readinessBlocker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "titleAr", "owner", "severity", "status", "dueAt"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "titleAr": { "$ref": "#/$defs/nonEmptyString" },
+        "owner": { "$ref": "#/$defs/nonEmptyString" },
+        "severity": { "enum": ["low", "medium", "high", "critical"] },
+        "status": { "enum": ["open", "resolved"] },
+        "dueAt": { "$ref": "#/$defs/dateTime" }
+      }
+    },
+    "operationalImpact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["opening", "visitorRoutes", "safety", "dependentAreas", "summaryAr"],
+      "properties": {
+        "opening": { "enum": ["none", "low", "medium", "high"] },
+        "visitorRoutes": { "enum": ["none", "low", "medium", "high"] },
+        "safety": { "enum": ["none", "low", "medium", "high"] },
+        "dependentAreas": { "enum": ["none", "low", "medium", "high"] },
+        "summaryAr": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "decisionRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decisionId", "title", "description", "eventId", "venueId", "relationships", "stateContext", "source", "sourceType", "createdAt", "createdBy", "decisionOwner", "responsibleParty", "approvingAuthority", "problemStatement", "decisionType", "urgency", "priority", "confidence", "evidence", "assumptions", "constraints", "availableOptions", "selectedOption", "rejectedOptions", "approvalStatus", "approvedBy", "approvedAt", "approvalComments", "actionRequired", "assignedTo", "dueAt", "escalationLevel", "status", "expectedImpact", "actualImpact", "outcomeStatus", "completionEvidenceIds", "completionNote", "verifiedBy", "verifiedAt", "verificationEvidenceIds", "closedBy", "closedAt", "closureReason", "lessonsLearned", "revision", "changeReason", "changeHistory"],
+      "properties": {
+        "decisionId": { "type": "string", "pattern": "^DECISION-" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "eventId": { "type": "string", "pattern": "^EVENT-" },
+        "venueId": { "type": "string", "pattern": "^VENUE-" },
+        "relationships": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decisionRelationship" } },
+        "stateContext": { "const": "temporary-demo" },
+        "source": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceType": { "enum": ["temporary-demo", "manual-update", "exercise", "approved-plan", "field-check"] },
+        "createdAt": { "$ref": "#/$defs/dateTime" },
+        "createdBy": { "$ref": "#/$defs/nonEmptyString" },
+        "decisionOwner": { "$ref": "#/$defs/nonEmptyString" },
+        "responsibleParty": { "$ref": "#/$defs/nonEmptyString" },
+        "approvingAuthority": { "$ref": "#/$defs/nonEmptyString" },
+        "problemStatement": { "$ref": "#/$defs/nonEmptyString" },
+        "decisionType": { "enum": ["readiness", "safety", "quality", "logistics", "visitor-experience", "security", "technical", "supplier", "schedule", "resource-allocation"] },
+        "urgency": { "enum": ["low", "medium", "high", "critical"] },
+        "priority": { "type": "number" },
+        "confidence": { "enum": ["low", "medium", "high"] },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidenceReference" } },
+        "assumptions": { "$ref": "#/$defs/stringArray" },
+        "constraints": { "$ref": "#/$defs/stringArray" },
+        "availableOptions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decisionOption" } },
+        "selectedOption": { "type": ["string", "null"] },
+        "rejectedOptions": { "$ref": "#/$defs/stringArray" },
+        "approvalStatus": { "enum": ["draft", "under-review", "approved", "rejected"] },
+        "approvedBy": { "type": ["string", "null"] },
+        "approvedAt": { "type": ["string", "null"] },
+        "approvalComments": { "type": "string" },
+        "actionRequired": { "$ref": "#/$defs/nonEmptyString" },
+        "assignedTo": { "type": ["string", "null"] },
+        "dueAt": { "$ref": "#/$defs/dateTime" },
+        "escalationLevel": { "enum": ["none", "watch", "elevated", "urgent"] },
+        "status": { "enum": ["draft", "review", "approved", "assigned", "in-progress", "completed", "verified", "closed"] },
+        "expectedImpact": { "$ref": "#/$defs/impactAssessment" },
+        "actualImpact": { "oneOf": [{ "$ref": "#/$defs/impactAssessment" }, { "type": "null" }] },
+        "outcomeStatus": { "enum": ["not-started", "pending", "positive", "mixed", "negative", "not-measured"] },
+        "completionEvidenceIds": { "$ref": "#/$defs/stringArray" },
+        "completionNote": { "type": "string" },
+        "verifiedBy": { "type": ["string", "null"] },
+        "verifiedAt": { "type": ["string", "null"] },
+        "verificationEvidenceIds": { "$ref": "#/$defs/stringArray" },
+        "closedBy": { "type": ["string", "null"] },
+        "closedAt": { "type": ["string", "null"] },
+        "closureReason": { "type": "string" },
+        "lessonsLearned": { "type": "string" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "changeReason": { "$ref": "#/$defs/nonEmptyString" },
+        "changeHistory": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decisionHistoryEntry" } }
+      }
+    },
+    "decisionRelationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relationId", "decisionId", "entityId", "relationType", "impactLevel", "descriptionAr", "source", "confidence", "stateContext"],
+      "properties": {
+        "relationId": { "$ref": "#/$defs/nonEmptyString" },
+        "decisionId": { "$ref": "#/$defs/nonEmptyString" },
+        "entityId": { "$ref": "#/$defs/nonEmptyString" },
+        "relationType": { "enum": ["execution-target", "affected", "dependency", "evidence-source"] },
+        "impactLevel": { "enum": ["none", "low", "medium", "high"] },
+        "descriptionAr": { "$ref": "#/$defs/nonEmptyString" },
+        "source": { "$ref": "#/$defs/nonEmptyString" },
+        "confidence": { "enum": ["low", "medium", "high"] },
+        "stateContext": { "const": "temporary-demo" }
+      }
+    },
+    "decisionOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["optionId", "titleAr", "descriptionAr", "expectedImpact", "risks"],
+      "properties": {
+        "optionId": { "$ref": "#/$defs/nonEmptyString" },
+        "titleAr": { "$ref": "#/$defs/nonEmptyString" },
+        "descriptionAr": { "$ref": "#/$defs/nonEmptyString" },
+        "expectedImpact": { "$ref": "#/$defs/nonEmptyString" },
+        "risks": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "decisionHistoryEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "status", "changedAt", "changedBy", "changeReason"],
+      "properties": {
+        "revision": { "type": "integer", "minimum": 1 },
+        "status": { "enum": ["draft", "review", "approved", "assigned", "in-progress", "completed", "verified", "closed"] },
+        "changedAt": { "$ref": "#/$defs/dateTime" },
+        "changedBy": { "$ref": "#/$defs/nonEmptyString" },
+        "changeReason": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "readinessSeedRecord": {
+      "allOf": [
+        { "$ref": "#/$defs/seedGovernance" },
+        { "type": "object", "properties": { "record": { "$ref": "#/$defs/readinessRecord" } } }
+      ]
+    },
+    "decisionSeedRecord": {
+      "allOf": [
+        { "$ref": "#/$defs/seedGovernance" },
+        { "type": "object", "properties": { "record": { "$ref": "#/$defs/decisionRecord" } } }
+      ]
+    },
+    "captureSeedRecord": {
+      "allOf": [
+        { "$ref": "#/$defs/seedGovernance" },
+        { "type": "object", "properties": { "record": { "$ref": "https://schemas.mayadeen.local/integration/v1/capture-envelope.schema.json" } } }
+      ]
+    },
+    "seedGovernance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seedId", "stateContext", "source", "createdAt", "createdBy", "approvalStatus", "revision", "dataClassification", "record"],
+      "properties": {
+        "seedId": { "$ref": "#/$defs/nonEmptyString" },
+        "stateContext": { "const": "temporary-demo" },
+        "source": { "$ref": "#/$defs/nonEmptyString" },
+        "createdAt": { "$ref": "#/$defs/dateTime" },
+        "createdBy": { "$ref": "#/$defs/nonEmptyString" },
+        "approvalStatus": { "enum": ["draft", "submitted", "under-review", "approved", "rejected", "expired"] },
+        "revision": { "type": "integer", "minimum": 1 },
+        "dataClassification": { "const": "temporary-demo" },
+        "record": {}
+      }
+    },
+    "temporaryDemoSeedData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["readinessRecords", "decisionRecords", "captureFixtures"],
+      "properties": {
+        "readinessRecords": { "type": "array", "items": { "$ref": "#/$defs/readinessSeedRecord" } },
+        "decisionRecords": { "type": "array", "items": { "$ref": "#/$defs/decisionSeedRecord" } },
+        "captureFixtures": { "type": "array", "items": { "$ref": "#/$defs/captureSeedRecord" } }
+      }
+    },
+    "vector3": { "type": "array", "prefixItems": [{ "type": "number" }, { "type": "number" }, { "type": "number" }], "items": false, "minItems": 3, "maxItems": 3 },
+    "packageDependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packageId", "versionRange"],
+      "properties": {
+        "packageId": { "$ref": "#/$defs/nonEmptyString" },
+        "versionRange": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    }
+  }
+}

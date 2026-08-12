@@ -1,0 +1,93 @@
+.kaga-pf-frame {
+  --kaga-pf-visual-ratio: 58%;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  grid-template-columns: var(--kaga-pf-visual-ratio) minmax(0, 1fr);
+  grid-template-areas: 'visual content';
+  overflow: hidden;
+  direction: ltr;
+  color: var(--kaga-pf-title);
+  background: var(--kaga-pf-page);
+  font-family: var(--kaga-pf-font);
+}
+
+.kaga-pf-frame--hero { --kaga-pf-visual-ratio: 59%; }
+.kaga-pf-frame--chapter { --kaga-pf-visual-ratio: 59%; }
+.kaga-pf-frame--map { --kaga-pf-visual-ratio: 72%; }
+.kaga-pf-frame--cinematic { --kaga-pf-visual-ratio: 68%; }
+
+.kaga-pf-frame__visual {
+  position: relative;
+  z-index: 0;
+  grid-area: visual;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.kaga-pf-frame__content {
+  position: relative;
+  z-index: 3;
+  grid-area: content;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  align-items: center;
+  padding: var(--kaga-pf-page-edge);
+  background: transparent;
+  direction: rtl;
+}
+
+.kaga-pf-curve {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.kaga-pf-curve__ribbon { fill: var(--kaga-pf-green); }
+.kaga-pf-curve__companion { fill: var(--kaga-pf-teal); opacity: .78; }
+.kaga-pf-curve__gold {
+  fill: none;
+  stroke: var(--kaga-pf-gold);
+  stroke-width: 1.15;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: kagaPfGoldTrace 1.5s cubic-bezier(.22, 1, .36, 1) .28s forwards;
+}
+
+.kaga-pf-frame--map .kaga-pf-curve__ribbon { opacity: .72; }
+.kaga-pf-frame--map .kaga-pf-curve__companion { opacity: .48; }
+.kaga-pf-frame--map .kaga-pf-curve__gold { stroke-width: .8; }
+
+@keyframes kagaPfGoldTrace { to { stroke-dashoffset: 0; } }
+
+@media (min-width: 2300px) {
+  .kaga-pf-frame--hero { --kaga-pf-visual-ratio: 61%; }
+  .kaga-pf-frame--chapter { --kaga-pf-visual-ratio: 62%; }
+  .kaga-pf-frame--map { --kaga-pf-visual-ratio: 72%; }
+}
+
+@media (max-width: 1000px) {
+  .kaga-pf-frame {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(26rem, 52vh) auto;
+    grid-template-areas: 'visual' 'content';
+  }
+
+  .kaga-pf-frame__content { padding: clamp(2rem, 8vw, 4rem); }
+  .kaga-pf-curve { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kaga-pf-curve__gold { animation: none; stroke-dashoffset: 0; }
+}

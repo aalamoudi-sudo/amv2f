@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mayadeen.local/integration/v1/evidence-reference.schema.json",
+  "title": "Mayadeen Evidence Reference",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "evidenceId", "stateContext", "evidenceType", "uri", "fileName", "mimeType", "sha256", "capturedAt", "capturedBy", "sourceSystemId", "relatedEntityIds", "relatedEventIds", "relatedRequirementIds", "relatedActionIds", "spatialReference", "instructionId", "instructionVersion", "retentionClass", "sensitivityClass", "verificationStatus", "supersededByEvidenceId", "metadata"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "evidenceId": { "type": "string", "minLength": 1 },
+    "stateContext": { "enum": ["temporary-demo", "baseline", "scenario"] },
+    "evidenceType": { "enum": ["image", "video", "document", "measurement", "sensor-observation", "inspection-result", "signature", "external-record", "spatial-viewpoint"] },
+    "uri": { "type": "string", "minLength": 1 },
+    "fileName": { "type": "string", "minLength": 1 },
+    "mimeType": { "type": "string", "minLength": 1 },
+    "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "capturedAt": { "type": "string", "format": "date-time" },
+    "capturedBy": { "type": "string", "minLength": 1 },
+    "sourceSystemId": { "type": "string", "minLength": 1 },
+    "relatedEntityIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "relatedEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "relatedRequirementIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "relatedActionIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "spatialReference": { "type": ["string", "null"] },
+    "instructionId": { "type": ["string", "null"] },
+    "instructionVersion": { "type": ["string", "null"] },
+    "retentionClass": { "enum": ["temporary-validation", "operational", "regulated"] },
+    "sensitivityClass": { "enum": ["public", "internal", "restricted"] },
+    "verificationStatus": { "enum": ["pending", "verified", "rejected", "expired"] },
+    "supersededByEvidenceId": { "type": ["string", "null"] },
+    "metadata": { "type": "object", "additionalProperties": { "type": ["string", "number", "boolean", "null"] } }
+  }
+}

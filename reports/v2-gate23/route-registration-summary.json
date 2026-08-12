@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "designation": "KAGA-SPATIAL-REGISTERED-V1",
+  "coordinateSpace": "KAGA-SOURCE-2D-V1",
+  "automaticShortestPathUsed": false,
+  "primaryJourneyCount": 6,
+  "optionalBranchesKeptSeparate": ["workers:nature", "media:nature"],
+  "journeys": [
+    { "journeyId": "workers", "titleAr": "رحلة العاملين في الحدائق", "eventSourcePages": [7], "stopCount": 16, "segmentCount": 15, "registrationStatus": "pathway-registered", "confidence": "high" },
+    { "journeyId": "mayor", "titleAr": "رحلة سمو الأمين", "eventSourcePages": [8], "stopCount": 12, "segmentCount": 11, "registrationStatus": "physically-anchored", "confidence": "approximate" },
+    { "journeyId": "prince", "titleAr": "رحلة سمو أمير المنطقة وسمو نائبه وسمو الأمين", "eventSourcePages": [25], "stopCount": 8, "segmentCount": 7, "registrationStatus": "physically-anchored", "confidence": "approximate" },
+    { "journeyId": "guests", "titleAr": "رحلة الضيوف", "eventSourcePages": [26], "stopCount": 12, "segmentCount": 11, "registrationStatus": "physically-anchored", "confidence": "approximate" },
+    { "journeyId": "mayorMedia", "titleAr": "رحلة سمو الأمين ومعالي وزير الإعلام", "eventSourcePages": [34], "stopCount": 14, "segmentCount": 13, "registrationStatus": "physically-anchored", "confidence": "approximate" },
+    { "journeyId": "media", "titleAr": "مسار الإعلاميين", "eventSourcePages": [35], "stopCount": 17, "segmentCount": 16, "registrationStatus": "physically-anchored", "confidence": "approximate" }
+  ],
+  "timelineContract": {
+    "marker": "pathProgress",
+    "activeStop": "pathProgress",
+    "selectedStop": "pathProgress",
+    "nextPrevious": "pathProgress",
+    "slider": "pathProgress"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectionVersion": "PROJECTION-v1-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "projectionContentHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "projectionConfigurationVersion": "projection-config-1.0.0",
+  "spatialMappingVersion": "spatial-mapping-1.0.0",
+  "stateContext": "temporary-demo",
+  "generatedAt": "2026-07-11T12:12:00.000Z",
+  "lastEventRevision": 1,
+  "entityStates": [{ "entityId": "ZONE-005", "disposition": "verified", "assertionState": "verified", "sourceEventIds": ["EVENT-SCHEMA-001"], "lastEventTime": "2026-07-11T12:00:00.000Z", "labelAr": "ممر الخدمات", "colorToken": "verified", "readiness": null }],
+  "sourceEventIds": ["EVENT-SCHEMA-001"],
+  "sourceEventLineage": [{ "eventId": "EVENT-SCHEMA-001", "revision": 1, "payloadHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "eventContentHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" }],
+  "rejectedEventIds": [],
+  "supersededEventIds": [],
+  "requirementStates": [],
+  "explanationAr": ["إسقاط محلي تجريبي مشتق من حدث متحقق."]
+}

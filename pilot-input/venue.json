@@ -1,0 +1,16 @@
+{
+  "exampleOnly": true,
+  "noticeAr": "الهندسة خيالية وغير معتمدة",
+  "venueId": "VENUE-EXAMPLE-ONLY-001",
+  "siteBoundaryId": "SITE-EXAMPLE-ONLY-001",
+  "coordinateSystemId": "LOCAL-EXAMPLE-RH-ZUP-M",
+  "unit": "meter",
+  "handedness": "right-handed",
+  "upAxis": "z-up",
+  "runtimeAdapter": "threejs-y-up-v1",
+  "origin": [0, 0, 0],
+  "geographicReference": null,
+  "spatialMappingVersion": "spatial-example-1.0.0",
+  "projectionProfileVersion": "projection-example-1.0.0",
+  "physicalOutputMappingVersion": "physical-example-1.0.0"
+}

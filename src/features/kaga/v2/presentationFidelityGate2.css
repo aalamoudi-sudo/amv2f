@@ -1,0 +1,120 @@
+/* PF-2 propagation. PF-1.1 Intro, Four Days and Masterplan remain untouched. */
+
+.kaga-v2-executive:not([data-fidelity-surface='days']):not([data-fidelity-surface='map']) .kaga-v2-executive-header {
+  min-height: 3.65rem;
+  grid-template-columns: minmax(10rem, 1fr) auto minmax(10rem, 1fr);
+  border-block-end: 1px solid color-mix(in srgb, var(--kaga-pf-green) 12%, transparent);
+  padding: .55rem var(--kaga-pf-page-edge);
+  background: color-mix(in srgb, var(--kaga-pf-page) 96%, transparent);
+  backdrop-filter: blur(.7rem);
+}
+
+.kaga-v2-executive:not([data-fidelity-surface='days']):not([data-fidelity-surface='map']) .kaga-v2-brand {
+  color: var(--kaga-pf-green);
+  font: var(--kaga-pf-micro-nav);
+  letter-spacing: .01em;
+}
+
+.kaga-v2-executive:not([data-fidelity-surface='days']):not([data-fidelity-surface='map']) .kaga-v2-executive-header > nav {
+  gap: clamp(.65rem, 1.4vw, 1.65rem);
+}
+
+.kaga-v2-executive:not([data-fidelity-surface='days']):not([data-fidelity-surface='map']) .kaga-v2-executive-header > nav :is(button, a) {
+  position: relative;
+  border: 0;
+  border-radius: 0;
+  padding: .28rem 0;
+  color: color-mix(in srgb, var(--kaga-pf-green) 76%, var(--kaga-pf-body));
+  background: transparent;
+  font: var(--kaga-pf-micro-nav);
+}
+
+.kaga-v2-executive:not([data-fidelity-surface='days']):not([data-fidelity-surface='map']) .kaga-v2-executive-header > nav :is(button[aria-current='page'], a:hover) {
+  color: var(--kaga-pf-orange);
+}
+
+.kaga-v2-executive:not([data-fidelity-surface='days']):not([data-fidelity-surface='map']) .kaga-v2-executive-header > nav button[aria-current='page']::after {
+  position: absolute;
+  inset: auto 0 -.58rem;
+  height: 2px;
+  background: var(--kaga-pf-orange);
+  content: '';
+}
+
+.kaga-v2-experience-family { min-height: 100%; padding: clamp(.8rem, 1.5vw, 1.5rem) clamp(1.2rem, 4vw, 5rem); background: var(--kaga-pf-page); }
+.kaga-v2-experience-family > nav {
+  position: relative;
+  z-index: 20;
+  top: auto;
+  display: flex;
+  width: min(100%, 1160px);
+  margin: 0 auto clamp(.8rem, 1.6vh, 1.4rem);
+  justify-content: center;
+  gap: 0;
+  border: 0;
+  border-block-end: 1px solid color-mix(in srgb, var(--kaga-pf-green) 14%, transparent);
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.kaga-v2-experience-family > nav button {
+  position: relative;
+  border: 0;
+  border-radius: 0;
+  padding: .65rem clamp(.8rem, 1.6vw, 1.6rem);
+  color: var(--kaga-pf-body);
+  background: transparent;
+  font: var(--kaga-pf-micro-nav);
+}
+
+.kaga-v2-experience-family > nav button[aria-pressed='true'] { color: var(--kaga-pf-green); background: transparent; }
+.kaga-v2-experience-family > nav button[aria-pressed='true']::after { position: absolute; inset: auto 0 -1px; height: 2px; background: var(--kaga-pf-orange); content: ''; }
+
+.kaga-v2-contextual-knowledge {
+  border: 0;
+  border-inline-start: 1px solid var(--kaga-pf-gold);
+  border-radius: 0;
+  padding: 1.5rem 2rem;
+  color: var(--kaga-pf-title);
+  background: color-mix(in srgb, var(--kaga-pf-surface) 98%, transparent);
+  box-shadow: 0 1.5rem 4rem rgba(7, 50, 43, .14);
+}
+
+.kaga-v2-contextual-knowledge h2 { color: var(--kaga-pf-green); font: var(--kaga-pf-editorial-title); }
+
+.kaga-v2-crescent-world[data-presentation-archetype='editorial-render'] { background: var(--kaga-pf-page); }
+.kaga-v2-crescent-world[data-presentation-archetype='editorial-render'] > .kaga-organic-frame {
+  border: 0;
+  border-radius: 0 0 0 15% / 0 0 0 12%;
+  background: var(--kaga-pf-green);
+  box-shadow: none;
+}
+.kaga-v2-crescent-world[data-presentation-archetype='editorial-render'] .kaga-organic-frame__gold-edge { opacity: .55; }
+.kaga-v2-crescent-world[data-presentation-archetype='editorial-render'] .kaga-v2-crescent-editorial h1 { font: var(--kaga-pf-editorial-title); }
+.kaga-v2-crescent-world[data-presentation-archetype='editorial-render'] .kaga-v2-crescent-editorial li { border-color: rgba(198, 162, 93, .3); }
+
+.kaga-v2-knowledge-detail[data-presentation-archetype='quiet-identity'] { position: relative; padding-block: clamp(.5rem, 1.5vh, 1.25rem); }
+.kaga-v2-knowledge-detail[data-presentation-archetype='quiet-identity']::before { display: block; width: clamp(3rem, 28%, 7rem); height: 1px; margin-block-end: clamp(1.1rem, 2vh, 1.8rem); background: var(--kaga-pf-gold); content: ''; }
+.kaga-v2-knowledge-detail[data-presentation-archetype='quiet-identity'] h2 { color: var(--kaga-pf-green); font: var(--kaga-pf-map-title); }
+.kaga-v2-knowledge-detail[data-presentation-archetype='quiet-identity'] .kaga-v2-knowledge-detail__area { color: var(--kaga-pf-orange); }
+.kaga-v2-knowledge-detail[data-presentation-archetype='quiet-identity'] :is(.kaga-v2-knowledge-detail__location, .kaga-v2-knowledge-detail__relations) { border: 0; border-block-start: 1px solid color-mix(in srgb, var(--kaga-pf-green) 12%, transparent); border-radius: 0; background: transparent; }
+
+.kaga-v2-app[data-presenter='true'] .kaga-v2-executive-header {
+  min-height: 3.1rem;
+  border-color: color-mix(in srgb, var(--kaga-pf-green) 10%, transparent);
+  padding-block: .3rem;
+  background: var(--kaga-pf-page);
+  backdrop-filter: none;
+}
+.kaga-v2-app[data-presenter='true'] .kaga-v2-world { height: calc(100vh - 3.1rem); }
+.kaga-v2-app[data-presenter='true'] .kaga-v2-brand { opacity: .66; font: var(--kaga-pf-micro-nav); }
+.kaga-v2-app[data-presenter='true'] .kaga-v2-header-actions button { border: 0; background: transparent; box-shadow: none; }
+.kaga-v2-app[data-presenter='true'] .kaga-v2-presenter-controls button { border: 0; color: var(--kaga-pf-green); background: transparent; }
+.kaga-v2-app[data-presenter='true'] .kaga-v2-presenter-controls span { color: var(--kaga-pf-green); font: var(--kaga-pf-metadata); }
+
+@media (min-width: 2300px) {
+  .kaga-v2-experience-family { padding-inline: clamp(5rem, 6.8vw, 10rem); }
+  .kaga-v2-crescent-world[data-presentation-archetype='editorial-render'] { padding-inline: clamp(5rem, 6.8vw, 10rem); }
+}

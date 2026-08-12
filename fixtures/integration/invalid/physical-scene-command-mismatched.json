@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "9.0.0",
+  "commandId": "",
+  "projectionVersion": "",
+  "targetDeviceId": "",
+  "sceneId": "",
+  "entityVisualStates": null,
+  "routeVisualStates": null,
+  "issuedAt": "invalid",
+  "expiresAt": "invalid",
+  "sequence": 0,
+  "acknowledgementRequired": true,
+  "sourceEventIds": null
+}

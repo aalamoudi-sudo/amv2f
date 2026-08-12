@@ -1,0 +1,331 @@
+openapi: 3.1.0
+info:
+  title: Mayadeen Local IoT Gateway API
+  version: 1.0.0-local
+  description: |
+    Local laboratory gateway only. It accepts source captures, not client-asserted
+    canonical observations. No endpoint represents a connected device, broker,
+    cloud service, production identity, or authoritative time.
+servers:
+  - url: http://127.0.0.1:8787
+    description: Loopback local gateway
+paths:
+  /health/live:
+    get:
+      summary: Gateway process liveness
+      responses:
+        '200':
+          description: Process is running locally.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Liveness'
+  /health/ready:
+    get:
+      summary: Gateway readiness by local dependency
+      responses:
+        '200':
+          description: Readiness separately reports process, durable store, registry, outbox, and absent external device connection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Readiness'
+  /api/iot/v1/devices:
+    get:
+      summary: Active durable device registry revisions
+      responses:
+        '200':
+          description: Device registry records.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeviceRegistryRecord'
+        '503':
+          $ref: '#/components/responses/GatewayUnavailable'
+  /api/iot/v1/devices/{deviceId}:
+    get:
+      summary: Resolve one device registry record
+      parameters:
+        - $ref: '#/components/parameters/DeviceId'
+      responses:
+        '200':
+          description: Device registry record.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [item]
+                properties:
+                  item:
+                    $ref: '#/components/schemas/DeviceRegistryRecord'
+        '404':
+          description: Device is not registered.
+        '503':
+          $ref: '#/components/responses/GatewayUnavailable'
+  /api/iot/v1/observations:
+    get:
+      summary: List accepted append-only reported observations
+      responses:
+        '200':
+          description: Accepted observations only.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/IoTObservation'
+        '503':
+          $ref: '#/components/responses/GatewayUnavailable'
+    post:
+      summary: Ingest one authenticated source capture
+      description: |
+        The source MUST NOT send observationId, platformReceivedAt, payloadHash,
+        eventId, trust, provenance, or outbox identity. The gateway owns those values.
+      security:
+        - localSourceBearer: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourceCapture'
+      responses:
+        '201':
+          $ref: '#/components/responses/IngestionResult'
+        '200':
+          $ref: '#/components/responses/IngestionResult'
+        '400':
+          description: Malformed JSON or a source capture rejected by schema validation.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/IngestionResult'
+                  - $ref: '#/components/schemas/SafeGatewayError'
+        '401':
+          $ref: '#/components/responses/IngestionResult'
+        '409':
+          $ref: '#/components/responses/IngestionResult'
+        '413':
+          $ref: '#/components/responses/SafeGatewayError'
+        '415':
+          $ref: '#/components/responses/SafeGatewayError'
+        '422':
+          $ref: '#/components/responses/IngestionResult'
+        '429':
+          $ref: '#/components/responses/SafeGatewayError'
+        '503':
+          $ref: '#/components/responses/IngestionResult'
+  /api/iot/v1/observations:batch:
+    post:
+      summary: Ingest independent source captures
+      description: Each item is an independent SQLite transaction. An invalid item never silently changes another item's outcome. A well-formed batch always returns 207, including per-item authentication failures.
+      security:
+        - localSourceBearer: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [items]
+              properties:
+                items:
+                  type: array
+                  minItems: 1
+                  items:
+                    $ref: '#/components/schemas/SourceCapture'
+      responses:
+        '207':
+          description: Per-item independent results.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, semantics]
+                properties:
+                  semantics:
+                    const: independent-item-transactions
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/IngestionResult'
+        '400':
+          $ref: '#/components/responses/SafeGatewayError'
+        '413':
+          $ref: '#/components/responses/SafeGatewayError'
+        '415':
+          $ref: '#/components/responses/SafeGatewayError'
+        '429':
+          $ref: '#/components/responses/SafeGatewayError'
+  /api/iot/v1/quarantine:
+    get:
+      summary: List stale and conflicting readings held for local review
+      responses:
+        '200':
+          description: Quarantined records create no accepted operational event.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/QuarantineRecord'
+        '503':
+          $ref: '#/components/responses/GatewayUnavailable'
+  /api/iot/v1/events/stream:
+    get:
+      summary: Sanitized local SSE stream
+      description: |
+        At-least-once stream only. EventSource reconnect may send Last-Event-ID;
+        clients must deduplicate notificationId and must not claim exactly-once delivery.
+      parameters:
+        - in: header
+          name: Last-Event-ID
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+      responses:
+        '200':
+          description: text/event-stream with gateway-ready, gateway-event, and gateway-outcome frames.
+          content:
+            text/event-stream:
+              schema:
+                type: string
+        '503':
+          $ref: '#/components/responses/GatewayUnavailable'
+        '403':
+          description: Browser origin is not in the local CORS allowlist.
+components:
+  securitySchemes:
+    localSourceBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: local-laboratory
+      description: Environment-provided temporary local secret. Not production identity.
+  parameters:
+    DeviceId:
+      in: path
+      name: deviceId
+      required: true
+      schema:
+        type: string
+  responses:
+    IngestionResult:
+      description: Arabic-safe ingestion outcome without stack trace or credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/IngestionResult'
+    GatewayUnavailable:
+      description: Durable gateway unavailable; no fallback to simulator is implied.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SafeGatewayError'
+    SafeGatewayError:
+      description: Arabic-safe transport or envelope error without stack trace, credentials, or private configuration.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SafeGatewayError'
+  schemas:
+    SourceCapture:
+      type: object
+      additionalProperties: false
+      required: [deviceId, streamId, sourceRecordId, idempotencyKey, eventRef, venueId, value, valueType, unit, sourceTimestamp, sequence, stateContext]
+      properties:
+        deviceId: { type: string }
+        streamId: { type: string }
+        sourceRecordId: { type: string }
+        idempotencyKey: { type: string }
+        eventRef: { type: [string, 'null'] }
+        venueId: { type: string }
+        value: { type: [number, string, boolean] }
+        valueType: { enum: [number, string, boolean] }
+        unit: { type: [string, 'null'] }
+        sourceTimestamp: { type: string, format: date-time }
+        sequence: { type: integer, minimum: 0 }
+        offlineSequence: { type: [integer, 'null'], minimum: 1 }
+        stateContext: { const: temporary-demo }
+    IngestionResult:
+      type: object
+      required: [outcome, messageAr, attemptId, observationId, operationalEventId, issues, appliedToVerifiedProjection]
+      properties:
+        outcome:
+          enum: [accepted-reported, duplicate-ignored, conflict-quarantined, stale-quarantined, rejected-unknown-device, rejected-disabled-device, rejected-stream-contract, rejected-context, rejected-authentication, rejected-schema, gateway-unavailable]
+        messageAr: { type: string }
+        attemptId: { type: string }
+        observationId: { type: [string, 'null'] }
+        operationalEventId: { type: [string, 'null'] }
+        issues:
+          type: array
+          items:
+            type: object
+        appliedToVerifiedProjection: { const: false }
+    SafeGatewayError:
+      type: object
+      required: [outcome, messageAr, appliedToVerifiedProjection]
+      properties:
+        outcome: { enum: [rejected-schema, gateway-unavailable] }
+        messageAr: { type: string }
+        appliedToVerifiedProjection: { const: false }
+    Liveness:
+      type: object
+      required: [ok, gateway, externalDeviceConnection]
+      properties:
+        ok: { const: true }
+        gateway:
+          type: object
+          properties:
+            status: { const: running }
+            startedAt: { type: string, format: date-time }
+        externalDeviceConnection:
+          type: object
+          properties:
+            status: { const: absent }
+            messageAr: { type: string }
+    Readiness:
+      type: object
+      required: [ready, gateway, durableStore, deviceRegistry, transactionalOutbox, sourceAuthentication, externalDeviceConnection, restartRecovered, messageAr]
+      properties:
+        ready: { type: boolean }
+        gateway: { type: object }
+        durableStore: { type: object }
+        deviceRegistry: { type: object }
+        transactionalOutbox: { type: object }
+        sourceAuthentication: { type: object }
+        externalDeviceConnection: { type: object }
+        restartRecovered: { type: boolean }
+        messageAr: { type: string }
+    DeviceRegistryRecord:
+      type: object
+      description: Same vendor-neutral Stage 3F.0 contract; no secret fields.
+    IoTObservation:
+      type: object
+      description: Canonical Stage 3F.0 observation rebuilt by the gateway.
+    QuarantineRecord:
+      type: object
+      required: [quarantineId, attemptId, reason, createdAt, observation]
+      properties:
+        quarantineId: { type: string }
+        attemptId: { type: string }
+        reason: { enum: [conflict-quarantined, stale-quarantined] }
+        createdAt: { type: string, format: date-time }
+        observation:
+          $ref: '#/components/schemas/IoTObservation'

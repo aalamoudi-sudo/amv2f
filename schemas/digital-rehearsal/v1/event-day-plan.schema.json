@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/digital-rehearsal/v1/event-day-plan.schema.json",
+  "title": "Rehearsal Event Day Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["eventDayId", "date", "labelAr", "labelEn", "themeAr", "order", "primaryPersonaId", "personaVariantIds", "attendance", "timeWindow", "siteCandidateIds", "momentIds", "sourceTraceIds", "operationalJourneyStatus", "visitorJourneyStatus", "spatialRouteRequired", "sharedVisitorTransitionRequired", "contextRelationship", "truthStatus", "operationalApproval"],
+  "properties": {
+    "eventDayId": { "type": "string", "minLength": 1 },
+    "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "labelAr": { "type": "string", "minLength": 1 },
+    "labelEn": { "type": "string", "minLength": 1 },
+    "themeAr": { "type": "string", "minLength": 1 },
+    "order": { "type": "integer", "minimum": 1 },
+    "primaryPersonaId": { "type": "string", "minLength": 1 },
+    "personaVariantIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "attendance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "qualifier", "classification"],
+      "properties": {
+        "value": { "type": ["integer", "null"], "minimum": 0 },
+        "qualifier": { "enum": ["exact", "approximately", "more-than", "unknown"] },
+        "classification": { "const": "source-declared-not-capacity" }
+      }
+    },
+    "timeWindow": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["start", "end", "timeZone", "classification"],
+          "properties": {
+            "start": { "type": "string", "pattern": "^[0-2][0-9]:[0-5][0-9]$" },
+            "end": { "type": "string", "pattern": "^[0-2][0-9]:[0-5][0-9]$" },
+            "timeZone": { "type": "string", "minLength": 1 },
+            "classification": { "const": "source-reported-window" }
+          }
+        }
+      ]
+    },
+    "siteCandidateIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "momentIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "sourceTraceIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "operationalJourneyStatus": { "enum": ["candidate", "not-applicable"] },
+    "visitorJourneyStatus": { "enum": ["candidate", "not-applicable"] },
+    "spatialRouteRequired": { "type": "boolean" },
+    "sharedVisitorTransitionRequired": { "type": "boolean" },
+    "contextRelationship": { "enum": ["single-event-context", "separate-ceremony-activation-contexts-no-shared-transition"] },
+    "truthStatus": { "enum": ["founder-working-candidate", "fictional-test-reference"] },
+    "operationalApproval": { "const": "none" }
+  }
+}

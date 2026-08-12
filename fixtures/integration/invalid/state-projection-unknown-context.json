@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "9.0.0",
+  "projectionVersion": "",
+  "stateContext": "mixed",
+  "generatedAt": "invalid",
+  "lastEventRevision": -1,
+  "entityStates": [{ "entityId": "ZONE-UNKNOWN" }],
+  "sourceEventIds": [],
+  "rejectedEventIds": [],
+  "explanationAr": []
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mayadeen.local/integration/v1/capture-envelope.schema.json",
+  "title": "Mayadeen Capture Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["envelopeId", "adapterId", "adapterType", "adapterVersion", "sourceRecordId", "sourceSystemId", "receivedAt", "schemaVersion", "payload", "payloadHash", "stateContext", "deviceId", "offlineSequence", "correlationId", "causationId", "idempotencyKey", "transportMetadata"],
+  "properties": {
+    "envelopeId": { "type": "string", "minLength": 1 },
+    "adapterId": { "type": "string", "minLength": 1 },
+    "adapterType": { "enum": ["system", "sensor", "reality-capture", "human-action", "workflow", "asset-management"] },
+    "adapterVersion": { "type": "string", "minLength": 1 },
+    "sourceRecordId": { "type": "string", "minLength": 1 },
+    "sourceSystemId": { "type": "string", "minLength": 1 },
+    "receivedAt": { "type": "string", "format": "date-time" },
+    "schemaVersion": { "const": "1.0.0" },
+    "payload": { "type": "object" },
+    "payloadHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "stateContext": { "enum": ["temporary-demo", "baseline", "scenario"] },
+    "deviceId": { "type": ["string", "null"] },
+    "offlineSequence": { "type": ["integer", "null"], "minimum": 1 },
+    "correlationId": { "type": "string", "minLength": 1 },
+    "causationId": { "type": ["string", "null"] },
+    "idempotencyKey": { "type": "string", "minLength": 1 },
+    "transportMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transport", "batchId", "retryCount", "sourceClock", "platformClock", "contentType"],
+      "properties": {
+        "transport": { "enum": ["local-simulator", "batch", "offline-queue", "stream-simulator"] },
+        "batchId": { "type": ["string", "null"] },
+        "retryCount": { "type": "integer", "minimum": 0 },
+        "sourceClock": { "type": "string", "format": "date-time" },
+        "platformClock": { "type": "string", "format": "date-time" },
+        "contentType": { "const": "application/json" }
+      }
+    }
+  }
+}

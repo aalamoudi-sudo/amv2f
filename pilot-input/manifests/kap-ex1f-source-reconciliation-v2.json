@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R2",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "revision": 2,
+  "contentHash": "1cc36cab8a641cdad213178a3f7352df2112e54e415ab38ef625f93ea715febf",
+  "state": "candidate-review",
+  "operationalReadiness": "cannot-determine",
+  "supersedesProjectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R1",
+  "previousContentHash": "a33b67282ea79a03f203276a8d2ea0535a4af4c00bcae0894e2532abad244fc2",
+  "changeReasonAr": "إضافة حزمة V.11 التشغيلية المتحققة البصمة كمرشح مراجعة دون استبدال V.02 أو تعديل البروفة المجمدة.",
+  "sourceIds": [
+    "SOURCE-KAP-PRESENTATION-V16-20260712",
+    "SOURCE-KAP-ENTRY-PROPOSALS-V02",
+    "SOURCE-KAP-LAUNCH-GENERAL-BOOK",
+    "SOURCE-LOCAL-a5befcff7e2bb8b4"
+  ],
+  "v11Source": {
+    "safeFilename": "اقتراحات الدخول V.11.pdf",
+    "byteSize": 3201469,
+    "sha256": "a5befcff7e2bb8b44c09123fe7fb730eec79bd57bd37398fa9a09753e55b5377",
+    "pageCount": 7,
+    "authority": "operational-team-supplied-working-candidate",
+    "packageStatus": "received-validated-candidate",
+    "founderReview": "pending",
+    "operationalApproval": "not-established",
+    "routeApproval": "not-established",
+    "packageContentHash": "9994824fcfd912f948e5098b8b17b4a5857a9b4b8febd59628c16831644c8fe5"
+  },
+  "preservedCounts": {
+    "programMoments": 45,
+    "personaVariants": 44,
+    "executionSteps": 495,
+    "candidateDestinations": 11
+  },
+  "sourceFactCount": 35,
+  "openOrRestrictedConflictCount": 15,
+  "routeProposalCount": 3,
+  "operationalJourneyCandidateCount": 6,
+  "candidateTouchpointCount": 6,
+  "canonicalSpatialRouteCount": 0,
+  "clientPresentationStepCount": 14,
+  "rawSourcesIncluded": false,
+  "restrictedRouteDetailsInClientPresentation": false,
+  "restrictedHseDetailsIncluded": false,
+  "kapPanoramaAvailable": false,
+  "kapProductionGlbAvailable": false,
+  "limitationsAr": [
+    "هذه مصالحة مصدرية مرشحة وليست اعتمادًا تشغيليًا أو هندسيًا أو HSE.",
+    "V.11 لا يستبدل V.02 تلقائيًا؛ علاقة الاستبدال المقترحة تنتظر قرار أحمد.",
+    "ملفات PDF الخام خارج Git والمتصفح وحزمة المراجعة.",
+    "لا توجد مسارات أو جاهزية أو قرار افتتاح معتمد."
+  ]
+}

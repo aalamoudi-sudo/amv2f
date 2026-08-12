@@ -1,0 +1,66 @@
+node_modules/
+dist/
+build/
+coverage/
+
+.env
+.env.*
+!.env.example
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.DS_Store
+.vite/
+*.tsbuildinfo
+
+playwright-report/
+test-results/
+review-screenshots/
+/dist-kaga-final/
+/tmp/kaga-final-video/
+/deliverables/kaga-final-release/
+
+# Stage 3F.1 local SQLite laboratory state. Never commit observations or WAL files.
+var/
+
+# Stage 3E.2 pilot authoring: commit templates only, never private pilot material.
+pilot-input/private/
+pilot-input/raw/
+pilot-output/private/
+pilot-input/evidence/
+pilot-output/evidence/
+pilot-output/
+pilot-input/**/*.pem
+pilot-input/**/*.key
+pilot-input/**/*credential*
+pilot-input/**/*secret*
+pilot-input/**/*token*
+pilot-input/**/*personal-data*
+pilot-input/**/*security-geometry*
+pilot-input/**/*.{dwg,dxf,skp,max,tm,fbx,glb,gltf}
+pilot-input/**/*.{jpg,jpeg,png,tif,tiff,heic,mp4,mov,avi,mkv}
+
+# Stage 3E.3 local provisional preview. The restricted source image is never committed.
+/src/local-pilot-assets/kap/provisional-site-plan.png
+
+# Stage 3E.4A reviewed KAP source snapshots and optional founder-review previews.
+/tmp/kap-source-intake/
+/public/local-assets/kap/
+
+# Stage EX.1A local source custody and optional design-reference previews.
+/tmp/experience-source-intake/
+/public/local-assets/experience/
+/tmp/ex1b-internal-qa/
+/tmp/ex1c-internal-qa/
+/tmp/ex1d-internal-qa/
+/local-assets/experience-scenes/
+/public/local-assets/experience-scenes/
+
+# EX.1F delivery accelerator: private vendor inputs and generated custody reports.
+# Raw operational/studio files and local reports never enter Git or browser assets.
+/private-input/
+/private-output/

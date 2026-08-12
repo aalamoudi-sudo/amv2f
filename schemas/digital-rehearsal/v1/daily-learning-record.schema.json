@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/digital-rehearsal/v1/daily-learning-record.schema.json",
+  "title": "Daily Learning Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "learningRecordId", "projectId", "eventId", "venueId", "sourceRunId", "eventDayId", "state", "issueIds", "observationIds", "learningItemsAr", "sourceLimitationsAr", "createdAt", "timeTrust", "revision", "previousRecordHash", "contentHash", "nextDayMutationAllowed", "baselineMutationAllowed"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "learningRecordId": { "type": "string", "minLength": 1 },
+    "projectId": { "type": "string", "minLength": 1 },
+    "eventId": { "type": "string", "minLength": 1 },
+    "venueId": { "type": "string", "minLength": 1 },
+    "sourceRunId": { "type": "string", "minLength": 1 },
+    "eventDayId": { "type": "string", "minLength": 1 },
+    "state": { "enum": ["observed", "proposed", "accepted-for-next-rehearsal", "rejected", "superseded"] },
+    "issueIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "observationIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "learningItemsAr": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "sourceLimitationsAr": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "createdAt": { "type": "string", "minLength": 1 },
+    "timeTrust": { "enum": ["source-reported", "rehearsal-elapsed", "local-device-time-untrusted", "not-recorded"] },
+    "revision": { "type": "integer", "minimum": 1 },
+    "previousRecordHash": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+    "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "nextDayMutationAllowed": { "const": false },
+    "baselineMutationAllowed": { "const": false }
+  }
+}

@@ -1,0 +1,2 @@
+resultId,participantId,decisionCaseId,interfaceMode,startedAt,stoppedAt,durationSeconds,selectedDecisionId,identifiedOwner,identifiedAction,evidenceGapDetected,authorityGapDetected,confidence,criticalErrors,facilitatorScore,notes
+VALIDATION-DEMO-001,ANON-01,DECISION-001,list,2026-07-11T10:00:00Z,2026-07-11T10:02:00Z,120,DECISION-001,مالك تجريبي,إجراء تجريبي,true,true,3,0,4,مثال خيالي لا يمثل نتيجة تشغيلية

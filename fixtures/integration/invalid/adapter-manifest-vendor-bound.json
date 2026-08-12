@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapterId": "",
+  "adapterType": "vendor-specific",
+  "version": "",
+  "supportedSchemaVersions": [],
+  "capabilities": null,
+  "inputOrOutput": "both",
+  "onlineSupport": true,
+  "offlineSupport": false,
+  "batchSupport": false,
+  "streamingSupport": false,
+  "evidenceSupport": false,
+  "spatialSupport": false,
+  "taskingSupport": false,
+  "healthStatus": "unknown",
+  "configurationSchema": null,
+  "vendorMetadata": { "vendorNeutral": false, "implementation": "proprietary", "productName": "Example" }
+}

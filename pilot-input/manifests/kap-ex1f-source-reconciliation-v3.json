@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R3",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "eventId": "EVENT-KAP-OPENING-2026",
+  "venueId": "VENUE-KAP-001",
+  "revision": 3,
+  "contentHash": "bf72dbd16aee51e827633ba631db81f4c796b833022ff1d8f8dbe2b8e0577c08",
+  "state": "candidate-review",
+  "operationalReadiness": "cannot-determine",
+  "supersedesProjectionId": "EXPERIENCE-TRUTH-KAP-FOUR-DAY-R2",
+  "previousContentHash": "1cc36cab8a641cdad213178a3f7352df2112e54e415ab38ef625f93ea715febf",
+  "changeReasonAr": "تصحيح المؤسس: لا تنطبق رحلة تشغيلية أو رحلة زائر أو انتقال جمهور مشترك على 1 نوفمبر 2026.",
+  "truthCorrection": {
+    "correctionId": "TRUTH-CORRECTION-KAP-20261101-R1",
+    "authorityReferenceId": "FOUNDER-DIRECTIVE-KAP-20261101-NO-OPERATIONS",
+    "approvedBy": "Ahmed",
+    "authorityType": "founder-product-authority",
+    "effectiveDate": "2026-08-02",
+    "contentHash": "4403dc9a4776f7bbfabb81de0c06030d8b91d8b4919f921e8ff3f2b1e3601324",
+    "previousInterpretationAr": "وجود سياقين في 1 نوفمبر قد يتطلب انتقالًا تشغيليًا.",
+    "legalProjectionAr": "لا رحلة تشغيلية أو رحلة زائر أو مسار أو انتقال جمهور مشترك في 1 نوفمبر."
+  },
+  "november1JourneyApplicability": {
+    "operationalJourneyStatus": "not-applicable",
+    "visitorJourneyStatus": "not-applicable",
+    "spatialRouteRequired": false,
+    "sharedVisitorTransitionRequired": false,
+    "contextRelationship": "separate-ceremony-activation-contexts-no-shared-transition"
+  },
+  "sourceIds": [
+    "SOURCE-KAP-PRESENTATION-V16-20260712",
+    "SOURCE-KAP-ENTRY-PROPOSALS-V02",
+    "SOURCE-KAP-LAUNCH-GENERAL-BOOK",
+    "SOURCE-LOCAL-a5befcff7e2bb8b4"
+  ],
+  "v11Source": {
+    "safeFilename": "اقتراحات الدخول V.11.pdf",
+    "byteSize": 3201469,
+    "sha256": "a5befcff7e2bb8b44c09123fe7fb730eec79bd57bd37398fa9a09753e55b5377",
+    "pageCount": 7,
+    "authority": "operational-team-supplied-working-candidate",
+    "packageStatus": "received-validated-candidate",
+    "founderReview": "pending",
+    "operationalApproval": "not-established",
+    "routeApproval": "not-established",
+    "packageContentHash": "c24885fcb0bcce8b5a92462d7603e2eded11a1edf2a1d881272856a96575cd29"
+  },
+  "applicableRouteDayIds": [
+    "DAY-KAP-2026-10-31",
+    "DAY-KAP-2026-11-02",
+    "DAY-KAP-2026-11-03"
+  ],
+  "routeScopeCoverage": "complete-for-current-applicable-days",
+  "preservedCounts": {
+    "programMoments": 45,
+    "personaVariants": 44,
+    "executionSteps": 495,
+    "candidateDestinations": 11
+  },
+  "sourceFactCount": 35,
+  "openOrRestrictedConflictCount": 14,
+  "v11ConflictCount": 8,
+  "v11OperationalGapCount": 25,
+  "routeProposalCount": 3,
+  "operationalJourneyCandidateCount": 6,
+  "candidateTouchpointCount": 6,
+  "canonicalSpatialRouteCount": 0,
+  "clientPresentationStepCount": 14,
+  "rawSourcesIncluded": false,
+  "restrictedRouteDetailsInClientPresentation": false,
+  "restrictedHseDetailsIncluded": false,
+  "kapPanoramaAvailable": false,
+  "kapProductionGlbAvailable": false,
+  "limitationsAr": [
+    "هذه مصالحة مصدرية مرشحة وليست اعتمادًا تشغيليًا أو هندسيًا أو HSE.",
+    "V.11 لا يستبدل V.02 تلقائيًا؛ علاقة الاستبدال المقترحة تنتظر قرار أحمد.",
+    "1 نوفمبر يبقى يومًا من أيام الفعالية، لكنه خارج نطاق الرحلات التشغيلية ورحلات الزوار.",
+    "ظهور قصر العوجا والحدائق لا يعني انتقال الجمهور نفسه بينهما.",
+    "أي نشاط إنتاج تقني لاحق في 1 نوفمبر يحتاج مصدرًا منفصلًا معتمدًا.",
+    "ملفات PDF الخام خارج Git والمتصفح وحزمة المراجعة.",
+    "لا توجد مسارات أو جاهزية أو قرار افتتاح معتمد."
+  ]
+}

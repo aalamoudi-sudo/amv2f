@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.1.0",
+  "packId": "READINESS-PACK-KAP-OPERATIONAL-CANDIDATE-2026-v1",
+  "projectId": "PROJECT-KAP-OPENING-2026",
+  "evidencePolicies": [
+    {
+      "evidencePolicyId": "EVIDENCE-POLICY-KAP-DELIVERABLE-APPROVAL",
+      "labelAr": "سجل تسليم واعتماد موثق",
+      "acceptedEvidenceTypes": [
+        "updated-deliverable",
+        "review-comments",
+        "formal-email-or-approved-minutes"
+      ],
+      "sourceRequirement": "مسار اعتماد التسليمات في الحوكمة",
+      "custodianRole": "ROLE-KAP-PMO",
+      "verificationMethod": "مطابقة المرجع والإصدار والتعليقات وسجل الاعتماد الرسمي.",
+      "validityPeriod": "مرتبط بإصدار التسليم حتى supersession",
+      "requiredApproverAuthorityId": "AUTH-KAP-INTERNAL-DELIVERABLE-APPROVAL",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7",
+        "TRACE-KAP-GOV-DECISIONS-S4-S11"
+      ],
+      "missingFields": []
+    },
+    {
+      "evidencePolicyId": "EVIDENCE-POLICY-KAP-CHANGE-REQUEST",
+      "labelAr": "طلب تغيير موثق",
+      "acceptedEvidenceTypes": [
+        "change-request",
+        "impact-record",
+        "formal-approval-record"
+      ],
+      "sourceRequirement": "ضبط تغيير النطاق والجدول والتكلفة",
+      "custodianRole": "ROLE-KAP-PMO",
+      "verificationMethod": "مطابقة رقم الطلب والأثر والجهة المعتمدة.",
+      "validityPeriod": "حتى الإغلاق أو الاستبدال بطلب لاحق",
+      "requiredApproverAuthorityId": "AUTH-KAP-INTERNAL-DELIVERABLE-APPROVAL",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-CHANGE-S4-S9",
+        "TRACE-KAP-GOV-DECISIONS-S4-S11"
+      ],
+      "missingFields": []
+    },
+    {
+      "evidencePolicyId": "EVIDENCE-POLICY-KAP-OPERATIONAL-COMPLETION",
+      "labelAr": "دليل إكمال تشغيلي",
+      "acceptedEvidenceTypes": [],
+      "sourceRequirement": "مطلوب قبل تقييم الجاهزية",
+      "custodianRole": null,
+      "verificationMethod": null,
+      "validityPeriod": null,
+      "requiredApproverAuthorityId": null,
+      "classification": "missing",
+      "sourceTraceIds": [],
+      "missingFields": [
+        "acceptedEvidenceTypes",
+        "custodianRole",
+        "verificationMethod",
+        "validityPeriod",
+        "requiredApproverAuthorityId"
+      ]
+    },
+    {
+      "evidencePolicyId": "EVIDENCE-POLICY-KAP-HSE",
+      "labelAr": "دليل HSE وتصاريح",
+      "acceptedEvidenceTypes": [],
+      "sourceRequirement": "النطاق يذكر السلامة والتصاريح دون عقد دليل",
+      "custodianRole": null,
+      "verificationMethod": null,
+      "validityPeriod": null,
+      "requiredApproverAuthorityId": "AUTH-KAP-HSE",
+      "classification": "template-proposed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-SCOPE-SAFETY-S2-S8"
+      ],
+      "missingFields": [
+        "acceptedEvidenceTypes",
+        "custodianRole",
+        "verificationMethod",
+        "validityPeriod"
+      ]
+    }
+  ],
+  "verificationPolicies": [
+    {
+      "verificationPolicyId": "VERIFICATION-POLICY-KAP-DELIVERABLE",
+      "labelAr": "مراجعة أولية للتسليمات",
+      "method": "مراجعة النطاق والجودة قبل الاعتماد الداخلي.",
+      "verifierAuthorityId": "AUTH-KAP-PROJECT-ASSIGNMENT",
+      "independentFromReporter": true,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ]
+    },
+    {
+      "verificationPolicyId": "VERIFICATION-POLICY-KAP-OPERATIONAL",
+      "labelAr": "تحقق تشغيلي مستقل",
+      "method": "غير معرّف في المصدر.",
+      "verifierAuthorityId": null,
+      "independentFromReporter": true,
+      "classification": "missing",
+      "sourceTraceIds": []
+    }
+  ],
+  "approvalPolicies": [
+    {
+      "approvalPolicyId": "APPROVAL-POLICY-KAP-INTERNAL-DELIVERABLE",
+      "labelAr": "اعتماد التسليمات الداخلي",
+      "method": "اعتماد PMO والمشرف العام عبر سجل رسمي.",
+      "authorityId": "AUTH-KAP-INTERNAL-DELIVERABLE-APPROVAL",
+      "requiresVerification": true,
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ]
+    },
+    {
+      "approvalPolicyId": "APPROVAL-POLICY-KAP-OPERATIONAL",
+      "labelAr": "اعتماد الجاهزية الداخلي",
+      "method": "غير معرّف في المصدر.",
+      "authorityId": null,
+      "requiresVerification": true,
+      "classification": "missing",
+      "sourceTraceIds": []
+    }
+  ],
+  "acceptancePolicies": [
+    {
+      "acceptancePolicyId": "ACCEPTANCE-POLICY-KAP-CLIENT-DELIVERABLE",
+      "labelAr": "اعتماد تسليمات العميل",
+      "method": "اعتماد مدير مشروع العميل مع المشرف العام للعميل وفق السجل الرسمي.",
+      "externalAuthorityId": "AUTH-KAP-CLIENT-DELIVERABLE-ACCEPTANCE",
+      "classification": "source-backed",
+      "sourceTraceIds": [
+        "TRACE-KAP-GOV-APPROVAL-S4-S3-7"
+      ]
+    },
+    {
+      "acceptancePolicyId": "ACCEPTANCE-POLICY-KAP-OPERATIONAL",
+      "labelAr": "القبول التشغيلي الخارجي",
+      "method": "غير معرّف في المصدر.",
+      "externalAuthorityId": null,
+      "classification": "missing",
+      "sourceTraceIds": []
+    }
+  ],
+  "custodyRules": [
+    "metadata-only-by-default",
+    "source-and-provenance-hash-required",
+    "no-raw-personal-data-in-browser-fixtures",
+    "evidence-submission-is-not-verification",
+    "verification-is-not-approval",
+    "internal-approval-is-not-external-acceptance"
+  ]
+}

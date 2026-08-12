@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "evidenceId": "EVIDENCE-INVALID",
+  "evidenceType": "unknown",
+  "uri": "",
+  "fileName": "",
+  "mimeType": "",
+  "sha256": "invalid",
+  "capturedAt": "invalid",
+  "capturedBy": "",
+  "sourceSystemId": "",
+  "relatedEntityIds": ["ZONE-UNKNOWN"],
+  "relatedEventIds": [],
+  "spatialReference": null,
+  "instructionVersion": null,
+  "retentionClass": "forever",
+  "sensitivityClass": "secret",
+  "verificationStatus": "trusted",
+  "metadata": []
+}

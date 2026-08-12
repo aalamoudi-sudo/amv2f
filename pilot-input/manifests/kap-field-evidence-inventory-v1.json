@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "fieldEvidenceInventory": {
+    "snapshotId": "FIELD-EVIDENCE-INVENTORY-KAP-20260728",
+    "projectId": "PROJECT-KAP-OPENING-2026",
+    "eventId": "EVENT-KAP-OPENING-2026",
+    "venueId": "VENUE-KAP-001",
+    "reviewedAt": "2026-07-28T12:23:35+03:00",
+    "photographCount": 195,
+    "videoCount": 6,
+    "categories": [
+      {
+        "categoryId": "FIELD-CATEGORY-KAP-OPERATION-PHOTOS",
+        "labelAr": "صور زيارات التشغيل",
+        "mediaType": "image",
+        "reviewedCount": 170,
+        "sourceFolderId": "11mSWrfzxBuqIytK9JmQFAbk43xmUC34H"
+      },
+      {
+        "categoryId": "FIELD-CATEGORY-KAP-OPERATION-VIDEOS",
+        "labelAr": "فيديوهات زيارات التشغيل",
+        "mediaType": "video",
+        "reviewedCount": 5,
+        "sourceFolderId": "11mSWrfzxBuqIytK9JmQFAbk43xmUC34H"
+      },
+      {
+        "categoryId": "FIELD-CATEGORY-KAP-SITE-PHOTOS",
+        "labelAr": "صور الموقع",
+        "mediaType": "image",
+        "reviewedCount": 25,
+        "sourceFolderId": "1fIijgiZUPIFTd-PSXqGWyLBK5IMfAxPF"
+      },
+      {
+        "categoryId": "FIELD-CATEGORY-KAP-GENERAL-VIDEO",
+        "labelAr": "فيديو المشروع العام",
+        "mediaType": "video",
+        "reviewedCount": 1,
+        "sourceFolderId": "1SMcCihx94GeNON6UkiCP-YHiMNuh4O6n"
+      }
+    ],
+    "gpsPolicy": "metadata-status-only-no-browser-coordinates",
+    "durableArchive": false,
+    "notes": [
+      "Counts are the reviewed Drive inventory snapshot, not a durable media archive.",
+      "Raw GPS coordinates, personal identifiers and the complete media library are excluded.",
+      "A media file cannot approve evidence or mutate readiness merely by existing."
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "governanceSourceId": "SOURCE-KAP-GOVERNANCE-MAPPING-001",
+  "sourceStatus": "final-approved-source",
+  "platformAuthority": {
+    "authorityId": "AUTHORITY-KAP-PLATFORM",
+    "actorId": "ACTOR-PLATFORM-AHMED-001",
+    "scope": [
+      "platform architecture direction",
+      "product vision",
+      "pilot package scope",
+      "platform pilot acceptance"
+    ],
+    "explicitExclusions": [
+      "client contractual acceptance",
+      "HSE approval",
+      "venue opening approval",
+      "route approval",
+      "live operational authority"
+    ]
+  },
+  "projectAssignments": [
+    {
+      "assignmentId": "ASSIGNMENT-KAP-EXECUTION-MOHAMMED",
+      "displayNameAr": "محمد إبراهيم",
+      "roleId": "ROLE-EXECUTION-STREAM-LEAD",
+      "authoritativeIdentityId": null,
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "productionPermissionGranted": false
+    },
+    {
+      "assignmentId": "ASSIGNMENT-KAP-OPERATIONS-MAJED",
+      "displayNameAr": "ماجد قاسم",
+      "roleId": "ROLE-OPERATIONS-STREAM-LEAD",
+      "authoritativeIdentityId": null,
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "productionPermissionGranted": false
+    },
+    {
+      "assignmentId": "ASSIGNMENT-KAP-CONTENT-IBRAHIM",
+      "displayNameAr": "إبراهيم الغمري",
+      "roleId": "ROLE-CREATIVE-CONTENT-LEAD",
+      "authoritativeIdentityId": null,
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "productionPermissionGranted": false
+    }
+  ],
+  "personalContactDataIncluded": false
+}

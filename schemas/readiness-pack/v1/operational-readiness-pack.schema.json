@@ -1,0 +1,918 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/readiness-pack/v1/operational-readiness-pack.schema.json",
+  "title": "OperationalReadinessPack v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "version",
+    "projectId",
+    "eventId",
+    "venueId",
+    "title",
+    "description",
+    "stateContext",
+    "packStatus",
+    "sourceFingerprint",
+    "sourceTraceFingerprint",
+    "createdAt",
+    "createdBy",
+    "revision",
+    "supersedesPackId",
+    "governance",
+    "requirements",
+    "workstreams",
+    "dependencies",
+    "spatialRelationships",
+    "evidencePolicies",
+    "verificationPolicies",
+    "approvalPolicies",
+    "acceptancePolicies",
+    "authorityMatrix",
+    "authorityRequirementPolicyId",
+    "authorityTriggerPolicyId",
+    "authorityTriggerFacts",
+    "authorityTriggerFingerprint",
+    "requiredAuthorities",
+    "sourceRegistry",
+    "sourceTraces",
+    "eligibilityGates",
+    "governanceAssertions",
+    "governanceRequirements",
+    "governanceGaps",
+    "unresolvedConflicts",
+    "missingAuthorities",
+    "missingOwners",
+    "missingEvidenceRules",
+    "missingVerificationRules",
+    "missingApprovalRules",
+    "missingSpatialMappings",
+    "denominatorPolicy",
+    "activationStatus",
+    "activationRecord",
+    "frozenFromContentHash",
+    "frozenSourceFingerprint",
+    "frozenSourceTraceFingerprint",
+    "revisionReason",
+    "sourceChanges",
+    "authoringHistory",
+    "validationHistory",
+    "founderReviewStatus",
+    "operationalReadiness",
+    "displayConfig",
+    "contentHash"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.1.0" },
+    "id": { "$ref": "#/$defs/nonEmptyString" },
+    "version": { "$ref": "#/$defs/nonEmptyString" },
+    "projectId": { "$ref": "#/$defs/nonEmptyString" },
+    "eventId": { "$ref": "#/$defs/nonEmptyString" },
+    "venueId": { "$ref": "#/$defs/nonEmptyString" },
+    "title": { "$ref": "#/$defs/nonEmptyString" },
+    "description": { "$ref": "#/$defs/nonEmptyString" },
+    "stateContext": {
+      "enum": ["baseline", "candidate-preparation", "temporary-demo", "scenario"]
+    },
+    "packStatus": {
+      "enum": ["candidate", "review", "frozen-candidate", "activated-baseline"]
+    },
+    "sourceFingerprint": { "$ref": "#/$defs/sha256" },
+    "sourceTraceFingerprint": { "$ref": "#/$defs/sha256" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "$ref": "#/$defs/nonEmptyString" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "supersedesPackId": { "type": ["string", "null"] },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "packOwner",
+        "requirementAuthority",
+        "verificationAuthority",
+        "internalApprovalAuthority",
+        "externalAcceptanceAuthority",
+        "openingDecisionAuthority",
+        "activationAuthority",
+        "separationOfDutiesPolicy"
+      ],
+      "properties": {
+        "packOwner": { "$ref": "#/$defs/actorOrNull" },
+        "requirementAuthority": { "$ref": "#/$defs/authority" },
+        "verificationAuthority": { "$ref": "#/$defs/authority" },
+        "internalApprovalAuthority": { "$ref": "#/$defs/authority" },
+        "externalAcceptanceAuthority": { "$ref": "#/$defs/authority" },
+        "openingDecisionAuthority": { "$ref": "#/$defs/authority" },
+        "activationAuthority": { "$ref": "#/$defs/authority" },
+        "separationOfDutiesPolicy": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/requirement" }
+    },
+    "workstreams": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/workstream" }
+    },
+    "dependencies": { "type": "array", "items": { "type": "object" } },
+    "spatialRelationships": { "type": "array", "items": { "type": "object" } },
+    "evidencePolicies": { "type": "array", "items": { "type": "object" } },
+    "verificationPolicies": { "type": "array", "items": { "type": "object" } },
+    "approvalPolicies": { "type": "array", "items": { "type": "object" } },
+    "acceptancePolicies": { "type": "array", "items": { "type": "object" } },
+    "authorityMatrix": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/authority" }
+    },
+    "authorityRequirementPolicyId": {
+      "const": "AUTHORITY-REQUIREMENT-POLICY-v1"
+    },
+    "authorityTriggerPolicyId": {
+      "const": "AUTHORITY-TRIGGER-POLICY-v1"
+    },
+    "authorityTriggerFacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/authorityTriggerFact" }
+    },
+    "authorityTriggerFingerprint": { "$ref": "#/$defs/sha256" },
+    "requiredAuthorities": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": { "$ref": "#/$defs/requiredAuthority" },
+      "allOf": [
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "requirement-owner" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "evidence-verification" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "internal-approval" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "client-acceptance" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "engineering-authority" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "hse-authority" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "route-authority" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "opening-authority" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "properties": { "authorityKind": { "const": "readiness-pack-activation" } }, "required": ["authorityKind"] }, "minContains": 1, "maxContains": 1 }
+      ]
+    },
+    "sourceRegistry": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "sourceTraces": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceTrace" }
+    },
+    "eligibilityGates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/eligibilityGate" }
+    },
+    "governanceAssertions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/governanceAssertion" }
+    },
+    "governanceRequirements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/governanceRequirement" }
+    },
+    "governanceGaps": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/governanceGap" }
+    },
+    "unresolvedConflicts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/conflict" }
+    },
+    "missingAuthorities": { "$ref": "#/$defs/stringArray" },
+    "missingOwners": { "$ref": "#/$defs/stringArray" },
+    "missingEvidenceRules": { "$ref": "#/$defs/stringArray" },
+    "missingVerificationRules": { "$ref": "#/$defs/stringArray" },
+    "missingApprovalRules": { "$ref": "#/$defs/stringArray" },
+    "missingSpatialMappings": { "$ref": "#/$defs/stringArray" },
+    "denominatorPolicy": { "$ref": "#/$defs/nonEmptyString" },
+    "activationStatus": {
+      "enum": ["not-eligible", "eligible-for-freeze", "frozen-awaiting-activation", "activated"]
+    },
+    "activationRecord": {
+      "anyOf": [
+        { "$ref": "#/$defs/activationRecord" },
+        { "type": "null" }
+      ]
+    },
+    "frozenFromContentHash": {
+      "anyOf": [
+        { "$ref": "#/$defs/sha256" },
+        { "type": "null" }
+      ]
+    },
+    "frozenSourceFingerprint": {
+      "anyOf": [
+        { "$ref": "#/$defs/sha256" },
+        { "type": "null" }
+      ]
+    },
+    "frozenSourceTraceFingerprint": {
+      "anyOf": [
+        { "$ref": "#/$defs/sha256" },
+        { "type": "null" }
+      ]
+    },
+    "revisionReason": { "$ref": "#/$defs/nonEmptyString" },
+    "sourceChanges": { "$ref": "#/$defs/stringArray" },
+    "authoringHistory": { "type": "array", "items": { "type": "object" } },
+    "validationHistory": { "type": "array", "items": { "type": "object" } },
+    "founderReviewStatus": {
+      "enum": ["not-reviewed", "changes-requested", "approved-capability-only"]
+    },
+    "operationalReadiness": { "const": "cannot-determine" },
+    "displayConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shortLabelAr",
+        "executiveNoticeAr",
+        "identityBoundaryAr",
+        "spatialBoundaryAr",
+        "executionConflictLabelAr"
+      ],
+      "properties": {
+        "shortLabelAr": { "$ref": "#/$defs/nonEmptyString" },
+        "executiveNoticeAr": { "$ref": "#/$defs/nonEmptyString" },
+        "identityBoundaryAr": { "$ref": "#/$defs/nonEmptyString" },
+        "spatialBoundaryAr": { "$ref": "#/$defs/nonEmptyString" },
+        "executionConflictLabelAr": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "contentHash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "classification": {
+      "enum": [
+        "source-backed",
+        "founder-directed",
+        "template-proposed",
+        "missing",
+        "conflicting",
+        "superseded"
+      ]
+    },
+    "actor": {
+      "type": "object",
+      "required": [
+        "actorRef",
+        "displayNameAr",
+        "actorType",
+        "classification",
+        "sourceTraceIds",
+        "founderDirectionReference",
+        "assignmentScope",
+        "authorityLimitations"
+      ],
+      "properties": {
+        "actorRef": { "$ref": "#/$defs/nonEmptyString" },
+        "displayNameAr": { "$ref": "#/$defs/nonEmptyString" },
+        "actorType": { "enum": ["person", "role", "organization", "unknown"] },
+        "classification": { "$ref": "#/$defs/classification" },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "founderDirectionReference": { "type": ["string", "null"] },
+        "assignmentScope": { "$ref": "#/$defs/nonEmptyString" },
+        "authorityLimitations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "actorOrNull": {
+      "anyOf": [
+        { "$ref": "#/$defs/actor" },
+        { "type": "null" }
+      ]
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "authorityId",
+        "authorityKind",
+        "labelAr",
+        "scopeType",
+        "scopeId",
+        "status",
+        "actor",
+        "classification",
+        "sourceTraceIds",
+        "separationOfDutiesGroup",
+        "notApplicableDeclaration",
+        "limitations"
+      ],
+      "properties": {
+        "authorityId": { "$ref": "#/$defs/nonEmptyString" },
+        "authorityKind": { "$ref": "#/$defs/nonEmptyString" },
+        "labelAr": { "$ref": "#/$defs/nonEmptyString" },
+        "scopeType": { "enum": ["pack", "workstream", "requirement", "project", "event", "venue"] },
+        "scopeId": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "enum": ["assigned", "unknown", "conflicting", "not-applicable"] },
+        "actor": { "$ref": "#/$defs/actorOrNull" },
+        "classification": { "$ref": "#/$defs/classification" },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "separationOfDutiesGroup": { "$ref": "#/$defs/nonEmptyString" },
+        "notApplicableDeclaration": {
+          "anyOf": [
+            { "$ref": "#/$defs/notApplicableDeclaration" },
+            { "type": "null" }
+          ]
+        },
+        "limitations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "authorityOrNull": {
+      "anyOf": [
+        { "$ref": "#/$defs/authority" },
+        { "type": "null" }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "sourceId",
+        "sourceRevisionId",
+        "originalFilename",
+        "absoluteLocalPath",
+        "expectedByteSize",
+        "observedByteSize",
+        "expectedSha256",
+        "observedSha256",
+        "fingerprintStatus",
+        "sourceClassification",
+        "approvalScope",
+        "approvalLimitations",
+        "extractedAt",
+        "extractionTool",
+        "extractionToolVersion",
+        "sourceRevision",
+        "supersedesSourceId",
+        "supersedesSourceRevisionId",
+        "previousSourceHash",
+        "committedBinary"
+      ],
+      "properties": {
+        "sourceId": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceRevisionId": { "$ref": "#/$defs/nonEmptyString" },
+        "originalFilename": { "$ref": "#/$defs/nonEmptyString" },
+        "absoluteLocalPath": { "$ref": "#/$defs/nonEmptyString" },
+        "expectedByteSize": { "type": ["integer", "null"], "minimum": 0 },
+        "observedByteSize": { "type": "integer", "minimum": 0 },
+        "expectedSha256": {
+          "anyOf": [
+            { "$ref": "#/$defs/sha256" },
+            { "type": "null" }
+          ]
+        },
+        "observedSha256": { "$ref": "#/$defs/sha256" },
+        "fingerprintStatus": { "enum": ["verified", "recorded-first-observation", "mismatch"] },
+        "sourceClassification": { "$ref": "#/$defs/nonEmptyString" },
+        "approvalScope": { "$ref": "#/$defs/nonEmptyString" },
+        "approvalLimitations": { "$ref": "#/$defs/stringArray" },
+        "extractedAt": { "type": "string", "format": "date-time" },
+        "extractionTool": { "$ref": "#/$defs/nonEmptyString" },
+        "extractionToolVersion": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceRevision": { "type": "integer", "minimum": 1 },
+        "supersedesSourceId": { "type": ["string", "null"] },
+        "supersedesSourceRevisionId": { "type": ["string", "null"] },
+        "previousSourceHash": {
+          "anyOf": [
+            { "$ref": "#/$defs/sha256" },
+            { "type": "null" }
+          ]
+        },
+        "committedBinary": { "const": false }
+      }
+    },
+    "sourceTrace": {
+      "type": "object",
+      "required": [
+        "traceId",
+        "sourceId",
+        "sourceRevision",
+        "sourceHash",
+        "locatorType",
+        "slideNumber",
+        "sheetName",
+        "rowNumber",
+        "tableIndex",
+        "shapeId",
+        "sectionReference",
+        "sanitizedSourceLabel",
+        "extractedMeaning",
+        "extractionConfidence",
+        "reviewStatus"
+      ],
+      "properties": {
+        "traceId": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceId": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceRevision": { "type": "integer", "minimum": 1 },
+        "sourceHash": { "$ref": "#/$defs/sha256" },
+        "locatorType": { "$ref": "#/$defs/nonEmptyString" },
+        "slideNumber": { "type": ["integer", "null"], "minimum": 1 },
+        "sheetName": { "type": ["string", "null"] },
+        "rowNumber": { "type": ["integer", "null"], "minimum": 1 },
+        "tableIndex": { "type": ["integer", "null"], "minimum": 1 },
+        "shapeId": { "type": ["string", "null"] },
+        "sectionReference": { "type": ["string", "null"] },
+        "sanitizedSourceLabel": { "$ref": "#/$defs/nonEmptyString" },
+        "extractedMeaning": { "$ref": "#/$defs/nonEmptyString" },
+        "extractionConfidence": { "enum": ["high", "medium", "low"] },
+        "reviewStatus": { "enum": ["founder-approved-source", "reviewed", "needs-review", "conflicted"] }
+      }
+    },
+    "workstream": {
+      "type": "object",
+      "required": [
+        "workstreamId",
+        "labelAr",
+        "labelEn",
+        "descriptionAr",
+        "order",
+        "classification",
+        "sourceTraceIds",
+        "owner",
+        "responsibleParty",
+        "unresolvedAssignmentIds"
+      ],
+      "properties": {
+        "workstreamId": { "$ref": "#/$defs/nonEmptyString" },
+        "labelAr": { "$ref": "#/$defs/nonEmptyString" },
+        "labelEn": { "$ref": "#/$defs/nonEmptyString" },
+        "descriptionAr": { "$ref": "#/$defs/nonEmptyString" },
+        "order": { "type": "integer", "minimum": 1 },
+        "classification": { "$ref": "#/$defs/classification" },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "owner": { "$ref": "#/$defs/actorOrNull" },
+        "responsibleParty": { "$ref": "#/$defs/actorOrNull" },
+        "unresolvedAssignmentIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "requirement": {
+      "type": "object",
+      "required": [
+        "id",
+        "titleAr",
+        "titleEn",
+        "description",
+        "workstreamId",
+        "category",
+        "requirementType",
+        "authorityImpactKinds",
+        "classification",
+        "sourceTraces",
+        "sourceAuthority",
+        "extractionConfidence",
+        "founderDirectionReference",
+        "projectId",
+        "eventId",
+        "venueId",
+        "relatedZoneIds",
+        "relatedRouteIds",
+        "relatedAssetIds",
+        "relatedEntityIds",
+        "spatialScopeStatus",
+        "owner",
+        "responsibleParty",
+        "accountableParty",
+        "verifier",
+        "internalApprover",
+        "externalAcceptingAuthority",
+        "openingAuthorityImpact",
+        "completionDefinition",
+        "evidenceRequirements",
+        "evidencePolicyId",
+        "verificationMethod",
+        "verificationPolicyId",
+        "approvalMethod",
+        "approvalPolicyId",
+        "acceptanceMethod",
+        "acceptancePolicyId",
+        "dependencyIds",
+        "blockingConditions",
+        "expiryOrValidityRule",
+        "criticality",
+        "assessmentStatus",
+        "declaredCompletionStatus",
+        "evidenceStatus",
+        "verificationStatus",
+        "internalApprovalStatus",
+        "externalAcceptanceStatus",
+        "openingImpact",
+        "confidence",
+        "eligibilityStatus"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "titleAr": { "$ref": "#/$defs/nonEmptyString" },
+        "titleEn": { "type": ["string", "null"] },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "workstreamId": { "$ref": "#/$defs/nonEmptyString" },
+        "category": { "$ref": "#/$defs/nonEmptyString" },
+        "requirementType": { "$ref": "#/$defs/nonEmptyString" },
+        "authorityImpactKinds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "client-acceptance",
+              "engineering-authority",
+              "hse-authority",
+              "route-authority"
+            ]
+          }
+        },
+        "classification": { "$ref": "#/$defs/classification" },
+        "sourceTraces": { "$ref": "#/$defs/stringArray" },
+        "sourceAuthority": { "$ref": "#/$defs/nonEmptyString" },
+        "extractionConfidence": { "enum": ["high", "medium", "low", "not-applicable"] },
+        "founderDirectionReference": { "type": ["string", "null"] },
+        "projectId": { "$ref": "#/$defs/nonEmptyString" },
+        "eventId": { "$ref": "#/$defs/nonEmptyString" },
+        "venueId": { "$ref": "#/$defs/nonEmptyString" },
+        "relatedZoneIds": { "$ref": "#/$defs/stringArray" },
+        "relatedRouteIds": { "$ref": "#/$defs/stringArray" },
+        "relatedAssetIds": { "$ref": "#/$defs/stringArray" },
+        "relatedEntityIds": { "$ref": "#/$defs/stringArray" },
+        "spatialScopeStatus": {
+          "enum": ["mapped-candidate", "mapped-approved", "explicitly-not-applicable", "unresolved"]
+        },
+        "owner": { "$ref": "#/$defs/actorOrNull" },
+        "responsibleParty": { "$ref": "#/$defs/actorOrNull" },
+        "accountableParty": { "$ref": "#/$defs/actorOrNull" },
+        "verifier": { "$ref": "#/$defs/actorOrNull" },
+        "internalApprover": { "$ref": "#/$defs/actorOrNull" },
+        "externalAcceptingAuthority": { "$ref": "#/$defs/actorOrNull" },
+        "openingAuthorityImpact": { "enum": ["blocking", "conditional", "information-only"] },
+        "completionDefinition": { "type": ["string", "null"] },
+        "evidenceRequirements": { "$ref": "#/$defs/stringArray" },
+        "evidencePolicyId": { "type": ["string", "null"] },
+        "verificationMethod": { "type": ["string", "null"] },
+        "verificationPolicyId": { "type": ["string", "null"] },
+        "approvalMethod": { "type": ["string", "null"] },
+        "approvalPolicyId": { "type": ["string", "null"] },
+        "acceptanceMethod": { "type": ["string", "null"] },
+        "acceptancePolicyId": { "type": ["string", "null"] },
+        "dependencyIds": { "$ref": "#/$defs/stringArray" },
+        "blockingConditions": { "$ref": "#/$defs/stringArray" },
+        "expiryOrValidityRule": { "type": ["string", "null"] },
+        "criticality": { "enum": ["critical", "high", "medium", "low"] },
+        "assessmentStatus": { "$ref": "#/$defs/nonEmptyString" },
+        "declaredCompletionStatus": { "$ref": "#/$defs/nonEmptyString" },
+        "evidenceStatus": { "$ref": "#/$defs/nonEmptyString" },
+        "verificationStatus": { "$ref": "#/$defs/nonEmptyString" },
+        "internalApprovalStatus": { "$ref": "#/$defs/nonEmptyString" },
+        "externalAcceptanceStatus": { "$ref": "#/$defs/nonEmptyString" },
+        "openingImpact": { "$ref": "#/$defs/nonEmptyString" },
+        "confidence": { "$ref": "#/$defs/nonEmptyString" },
+        "eligibilityStatus": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "eligibilityGate": {
+      "type": "object",
+      "required": [
+        "gateId",
+        "labelAr",
+        "rule",
+        "status",
+        "blocking",
+        "affectedIds",
+        "explanationAr",
+        "nextActionAr",
+        "phase"
+      ],
+      "properties": {
+        "gateId": { "$ref": "#/$defs/nonEmptyString" },
+        "labelAr": { "$ref": "#/$defs/nonEmptyString" },
+        "rule": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "enum": ["passed", "failed", "blocked"] },
+        "blocking": { "type": "boolean" },
+        "affectedIds": { "$ref": "#/$defs/stringArray" },
+        "explanationAr": { "$ref": "#/$defs/nonEmptyString" },
+        "nextActionAr": { "$ref": "#/$defs/nonEmptyString" },
+        "phase": { "enum": ["pre-freeze", "pre-activation", "operational-assessment"] }
+      }
+    },
+    "notApplicableDeclaration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "waiverId",
+        "policyId",
+        "policyRuleId",
+        "authorityKind",
+        "authorityId",
+        "scopeType",
+        "scopeId",
+        "reasonAr",
+        "triggeredBySnapshot",
+        "resolverAuthorityId",
+        "authorizedActorRef",
+        "sourceTraceIds",
+        "evidenceRefs",
+        "evidenceRegistryFingerprint",
+        "authorityReference",
+        "revision",
+        "declaredAt",
+        "timeTrust",
+        "previousWaiverHash",
+        "waiverHash"
+      ],
+      "properties": {
+        "waiverId": {
+          "type": "string",
+          "pattern": "^AUTHORITY-WAIVER-v1-[a-f0-9]{64}$"
+        },
+        "policyId": { "const": "AUTHORITY-REQUIREMENT-POLICY-v1" },
+        "policyRuleId": { "$ref": "#/$defs/nonEmptyString" },
+        "authorityKind": { "$ref": "#/$defs/nonEmptyString" },
+        "authorityId": { "$ref": "#/$defs/nonEmptyString" },
+        "scopeType": { "enum": ["pack", "workstream", "requirement", "project", "event", "venue"] },
+        "scopeId": { "$ref": "#/$defs/nonEmptyString" },
+        "reasonAr": { "$ref": "#/$defs/nonEmptyString" },
+        "triggeredBySnapshot": { "$ref": "#/$defs/stringArray" },
+        "resolverAuthorityId": { "$ref": "#/$defs/nonEmptyString" },
+        "authorizedActorRef": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceTraceIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "evidenceRegistryFingerprint": { "$ref": "#/$defs/sha256" },
+        "authorityReference": { "$ref": "#/$defs/nonEmptyString" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "declaredAt": { "type": "string", "format": "date-time" },
+        "timeTrust": {
+          "enum": ["local-test-clock", "source-reported", "authoritative", "unknown"]
+        },
+        "previousWaiverHash": {
+          "anyOf": [
+            { "$ref": "#/$defs/sha256" },
+            { "type": "null" }
+          ]
+        },
+        "waiverHash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "authorityTriggerFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "triggerFactId",
+        "requirementId",
+        "policyId",
+        "authorityKind",
+        "triggerType",
+        "triggerState",
+        "sourceTraceIds",
+        "classification",
+        "revision",
+        "derivationPolicyVersion",
+        "sourceInputFingerprint",
+        "fingerprint"
+      ],
+      "properties": {
+        "triggerFactId": { "$ref": "#/$defs/nonEmptyString" },
+        "requirementId": { "$ref": "#/$defs/nonEmptyString" },
+        "policyId": { "type": ["string", "null"] },
+        "authorityKind": {
+          "enum": [
+            "client-acceptance",
+            "engineering-authority",
+            "hse-authority",
+            "route-authority"
+          ]
+        },
+        "triggerType": {
+          "enum": [
+            "external-operational-acceptance",
+            "engineering-or-spatial-impact",
+            "hse-or-safety-impact",
+            "route-or-movement-impact"
+          ]
+        },
+        "triggerState": {
+          "enum": ["active", "inactive-explicit", "unknown"]
+        },
+        "sourceTraceIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "classification": { "$ref": "#/$defs/classification" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "derivationPolicyVersion": { "const": "AUTHORITY-TRIGGER-POLICY-v1" },
+        "sourceInputFingerprint": { "$ref": "#/$defs/sha256" },
+        "fingerprint": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "requiredAuthority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declarationId",
+        "policyRuleId",
+        "authorityId",
+        "authorityKind",
+        "phase",
+        "applicable",
+        "requiredScopeType",
+        "requiredScopeId",
+        "separationFromAuthorityKinds",
+        "notApplicableDeclaration",
+        "sourceTraceIds",
+        "labelAr"
+      ],
+      "properties": {
+        "declarationId": { "$ref": "#/$defs/nonEmptyString" },
+        "policyRuleId": {
+          "enum": [
+            "AUTHORITY-RULE-REQUIREMENT-OWNER",
+            "AUTHORITY-RULE-EVIDENCE-VERIFICATION",
+            "AUTHORITY-RULE-INTERNAL-APPROVAL",
+            "AUTHORITY-RULE-CLIENT-ACCEPTANCE",
+            "AUTHORITY-RULE-ENGINEERING",
+            "AUTHORITY-RULE-HSE",
+            "AUTHORITY-RULE-ROUTE",
+            "AUTHORITY-RULE-OPENING",
+            "AUTHORITY-RULE-PACK-ACTIVATION"
+          ]
+        },
+        "authorityId": { "$ref": "#/$defs/nonEmptyString" },
+        "authorityKind": { "$ref": "#/$defs/nonEmptyString" },
+        "phase": { "enum": ["pre-freeze", "pre-activation"] },
+        "applicable": { "type": "boolean" },
+        "requiredScopeType": { "enum": ["pack", "workstream", "requirement", "project", "event", "venue"] },
+        "requiredScopeId": { "$ref": "#/$defs/nonEmptyString" },
+        "separationFromAuthorityKinds": { "$ref": "#/$defs/stringArray" },
+        "notApplicableDeclaration": {
+          "anyOf": [
+            { "$ref": "#/$defs/notApplicableDeclaration" },
+            { "type": "null" }
+          ]
+        },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "labelAr": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "governanceAssertion": {
+      "type": "object",
+      "required": [
+        "assertionId",
+        "conflictId",
+        "conflictKey",
+        "category",
+        "labelAr",
+        "normalizedValue",
+        "sourceTraceIds",
+        "affectedIds",
+        "candidateActor",
+        "requiredAuthorityKind",
+        "authorizedResolverAuthorityId"
+      ],
+      "properties": {
+        "assertionId": { "$ref": "#/$defs/nonEmptyString" },
+        "conflictId": { "$ref": "#/$defs/nonEmptyString" },
+        "conflictKey": { "$ref": "#/$defs/nonEmptyString" },
+        "category": { "$ref": "#/$defs/nonEmptyString" },
+        "labelAr": { "$ref": "#/$defs/nonEmptyString" },
+        "normalizedValue": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "affectedIds": { "$ref": "#/$defs/stringArray" },
+        "candidateActor": { "$ref": "#/$defs/actorOrNull" },
+        "requiredAuthorityKind": { "$ref": "#/$defs/nonEmptyString" },
+        "authorizedResolverAuthorityId": { "type": ["string", "null"] }
+      }
+    },
+    "governanceRequirement": {
+      "type": "object",
+      "required": [
+        "governanceRequirementId",
+        "labelAr",
+        "category",
+        "status",
+        "affectedIds",
+        "sourceTraceIds",
+        "impactAr",
+        "nextActionAr"
+      ],
+      "properties": {
+        "governanceRequirementId": { "$ref": "#/$defs/nonEmptyString" },
+        "labelAr": { "$ref": "#/$defs/nonEmptyString" },
+        "category": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "enum": ["satisfied", "missing", "conflicting"] },
+        "affectedIds": { "$ref": "#/$defs/stringArray" },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "impactAr": { "$ref": "#/$defs/nonEmptyString" },
+        "nextActionAr": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "governanceGap": {
+      "type": "object",
+      "required": [
+        "gapId",
+        "labelAr",
+        "category",
+        "classification",
+        "sourceTraceIds",
+        "affectedIds",
+        "impactAr",
+        "nextActionAr"
+      ],
+      "properties": {
+        "gapId": { "$ref": "#/$defs/nonEmptyString" },
+        "labelAr": { "$ref": "#/$defs/nonEmptyString" },
+        "category": { "$ref": "#/$defs/nonEmptyString" },
+        "classification": { "enum": ["missing", "conflicting"] },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "affectedIds": { "$ref": "#/$defs/stringArray" },
+        "impactAr": { "$ref": "#/$defs/nonEmptyString" },
+        "nextActionAr": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "required": [
+        "conflictId",
+        "labelAr",
+        "classification",
+        "sourceTraceIds",
+        "affectedIds",
+        "resolutionStatus",
+        "requiredAuthorityKind",
+        "candidateAssignments",
+        "authorizedResolverAuthorityId",
+        "derivedFromAssertionIds"
+      ],
+      "properties": {
+        "conflictId": { "$ref": "#/$defs/nonEmptyString" },
+        "labelAr": { "$ref": "#/$defs/nonEmptyString" },
+        "classification": { "const": "conflicting" },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "affectedIds": { "$ref": "#/$defs/stringArray" },
+        "resolutionStatus": { "enum": ["unresolved", "waived", "resolved"] },
+        "requiredAuthorityKind": { "$ref": "#/$defs/nonEmptyString" },
+        "candidateAssignments": { "type": "array", "items": { "type": "object" } },
+        "authorizedResolverAuthorityId": { "type": ["string", "null"] },
+        "derivedFromAssertionIds": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "activationRecord": {
+      "type": "object",
+      "required": [
+        "activationId",
+        "authorityId",
+        "actor",
+        "evidenceRefs",
+        "sourceTraceIds",
+        "approvedAt",
+        "reasonAr",
+        "frozenRevision",
+        "frozenContentHash",
+        "frozenSourceFingerprint",
+        "frozenSourceTraceFingerprint"
+      ],
+      "properties": {
+        "activationId": { "$ref": "#/$defs/nonEmptyString" },
+        "authorityId": { "$ref": "#/$defs/nonEmptyString" },
+        "actor": { "$ref": "#/$defs/actor" },
+        "evidenceRefs": { "$ref": "#/$defs/stringArray" },
+        "sourceTraceIds": { "$ref": "#/$defs/stringArray" },
+        "approvedAt": { "type": "string", "format": "date-time" },
+        "reasonAr": { "$ref": "#/$defs/nonEmptyString" },
+        "frozenRevision": { "type": "integer", "minimum": 1 },
+        "frozenContentHash": { "$ref": "#/$defs/sha256" },
+        "frozenSourceFingerprint": { "$ref": "#/$defs/sha256" },
+        "frozenSourceTraceFingerprint": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

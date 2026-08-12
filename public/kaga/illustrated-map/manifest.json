@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "sourceRole": "visual-cartographic-source",
+  "sourceSha256": "be5ae3075ca9b7afa1fcfdb58b4178f67b1b6a87a7bd3d0733cdd7a3ebc46c00",
+  "sourceBytes": 226227874,
+  "illustratorCreator": "Adobe Illustrator 30.5 (Macintosh)",
+  "pageSizePoints": [
+    3392.07,
+    1997.7
+  ],
+  "sourceLayers": [
+    "BG",
+    "Circil",
+    "lake",
+    "Walking path 2",
+    "Walking path",
+    "tent",
+    "Trees",
+    "new stuff",
+    "Layer 5",
+    "Jurassic",
+    "Layer 7",
+    "Legends",
+    "map"
+  ],
+  "runtimeGroups": {
+    "land": [
+      "Circil"
+    ],
+    "water": [
+      "lake"
+    ],
+    "paths": [
+      "Walking path 2",
+      "Walking path"
+    ],
+    "vegetation": [
+      "Trees"
+    ],
+    "architecture": [
+      "tent"
+    ]
+  },
+  "excludedRuntimeLayers": [
+    "BG",
+    "new stuff",
+    "Layer 5",
+    "Jurassic",
+    "Layer 7",
+    "Legends",
+    "map"
+  ],
+  "cropPixelsAt72Dpi": [
+    0,
+    0,
+    2800,
+    1998
+  ],
+  "canonicalCoordinateSpace": "KAGA-SOURCE-2D-V1",
+  "rawAiShipped": false
+}

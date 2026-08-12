@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mayadeen.local/integration/v1/physical-scene-command.schema.json",
+  "title": "Mayadeen Physical Scene Command",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "commandId", "commandContentHash", "deliveryAttemptId", "projectionVersion", "projectionContentHash", "outputProfileVersion", "mappingVersion", "stateContext", "targetDeviceId", "sceneId", "entityVisualStates", "routeVisualStates", "issuedAt", "expiresAt", "sequence", "acknowledgementRequired", "sourceEventIds"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "commandId": { "type": "string", "minLength": 1 },
+    "commandContentHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "deliveryAttemptId": { "type": "string", "minLength": 1 },
+    "projectionVersion": { "type": "string", "pattern": "^PROJECTION-v1-[a-fA-F0-9]{64}$" },
+    "projectionContentHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "outputProfileVersion": { "type": "string", "minLength": 1 },
+    "mappingVersion": { "type": "string", "minLength": 1 },
+    "stateContext": { "enum": ["temporary-demo", "baseline", "scenario"] },
+    "targetDeviceId": { "type": "string", "minLength": 1 },
+    "sceneId": { "type": "string", "minLength": 1 },
+    "entityVisualStates": { "type": "array", "items": { "$ref": "#/$defs/entityVisual" } },
+    "routeVisualStates": { "type": "array", "items": { "$ref": "#/$defs/routeVisual" } },
+    "issuedAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "acknowledgementRequired": { "type": "boolean" },
+    "sourceEventIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+  },
+  "$defs": {
+    "entityVisual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entityId", "colorToken", "intensity", "label"],
+      "properties": { "entityId": { "type": "string", "minLength": 1 }, "colorToken": { "enum": ["neutral", "reported", "verified", "approved", "blocked"] }, "intensity": { "type": "number", "minimum": 0, "maximum": 1 }, "label": { "type": "string", "minLength": 1 } }
+    },
+    "routeVisual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["routeId", "active", "colorToken", "direction"],
+      "properties": { "routeId": { "type": "string", "minLength": 1 }, "active": { "type": "boolean" }, "colorToken": { "type": "string", "minLength": 1 }, "direction": { "enum": ["forward", "reverse", "both"] } }
+    }
+  }
+}

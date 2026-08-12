@@ -1,0 +1,12 @@
+{
+  "profile": "client-review",
+  "assetBaseUrl": "/",
+  "spaFallback": "index.html",
+  "cachePolicy": {
+    "hashedAssets": "public,max-age=31536000,immutable",
+    "indexHtml": "no-cache"
+  },
+  "externalIntegrations": "disabled",
+  "iotGateway": "local-offline",
+  "publicDeploymentAuthorized": false
+}

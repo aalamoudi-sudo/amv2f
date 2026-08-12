@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "templateType": "ExperienceIntent",
+  "whatGuestSees": null,
+  "whatGuestHears": null,
+  "whatGuestDoes": null,
+  "intendedEmotion": null,
+  "servicePromise": null,
+  "contentCue": null,
+  "expectedDuration": null,
+  "accessibilityConsiderations": null,
+  "protocolConsiderations": null,
+  "operationalOwner": null,
+  "fallbackExperience": null,
+  "frictionPoints": [],
+  "successSignal": null,
+  "interpretationStatus": "missing"
+}

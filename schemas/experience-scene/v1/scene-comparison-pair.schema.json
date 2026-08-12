@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mayadeen.local/schemas/experience-scene/v1/scene-comparison-pair.schema.json",
+  "title": "Experience Scene Comparison Pair",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["comparisonPairId", "projectId", "eventId", "leftAssetId", "rightAssetId", "mode", "presentation", "cameraPoseCompatibility", "pixelComparisonAllowed", "evidenceStatus", "warningsAr"],
+  "properties": {
+    "comparisonPairId": { "$ref": "#/$defs/id" }, "projectId": { "$ref": "#/$defs/id" }, "eventId": { "$ref": "#/$defs/id" },
+    "leftAssetId": { "$ref": "#/$defs/id" }, "rightAssetId": { "$ref": "#/$defs/id" },
+    "mode": { "enum": ["design-candidate-vs-approved", "design-vs-actual-reported", "design-vs-actual-verified", "revision-vs-revision"] },
+    "presentation": { "enum": ["side-by-side", "slider"] }, "cameraPoseCompatibility": { "enum": ["compatible", "incompatible", "unknown"] },
+    "pixelComparisonAllowed": { "type": "boolean" }, "evidenceStatus": { "enum": ["none", "reported", "verified"] },
+    "warningsAr": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": { "id": { "type": "string", "minLength": 3, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" } }
+}

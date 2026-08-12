@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0.0",
+  "templateType": "ExperiencePackApprovalBoundary",
+  "designApproval": "missing",
+  "engineeringApproval": "missing",
+  "operationalApproval": "none",
+  "clientApproval": "missing",
+  "activationAllowed": false
+}
