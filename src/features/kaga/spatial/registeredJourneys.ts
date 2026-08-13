@@ -1,6 +1,6 @@
 import { journeys } from '../data/journeys';
 import { getEventProposalPlaceForStop } from '../data/eventProposalPlaceWhitelist';
-import type { JourneyId, JourneyStop } from '../data/spatialTypes';
+import type { JourneyId, JourneyStop, SpatialRegistrationTransform } from '../data/spatialTypes';
 import { legacyPointToSourceSpatial } from './sourceSpatialModel';
 
 export type SpatialCoordinate = readonly [number, number];
@@ -41,6 +41,20 @@ export interface RegisteredJourneySegment {
   physicalSource: string;
   registrationMethod: string;
   confidence: AnchorConfidence;
+  sourceVisualCode?: 'road-entry' | 'golf-entry' | 'tour' | 'golf-exit' | 'final-exit';
+  sourceColor?: string;
+  sourcePattern?: 'solid' | 'dashed';
+  sourceSegmentId?: string;
+}
+
+export interface RegisteredSourceVisualSegment {
+  segmentId: string;
+  geometry: SpatialCoordinate[];
+  sourceVisualCode: 'road-entry' | 'golf-entry' | 'tour' | 'golf-exit' | 'final-exit';
+  sourceColor: string;
+  sourcePattern: 'solid' | 'dashed';
+  startProgress: number;
+  endProgress: number;
 }
 
 export interface RegisteredJourney {
@@ -53,6 +67,7 @@ export interface RegisteredJourney {
   registrationStatus: 'pathway-registered' | 'physically-anchored';
   stops: RegisteredJourneyStop[];
   segments: RegisteredJourneySegment[];
+  sourceVisualSegments: RegisteredSourceVisualSegment[];
   geometry: SpatialCoordinate[];
   pathD: string;
 }
@@ -86,7 +101,25 @@ const segmentKind = (index: number, stopCount: number, toStop: JourneyStop): Reg
   return 'internalCirculation';
 };
 
-const sampleEventSvgPath = (path: string): SpatialCoordinate[] => {
+const transformSourcePoint = (
+  point: SpatialCoordinate,
+  registrationTransform?: SpatialRegistrationTransform,
+): SpatialCoordinate => {
+  if (!registrationTransform) {
+    const migrated = legacyPointToSourceSpatial({ x: point[0], y: point[1] });
+    return [Number(migrated.x.toFixed(3)), Number(migrated.y.toFixed(3))];
+  }
+  const [a, b, c, d, e, f] = registrationTransform.matrix;
+  return [
+    Number((a * point[0] + c * point[1] + e).toFixed(3)),
+    Number((b * point[0] + d * point[1] + f).toFixed(3)),
+  ];
+};
+
+const sampleEventSvgPath = (
+  path: string,
+  registrationTransform?: SpatialRegistrationTransform,
+): SpatialCoordinate[] => {
   const tokens = path.match(/[A-Za-z]|-?\d*\.?\d+(?:e[-+]?\d+)?/gi) ?? [];
   const sampled: SpatialCoordinate[] = [];
   let index = 0;
@@ -94,8 +127,7 @@ const sampleEventSvgPath = (path: string): SpatialCoordinate[] => {
   let current: SpatialCoordinate = [0, 0];
   const number = () => Number(tokens[index++]);
   const register = (point: SpatialCoordinate) => {
-    const migrated = legacyPointToSourceSpatial({ x: point[0], y: point[1] });
-    sampled.push([Number(migrated.x.toFixed(3)), Number(migrated.y.toFixed(3))]);
+    sampled.push(transformSourcePoint(point, registrationTransform));
   };
   while (index < tokens.length) {
     if (/^[A-Za-z]$/.test(tokens[index]!)) command = tokens[index++]!.toUpperCase();
@@ -147,10 +179,15 @@ const pointAtPolylineProgress = (points: SpatialCoordinate[], progress: number):
 };
 
 const buildJourney = (journey: (typeof journeys)[number]): RegisteredJourney => {
-  const sampledEventPath = sampleEventSvgPath(journey.playbackPath);
+  const sampledEventPath = sampleEventSvgPath(journey.playbackPath, journey.registrationTransform);
   const sampledProgress = cumulativeDistances(sampledEventPath).map((value, _index, values) => value / values.at(-1)!);
-  const anchorPoints = journey.stops.map((stop) => pointAtPolylineProgress(sampledEventPath, stop.pathProgress));
-  const geometry: SpatialCoordinate[] = [anchorPoints[0]!];
+  const pathAnchorPoints = journey.stops.map((stop) => pointAtPolylineProgress(sampledEventPath, stop.pathProgress));
+  const markerPoints = journey.stops.map((stop, index) => (
+    stop.preserveSourcePoint
+      ? transformSourcePoint([stop.point.x, stop.point.y], journey.registrationTransform)
+      : pathAnchorPoints[index]!
+  ));
+  const geometry: SpatialCoordinate[] = [markerPoints[0]!];
   const stopVertexIndexes: number[] = [0];
   journey.stops.slice(1).forEach((stop, index) => {
     const previousProgress = journey.stops[index]!.pathProgress;
@@ -158,7 +195,7 @@ const buildJourney = (journey: (typeof journeys)[number]): RegisteredJourney => 
       const pointProgress = sampledProgress[pointIndex]!;
       if (pointProgress > previousProgress && pointProgress < stop.pathProgress) geometry.push(point);
     });
-    geometry.push(anchorPoints[index + 1]!);
+    geometry.push(markerPoints[index + 1]!);
     stopVertexIndexes.push(geometry.length - 1);
   });
   const lastStopProgress = journey.stops.at(-1)!.pathProgress;
@@ -183,15 +220,19 @@ const buildJourney = (journey: (typeof journeys)[number]): RegisteredJourney => 
       durationMinutes: stop.durationMinutes,
       detailAr: stop.detailAr,
       canonicalPlaceId: canonicalPlace.id,
-      mapPoint: anchorPoints[index]!,
+      mapPoint: markerPoints[index]!,
       physicalEntityId,
-      anchorSource: physicalEntityId
-        ? 'Knowledge Guide page 13 + Rhino source curve'
-        : 'Event PDF control point migrated into KAGA-SOURCE-2D-V1',
-      anchorConfidence: physicalEntityId ? 'high' : 'approximate',
-      registrationNotes: physicalEntityId
-        ? 'محطة مرتبطة بكيان حديقة مسجل عالي الثقة.'
-        : 'المحطة مثبتة ماديًا داخل حدود المخطط؛ لا يُدّعى تطابق مساحي مساحي/مساحي survey.',
+      anchorSource: stop.preserveSourcePoint
+        ? 'V.15 slide 4 control point registered against Rhino-derived masterplan linework'
+        : physicalEntityId
+          ? 'Knowledge Guide page 13 + Rhino source curve'
+          : 'Event PDF control point migrated into KAGA-SOURCE-2D-V1',
+      anchorConfidence: stop.preserveSourcePoint ? 'approximate' : physicalEntityId ? 'high' : 'approximate',
+      registrationNotes: stop.preserveSourcePoint
+        ? 'موضع العلامة من ملف V.15 مسجل بدقة على خلفية Rhino؛ العلامة نفسها تحكم حدثي وليست نقطة رفع مساحي.'
+        : physicalEntityId
+          ? 'محطة مرتبطة بكيان حديقة مسجل عالي الثقة.'
+          : 'المحطة مثبتة ماديًا داخل حدود المخطط؛ لا يُدّعى تطابق مساحي survey.',
       pathProgress: Number((cumulative[stopVertexIndexes[index]!]! / totalLength).toFixed(8)),
     };
   });
@@ -201,6 +242,9 @@ const buildJourney = (journey: (typeof journeys)[number]): RegisteredJourney => 
     const startVertex = stopVertexIndexes[index]!;
     const endVertex = stopVertexIndexes[index + 1]!;
     const isWorkers = journey.id === 'workers';
+    const authoredSegment = journey.segments.find(
+      (segment) => segment.id === journey.stops[index]!.outgoingSegmentId,
+    );
     return {
       journeyId: journey.id,
       segmentId: `${journey.id}-registered-${index + 1}`,
@@ -217,7 +261,30 @@ const buildJourney = (journey: (typeof journeys)[number]): RegisteredJourney => 
         ? 'manual-source-pathway-trace-preserving-event-stop-order'
         : 'event-control-point-registration-no-shortest-path',
       confidence: isWorkers ? 'high' : 'approximate',
+      sourceVisualCode: authoredSegment?.sourceVisual?.code,
+      sourceColor: authoredSegment?.sourceVisual?.color,
+      sourcePattern: authoredSegment?.sourceVisual?.pattern,
+      sourceSegmentId: authoredSegment?.id,
     };
+  });
+
+  const sourceVisualSegments: RegisteredSourceVisualSegment[] = journey.segments.flatMap((segment) => {
+    if (!segment.sourceVisual) return [];
+    const outgoingIndexes = journey.stops.flatMap((stop, index) => (
+      stop.outgoingSegmentId === segment.id ? [index] : []
+    ));
+    if (outgoingIndexes.length === 0) return [];
+    const firstStopIndex = outgoingIndexes[0]!;
+    const afterLastStopIndex = Math.min(outgoingIndexes.at(-1)! + 1, stops.length - 1);
+    return [{
+      segmentId: segment.id,
+      geometry: sampleEventSvgPath(segment.path, journey.registrationTransform),
+      sourceVisualCode: segment.sourceVisual.code,
+      sourceColor: segment.sourceVisual.color,
+      sourcePattern: segment.sourceVisual.pattern,
+      startProgress: stops[firstStopIndex]!.pathProgress,
+      endProgress: stops[afterLastStopIndex]!.pathProgress,
+    }];
   });
 
   return {
@@ -230,6 +297,7 @@ const buildJourney = (journey: (typeof journeys)[number]): RegisteredJourney => 
     registrationStatus: journey.id === 'workers' ? 'pathway-registered' : 'physically-anchored',
     stops,
     segments,
+    sourceVisualSegments,
     geometry,
     pathD: geometry.map((point, index) => `${index === 0 ? 'M' : 'L'} ${point[0]} ${point[1]}`).join(' '),
   };

@@ -1,17 +1,17 @@
-import { Car, ChevronLeft, ChevronRight, Flag, Gift, MapPinned, Route } from 'lucide-react';
+import type { CSSProperties } from 'react';
+import { ChevronLeft, ChevronRight, Gift, MapPinned } from 'lucide-react';
 import { journeyById } from '../data/journeys';
 import type { RegisteredJourney, RegisteredJourneyStop } from '../spatial/registeredJourneys';
 import {
   guestJourneyMovementSummary,
   guestStopPresentationByCode,
+  guestTransportEmoji,
   guestTransportLabels,
   type GuestTransportMode,
 } from './guestJourneyPresentation';
 
 const TransportIcon = ({ mode }: { mode: GuestTransportMode }) => {
-  if (mode === 'car' || mode === 'golf-cart') return <Car aria-hidden="true" />;
-  if (mode === 'exit') return <Flag aria-hidden="true" />;
-  return <Route aria-hidden="true" />;
+  return <span className="kaga-mythic-transport-emoji" data-transport-mode={mode} aria-hidden="true">{guestTransportEmoji[mode]}</span>;
 };
 
 interface GuestJourneyPanelProps {
@@ -74,6 +74,7 @@ export function GuestJourneyPanel({
       data-complete={completed}
       data-active-stop={activeStop.code}
       data-playing={playing}
+      data-source-version="V.15"
     >
       <header className="kaga-mythic-guest__header">
         <div>
@@ -114,7 +115,10 @@ export function GuestJourneyPanel({
                 <span>{stop.code}</span>
                 {state === 'complete' ? <i aria-hidden="true">✓</i> : null}
               </b>
-              <span>{presentation.shortTitleAr}<small>{stop.durationMinutes ? `${stop.durationMinutes} د` : guestTransportLabels[presentation.transport]}</small></span>
+              <span>
+                {presentation.shortTitleAr}
+                <small><TransportIcon mode={presentation.transport} />{stop.durationMinutes ? `${stop.durationMinutes} د` : guestTransportLabels[presentation.transport]}</small>
+              </span>
             </button>
           );
         })}
@@ -178,10 +182,15 @@ export function GuestJourneyPanel({
               {sourceFidelityMode ? 'عرض المسار الموحّد' : 'عرض المسار كما في الملف'}
             </button>
             <details>
-              <summary>بيانات الحركة</summary>
+              <summary>دليل ألوان الحركة</summary>
               {guestJourneyMovementSummary.map((item) => (
-                <p key={item.id}><span>{item.labelAr}</span><small>{item.transportAr}{item.distanceMeters ? ` · ${item.distanceMeters} م` : ''}{item.realDurationMinutes ? ` · ${item.realDurationMinutes} دقائق` : ''}</small></p>
+                <p key={item.id} data-pattern={item.sourcePattern}>
+                  <i aria-hidden="true" style={{ '--movement-color': item.sourceColor } as CSSProperties} />
+                  <span>{item.sourceLabelAr ?? item.labelAr}</span>
+                  <small><span aria-hidden="true">{item.transportAr === 'سيارة' ? '🚗' : '⛳'}</span> {item.transportAr}{item.distanceMeters ? ` · ${item.distanceMeters} م` : ''}{item.realDurationMinutes ? ` · ${item.realDurationMinutes} دقائق` : ''}</small>
+                </p>
               ))}
+              {sourceJourney.contextNotesAr?.map((note) => <em key={note}>{note}</em>)}
             </details>
           </div>
           <details className="kaga-mythic-guest__journey-index">

@@ -53,7 +53,7 @@ export function RegisteredMasterplan({
   const [assetState, setAssetState] = useState<'loading' | 'ready' | 'error'>('loading');
   const journey = registeredJourneyById[journeyId];
   const marker = useMemo(() => pointAtRegisteredProgress(journey, progress), [journey, progress]);
-  const movementForSegment = (fromCode: string) => {
+  const fallbackMovementForSegment = (fromCode: string) => {
     if (fromCode === 'A') return 'car';
     if (fromCode === 'B') return 'transfer';
     if (fromCode >= 'C' && fromCode < 'J') return 'tour';
@@ -68,6 +68,15 @@ export function RegisteredMasterplan({
     if (progress >= toProgress) return 'complete';
     if (progress >= fromProgress) return 'current';
     if (fromIndex === selectedStopIndex + 1) return 'next';
+    return 'future';
+  };
+  const stateForSourceVisualSegment = (startProgress: number, endProgress: number, index: number) => {
+    if (progress >= endProgress) return 'complete';
+    if (progress >= startProgress) return 'current';
+    const activeSourceIndex = journey.sourceVisualSegments.findIndex(
+      (segment) => progress >= segment.startProgress && progress < segment.endProgress,
+    );
+    if (index === activeSourceIndex + 1) return 'next';
     return 'future';
   };
 
@@ -148,16 +157,29 @@ export function RegisteredMasterplan({
             <path className="kaga-v2-registered-map__route" d={journey.pathD} />
             {sourceFidelityMode ? (
               <g className="kaga-v2-registered-map__source-segments" aria-label="تقسيم المسار كما في ملف المصدر">
-                {journey.segments.map((segment) => {
+                {journey.sourceVisualSegments.length > 0 ? journey.sourceVisualSegments.map((segment, index) => (
+                  <polyline
+                    key={segment.segmentId}
+                    points={segment.geometry.map((point) => `${point[0]},${point[1]}`).join(' ')}
+                    data-movement={segment.sourceVisualCode}
+                    data-pattern={segment.sourcePattern}
+                    data-state={stateForSourceVisualSegment(segment.startProgress, segment.endProgress, index)}
+                    data-source-segment={segment.segmentId}
+                    style={{ '--source-segment-color': segment.sourceColor } as React.CSSProperties}
+                  />
+                )) : journey.segments.map((segment) => {
                   const fromCode = journey.stops.find((stop) => stop.stopId === segment.fromStopId)?.code ?? '';
                   return (
                     <polyline
                       key={segment.segmentId}
                       points={segment.geometry.map((point) => `${point[0]},${point[1]}`).join(' ')}
-                      data-movement={movementForSegment(fromCode)}
+                      data-movement={segment.sourceVisualCode ?? fallbackMovementForSegment(fromCode)}
+                      data-pattern={segment.sourcePattern ?? 'solid'}
                       data-state={stateForSegment(segment.fromStopId, segment.toStopId)}
+                      data-source-segment={segment.sourceSegmentId}
                       data-from-stop={segment.fromStopId}
                       data-to-stop={segment.toStopId}
+                      style={segment.sourceColor ? { '--source-segment-color': segment.sourceColor } as React.CSSProperties : undefined}
                     />
                   );
                 })}
@@ -169,6 +191,7 @@ export function RegisteredMasterplan({
                 className="kaga-v2-registered-map__stop"
                 data-active={selectedStopIndex === index}
                 data-next={selectedStopIndex + 1 === index}
+                data-anchor-confidence={stop.anchorConfidence}
                 transform={`translate(${stop.mapPoint[0]} ${stop.mapPoint[1]})`}
                 tabIndex={0}
                 role="button"

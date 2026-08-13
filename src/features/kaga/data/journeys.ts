@@ -1,5 +1,12 @@
 import { mapPoints } from "./spatialMap";
-import { pointAtPathProgress } from "./svgPathGeometry";
+import {
+  guestJourneyV15PlaybackPath,
+  guestJourneyV15Registration,
+  guestJourneyV15Segments,
+  guestJourneyV15Source,
+  guestJourneyV15StopPoints,
+} from "./guestJourneyV15";
+import { pathProgressAtClosestPoint, pointAtPathProgress } from "./svgPathGeometry";
 import type { JourneyBranch, JourneyId, JourneyStop, SpatialJourney } from "./spatialTypes";
 
 const source = (page: number, notes?: string) => ({ pdfPages: [page], sourceLabel: `مخطط الرحلة - صفحة ${page}`, notes });
@@ -40,11 +47,42 @@ const anchoredStop = (
   };
 };
 
+const guestStop = (
+  code: keyof typeof guestJourneyV15StopPoints,
+  title: string,
+  outgoingSegmentId?: string,
+  durationMinutes?: number,
+  experienceId?: string,
+  isMajor = Boolean(experienceId) || (durationMinutes ?? 0) >= 20,
+  detailAr?: string,
+): JourneyStop => {
+  const point = guestJourneyV15StopPoints[code];
+  return {
+    id: `STOP-26-${code}`,
+    code,
+    title,
+    durationMinutes,
+    detailAr,
+    pathProgress: pathProgressAtClosestPoint(guestJourneyV15PlaybackPath, point),
+    isMajor,
+    outgoingSegmentId,
+    preserveSourcePoint: true,
+    point: {
+      id: `EVENT-GUEST-V15-${code}`,
+      x: point.x,
+      y: point.y,
+      label: title,
+      source: guestJourneyV15Source,
+    },
+    experienceId,
+    source: guestJourneyV15Source,
+  };
+};
+
 const workersPath = "M126 116 C215 130 305 105 390 75 C455 85 505 105 510 150 C515 185 530 205 548 220 C570 260 600 282 640 315 C600 350 550 375 550 385 C555 435 600 485 624 490 C660 455 676 393 690 355 C725 310 778 270 842 252 C810 285 765 310 756 340 C765 375 800 395 820 395 C805 430 775 440 748 425 C705 420 675 390 690 355 C650 330 610 280 565 210 C520 190 490 170 470 130 C455 100 420 85 356 95";
 const workersNaturePath = "M470 205 C410 310 300 380 250 510 C215 600 165 680 185 770";
 const mayorPath = "M126 116 C230 145 350 175 470 205 C505 215 525 220 545 220 C565 250 580 270 596 285 C620 300 635 308 640 315 C605 340 580 355 595 360 C570 375 550 385 550 385 C545 420 575 470 624 490 C660 455 670 390 690 355 C735 310 785 270 842 252 C815 285 770 315 756 350 C770 380 800 395 820 395 C725 405 640 405 560 400 C470 395 390 380 300 420 C250 445 220 440 220 405 C220 340 235 275 255 190";
 const princePath = "M126 116 C220 135 270 175 250 250 C220 330 210 410 225 445 C320 450 440 420 560 410 C625 405 665 425 685 455 C650 430 640 390 650 350 C680 300 750 260 842 252 C800 280 760 320 760 350 C780 385 810 395 820 395 C790 430 760 450 730 430 C700 405 690 360 700 330 C680 310 655 310 640 315 C605 340 580 365 550 385 C545 420 580 470 624 490 C590 450 565 420 550 385 C500 390 430 380 350 395 C285 405 235 420 225 445 C220 365 225 280 270 155";
-const guestsPath = "M126 116 C260 145 410 175 552 222 C585 250 620 310 650 385 C660 420 675 445 690 460 C650 430 635 390 650 350 C690 300 760 260 842 252 C800 285 760 320 760 350 C780 385 810 395 820 395 C785 430 755 450 725 430 C690 400 680 350 700 330 C675 300 650 300 640 315 C605 345 575 365 550 385 C545 425 575 475 624 490 C645 495 665 490 680 485 C625 430 600 360 610 300 C600 270 580 250 560 240 C530 190 480 145 430 100 C385 70 350 55 310 55";
 const mayorMediaPath = "M126 116 C245 128 405 162 550 202 C568 216 578 226 583 238 C595 253 608 268 620 280 C635 290 642 300 645 308 C620 322 590 315 570 308 C564 355 578 420 610 448 C640 430 655 355 665 302 C700 262 742 240 785 239 C760 270 724 300 711 327 C732 352 770 352 805 339 C780 368 744 376 711 327 C692 350 680 400 680 447 C650 420 635 370 645 315 C610 300 585 275 565 235 C525 210 480 192 430 188 C360 190 290 230 245 290 C225 325 230 360 255 390 C280 420 275 455 245 475 C210 495 190 465 190 420 C190 330 210 220 250 150";
 const mediaPath = "M126 116 C215 130 305 105 390 75 C455 85 505 105 510 150 C515 185 530 205 548 220 C570 260 600 285 640 315 C605 340 575 365 550 385 C545 430 575 475 624 490 C660 450 675 395 690 355 C730 310 785 270 842 252 C810 285 765 320 756 350 C770 380 800 395 820 395 C800 420 770 445 748 425 C720 410 700 385 690 355 C650 330 610 275 565 205 C525 180 490 150 465 120 C430 95 390 90 355 95";
 const mediaNaturePath = "M470 205 C410 310 300 380 250 510 C215 600 165 680 185 770";
@@ -158,28 +196,25 @@ export const journeys: SpatialJourney[] = [
     color: "#d7a94f",
     presentationDurationSeconds: 17,
     focus: { x: 70, y: 45, scale: 1.15 },
-    source: source(26),
+    source: guestJourneyV15Source,
     stops: [
-      anchoredStop(26, "A", "المدخل الرئيسي", "mainEntrance", guestsPath, 0),
-      anchoredStop(26, "B", "نقطة النزول وإركاب عربات الجولف", "reception", guestsPath, 0.16, undefined, undefined, false, undefined, "حيث يتم الاستقبال من قبل خدمة صف السيارات"),
-      anchoredStop(26, "C", "الاستقبال والعرضة السعودية", "iconPhoto", guestsPath, 0.28, 60, "royal-arrival", true, undefined, "مجسم الحدائق\n(سيتم نقل مؤقت لمجسم الحدائق إلى منطقة كبار الشخصيات يوم الزيارة فقط)\nالنصب التذكاري"),
-      anchoredStop(26, "D", "بداية الجولة التعريفية - حديقة الخيارات", "optionsGarden", guestsPath, 0.4, 6, undefined, false, undefined, "حديقة الخيارات"),
-      anchoredStop(26, "E", "الحديقة البليوسينية", "plioceneGarden", guestsPath, 0.48, 6),
-      anchoredStop(26, "F", "ممر العصور", "eraWalk", guestsPath, 0.6, 4, "era-walk", true),
-      anchoredStop(26, "G", "الحديقة العائلية", "familyGarden", guestsPath, 0.67, 6),
-      anchoredStop(26, "H", "الحديقة الديفونية", "devonianGarden", guestsPath, 0.72, 6),
-      anchoredStop(26, "I", "الحديقة الحديثة", "modernGarden", guestsPath, 0.77, 6),
-      anchoredStop(26, "J", "نقطة نهاية الرحلة", "hospitality", guestsPath, 0.82, undefined, "reception", true),
-      anchoredStop(26, "K", "تسليم الهدايا", "reception", guestsPath, 0.88, 5),
-      anchoredStop(26, "L", "مسار خروج رحلة الضيوف", "guestParking", guestsPath, 1),
+      guestStop("A", "المدخل الرئيسي", "guests-entry"),
+      guestStop("B", "نقطة النزول وإركاب عربات الجولف", "guests-transfer", undefined, undefined, false, "حيث يتم الاستقبال من قبل خدمة صف السيارات"),
+      guestStop("C", "الاستقبال والعرضة السعودية", "guests-tour", 60, "royal-arrival", true, "مجسم الحدائق\n(سيتم نقل مؤقت لمجسم الحدائق إلى منطقة كبار الشخصيات يوم الزيارة فقط)\nالنصب التذكاري"),
+      guestStop("D", "بداية الجولة التعريفية حديقة الخيارات", "guests-tour", 6, undefined, false, "حديقة الخيارات"),
+      guestStop("E", "الحديقة البليوسينية", "guests-tour", 6),
+      guestStop("F", "ممر العصور", "guests-tour", 4, "era-walk", true),
+      guestStop("G", "الحديقة العائلية", "guests-tour", 6),
+      guestStop("H", "حديقة الديفونية", "guests-tour", 6),
+      guestStop("I", "حديقة الحياة الحديثة", "guests-tour", 6),
+      guestStop("J", "نقطة نهاية الرحلة", "guests-golf-exit", undefined, "reception", true),
+      guestStop("K", "تسليم الهدايا", "guests-final-exit", 5),
+      guestStop("L", "مسار خروج رحلة الضيوف"),
     ],
-    segments: [
-      { id: "guests-entry", kind: "entry", label: "مسار الدخول", path: "M126 116 C260 145 410 175 552 222", distanceMeters: 760, realDurationMinutes: 5, transport: "vehicle", source: source(26) },
-      { id: "guests-transfer", kind: "shuttle", label: "مسار التنزيل إلى بداية الجولة", path: "M552 222 C585 250 620 310 650 385 C660 420 675 445 690 460", distanceMeters: 420, realDurationMinutes: 3, transport: "golf-cart", source: source(26) },
-      { id: "guests-tour", kind: "tour", label: "مسار الجولة", path: "M690 460 C650 430 635 390 650 350 C690 300 760 260 842 252 C800 285 760 320 760 350 C780 385 810 395 820 395 C785 430 755 450 725 430 C690 400 680 350 700 330 C675 300 650 300 640 315 C605 345 575 365 550 385 C545 425 575 475 624 490 C645 495 665 490 680 485", distanceMeters: 1400, realDurationMinutes: 10, transport: "golf-cart", source: source(26) },
-      { id: "guests-exit", kind: "exit", label: "مسار الخروج", path: "M680 485 C625 430 600 360 610 300 C600 270 580 250 560 240 C530 190 480 145 430 100 C385 70 350 55 310 55", distanceMeters: 420, realDurationMinutes: 3, transport: "golf-cart", source: source(26) },
-    ],
-    playbackPath: guestsPath,
+    segments: guestJourneyV15Segments,
+    playbackPath: guestJourneyV15PlaybackPath,
+    registrationTransform: guestJourneyV15Registration,
+    contextNotesAr: ["يسبق وصول الضيوف وصول سمو أمير منطقة الرياض بـ30 دقيقة."],
   },
   {
     id: "mayorMedia",

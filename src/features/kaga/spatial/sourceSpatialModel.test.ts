@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { journeys } from '../data/journeys';
+import { registeredJourneyById } from './registeredJourneys';
 import {
   isWithinSourceSpatialBounds,
-  legacyPointToSourceSpatial,
   registeredEventRoutes,
   sourceSpatialModel,
 } from './sourceSpatialModel';
@@ -15,11 +15,11 @@ describe('KAGA V2 source spatial contract', () => {
     expect(registeredEventRoutes.every((route) => route.sourceConfidence === 'approximate')).toBe(true);
   });
 
-  it('keeps every migrated primary stop inside the canonical Rhino-derived map bounds', () => {
+  it('keeps every registered primary stop inside the canonical Rhino-derived map bounds', () => {
     for (const journey of journeys) {
-      for (const stop of journey.stops) {
-        const migrated = legacyPointToSourceSpatial(stop.point);
-        expect(isWithinSourceSpatialBounds(migrated), `${journey.id}:${stop.id}`).toBe(true);
+      for (const stop of registeredJourneyById[journey.id].stops) {
+        const registeredPoint = { x: stop.mapPoint[0], y: stop.mapPoint[1] };
+        expect(isWithinSourceSpatialBounds(registeredPoint), `${journey.id}:${stop.stopId}`).toBe(true);
       }
     }
   });

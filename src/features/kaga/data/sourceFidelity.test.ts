@@ -101,10 +101,11 @@ describe('KAGA source-fidelity correction gates', () => {
     }
   });
 
-  it.each(journeys)('$id keeps every primary stop on marker geometry within tolerance', (journey) => {
+  it.each(journeys)('$id keeps playback anchors aligned without rewriting source control points', (journey) => {
     for (const stop of journey.stops) {
       const marker = pointAtPathProgress(journey.playbackPath, stop.pathProgress);
-      expect(distanceBetweenPoints(marker, stop.point)).toBeLessThanOrEqual(0.01);
+      const tolerance = stop.preserveSourcePoint ? 8 : 0.01;
+      expect(distanceBetweenPoints(marker, stop.point)).toBeLessThanOrEqual(tolerance);
     }
   });
 });

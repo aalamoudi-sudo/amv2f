@@ -14,12 +14,12 @@ describe('Guest Journey page-26 source contract', () => {
       'المدخل الرئيسي',
       'نقطة النزول وإركاب عربات الجولف',
       'الاستقبال والعرضة السعودية',
-      'بداية الجولة التعريفية - حديقة الخيارات',
+      'بداية الجولة التعريفية حديقة الخيارات',
       'الحديقة البليوسينية',
       'ممر العصور',
       'الحديقة العائلية',
-      'الحديقة الديفونية',
-      'الحديقة الحديثة',
+      'حديقة الديفونية',
+      'حديقة الحياة الحديثة',
       'نقطة نهاية الرحلة',
       'تسليم الهدايا',
       'مسار خروج رحلة الضيوف',
@@ -45,14 +45,21 @@ describe('Guest Journey page-26 source contract', () => {
       ['shuttle', 'golf-cart'],
       ['tour', 'golf-cart'],
       ['exit', 'golf-cart'],
+      ['exit', 'vehicle'],
     ]);
     expect(journey.segments.find((segment) => segment.kind === 'tour')?.distanceMeters).toBe(1400);
   });
 
-  it('keeps the approved route anchors and registered geometry unchanged', () => {
-    expect(journey.stops.map((stop) => stop.pathProgress)).toEqual([0, .16, .28, .4, .48, .6, .67, .72, .77, .82, .88, 1]);
-    expect(registeredJourneyById.guests.stops.map((stop) => stop.code)).toEqual(journey.stops.map((stop) => stop.code));
-    expect(registeredJourneyById.guests.stops.map((stop) => stop.pathProgress)).toEqual([0, .16, .28, .4, .48, .6, .67, .72, .77, .82, .88, 1]);
+  it('rebuilds route anchors from V.15 while keeping one monotonic A-L playback timeline', () => {
+    const registered = registeredJourneyById.guests;
+    expect(journey.registrationTransform?.sourceCoordinateSpace).toBe('KAGA-VISITOR-V15-SLIDE-4');
+    expect(registered.stops.map((stop) => stop.code)).toEqual(journey.stops.map((stop) => stop.code));
+    journey.stops.forEach((stop, index) => {
+      if (index > 0) expect(stop.pathProgress).toBeGreaterThan(journey.stops[index - 1]!.pathProgress);
+    });
+    registered.stops.forEach((stop, index) => {
+      if (index > 0) expect(stop.pathProgress).toBeGreaterThan(registered.stops[index - 1]!.pathProgress);
+    });
   });
 
   it('contains no extra or omitted mandatory stops', () => {

@@ -17,7 +17,7 @@ function cubicPoint(start: Point, controlA: Point, controlB: Point, end: Point, 
   };
 }
 
-function samplePath(path: string): SampledPoint[] {
+export function samplePath(path: string): SampledPoint[] {
   const tokens = path.match(/[A-Za-z]|-?\d+(?:\.\d+)?/g) ?? [];
   const samples: SampledPoint[] = [];
   let cursor = 0;
@@ -69,6 +69,22 @@ export function pointAtPathProgress(path: string, rawProgress: number): Point {
     x: lower.x + (upper.x - lower.x) * ratio,
     y: lower.y + (upper.y - lower.y) * ratio,
   };
+}
+
+export function pathProgressAtClosestPoint(path: string, point: Point) {
+  const samples = samplePath(path);
+  if (samples.length === 0) return 0;
+  let closest = samples[0]!;
+  let closestDistance = Number.POSITIVE_INFINITY;
+  samples.forEach((sample) => {
+    const distance = Math.hypot(sample.x - point.x, sample.y - point.y);
+    if (distance < closestDistance) {
+      closest = sample;
+      closestDistance = distance;
+    }
+  });
+  const totalLength = samples.at(-1)!.length || 1;
+  return closest.length / totalLength;
 }
 
 export function distanceBetweenPoints(a: Point, b: Point) {

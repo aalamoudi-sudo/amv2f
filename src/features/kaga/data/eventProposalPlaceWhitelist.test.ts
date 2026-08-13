@@ -23,12 +23,12 @@ const exactGuestStops = [
   ['A', 'المدخل الرئيسي', undefined],
   ['B', 'نقطة النزول وإركاب عربات الجولف', undefined],
   ['C', 'الاستقبال والعرضة السعودية', 60],
-  ['D', 'بداية الجولة التعريفية - حديقة الخيارات', 6],
+  ['D', 'بداية الجولة التعريفية حديقة الخيارات', 6],
   ['E', 'الحديقة البليوسينية', 6],
   ['F', 'ممر العصور', 4],
   ['G', 'الحديقة العائلية', 6],
-  ['H', 'الحديقة الديفونية', 6],
-  ['I', 'الحديقة الحديثة', 6],
+  ['H', 'حديقة الديفونية', 6],
+  ['I', 'حديقة الحياة الحديثة', 6],
   ['J', 'نقطة نهاية الرحلة', undefined],
   ['K', 'تسليم الهدايا', 5],
   ['L', 'مسار خروج رحلة الضيوف', undefined],
@@ -122,7 +122,9 @@ describe('Event Proposal authoritative place model', () => {
     expect(guests.stops.map((stop) => [stop.code, stop.title, stop.durationMinutes])).toEqual(exactGuestStops);
     expect(guests.stops.find((stop) => stop.code === 'C')?.detailAr).toContain('مجسم الحدائق');
     expect(guests.stops.find((stop) => stop.code === 'C')?.detailAr).toContain('النصب التذكاري');
-    expect(guests.stops.find((stop) => stop.code === 'I')?.title).not.toBe('حديقة الحياة الحديثة');
+    expect(guests.stops.find((stop) => stop.code === 'I')?.title).toBe('حديقة الحياة الحديثة');
+    expect(guests.source.slideNumbers).toEqual([4]);
+    expect(guests.source.sourceSha256).toBe('80cbd5c243102ad531252055adf9b677ae65a621ece409591ca7bcbd3283d46a');
   });
 
   it('preserves optional branches as optional canonical relationships', () => {

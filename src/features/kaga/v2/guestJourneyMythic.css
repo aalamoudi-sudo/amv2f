@@ -12,11 +12,16 @@
 .kaga-mythic-map-stage .kaga-illustrated-layers[data-reading=story] .kaga-illustrated-layer{opacity:.6}
 .kaga-mythic-map-stage .kaga-illustrated-hotspot{display:none}
 .kaga-v2-registered-map[data-source-fidelity=true] .kaga-v2-registered-map__route{opacity:.04}
-.kaga-v2-registered-map__source-segments polyline{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;transition:opacity .48s ease,stroke .48s ease,stroke-width .48s ease}
+.kaga-v2-registered-map__source-segments polyline{fill:none;stroke:var(--source-segment-color,var(--kaga-source-route-green));stroke-width:5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;transition:opacity .48s ease,stroke .48s ease,stroke-width .48s ease}
 .kaga-v2-registered-map__source-segments polyline[data-movement=car]{stroke:var(--kaga-source-route-green)}
 .kaga-v2-registered-map__source-segments polyline[data-movement=transfer]{stroke:#2f76a1;stroke-dasharray:12 7}
 .kaga-v2-registered-map__source-segments polyline[data-movement=tour]{stroke:#8b5a97}
 .kaga-v2-registered-map__source-segments polyline[data-movement=exit]{stroke:var(--kaga-source-route-orange);stroke-dasharray:14 8}
+.kaga-v2-registered-map__source-segments polyline[data-movement=road-entry]{stroke:#00b050}
+.kaga-v2-registered-map__source-segments polyline[data-movement=golf-entry]{stroke:#00b0f0}
+.kaga-v2-registered-map__source-segments polyline[data-movement=tour][data-source-segment=guests-tour]{stroke:#7030a0}
+.kaga-v2-registered-map__source-segments polyline[data-movement=golf-exit],.kaga-v2-registered-map__source-segments polyline[data-movement=final-exit]{stroke:#f00}
+.kaga-v2-registered-map__source-segments polyline[data-pattern=dashed]{stroke-dasharray:12 8}
 .kaga-v2-registered-map__source-segments polyline[data-state=complete]{opacity:.22;stroke-width:3.8}
 .kaga-v2-registered-map__source-segments polyline[data-state=current]{opacity:1;stroke:var(--kaga-source-route-gold);stroke-width:7}
 .kaga-v2-registered-map__source-segments polyline[data-state=next]{opacity:.82;stroke-width:5.6}
@@ -30,16 +35,17 @@
 .kaga-mythic-guest__header span{display:block;margin-top:.28rem;color:var(--kaga-source-route-navy);font-size:.72rem}
 .kaga-mythic-guest__story{max-width:9rem;border:0;border-block-end:1px solid var(--kaga-source-route-orange);padding:.3rem 0;color:var(--kaga-source-route-teal);background:transparent;font-size:.68rem;line-height:1.6;cursor:pointer}
 .kaga-mythic-guest__transport{display:flex;justify-content:space-between;gap:.4rem;padding:.58rem 0;color:#858c89}
-.kaga-mythic-guest__transport span{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;white-space:nowrap}
-.kaga-mythic-guest__transport svg{width:.86rem;height:.86rem;stroke-width:1.5}
-.kaga-mythic-guest__transport span[data-active=true]{color:var(--kaga-source-route-navy);font-weight:700}
+.kaga-mythic-guest__transport>span{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;white-space:nowrap}
+.kaga-mythic-transport-emoji{display:inline-grid;min-width:1rem;place-items:center;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:.9rem;line-height:1}
+.kaga-mythic-guest__transport>span[data-active=true]{color:var(--kaga-source-route-navy);font-weight:700}
 .kaga-mythic-rail{position:relative;display:flex;flex-direction:column;border-block:1px solid var(--kaga-source-route-divider,#d7ccc5);padding:.28rem 0}
 .kaga-mythic-rail::before{position:absolute;z-index:0;inset-block:.98rem;inset-inline-start:.78rem;width:1px;background:var(--kaga-source-route-divider,#d7ccc5);content:""}
 .kaga-mythic-rail button{position:relative;z-index:1;display:grid;min-width:0;grid-template-columns:1.6rem 1fr;align-items:center;gap:.42rem;border:0;padding:.205rem .08rem;background:transparent;color:#858c89;text-align:right;cursor:pointer}
 .kaga-mythic-rail button>b{position:relative;display:grid;width:1.48rem;height:1.48rem;place-items:center;border:1px solid #b8b9b7;border-radius:50%;color:#747a79;background:var(--kaga-source-route-surface);font:700 .63rem/1 Tahoma,sans-serif}
 .kaga-mythic-rail button>b>i{position:absolute;inset:-.22rem auto auto -.2rem;display:grid;width:.72rem;height:.72rem;place-items:center;border-radius:50%;color:var(--kaga-source-route-surface);background:var(--kaga-source-route-green);font:700 .48rem/1 Tahoma,sans-serif}
 .kaga-mythic-rail button>span{min-width:0;overflow:hidden;color:inherit;font-size:.6rem;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
-.kaga-mythic-rail button small{display:inline;margin-inline-start:.35rem;color:#999f9d;font-size:.5rem}
+.kaga-mythic-rail button small{display:inline-flex;align-items:center;gap:.16rem;margin-inline-start:.35rem;color:#999f9d;font-size:.5rem}
+.kaga-mythic-rail button small .kaga-mythic-transport-emoji{min-width:.78rem;font-size:.68rem}
 .kaga-mythic-rail button[data-state=complete]{color:#5d706a}
 .kaga-mythic-rail button[data-state=complete]>b{border-color:var(--kaga-source-route-green);color:var(--kaga-source-route-green)}
 .kaga-mythic-rail button[data-state=current]{color:var(--kaga-source-route-navy);font-weight:700}
@@ -79,8 +85,11 @@
 .kaga-mythic-guest__source-mode>button,.kaga-mythic-guest__source-mode summary{border:0;border-block-end:1px solid var(--kaga-source-route-gold);padding:.15rem 0;color:#65716e;background:transparent;font-size:.52rem;cursor:pointer}
 .kaga-mythic-guest__source-mode>button[aria-pressed=true]{color:var(--kaga-source-route-orange);border-color:var(--kaga-source-route-orange)}
 .kaga-mythic-guest__source-mode details{position:relative}
-.kaga-mythic-guest__source-mode details>p{display:flex;min-width:13rem;margin:.2rem 0;justify-content:space-between;gap:.5rem;font-size:.5rem}
+.kaga-mythic-guest__source-mode details>p{display:grid;min-width:15rem;margin:.28rem 0;grid-template-columns:1.8rem 1fr auto;align-items:center;gap:.45rem;font-size:.5rem}
+.kaga-mythic-guest__source-mode details>p>i{display:block;width:1.65rem;height:2px;background:var(--movement-color);content:""}
+.kaga-mythic-guest__source-mode details>p[data-pattern=dashed]>i{background:repeating-linear-gradient(90deg,var(--movement-color) 0 .45rem,transparent .45rem .72rem)}
 .kaga-mythic-guest__source-mode details small{color:#777f7c}
+.kaga-mythic-guest__source-mode details>em{display:block;max-width:15rem;margin-top:.45rem;border-block-start:1px solid var(--kaga-source-route-divider);padding-top:.38rem;color:#747b78;font-size:.48rem;font-style:normal;line-height:1.65}
 .kaga-mythic-guest__journey-index{margin-top:.2rem;color:#6d7471;font-size:.52rem}
 .kaga-mythic-guest__journey-index summary{width:max-content;border-block-end:1px solid var(--kaga-source-route-divider,#d7ccc5);cursor:pointer}
 .kaga-mythic-guest__journey-index nav{display:grid;grid-template-columns:1fr 1fr;gap:.18rem .6rem;margin-top:.35rem}

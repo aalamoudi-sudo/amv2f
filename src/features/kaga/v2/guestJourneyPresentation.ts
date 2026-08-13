@@ -12,8 +12,15 @@ export interface GuestStopPresentation {
 export const guestTransportLabels: Record<GuestTransportMode, string> = {
   car: 'سيارة',
   'golf-cart': 'عربة جولف',
-  tour: 'جولة',
-  exit: 'خروج',
+  tour: 'جولة بعربة جولف',
+  exit: 'خروج بالسيارة',
+};
+
+export const guestTransportEmoji: Record<GuestTransportMode, string> = {
+  car: '🚗',
+  'golf-cart': '⛳',
+  tour: '⛳',
+  exit: '🚗',
 };
 
 export const guestStopPresentation: GuestStopPresentation[] = [
@@ -24,8 +31,8 @@ export const guestStopPresentation: GuestStopPresentation[] = [
   { code: 'E', shortTitleAr: 'الحديقة البليوسينية', descriptionAr: 'تنتقل الجولة إلى الحديقة البليوسينية وفق تسلسل رحلة الضيوف.', transport: 'tour' },
   { code: 'F', shortTitleAr: 'ممر العصور', descriptionAr: 'تمر رحلة الضيوف عبر ممر العصور.', transport: 'tour' },
   { code: 'G', shortTitleAr: 'الحديقة العائلية', descriptionAr: 'تتواصل الجولة في الحديقة العائلية.', transport: 'tour' },
-  { code: 'H', shortTitleAr: 'الحديقة الديفونية', descriptionAr: 'تصل الجولة إلى الحديقة الديفونية.', transport: 'tour' },
-  { code: 'I', shortTitleAr: 'الحديقة الحديثة', descriptionAr: 'تختتم محطات الحدائق في الحديقة الحديثة.', transport: 'tour' },
+  { code: 'H', shortTitleAr: 'حديقة الديفونية', descriptionAr: 'تصل الجولة إلى حديقة الديفونية.', transport: 'tour' },
+  { code: 'I', shortTitleAr: 'حديقة الحياة الحديثة', descriptionAr: 'تختتم محطات الحدائق في حديقة الحياة الحديثة وفق ملف V.15.', transport: 'tour' },
   { code: 'J', shortTitleAr: 'نهاية الرحلة', descriptionAr: 'نقطة نهاية جولة رحلة الضيوف.', transport: 'tour' },
   { code: 'K', shortTitleAr: 'تسليم الهدايا', descriptionAr: 'تُسلّم الهدايا للضيوف قبل المغادرة.', transport: 'golf-cart' },
   { code: 'L', shortTitleAr: 'مسار الخروج', descriptionAr: 'مسار خروج رحلة الضيوف بعربة الجولف.', transport: 'exit' },
@@ -41,4 +48,7 @@ export const guestJourneyMovementSummary = journeyById.guests.segments.map((segm
   transportAr: segment.transport === 'vehicle' ? 'سيارة' : 'عربة جولف',
   distanceMeters: segment.distanceMeters,
   realDurationMinutes: segment.realDurationMinutes,
+  sourceColor: segment.sourceVisual?.color,
+  sourcePattern: segment.sourceVisual?.pattern,
+  sourceLabelAr: segment.sourceVisual?.labelAr,
 }));

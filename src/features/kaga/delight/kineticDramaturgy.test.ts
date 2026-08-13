@@ -60,7 +60,7 @@ describe('KAGA kinetic dramaturgy', () => {
     expect(activeCodeAt(84_000)).toBe('D');
   });
 
-  it('locks the approved Guest route geometry and Illustrator registration', () => {
+  it('locks the V.15 Guest route geometry and approved Illustrator registration', () => {
     const routeContract = {
       pathD: guestDelightJourney.pathD,
       segments: guestDelightJourney.segments,
@@ -74,11 +74,11 @@ describe('KAGA kinetic dramaturgy', () => {
       controlPoints: illustratedMapRegistration.controlPoints,
     };
 
-    expect(hash(routeContract)).toBe('9275c6c6f5ac0ab567c317800faf15f5f3608423966dafab3009a7911a38d53d');
+    expect(hash(routeContract)).toBe('3173e65e640b09909fbde3ae0a003b3a84f698a690959cbc528661799db6fc49');
     expect(hash(mapContract)).toBe('2d01c56b023fb7cfd230e1782309c516cca5fdaac5bb8a1c2da057c59965fc2d');
   });
 
-  it('restores the exact C progress before moving only to defensibly registered D', () => {
+  it('restores exact C progress before moving to source-authored D without overstating point accuracy', () => {
     const stopC = guestDelightJourney.stops.find((stop) => stop.code === 'C')!;
     const stopD = guestDelightJourney.stops.find((stop) => stop.code === 'D')!;
     expect(stopC.eventLabel).toBe('الاستقبال والعرضة السعودية');
@@ -86,7 +86,7 @@ describe('KAGA kinetic dramaturgy', () => {
     expect([36_000, 67_000, 71_000, 75_999].map(guestProgressAtDelightTime)).toEqual(Array(4).fill(stopC.pathProgress));
     expect(stopD.canonicalPlaceId).toBe('optionsGarden');
     expect(stopD.physicalEntityId).toBe('optionsGarden');
-    expect(stopD.anchorConfidence).toBe('high');
+    expect(stopD.anchorConfidence).toBe('approximate');
   });
 
   it('defines the approved reusable kinetic vocabulary', () => {
