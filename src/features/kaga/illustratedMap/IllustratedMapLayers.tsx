@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import {
   illustratedMapReadings,
   illustratedMapRegistration,
@@ -9,9 +10,11 @@ interface IllustratedMapLayersProps {
   reading: IllustratedMapReading;
   activePlaceId?: string;
   onPlaceSelect?: (placeId: string) => void;
+  softEdge?: boolean;
 }
 
-export function IllustratedMapLayers({ reading, activePlaceId, onPlaceSelect }: IllustratedMapLayersProps) {
+export function IllustratedMapLayers({ reading, activePlaceId, onPlaceSelect, softEdge = false }: IllustratedMapLayersProps) {
+  const softEdgeId = useId().replace(/:/g, '');
   if (reading === 'masterplan') return null;
   const { runtimeAssets, canonicalTransform, sourceImageSize } = illustratedMapRegistration;
   const layers = [
@@ -23,20 +26,33 @@ export function IllustratedMapLayers({ reading, activePlaceId, onPlaceSelect }: 
   ] as const;
   return (
     <g className="kaga-illustrated-layers" data-testid="illustrated-map-layers" data-reading={reading} aria-label="طبقة الخريطة التصويرية">
-      <g transform={canonicalTransform.svgMatrix}>
-        {layers.map((layer, index) => (
-          <image
-            key={layer.href}
-            className={`kaga-illustrated-layer${index === 0 ? ' kaga-illustrated-layer--context' : ''}`}
-            data-layer-index={index}
-            data-layer-role={layer.role}
-            data-depth-plane={layer.depthPlane}
-            href={layer.href}
-            width={sourceImageSize[0]}
-            height={sourceImageSize[1]}
-            preserveAspectRatio="none"
-          />
-        ))}
+      {softEdge ? (
+        <defs>
+          <radialGradient id={`${softEdgeId}-gradient`} cx="50%" cy="48%" r="58%">
+            <stop offset="0%" stopColor="white" />
+            <stop offset="67%" stopColor="white" />
+            <stop offset="88%" stopColor="white" stopOpacity=".62" />
+            <stop offset="100%" stopColor="black" />
+          </radialGradient>
+          <mask id={`${softEdgeId}-mask`} maskUnits="userSpaceOnUse" x="0" y="0" width={sourceImageSize[0]} height={sourceImageSize[1]}>
+            <rect width={sourceImageSize[0]} height={sourceImageSize[1]} fill={`url(#${softEdgeId}-gradient)`} />
+          </mask>
+        </defs>
+      ) : null}
+      <g transform={canonicalTransform.svgMatrix} mask={softEdge ? `url(#${softEdgeId}-mask)` : undefined}>
+          {layers.map((layer, index) => (
+            <image
+              key={layer.href}
+              className={`kaga-illustrated-layer${index === 0 ? ' kaga-illustrated-layer--context' : ''}`}
+              data-layer-index={index}
+              data-layer-role={layer.role}
+              data-depth-plane={layer.depthPlane}
+              href={layer.href}
+              width={sourceImageSize[0]}
+              height={sourceImageSize[1]}
+              preserveAspectRatio="none"
+            />
+          ))}
       </g>
       <g className="kaga-illustrated-hotspots" aria-label="المواقع المسجلة">
         {illustratedRegisteredHotspots.map((hotspot) => (

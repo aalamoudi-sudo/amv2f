@@ -148,6 +148,7 @@ export function ExecutiveDelight90s({ onExit }: ExecutiveDelight90sProps) {
       data-elapsed-second={Math.floor(elapsedMs / 1_000)}
       data-running={running}
       data-exploring={exploring}
+      data-finished={finished}
       style={{ '--delight-focus-x': `${focusPercent.x}%`, '--delight-focus-y': `${focusPercent.y}%` } as React.CSSProperties}
     >
       <AnimatePresence>
@@ -157,7 +158,7 @@ export function ExecutiveDelight90s({ onExit }: ExecutiveDelight90sProps) {
             className="kaga-delight-majesty"
             initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={reduceMotion ? { opacity: 0 } : { clipPath: 'inset(0 0 0 58%)', opacity: .96 }}
+            exit={reduceMotion ? { opacity: 0 } : { clipPath: 'inset(0 58% 0 0)', opacity: .96 }}
             transition={{ ...kineticMotion.siteReveal, duration: reduceMotion ? 0 : kineticMotion.siteReveal.duration }}
           >
             <img src="/kaga/assets/v2/site-aerial-p001.jpg" alt="المشهد الجوي لحدائق الملك عبدالله" />
@@ -171,7 +172,13 @@ export function ExecutiveDelight90s({ onExit }: ExecutiveDelight90sProps) {
               transition={{ ...kineticMotion.cinematicDescent, duration: reduceMotion ? 0 : kineticMotion.cinematicDescent.duration }}
             />
             <div className="kaga-delight-majesty__shade" />
-            <motion.div className="kaga-delight-majesty__identity" initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .9 }}>
+            <motion.div
+              className="kaga-delight-majesty__identity"
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 28 }}
+              transition={{ duration: .9, delay: .9 }}
+            >
               <small>حدائق الملك عبدالله · الرياض</small>
               <h1><span>تدشين</span><strong>حدائق<br />الملك عبدالله</strong></h1>
               <i aria-hidden="true" />

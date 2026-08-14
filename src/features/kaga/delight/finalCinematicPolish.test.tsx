@@ -32,4 +32,13 @@ describe('KAGA final cinematic polish contract', () => {
     expect(polishCss).not.toMatch(/blur\s*\(/);
     expect(polishCss).toContain(".kaga-delight-tease__title h2");
   });
+
+  it('keeps the executive journey title inside a presentation-safe width and restores an exit after the final hold', () => {
+    const polishCss = readFileSync('src/features/kaga/delight/finalCinematicPolish.css', 'utf8');
+    const componentSource = readFileSync('src/features/kaga/delight/ExecutiveDelight90s.tsx', 'utf8');
+    expect(polishCss).toContain('width: min(25rem, 25vw)');
+    expect(polishCss).toMatch(/\.kaga-delight-map-world\s*\{\s*overflow:\s*clip/);
+    expect(polishCss).toContain(".kaga-delight[data-finished='true'][data-act='tease'] .kaga-delight-director");
+    expect(componentSource).toContain('data-finished={finished}');
+  });
 });

@@ -333,6 +333,7 @@ export function KagaV2Masterplan({
               playing={playing}
               reading={mapReading}
               sourceFidelityMode={sourceFidelityMode}
+              softIllustratedEdge
               selectedGardenId={selectedGardenId}
               selectedStopIndex={selectedStopIndex}
               provenanceMode={provenanceMode}
@@ -342,6 +343,17 @@ export function KagaV2Masterplan({
           </div>
           <div className="kaga-rebirth-guest-world__atmosphere" aria-hidden="true" />
           <div className="kaga-rebirth-guest-world__focus" aria-hidden="true"><i /><span /></div>
+          <aside className="kaga-v15-spatial-stop" aria-live="polite" data-testid="v15-spatial-stop">
+            <strong aria-hidden="true">{activeStop.code}</strong>
+            <div>
+              <p>{progress === 0 && activeStop.code === 'A' ? 'نقطة البداية' : 'الآن في الرحلة'}</p>
+              <h2>{activeStop.eventLabel}</h2>
+              <span>
+                {activeStop.durationMinutes ? `${activeStop.durationMinutes} دقيقة` : 'رحلة الضيوف'}
+                {activeJourney.stops[selectedStopIndex + 1] ? ` · التالي ${activeJourney.stops[selectedStopIndex + 1]?.code}` : ''}
+              </span>
+            </div>
+          </aside>
         </div>
         {renderPanel()}
       </section>

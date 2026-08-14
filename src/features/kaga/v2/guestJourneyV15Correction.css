@@ -1,0 +1,418 @@
+/* V.15 visual correction — source-native route/map composition.
+ * Presentation only: no coordinates, route semantics or progress logic change here. */
+.kaga-rebirth-guest-world.kaga-pf-masterplan {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(26rem, 27vw, 33rem);
+  direction: ltr;
+  padding-inline-end: clamp(2.5rem, 3.2vw, 4.5rem);
+  box-sizing: border-box;
+  background: var(--kaga-source-route-page);
+  transition: grid-template-columns var(--kaga-motion-spatial-travel), padding var(--kaga-motion-editorial-reveal);
+}
+
+.kaga-rebirth-guest-world[data-playing='true'] {
+  grid-template-columns: minmax(0, 1fr) clamp(18rem, 20vw, 22rem);
+  padding-inline-end: clamp(1.5rem, 2vw, 2.5rem);
+}
+
+.kaga-rebirth-guest-world__canvas {
+  position: relative;
+  inset: auto;
+  grid-column: 1;
+  min-width: 0;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 52% 48%, rgba(255, 255, 255, .2), transparent 56%),
+    var(--kaga-source-route-page);
+}
+
+.kaga-rebirth-guest-world__map {
+  position: absolute;
+  inset: 1.4rem .35rem .35rem;
+  transform-origin: var(--rebirth-focus-x) var(--rebirth-focus-y);
+  transition: transform var(--kaga-motion-spatial-travel), filter var(--kaga-motion-editorial-reveal);
+}
+
+.kaga-rebirth-guest-world[data-camera-state='overview'] .kaga-rebirth-guest-world__map { transform: scale(1.09); }
+.kaga-rebirth-guest-world[data-camera-state='approach'] .kaga-rebirth-guest-world__map { transform: scale(1.15); }
+.kaga-rebirth-guest-world[data-camera-state='arrival'] .kaga-rebirth-guest-world__map { transform: scale(1.21); filter: saturate(1.02) contrast(1.035); }
+
+.kaga-rebirth-guest-world__map .kaga-v2-registered-map > svg {
+  overflow: hidden;
+}
+
+.kaga-rebirth-guest-world .kaga-v2-registered-map[data-reading='illustrated'] .kaga-v2-registered-map__canonical {
+  opacity: .46;
+  filter: grayscale(.25) contrast(1.02);
+}
+
+.kaga-rebirth-guest-world .kaga-illustrated-layers {
+  opacity: .98;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+.kaga-rebirth-guest-world .kaga-illustrated-hotspots { display: none; }
+
+.kaga-rebirth-guest-world__atmosphere {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(244, 236, 232, .08), transparent 10%, transparent 90%, rgba(244, 236, 232, .12)),
+    linear-gradient(180deg, rgba(244, 236, 232, .14), transparent 12%, transparent 90%, rgba(244, 236, 232, .18));
+}
+
+.kaga-rebirth-guest-world__focus {
+  z-index: 6;
+  width: 4.4rem;
+  height: 4.4rem;
+  opacity: 0;
+}
+
+.kaga-rebirth-guest-world[data-camera-state='arrival'] .kaga-rebirth-guest-world__focus {
+  width: 6rem;
+  height: 6rem;
+  opacity: .58;
+}
+
+.kaga-v15-spatial-stop {
+  position: absolute;
+  z-index: 8;
+  top: clamp(9rem, calc(var(--rebirth-focus-y) + 3.8rem), calc(100% - 11rem));
+  left: clamp(4rem, calc(var(--rebirth-focus-x) + 3rem), calc(100% - 25rem));
+  display: grid;
+  width: min(23rem, 31vw);
+  grid-template-columns: 3.7rem minmax(0, 1fr);
+  align-items: center;
+  gap: .9rem;
+  direction: rtl;
+  color: var(--kaga-source-route-navy);
+  border-block-start: 1px solid color-mix(in srgb, var(--kaga-source-route-gold) 72%, transparent);
+  padding: .65rem .8rem .7rem;
+  background: linear-gradient(90deg, transparent, rgba(244, 236, 232, .72) 32%, rgba(244, 236, 232, .96));
+  filter: drop-shadow(0 .35rem .9rem rgba(248, 243, 239, .7));
+  pointer-events: none;
+  transition: top var(--kaga-motion-spatial-travel), left var(--kaga-motion-spatial-travel), opacity var(--kaga-motion-editorial-reveal), transform var(--kaga-motion-editorial-reveal);
+}
+.kaga-v15-spatial-stop > strong {
+  display: grid;
+  width: 3.55rem;
+  height: 3.55rem;
+  place-items: center;
+  border: 1px solid var(--kaga-source-route-gold);
+  border-radius: 50%;
+  color: white;
+  background: var(--kaga-source-route-navy);
+  font: 700 1.25rem/1 Tahoma, sans-serif;
+  box-shadow: 0 .45rem 1rem rgba(6, 42, 61, .16);
+}
+.kaga-v15-spatial-stop p { margin: 0 0 .18rem; color: var(--kaga-source-route-orange); font-size: .62rem; }
+.kaga-v15-spatial-stop h2 { margin: 0; color: var(--kaga-source-route-teal); font-size: clamp(1.25rem, 1.45vw, 1.9rem); line-height: 1.35; }
+.kaga-v15-spatial-stop span { display: block; margin-top: .24rem; color: #52625e; font-size: .68rem; }
+
+.kaga-rebirth-guest-world > .kaga-mythic-guest {
+  position: relative;
+  z-index: 12;
+  inset: auto;
+  grid-column: 2;
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+  padding: clamp(1.25rem, 2.3vh, 2rem) clamp(2.5rem, 3.1vw, 4rem) 1rem clamp(1.65rem, 2vw, 2.6rem);
+  overflow: hidden;
+  direction: rtl;
+  pointer-events: auto;
+  background: color-mix(in srgb, var(--kaga-source-route-page) 97%, white);
+  border-inline-start: 1px solid color-mix(in srgb, var(--kaga-source-route-gold) 48%, transparent);
+  box-shadow: -1.4rem 0 3.5rem rgba(19, 62, 55, .055);
+  box-sizing: border-box;
+  transition: padding var(--kaga-motion-editorial-reveal), box-shadow var(--kaga-motion-editorial-reveal);
+}
+
+.kaga-rebirth-guest-world > .kaga-mythic-guest * { box-sizing: border-box; }
+
+.kaga-rebirth-guest-world .kaga-mythic-guest__header,
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport,
+.kaga-rebirth-guest-world .kaga-mythic-rail,
+.kaga-rebirth-guest-world .kaga-mythic-stop,
+.kaga-rebirth-guest-world .kaga-mythic-playback,
+.kaga-rebirth-guest-world .kaga-mythic-guest__source-mode,
+.kaga-rebirth-guest-world .kaga-mythic-guest__journey-index {
+  position: relative;
+  inset: auto;
+  width: auto;
+  filter: none;
+}
+
+.kaga-rebirth-guest-world .kaga-mythic-guest__header {
+  order: 0;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  border-block-end: 1px solid color-mix(in srgb, var(--kaga-source-route-gold) 62%, transparent);
+  padding: 0 0 .8rem;
+}
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-mythic-guest__header p,
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-mythic-guest__story { display: none; }
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-mythic-guest__header h1 { font-size: clamp(1.55rem, 1.65vw, 2.1rem); }
+
+.kaga-rebirth-guest-world .kaga-mythic-guest__header > div { min-width: 0; flex: 1 1 auto; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__header p { margin: 0; font-size: .64rem; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__header h1 {
+  max-width: none;
+  width: 100%;
+  margin: .25rem 0 .3rem;
+  padding-inline-end: .12em;
+  overflow-wrap: normal;
+  font-size: clamp(2rem, 2.1vw, 2.8rem);
+  line-height: 1.14;
+  text-align: right;
+}
+.kaga-rebirth-guest-world .kaga-mythic-guest__header span { font-size: .8rem; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__story {
+  flex: 0 0 auto;
+  max-width: 7.6rem;
+  margin: .2rem auto 0 0;
+  font-size: .7rem;
+}
+
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport {
+  order: 1;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  gap: clamp(.65rem, 1vw, 1rem);
+  padding: .6rem 0 .45rem;
+}
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport > span {
+  display: inline-flex;
+  align-items: center;
+  gap: .28rem;
+  opacity: .56;
+  font-size: .62rem;
+  border-block-start: 2px solid var(--mode-color, var(--kaga-source-route-divider));
+  padding-block-start: .3rem;
+}
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport > span:has([data-transport-mode='car']) { --mode-color: #00b050; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport > span:has([data-transport-mode='golf-cart']) { --mode-color: #00b0f0; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport > span:has([data-transport-mode='tour']) { --mode-color: #7030a0; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport > span:has([data-transport-mode='exit']) { --mode-color: #f00; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__transport > span[data-active='true'] { opacity: 1; }
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-mythic-guest__transport > span { opacity: .22; }
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-mythic-guest__transport > span[data-active='true'] { opacity: 1; }
+
+.kaga-mythic-transport-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: .9rem;
+  flex: 0 0 auto;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
+.kaga-mythic-transport-icon .is-direction { stroke: var(--kaga-source-route-orange); }
+
+.kaga-rebirth-guest-world .kaga-mythic-stop {
+  order: 2;
+  flex: 0 0 auto;
+  margin: 0;
+  border-block: 1px solid color-mix(in srgb, var(--kaga-source-route-divider) 82%, transparent);
+  padding: .62rem 0 .56rem;
+}
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-mythic-stop { display: none; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__identity {
+  grid-template-columns: 2.7rem minmax(0, 1fr) auto;
+  gap: .65rem;
+}
+.kaga-rebirth-guest-world .kaga-mythic-stop__identity > strong { width: 2.55rem; height: 2.55rem; font-size: 1rem; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__identity h2 {
+  max-width: none;
+  font-size: clamp(1rem, 1.12vw, 1.35rem);
+  line-height: 1.35;
+}
+.kaga-rebirth-guest-world .kaga-mythic-stop__identity time { grid-column: auto; margin: 0; font-size: .68rem; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__description {
+  max-width: none;
+  margin: .42rem 0 .2rem;
+  font-size: .66rem;
+  line-height: 1.62;
+}
+.kaga-rebirth-guest-world .kaga-mythic-stop__next { max-width: none; margin-block-start: .32rem; }
+.kaga-rebirth-guest-world .kaga-mythic-stop__more,
+.kaga-rebirth-guest-world .kaga-mythic-stop__actions { width: max-content; }
+
+.kaga-rebirth-guest-world .kaga-mythic-rail {
+  order: 3;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 12rem;
+  margin: .45rem 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 0;
+  padding: .1rem .05rem .1rem .3rem;
+  background: transparent;
+  scrollbar-color: color-mix(in srgb, var(--kaga-source-route-gold) 62%, transparent) transparent;
+  scrollbar-width: thin;
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail::before {
+  inset-block: .85rem;
+  inset-inline-start: .87rem;
+  width: 1px;
+  height: auto;
+  background: color-mix(in srgb, var(--kaga-source-route-gold) 54%, var(--kaga-source-route-divider));
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail button {
+  display: grid;
+  min-height: 2.18rem;
+  grid-template-columns: 1.68rem minmax(0, 1fr);
+  justify-items: stretch;
+  gap: .52rem;
+  padding: .14rem 0;
+  text-align: right;
+  transform: none;
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail button > b {
+  width: 1.58rem;
+  height: 1.58rem;
+  background: var(--kaga-source-route-page);
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail button > span {
+  width: auto;
+  align-self: center;
+  color: inherit;
+  font-size: clamp(.72rem, .68vw, .84rem);
+  line-height: 1.32;
+  text-align: right;
+  white-space: nowrap;
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail button small {
+  display: inline-flex;
+  align-items: center;
+  gap: .2rem;
+  margin: 0 .42rem 0 0;
+  color: #727b78;
+  font-size: .56rem;
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail button small .kaga-mythic-transport-icon { width: 1rem; height: .72rem; }
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='current'],
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='next'] { transform: none; }
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='current']::after {
+  inset: 20% auto auto -.5rem;
+  width: 2px;
+  height: 60%;
+}
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='future'] { opacity: .84; }
+.kaga-rebirth-guest-world .kaga-mythic-rail button[data-state='current'] > span { font-size: clamp(.8rem, .75vw, .92rem); }
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-mythic-rail button[data-state='future'] { opacity: .58; }
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-mythic-rail button[data-state='next'] { opacity: .78; }
+
+.kaga-rebirth-guest-world .kaga-mythic-playback {
+  order: 4;
+  flex: 0 0 auto;
+  margin: 0;
+  border-block-start: 1px solid color-mix(in srgb, var(--kaga-source-route-divider) 82%, transparent);
+  padding: .55rem 0 0;
+}
+.kaga-rebirth-guest-world .kaga-mythic-playback > div { grid-template-columns: 2.15rem 1fr 2.15rem; }
+.kaga-rebirth-guest-world .kaga-mythic-playback button { background: transparent; backdrop-filter: none; }
+.kaga-rebirth-guest-world .kaga-mythic-playback label { background: transparent; }
+
+.kaga-rebirth-guest-world .kaga-mythic-guest__source-mode {
+  order: 5;
+  z-index: 20;
+  display: flex;
+  flex: 0 0 auto;
+  padding: .36rem 0 0;
+}
+.kaga-rebirth-guest-world .kaga-mythic-guest__source-mode details[open] {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  width: min(25rem, 100%);
+  padding: .65rem;
+  background: var(--kaga-source-route-page);
+  box-shadow: 0 -.8rem 2.2rem rgba(18, 54, 48, .11);
+}
+.kaga-rebirth-guest-world .kaga-mythic-guest__source-mode details small { display: inline-flex; align-items: center; gap: .25rem; }
+.kaga-rebirth-guest-world .kaga-mythic-guest__journey-index { order: 6; flex: 0 0 auto; margin: .2rem 0 0; }
+
+.kaga-rebirth-guest-world .kaga-map-reading-switcher {
+  top: 1rem;
+  right: 50%;
+  left: auto;
+  transform: translateX(50%);
+  background: rgba(248, 243, 239, .88);
+}
+
+.kaga-rebirth-guest-world .kaga-v2-registered-map__source-segments .kaga-v2-registered-map__source-segment-halo {
+  opacity: 0;
+  stroke: var(--kaga-source-route-gold);
+  stroke-width: 10;
+  stroke-dasharray: none;
+}
+.kaga-rebirth-guest-world .kaga-v2-registered-map__source-segments .kaga-v2-registered-map__source-segment-halo[data-state='current'] {
+  opacity: .62;
+}
+.kaga-rebirth-guest-world .kaga-v2-registered-map__source-segments .kaga-v2-registered-map__source-segment-core[data-state='current'] {
+  opacity: 1;
+  stroke: var(--source-segment-color);
+  stroke-width: 5.8;
+}
+.kaga-rebirth-guest-world .kaga-v2-registered-map__source-segments .kaga-v2-registered-map__source-segment-core[data-state='complete'] { opacity: .24; }
+.kaga-rebirth-guest-world .kaga-v2-registered-map__source-segments .kaga-v2-registered-map__source-segment-core[data-state='next'] { opacity: .88; }
+.kaga-rebirth-guest-world .kaga-v2-registered-map__source-segments .kaga-v2-registered-map__source-segment-core[data-state='future'] { opacity: .48; }
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-v2-registered-map__source-segments .kaga-v2-registered-map__source-segment-core[data-state='future'] { opacity: .2; }
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-v2-registered-map__source-segments .kaga-v2-registered-map__source-segment-core[data-state='next'] { opacity: .66; }
+.kaga-rebirth-guest-world[data-playing='true'] .kaga-v2-registered-map__stop:not([data-active='true']):not([data-next='true']) { opacity: .48; }
+
+@media (min-width: 2300px) {
+  .kaga-rebirth-guest-world.kaga-pf-masterplan { grid-template-columns: minmax(0, 1fr) 34rem; }
+  .kaga-rebirth-guest-world.kaga-pf-masterplan[data-playing='true'] { grid-template-columns: minmax(0, 1fr) 25rem; }
+  .kaga-rebirth-guest-world > .kaga-mythic-guest { padding-inline: 2.7rem; }
+  .kaga-rebirth-guest-world .kaga-mythic-guest__header h1 { font-size: 3rem; }
+  .kaga-rebirth-guest-world .kaga-mythic-rail button > span { font-size: .82rem; }
+}
+
+@media (max-width: 1500px) {
+  .kaga-rebirth-guest-world.kaga-pf-masterplan { grid-template-columns: minmax(0, 1fr) 24rem; padding-inline-end: 2rem; }
+  .kaga-rebirth-guest-world > .kaga-mythic-guest { padding: 1rem 1.3rem .75rem; }
+  .kaga-rebirth-guest-world .kaga-mythic-guest__header h1 { font-size: 1.85rem; }
+  .kaga-rebirth-guest-world .kaga-mythic-stop__description { display: none; }
+  .kaga-rebirth-guest-world .kaga-mythic-rail button { min-height: 1.86rem; }
+}
+
+.kaga-v2-app:has(.kaga-rebirth-guest-world) .kaga-v2-executive-header {
+  position: absolute;
+  z-index: 40;
+  inset: 0 0 auto;
+  opacity: .055;
+  background: linear-gradient(180deg, rgba(244, 236, 232, .86), transparent);
+}
+.kaga-v2-app:has(.kaga-rebirth-guest-world) > .kaga-v2-world {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+@media (max-width: 1050px) {
+  .kaga-rebirth-guest-world.kaga-pf-masterplan {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(32rem, 62vh) auto;
+    height: auto;
+    min-height: 100%;
+    overflow: auto;
+    padding-inline-end: 0;
+  }
+  .kaga-rebirth-guest-world__canvas { grid-row: 1; min-height: 32rem; }
+  .kaga-rebirth-guest-world > .kaga-mythic-guest { grid-column: 1; grid-row: 2; min-height: 46rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kaga-rebirth-guest-world__map { transition: none; }
+}

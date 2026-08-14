@@ -5,13 +5,40 @@ import type { RegisteredJourney, RegisteredJourneyStop } from '../spatial/regist
 import {
   guestJourneyMovementSummary,
   guestStopPresentationByCode,
-  guestTransportEmoji,
   guestTransportLabels,
   type GuestTransportMode,
 } from './guestJourneyPresentation';
 
 const TransportIcon = ({ mode }: { mode: GuestTransportMode }) => {
-  return <span className="kaga-mythic-transport-emoji" data-transport-mode={mode} aria-hidden="true">{guestTransportEmoji[mode]}</span>;
+  const isGolfCart = mode === 'golf-cart' || mode === 'tour';
+
+  return (
+    <svg
+      className="kaga-mythic-transport-icon"
+      data-transport-mode={mode}
+      viewBox="0 0 32 20"
+      aria-hidden="true"
+    >
+      {isGolfCart ? (
+        <>
+          <path d="M6 13.5h19l-1.5-6H11L8 10H5.5" />
+          <path d="M12 7.5V3.5h10.5l2 4" />
+          <path d="M10.5 3.5h13.8" />
+          <circle cx="10" cy="15.5" r="2.2" />
+          <circle cx="23" cy="15.5" r="2.2" />
+          {mode === 'tour' ? <path className="is-direction" d="M3 5h5M5.5 2.5 8 5 5.5 7.5" /> : null}
+        </>
+      ) : (
+        <>
+          <path d="M5 13.5h22l-1.2-6.2-4.3-3H11.2l-3.7 5H5z" />
+          <path d="M11 4.5 9 9h14.5l-3-4.5" />
+          <circle cx="10" cy="15.5" r="2.2" />
+          <circle cx="23" cy="15.5" r="2.2" />
+          {mode === 'exit' ? <path className="is-direction" d="M29 4h-5M26.5 1.5 24 4l2.5 2.5" /> : null}
+        </>
+      )}
+    </svg>
+  );
 };
 
 interface GuestJourneyPanelProps {
@@ -187,7 +214,7 @@ export function GuestJourneyPanel({
                 <p key={item.id} data-pattern={item.sourcePattern}>
                   <i aria-hidden="true" style={{ '--movement-color': item.sourceColor } as CSSProperties} />
                   <span>{item.sourceLabelAr ?? item.labelAr}</span>
-                  <small><span aria-hidden="true">{item.transportAr === 'سيارة' ? '🚗' : '⛳'}</span> {item.transportAr}{item.distanceMeters ? ` · ${item.distanceMeters} م` : ''}{item.realDurationMinutes ? ` · ${item.realDurationMinutes} دقائق` : ''}</small>
+                  <small><TransportIcon mode={item.transportAr === 'سيارة' ? 'car' : 'golf-cart'} /> {item.transportAr}{item.distanceMeters ? ` · ${item.distanceMeters} م` : ''}{item.realDurationMinutes ? ` · ${item.realDurationMinutes} دقائق` : ''}</small>
                 </p>
               ))}
               {sourceJourney.contextNotesAr?.map((note) => <em key={note}>{note}</em>)}

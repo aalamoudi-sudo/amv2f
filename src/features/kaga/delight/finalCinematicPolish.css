@@ -129,6 +129,129 @@
   pointer-events: none;
 }
 
+/* Final-session executive polish: preserve the approved worlds while removing
+   the remaining presentation-distance and end-state defects. */
+.kaga-delight,
+.kaga-delight-map-world {
+  overflow: clip;
+}
+.kaga-delight-itinerary {
+  right: clamp(3.25rem, 4.5vw, 6rem);
+  left: clamp(3.25rem, 4.5vw, 6rem);
+  bottom: 1.65rem;
+}
+.kaga-delight-itinerary header {
+  right: 0;
+  bottom: 7.55rem;
+  width: min(25rem, 25vw);
+  padding-inline-end: .2rem;
+  text-align: right;
+}
+.kaga-delight-itinerary header h2 {
+  max-width: 100%;
+  font-size: clamp(2.7rem, 3.35vw, 4.25rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.kaga-delight-itinerary nav {
+  padding-block-start: .92rem;
+}
+.kaga-delight-itinerary nav > div > span {
+  min-height: 2.35rem;
+  font-size: clamp(.62rem, .61vw, .76rem);
+  line-height: 1.38;
+}
+.kaga-delight-itinerary nav > div small {
+  font-size: .54rem;
+}
+.kaga-delight-map-world:is([data-camera='route-origin'], [data-camera='route-awakening'])
+  .kaga-v2-registered-map__source-segment-core[data-state='future'] {
+  opacity: .12;
+}
+.kaga-delight-map-world:is([data-camera='approach-b'], [data-camera='travel-ab'], [data-camera='travel-bc'])
+  .kaga-v2-registered-map__source-segment-core[data-state='future'] {
+  opacity: .2;
+}
+.kaga-delight-map-world:is([data-camera='route-origin'], [data-camera='route-awakening'], [data-camera='approach-b'])
+  .kaga-v2-registered-map__stop:not([data-active='true']):not([data-next='true']) {
+  opacity: .3;
+}
+
+.kaga-delight-experience[data-xray='true'] > article {
+  top: 4.8vh;
+  right: 5.5vw;
+  width: min(27rem, 28vw);
+  opacity: .12;
+}
+.kaga-delight-experience[data-xray='true'] > article h2 {
+  font-size: clamp(1.45rem, 2vw, 2.7rem);
+}
+.kaga-delight-xray > div {
+  opacity: .12 !important;
+  text-shadow: 0 .16rem 1.1rem rgba(3, 14, 11, .9);
+}
+.kaga-delight-xray > div[data-past='true'] {
+  opacity: .28 !important;
+}
+.kaga-delight-xray > div[data-active='true'] {
+  opacity: 1 !important;
+  width: min(30vw, 34rem);
+  transform: translateX(-1.2rem) scale(1.065) !important;
+}
+.kaga-delight-xray > div[data-active='true'] > i {
+  height: 1.5px;
+  opacity: 1;
+  box-shadow: 0 0 .75rem rgba(218, 177, 93, .35);
+}
+.kaga-delight-xray > div[data-active='true'] small {
+  color: #f3d998;
+  font-size: clamp(.72rem, .7vw, .88rem);
+  letter-spacing: .025em;
+}
+.kaga-delight-xray > div[data-active='true'] b {
+  margin-top: .28rem;
+  max-width: 18rem;
+  font-size: clamp(1.05rem, 1.06vw, 1.3rem);
+  line-height: 1.45;
+}
+
+.kaga-delight-tease__title {
+  right: clamp(5rem, 7vw, 9rem);
+  bottom: clamp(5.5rem, 10vh, 8rem);
+  max-width: 48vw;
+  text-align: right;
+}
+.kaga-delight-tease__title h2 {
+  font-size: clamp(3.8rem, 5vw, 6.4rem);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+.kaga-delight[data-finished='true'][data-act='tease'] .kaga-delight-director {
+  left: 3vw;
+  bottom: 2rem;
+  opacity: .72;
+  pointer-events: auto;
+}
+.kaga-delight[data-finished='true'][data-act='tease'] .kaga-delight-director__acts,
+.kaga-delight[data-finished='true'][data-act='tease'] .kaga-delight-director button:first-of-type {
+  display: none;
+}
+.kaga-delight[data-finished='true'][data-act='tease'] .kaga-delight-director button:last-of-type {
+  color: rgba(255, 255, 255, .86);
+}
+
+@media (min-width: 2300px) {
+  .kaga-delight-itinerary header { width: 30rem; }
+  .kaga-delight-itinerary nav > div > span { font-size: .78rem; }
+}
+
+@media (max-width: 1500px) {
+  .kaga-delight-itinerary { right: 2.5rem; left: 2.5rem; }
+  .kaga-delight-itinerary header { width: 23rem; bottom: 7.1rem; }
+  .kaga-delight-itinerary header h2 { font-size: 2.75rem; }
+  .kaga-delight-itinerary nav > div > span { font-size: .6rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .kaga-delight-map-world__map .kaga-illustrated-layer,
   .kaga-delight-tease > img,

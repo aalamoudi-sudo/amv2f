@@ -35,6 +35,7 @@ import './presentationFidelityScreens.css';
 import './presentationFidelityGate2.css';
 import '../theme/sourceTheme.css';
 import './visualRebirth.css';
+import './guestJourneyV15Correction.css';
 
 const ExperiencesHub = lazy(() => import('../interactive/ExperiencesHub').then((module) => ({ default: module.ExperiencesHub })));
 const MobileExhibition = lazy(() => import('../interactive/MobileExhibition').then((module) => ({ default: module.MobileExhibition })));

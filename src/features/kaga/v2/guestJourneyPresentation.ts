@@ -16,13 +16,6 @@ export const guestTransportLabels: Record<GuestTransportMode, string> = {
   exit: 'خروج بالسيارة',
 };
 
-export const guestTransportEmoji: Record<GuestTransportMode, string> = {
-  car: '🚗',
-  'golf-cart': '⛳',
-  tour: '⛳',
-  exit: '🚗',
-};
-
 export const guestStopPresentation: GuestStopPresentation[] = [
   { code: 'A', shortTitleAr: 'المدخل الرئيسي', descriptionAr: 'وصول الضيوف إلى المدخل الرئيسي من المواقف بالسيارة.', transport: 'car' },
   { code: 'B', shortTitleAr: 'النزول وعربات الجولف', descriptionAr: 'نقطة النزول وإركاب عربات الجولف، حيث يتم الاستقبال من قبل خدمة صف السيارات.', transport: 'golf-cart' },

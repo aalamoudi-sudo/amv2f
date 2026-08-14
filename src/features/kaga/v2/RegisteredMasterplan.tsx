@@ -24,6 +24,7 @@ interface RegisteredMasterplanProps {
   playing?: boolean;
   reading?: IllustratedMapReading;
   sourceFidelityMode?: boolean;
+  softIllustratedEdge?: boolean;
   selectedGardenId?: string;
   selectedStopIndex: number;
   provenanceMode?: boolean;
@@ -42,6 +43,7 @@ export function RegisteredMasterplan({
   playing = false,
   reading = 'masterplan',
   sourceFidelityMode = false,
+  softIllustratedEdge = false,
   selectedGardenId,
   selectedStopIndex,
   provenanceMode = false,
@@ -129,7 +131,7 @@ export function RegisteredMasterplan({
           onLoad={() => setAssetState('ready')}
           onError={() => setAssetState('error')}
         />
-        <IllustratedMapLayers reading={reading} />
+        <IllustratedMapLayers reading={reading} softEdge={softIllustratedEdge} />
 
         {mode === 'gardens' ? (
           <g className="kaga-v2-registered-map__gardens" aria-label="مواقع الحدائق">
@@ -157,17 +159,29 @@ export function RegisteredMasterplan({
             <path className="kaga-v2-registered-map__route" d={journey.pathD} />
             {sourceFidelityMode ? (
               <g className="kaga-v2-registered-map__source-segments" aria-label="تقسيم المسار كما في ملف المصدر">
-                {journey.sourceVisualSegments.length > 0 ? journey.sourceVisualSegments.map((segment, index) => (
-                  <polyline
-                    key={segment.segmentId}
-                    points={segment.geometry.map((point) => `${point[0]},${point[1]}`).join(' ')}
-                    data-movement={segment.sourceVisualCode}
-                    data-pattern={segment.sourcePattern}
-                    data-state={stateForSourceVisualSegment(segment.startProgress, segment.endProgress, index)}
-                    data-source-segment={segment.segmentId}
-                    style={{ '--source-segment-color': segment.sourceColor } as React.CSSProperties}
-                  />
-                )) : journey.segments.map((segment) => {
+                {journey.sourceVisualSegments.length > 0 ? journey.sourceVisualSegments.map((segment, index) => {
+                  const state = stateForSourceVisualSegment(segment.startProgress, segment.endProgress, index);
+                  const points = segment.geometry.map((point) => `${point[0]},${point[1]}`).join(' ');
+                  return (
+                    <g key={segment.segmentId} data-source-segment-group={segment.segmentId} data-state={state}>
+                      <polyline
+                        className="kaga-v2-registered-map__source-segment-halo"
+                        points={points}
+                        data-state={state}
+                        aria-hidden="true"
+                      />
+                      <polyline
+                        className="kaga-v2-registered-map__source-segment-core"
+                        points={points}
+                        data-movement={segment.sourceVisualCode}
+                        data-pattern={segment.sourcePattern}
+                        data-state={state}
+                        data-source-segment={segment.segmentId}
+                        style={{ '--source-segment-color': segment.sourceColor } as React.CSSProperties}
+                      />
+                    </g>
+                  );
+                }) : journey.segments.map((segment) => {
                   const fromCode = journey.stops.find((stop) => stop.stopId === segment.fromStopId)?.code ?? '';
                   return (
                     <polyline

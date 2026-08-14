@@ -48,6 +48,8 @@ describe('Mythic Guest Journey presentation', () => {
     expect(screen.getByText('التالي')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'ابدأ الرحلة' })).toBeInTheDocument();
     expect(screen.getByLabelText('تقدم رحلة الضيوف')).toBeInTheDocument();
+    expect(document.querySelectorAll('svg[data-transport-mode]').length).toBeGreaterThanOrEqual(16);
+    expect(document.body.textContent).not.toMatch(/[🚗⛳🚶]/u);
   });
 
   it('uses source state for current, completed, and next rail stops without color-only meaning', () => {

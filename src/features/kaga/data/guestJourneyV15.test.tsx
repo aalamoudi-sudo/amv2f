@@ -2,7 +2,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { registeredJourneyById } from '../spatial/registeredJourneys';
 import { RegisteredMasterplan } from '../v2/RegisteredMasterplan';
-import { guestTransportEmoji, guestTransportLabels } from '../v2/guestJourneyPresentation';
+import { guestTransportLabels } from '../v2/guestJourneyPresentation';
 import {
   GUEST_JOURNEY_V15_SHA256,
   guestJourneyV15ColorCode,
@@ -56,15 +56,15 @@ describe('Guest Journey V.15 source reflection', () => {
     ]);
   });
 
-  it('shows source-safe transport emoji without implying an unsourced walking segment', () => {
-    expect(guestTransportEmoji).toEqual({
-      car: '🚗',
-      'golf-cart': '⛳',
-      tour: '⛳',
-      exit: '🚗',
+  it('keeps transport language source-safe without implying an unsourced walking segment', () => {
+    expect(guestTransportLabels).toEqual({
+      car: 'سيارة',
+      'golf-cart': 'عربة جولف',
+      tour: 'جولة بعربة جولف',
+      exit: 'خروج بالسيارة',
     });
     expect(guestTransportLabels.tour).toBe('جولة بعربة جولف');
-    expect(Object.values(guestTransportEmoji)).not.toContain('🚶');
+    expect(Object.values(guestTransportLabels).join(' ')).not.toContain('مشي');
   });
 
   it('registers every PowerPoint control point into the canonical Rhino frame with the reviewed matrix', () => {
